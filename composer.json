@@ -1,0 +1,17 @@
+{
+    "name": "appto-team/telegram-bot-cast-laravel",
+    "require": {
+        "spatie/laravel-data": "^4.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "ApptoTeam\\TelegramBotCastLaravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Makhlenko Sergey",
+            "email": "mahlenko-weblive@yandex.ru"
+        }
+    ]
+}
