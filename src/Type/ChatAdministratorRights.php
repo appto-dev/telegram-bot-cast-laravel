@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * ChatAdministratorRights
@@ -13,7 +13,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class ChatAdministratorRights extends Dto implements TypeInterface
+final class ChatAdministratorRights extends Data implements TypeInterface
 {
     public function __construct(
         /** True, if the user's presence in the chat is hidden */

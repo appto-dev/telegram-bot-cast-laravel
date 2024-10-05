@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * InputMedia
@@ -20,6 +20,6 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class InputMedia extends Dto implements TypeInterface
+final class InputMedia extends Data implements TypeInterface
 {
 }

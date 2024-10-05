@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * PassportElementErrorDataField
@@ -14,7 +14,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class PassportElementErrorDataField extends Dto implements TypeInterface
+final class PassportElementErrorDataField extends Data implements TypeInterface
 {
     public function __construct(
         /** Error source, must be data */

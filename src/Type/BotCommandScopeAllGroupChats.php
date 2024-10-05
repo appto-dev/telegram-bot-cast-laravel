@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * BotCommandScopeAllGroupChats
@@ -13,7 +13,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class BotCommandScopeAllGroupChats extends Dto implements TypeInterface
+final class BotCommandScopeAllGroupChats extends Data implements TypeInterface
 {
     public function __construct(
         /** Scope type, must be all_group_chats */

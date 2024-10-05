@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * MessageOrigin
@@ -19,6 +19,6 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class MessageOrigin extends Dto implements TypeInterface
+final class MessageOrigin extends Data implements TypeInterface
 {
 }

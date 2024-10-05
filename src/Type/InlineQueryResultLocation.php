@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * InlineQueryResultLocation
@@ -15,7 +15,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class InlineQueryResultLocation extends Dto implements TypeInterface
+final class InlineQueryResultLocation extends Data implements TypeInterface
 {
     public function __construct(
         /** Type of the result, must be location */

@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * ChatMemberRestricted
@@ -14,7 +14,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class ChatMemberRestricted extends Dto implements TypeInterface
+final class ChatMemberRestricted extends Data implements TypeInterface
 {
     public function __construct(
         /** The member's status in the chat, always "restricted" */

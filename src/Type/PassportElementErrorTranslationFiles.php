@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * PassportElementErrorTranslationFiles
@@ -14,7 +14,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class PassportElementErrorTranslationFiles extends Dto implements TypeInterface
+final class PassportElementErrorTranslationFiles extends Data implements TypeInterface
 {
     public function __construct(
         /** Error source, must be translation_files */

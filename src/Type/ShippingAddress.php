@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * ShippingAddress
@@ -13,7 +13,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class ShippingAddress extends Dto implements TypeInterface
+final class ShippingAddress extends Data implements TypeInterface
 {
     public function __construct(
         /** Two-letter ISO 3166-1 alpha-2 country code */

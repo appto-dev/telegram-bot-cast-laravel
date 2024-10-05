@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * ReplyKeyboardMarkup
@@ -14,13 +14,13 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class ReplyKeyboardMarkup extends Dto implements TypeInterface
+final class ReplyKeyboardMarkup extends Data implements TypeInterface
 {
     public function __construct(
         /**
          * Array of button rows, each represented by an Array of KeyboardButton
          * objects
-         * @var array<KeyboardButton>
+         * @var array<array<KeyboardButton>>
          */
         public array $keyboard,
         /**

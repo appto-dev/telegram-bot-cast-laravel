@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * BusinessOpeningHours
@@ -11,7 +11,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class BusinessOpeningHours extends Dto implements TypeInterface
+final class BusinessOpeningHours extends Data implements TypeInterface
 {
     public function __construct(
         /** Unique name of the time zone for which the opening hours are defined */

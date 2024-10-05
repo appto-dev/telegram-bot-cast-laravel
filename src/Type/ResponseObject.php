@@ -2,9 +2,9 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
-final class ResponseObject extends Dto implements TypeInterface
+final class ResponseObject extends Data implements TypeInterface
 {
     public function __construct(
         public bool $ok,

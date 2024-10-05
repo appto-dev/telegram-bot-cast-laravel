@@ -2,7 +2,7 @@
 namespace ApptoTeam\TelegramBotCastLaravel\Type;
 
 use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
-use Spatie\LaravelData\Dto;
+use Spatie\LaravelData\Data;
 
 /**
  * MessageOriginHiddenUser
@@ -13,7 +13,7 @@ use Spatie\LaravelData\Dto;
  * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
  * @license https://mit-license.org/license.txt The MIT License (MIT)
  */
-final class MessageOriginHiddenUser extends Dto implements TypeInterface
+final class MessageOriginHiddenUser extends Data implements TypeInterface
 {
     public function __construct(
         /** Type of the message origin, always "hidden_user" */
