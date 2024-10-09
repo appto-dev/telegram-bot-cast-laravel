@@ -29,18 +29,18 @@ final class ChatBoostSourceGiveaway extends Data implements TelegramTypeContract
         /**
          * User that won the prize in the giveaway if any; for Telegram Premium giveaways
          * only
-         * @var User|null
+         * @var User
          */
         public ?User $user,
         /**
          * The number of Telegram Stars to be split between giveaway winners; for Telegram
          * Star giveaways only
-         * @var int|null
+         * @var int
          */
         public ?int $prize_star_count,
         /**
          * True, if the giveaway was completed, but there was no user to win the prize
-         * @var true|null
+         * @var true
          */
         public ?true $is_unclaimed,
     ) {

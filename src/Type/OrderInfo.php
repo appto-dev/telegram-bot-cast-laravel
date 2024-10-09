@@ -14,22 +14,22 @@ final class OrderInfo extends Data implements TelegramTypeContract
     public function __construct(
         /**
          * User name
-         * @var string|null
+         * @var string
          */
         public ?string $name,
         /**
          * User's phone number
-         * @var string|null
+         * @var string
          */
         public ?string $phone_number,
         /**
          * User email
-         * @var string|null
+         * @var string
          */
         public ?string $email,
         /**
          * User shipping address
-         * @var ShippingAddress|null
+         * @var ShippingAddress
          */
         public ?ShippingAddress $shipping_address,
     ) {

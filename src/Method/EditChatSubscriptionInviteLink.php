@@ -27,7 +27,7 @@ final class EditChatSubscriptionInviteLink extends Data implements TelegramMetho
         public string $invite_link,
         /**
          * Invite link name; 0-32 characters
-         * @var string|null
+         * @var string
          */
         public ?string $name,
     ) {

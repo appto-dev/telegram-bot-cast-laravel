@@ -33,7 +33,7 @@ final class ReplyKeyboardRemove extends Data implements TelegramTypeContract
          * confirmation message in reply to the vote and removes the keyboard for that
          * user, while still showing the keyboard with poll options to users who haven't
          * voted yet.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $selective,
     ) {

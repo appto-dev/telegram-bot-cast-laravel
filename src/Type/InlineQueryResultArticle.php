@@ -34,37 +34,37 @@ final class InlineQueryResultArticle extends Data implements TelegramTypeContrac
         public InputMessageContent $input_message_content,
         /**
          * Inline keyboard attached to the message
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
         /**
          * URL of the result
-         * @var string|null
+         * @var string
          */
         public ?string $url,
         /**
          * Pass True if you don't want the URL to be shown in the message
-         * @var bool|null
+         * @var bool
          */
         public ?bool $hide_url,
         /**
          * Short description of the result
-         * @var string|null
+         * @var string
          */
         public ?string $description,
         /**
          * Url of the thumbnail for the result
-         * @var string|null
+         * @var string
          */
         public ?string $thumbnail_url,
         /**
          * Thumbnail width
-         * @var int|null
+         * @var int
          */
         public ?int $thumbnail_width,
         /**
          * Thumbnail height
-         * @var int|null
+         * @var int
          */
         public ?int $thumbnail_height,
     ) {

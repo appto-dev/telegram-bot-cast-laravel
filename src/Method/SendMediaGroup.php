@@ -23,7 +23,7 @@ final class SendMediaGroup extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -35,33 +35,33 @@ final class SendMediaGroup extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
          * A JSON-serialized array describing messages to be sent, must include 2-10 items
-         * @var InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo
+         * @var array<InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo>
          */
         public InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo $media,
         /**
          * Sends messages silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent messages from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only
-         * @var string|null
+         * @var string
          */
         public ?string $message_effect_id,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
     ) {

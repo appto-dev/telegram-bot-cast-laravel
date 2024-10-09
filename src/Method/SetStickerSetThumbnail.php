@@ -38,7 +38,7 @@ final class SetStickerSetThumbnail extends Data implements TelegramMethodContrac
          * multipart/form-data. More information on Sending Files . Animated and video
          * sticker set thumbnails can't be uploaded via HTTP URL. If omitted, then the
          * thumbnail is dropped and the first sticker is used as the thumbnail.
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**

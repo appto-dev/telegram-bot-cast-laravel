@@ -21,7 +21,7 @@ final class SendVenue extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -33,7 +33,7 @@ final class SendVenue extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
@@ -58,51 +58,51 @@ final class SendVenue extends Data implements TelegramMethodContract
         public string $address,
         /**
          * Foursquare identifier of the venue
-         * @var string|null
+         * @var string
          */
         public ?string $foursquare_id,
         /**
          * Foursquare type of the venue, if known. (For example,
          * "arts_entertainment/default", "arts_entertainment/aquarium" or "food/icecream".)
-         * @var string|null
+         * @var string
          */
         public ?string $foursquare_type,
         /**
          * Google Places identifier of the venue
-         * @var string|null
+         * @var string
          */
         public ?string $google_place_id,
         /**
          * Google Places type of the venue. (See supported types.)
-         * @var string|null
+         * @var string
          */
         public ?string $google_place_type,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent message from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only
-         * @var string|null
+         * @var string
          */
         public ?string $message_effect_id,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
         /**
          * Additional interface options. A JSON-serialized object for an inline keyboard,
          * custom reply keyboard, instructions to remove a reply keyboard or to force a
          * reply from the user
-         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null
+         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
     ) {

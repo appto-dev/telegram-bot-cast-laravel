@@ -22,13 +22,13 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
          * HTTP or tg:// URL to be opened when the button is pressed. Links
          * tg://user?id=<user_id> can be used to mention a user by their identifier without
          * using a username, if this is allowed by their privacy settings.
-         * @var string|null
+         * @var string
          */
         public ?string $url,
         /**
          * Data to be sent in a callback query to the bot when the button is pressed, 1-64
          * bytes
-         * @var string|null
+         * @var string
          */
         public ?string $callback_data,
         /**
@@ -37,13 +37,13 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
          * user using the method answerWebAppQuery. Available only in private chats between
          * a user and the bot. Not supported for messages sent on behalf of a Telegram
          * Business account.
-         * @var WebAppInfo|null
+         * @var WebAppInfo
          */
         public ?WebAppInfo $web_app,
         /**
          * An HTTPS URL used to automatically authorize the user. Can be used as a
          * replacement for the Telegram Login Widget.
-         * @var LoginUrl|null
+         * @var LoginUrl
          */
         public ?LoginUrl $login_url,
         /**
@@ -52,7 +52,7 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
          * the input field. May be empty, in which case just the bot's username will be
          * inserted. Not supported for messages sent on behalf of a Telegram Business
          * account.
-         * @var string|null
+         * @var string
          */
         public ?string $switch_inline_query,
         /**
@@ -62,7 +62,7 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
          * your bot in inline mode in the same chat - good for selecting something from
          * multiple options. Not supported in channels and for messages sent on behalf of a
          * Telegram Business account.
-         * @var string|null
+         * @var string
          */
         public ?string $switch_inline_query_current_chat,
         /**
@@ -70,14 +70,14 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
          * the specified type, open that chat and insert the bot's username and the
          * specified inline query in the input field. Not supported for messages sent on
          * behalf of a Telegram Business account.
-         * @var SwitchInlineQueryChosenChat|null
+         * @var SwitchInlineQueryChosenChat
          */
         public ?SwitchInlineQueryChosenChat $switch_inline_query_chosen_chat,
         /**
          * Description of the game that will be launched when the user presses the
          * button.NOTE: This type of button must always be the first button in the first
          * row.
-         * @var CallbackGame|null
+         * @var CallbackGame
          */
         public ?CallbackGame $callback_game,
         /**
@@ -85,7 +85,7 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
          * text will be replaced with a Telegram Star icon.NOTE: This type of button must
          * always be the first button in the first row and can only be used in invoice
          * messages.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $pay,
     ) {

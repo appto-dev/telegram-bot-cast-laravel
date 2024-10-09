@@ -31,22 +31,22 @@ final class Audio extends Data implements TelegramTypeContract
         public int $duration,
         /**
          * Performer of the audio as defined by the sender or by audio tags
-         * @var string|null
+         * @var string
          */
         public ?string $performer,
         /**
          * Title of the audio as defined by the sender or by audio tags
-         * @var string|null
+         * @var string
          */
         public ?string $title,
         /**
          * Original filename as defined by the sender
-         * @var string|null
+         * @var string
          */
         public ?string $file_name,
         /**
          * MIME type of the file as defined by the sender
-         * @var string|null
+         * @var string
          */
         public ?string $mime_type,
         /**
@@ -54,12 +54,12 @@ final class Audio extends Data implements TelegramTypeContract
          * may have difficulty/silent defects in interpreting it. But it has at most 52
          * significant bits, so a signed 64-bit integer or double-precision float type are
          * safe for storing this value.
-         * @var int|null
+         * @var int
          */
         public ?int $file_size,
         /**
          * Thumbnail of the album cover to which the music file belongs
-         * @var PhotoSize|null
+         * @var PhotoSize
          */
         public ?PhotoSize $thumbnail,
     ) {

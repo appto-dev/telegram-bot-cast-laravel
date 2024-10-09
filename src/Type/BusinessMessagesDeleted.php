@@ -26,7 +26,7 @@ final class BusinessMessagesDeleted extends Data implements TelegramTypeContract
         public Chat $chat,
         /**
          * The list of identifiers of deleted messages in the chat of the business account
-         * @var int
+         * @var array<int>
          */
         public int $message_ids,
     ) {

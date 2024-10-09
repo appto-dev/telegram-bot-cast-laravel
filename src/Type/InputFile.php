@@ -18,7 +18,7 @@ final class InputFile extends Data implements TelegramTypeContract
          * The attached file.
          * Please note that this parameter does not exist in the documentation, it has been
          * added to make it easier to work with files.
-         * @var string
+         * @var array<string>
          */
         public string $attach,
     ) {

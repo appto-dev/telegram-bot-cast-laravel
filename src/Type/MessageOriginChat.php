@@ -30,7 +30,7 @@ final class MessageOriginChat extends Data implements TelegramTypeContract
         /**
          * For messages originally sent by an anonymous chat administrator, original
          * message author signature
-         * @var string|null
+         * @var string
          */
         public ?string $author_signature,
     ) {

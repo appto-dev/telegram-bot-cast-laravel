@@ -52,44 +52,44 @@ final class Sticker extends Data implements TelegramTypeContract
         public bool $is_video,
         /**
          * Sticker thumbnail in the .WEBP or .JPG format
-         * @var PhotoSize|null
+         * @var PhotoSize
          */
         public ?PhotoSize $thumbnail,
         /**
          * Emoji associated with the sticker
-         * @var string|null
+         * @var string
          */
         public ?string $emoji,
         /**
          * Name of the sticker set to which the sticker belongs
-         * @var string|null
+         * @var string
          */
         public ?string $set_name,
         /**
          * For premium regular stickers, premium animation for the sticker
-         * @var File|null
+         * @var File
          */
         public ?File $premium_animation,
         /**
          * For mask stickers, the position where the mask should be placed
-         * @var MaskPosition|null
+         * @var MaskPosition
          */
         public ?MaskPosition $mask_position,
         /**
          * For custom emoji stickers, unique identifier of the custom emoji
-         * @var string|null
+         * @var string
          */
         public ?string $custom_emoji_id,
         /**
          * True, if the sticker must be repainted to a text color in messages, the color of
          * the Telegram Premium badge in emoji status, white color on chat photos, or
          * another appropriate color in other places
-         * @var true|null
+         * @var true
          */
         public ?true $needs_repainting,
         /**
          * File size in bytes
-         * @var int|null
+         * @var int
          */
         public ?int $file_size,
     ) {

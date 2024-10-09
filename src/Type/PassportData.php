@@ -15,7 +15,7 @@ final class PassportData extends Data implements TelegramTypeContract
         /**
          * Array with information about documents and other Telegram Passport elements that
          * was shared with the bot
-         * @var EncryptedPassportElement
+         * @var array<EncryptedPassportElement>
          */
         public EncryptedPassportElement $data,
         /**

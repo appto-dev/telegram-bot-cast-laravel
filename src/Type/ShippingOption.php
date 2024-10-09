@@ -24,7 +24,7 @@ final class ShippingOption extends Data implements TelegramTypeContract
         public string $title,
         /**
          * List of price portions
-         * @var LabeledPrice
+         * @var array<LabeledPrice>
          */
         public LabeledPrice $prices,
     ) {

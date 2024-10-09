@@ -33,30 +33,30 @@ final class InputMediaDocument extends Data implements TelegramTypeContract
          * and can be only uploaded as a new file, so you can pass
          * "attach://<file_attach_name>" if the thumbnail was uploaded using
          * multipart/form-data under <file_attach_name>. More information on Sending Files
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**
          * Caption of the document to be sent, 0-1024 characters after entities parsing
-         * @var string|null
+         * @var string
          */
         public ?string $caption,
         /**
          * Mode for parsing entities in the document caption. See formatting options for
          * more details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $caption_entities,
         /**
          * Disables automatic server-side content type detection for files uploaded using
          * multipart/form-data. Always True, if the document is sent as part of an album.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_content_type_detection,
     ) {

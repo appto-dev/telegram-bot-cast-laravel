@@ -20,25 +20,25 @@ final class EditMessageLiveLocation extends Data implements TelegramMethodContra
         /**
          * Unique identifier of the business connection on behalf of which the message to
          * be edited was sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
          * Required if inline_message_id is not specified. Unique identifier for the target
          * chat or username of the target channel (in the format @channelusername)
-         * @var int|string|null
+         * @var int|string
          */
         public int|string|null $chat_id,
         /**
          * Required if inline_message_id is not specified. Identifier of the message to
          * edit
-         * @var int|null
+         * @var int
          */
         public ?int $message_id,
         /**
          * Required if chat_id and message_id are not specified. Identifier of the inline
          * message
-         * @var string|null
+         * @var string
          */
         public ?string $inline_message_id,
         /**
@@ -58,29 +58,29 @@ final class EditMessageLiveLocation extends Data implements TelegramMethodContra
          * live_period by more than a day, and the live location expiration date must
          * remain within the next 90 days. If not specified, then live_period remains
          * unchanged
-         * @var int|null
+         * @var int
          */
         public ?int $live_period,
         /**
          * The radius of uncertainty for the location, measured in meters; 0-1500
-         * @var float|null
+         * @var float
          */
         public ?float $horizontal_accuracy,
         /**
          * Direction in which the user is moving, in degrees. Must be between 1 and 360 if
          * specified.
-         * @var int|null
+         * @var int
          */
         public ?int $heading,
         /**
          * The maximum distance for proximity alerts about approaching another chat member,
          * in meters. Must be between 1 and 100000 if specified.
-         * @var int|null
+         * @var int
          */
         public ?int $proximity_alert_radius,
         /**
          * A JSON-serialized object for a new inline keyboard.
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

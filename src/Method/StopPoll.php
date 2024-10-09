@@ -17,7 +17,7 @@ final class StopPoll extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message to
          * be edited was sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -33,7 +33,7 @@ final class StopPoll extends Data implements TelegramMethodContract
         public int $message_id,
         /**
          * A JSON-serialized object for a new message inline keyboard.
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

@@ -38,23 +38,23 @@ final class MessageEntity extends Data implements TelegramTypeContract
         public int $length,
         /**
          * For "text_link" only, URL that will be opened after user taps on the text
-         * @var string|null
+         * @var string
          */
         public ?string $url,
         /**
          * For "text_mention" only, the mentioned user
-         * @var User|null
+         * @var User
          */
         public ?User $user,
         /**
          * For "pre" only, the programming language of the entity text
-         * @var string|null
+         * @var string
          */
         public ?string $language,
         /**
          * For "custom_emoji" only, unique identifier of the custom emoji. Use
          * getCustomEmojiStickers to get full information about the sticker
-         * @var string|null
+         * @var string
          */
         public ?string $custom_emoji_id,
     ) {

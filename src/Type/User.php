@@ -32,53 +32,53 @@ final class User extends Data implements TelegramTypeContract
         public string $first_name,
         /**
          * User's or bot's last name
-         * @var string|null
+         * @var string
          */
         public ?string $last_name,
         /**
          * User's or bot's username
-         * @var string|null
+         * @var string
          */
         public ?string $username,
         /**
          * IETF language tag of the user's language
-         * @var string|null
+         * @var string
          */
         public ?string $language_code,
         /**
          * True, if this user is a Telegram Premium user
-         * @var true|null
+         * @var true
          */
         public ?true $is_premium,
         /**
          * True, if this user added the bot to the attachment menu
-         * @var true|null
+         * @var true
          */
         public ?true $added_to_attachment_menu,
         /**
          * True, if the bot can be invited to groups. Returned only in getMe.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_join_groups,
         /**
          * True, if privacy mode is disabled for the bot. Returned only in getMe.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_read_all_group_messages,
         /**
          * True, if the bot supports inline queries. Returned only in getMe.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $supports_inline_queries,
         /**
          * True, if the bot can be connected to a Telegram Business account to receive its
          * messages. Returned only in getMe.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_connect_to_business,
         /**
          * True, if the bot has a main Web App. Returned only in getMe.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $has_main_web_app,
     ) {

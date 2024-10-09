@@ -33,7 +33,7 @@ final class AnswerPreCheckoutQuery extends Data implements TelegramMethodContrac
          * bought the last of our amazing black T-shirts while you were busy filling out
          * your payment details. Please choose a different color or garment!"). Telegram
          * will display this message to the user.
-         * @var string|null
+         * @var string
          */
         public ?string $error_message,
     ) {

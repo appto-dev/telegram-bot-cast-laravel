@@ -17,7 +17,7 @@ final class GetChatMenuButton extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target private chat. If not specified, default bot's
          * menu button will be returned
-         * @var int|null
+         * @var int
          */
         public ?int $chat_id,
     ) {

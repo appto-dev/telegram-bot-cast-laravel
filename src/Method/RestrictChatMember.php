@@ -38,14 +38,14 @@ final class RestrictChatMember extends Data implements TelegramMethodContract
          * can_send_messages, can_send_audios, can_send_documents, can_send_photos,
          * can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the
          * can_send_polls permission will imply the can_send_messages permission.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $use_independent_chat_permissions,
         /**
          * Date when restrictions will be lifted for the user; Unix time. If user is
          * restricted for more than 366 days or less than 30 seconds from the current time,
          * they are considered to be restricted forever
-         * @var int|null
+         * @var int
          */
         public ?int $until_date,
     ) {

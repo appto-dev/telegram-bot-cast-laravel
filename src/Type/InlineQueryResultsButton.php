@@ -22,7 +22,7 @@ final class InlineQueryResultsButton extends Data implements TelegramTypeContrac
          * Description of the Web App that will be launched when the user presses the
          * button. The Web App will be able to switch back to the inline mode using the
          * method switchInlineQuery inside the Web App.
-         * @var WebAppInfo|null
+         * @var WebAppInfo
          */
         public ?WebAppInfo $web_app,
         /**
@@ -36,7 +36,7 @@ final class InlineQueryResultsButton extends Data implements TelegramTypeContrac
          * bot to return an OAuth link. Once done, the bot can offer a switch_inline button
          * so that the user can easily return to the chat where they wanted to use the
          * bot's inline capabilities.
-         * @var string|null
+         * @var string
          */
         public ?string $start_parameter,
     ) {

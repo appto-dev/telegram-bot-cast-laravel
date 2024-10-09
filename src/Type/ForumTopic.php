@@ -29,7 +29,7 @@ final class ForumTopic extends Data implements TelegramTypeContract
         public int $icon_color,
         /**
          * Unique identifier of the custom emoji shown as the topic icon
-         * @var string|null
+         * @var string
          */
         public ?string $icon_custom_emoji_id,
     ) {

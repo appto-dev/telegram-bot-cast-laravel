@@ -35,23 +35,23 @@ final class InputVenueMessageContent extends Data implements TelegramTypeContrac
         public string $address,
         /**
          * Foursquare identifier of the venue, if known
-         * @var string|null
+         * @var string
          */
         public ?string $foursquare_id,
         /**
          * Foursquare type of the venue, if known. (For example,
          * "arts_entertainment/default", "arts_entertainment/aquarium" or "food/icecream".)
-         * @var string|null
+         * @var string
          */
         public ?string $foursquare_type,
         /**
          * Google Places identifier of the venue
-         * @var string|null
+         * @var string
          */
         public ?string $google_place_id,
         /**
          * Google Places type of the venue. (See supported types.)
-         * @var string|null
+         * @var string
          */
         public ?string $google_place_type,
     ) {

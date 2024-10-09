@@ -21,7 +21,7 @@ final class UsersShared extends Data implements TelegramTypeContract
         public int $request_id,
         /**
          * Information about users shared with the bot.
-         * @var SharedUser
+         * @var array<SharedUser>
          */
         public SharedUser $users,
     ) {

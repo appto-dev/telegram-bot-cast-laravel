@@ -27,27 +27,27 @@ final class Chat extends Data implements TelegramTypeContract
         public string $type,
         /**
          * Title, for supergroups, channels and group chats
-         * @var string|null
+         * @var string
          */
         public ?string $title,
         /**
          * Username, for private chats, supergroups and channels if available
-         * @var string|null
+         * @var string
          */
         public ?string $username,
         /**
          * First name of the other party in a private chat
-         * @var string|null
+         * @var string
          */
         public ?string $first_name,
         /**
          * Last name of the other party in a private chat
-         * @var string|null
+         * @var string
          */
         public ?string $last_name,
         /**
          * True, if the supergroup chat is a forum (has topics enabled)
-         * @var true|null
+         * @var true
          */
         public ?true $is_forum,
     ) {

@@ -19,7 +19,7 @@ final class TransactionPartnerFragment extends Data implements TelegramTypeContr
         public string $type,
         /**
          * State of the transaction if the transaction is outgoing
-         * @var RevenueWithdrawalState|null
+         * @var RevenueWithdrawalState
          */
         public ?RevenueWithdrawalState $withdrawal_state,
     ) {

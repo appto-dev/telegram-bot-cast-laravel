@@ -23,7 +23,7 @@ final class SendPaidMedia extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -42,57 +42,57 @@ final class SendPaidMedia extends Data implements TelegramMethodContract
         public int $star_count,
         /**
          * A JSON-serialized array describing the media to be sent; up to 10 items
-         * @var InputPaidMedia
+         * @var array<InputPaidMedia>
          */
         public InputPaidMedia $media,
         /**
          * Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the
          * user, use it for your internal processes.
-         * @var string|null
+         * @var string
          */
         public ?string $payload,
         /**
          * Media caption, 0-1024 characters after entities parsing
-         * @var string|null
+         * @var string
          */
         public ?string $caption,
         /**
          * Mode for parsing entities in the media caption. See formatting options for more
          * details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can
          * be specified instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $caption_entities,
         /**
          * Pass True, if the caption must be shown above the message media
-         * @var bool|null
+         * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent message from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
         /**
          * Additional interface options. A JSON-serialized object for an inline keyboard,
          * custom reply keyboard, instructions to remove a reply keyboard or to force a
          * reply from the user
-         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null
+         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
     ) {

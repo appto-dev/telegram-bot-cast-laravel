@@ -28,20 +28,20 @@ final class SetWebhook extends Data implements TelegramTypeContract
         /**
          * Upload your public key certificate so that the root certificate in use can be
          * checked. See our self-signed guide for details.
-         * @var InputFile|null
+         * @var InputFile
          */
         public ?InputFile $certificate,
         /**
          * The fixed IP address which will be used to send webhook requests instead of the
          * IP address resolved through DNS
-         * @var string|null
+         * @var string
          */
         public ?string $ip_address,
         /**
          * The maximum allowed number of simultaneous HTTPS connections to the webhook for
          * update delivery, 1-100. Defaults to 40. Use lower values to limit the load on
          * your bot's server, and higher values to increase your bot's throughput.
-         * @var int|null
+         * @var int
          */
         public ?int $max_connections,
         /**
@@ -53,12 +53,12 @@ final class SetWebhook extends Data implements TelegramTypeContract
          * specified, the previous setting will be used.Please note that this parameter
          * doesn't affect updates created before the call to the setWebhook, so unwanted
          * updates may be received for a short period of time.
-         * @var string|null
+         * @var array<string>
          */
         public ?string $allowed_updates,
         /**
          * Pass True to drop all pending updates
-         * @var bool|null
+         * @var bool
          */
         public ?bool $drop_pending_updates,
         /**
@@ -66,7 +66,7 @@ final class SetWebhook extends Data implements TelegramTypeContract
          * webhook request, 1-256 characters. Only characters A-Z, a-z, 0-9, _ and - are
          * allowed. The header is useful to ensure that the request comes from a webhook
          * set by you.
-         * @var string|null
+         * @var string
          */
         public ?string $secret_token,
     ) {

@@ -25,7 +25,7 @@ final class ChatMemberMember extends Data implements TelegramTypeContract
         public User $user,
         /**
          * Date when the user's subscription will expire; Unix time
-         * @var int|null
+         * @var int
          */
         public ?int $until_date,
     ) {

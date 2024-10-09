@@ -19,12 +19,12 @@ final class GetMyCommands extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized object, describing scope of users. Defaults to
          * BotCommandScopeDefault.
-         * @var BotCommandScope|null
+         * @var BotCommandScope
          */
         public ?BotCommandScope $scope,
         /**
          * A two-letter ISO 639-1 language code or an empty string
-         * @var string|null
+         * @var string
          */
         public ?string $language_code,
     ) {

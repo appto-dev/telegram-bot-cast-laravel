@@ -30,17 +30,17 @@ final class ChatShared extends Data implements TelegramTypeContract
         public int $chat_id,
         /**
          * Title of the chat, if the title was requested by the bot.
-         * @var string|null
+         * @var string
          */
         public ?string $title,
         /**
          * Username of the chat, if the username was requested by the bot and available.
-         * @var string|null
+         * @var string
          */
         public ?string $username,
         /**
          * Available sizes of the chat photo, if the photo was requested by the bot
-         * @var PhotoSize|null
+         * @var array<PhotoSize>
          */
         public ?PhotoSize $photo,
     ) {

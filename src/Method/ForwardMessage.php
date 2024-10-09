@@ -23,7 +23,7 @@ final class ForwardMessage extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
@@ -34,12 +34,12 @@ final class ForwardMessage extends Data implements TelegramMethodContract
         public int|string $from_chat_id,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the forwarded message from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**

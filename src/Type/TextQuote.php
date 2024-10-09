@@ -21,7 +21,7 @@ final class TextQuote extends Data implements TelegramTypeContract
         /**
          * Special entities that appear in the quote. Currently, only bold, italic,
          * underline, strikethrough, spoiler, and custom_emoji entities are kept in quotes.
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $entities,
         /**
@@ -33,7 +33,7 @@ final class TextQuote extends Data implements TelegramTypeContract
         /**
          * True, if the quote was chosen manually by the message sender. Otherwise, the
          * quote was added automatically by the server.
-         * @var true|null
+         * @var true
          */
         public ?true $is_manual,
     ) {

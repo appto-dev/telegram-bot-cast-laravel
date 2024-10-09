@@ -38,12 +38,12 @@ final class VideoNote extends Data implements TelegramTypeContract
         public int $duration,
         /**
          * Video thumbnail
-         * @var PhotoSize|null
+         * @var PhotoSize
          */
         public ?PhotoSize $thumbnail,
         /**
          * File size in bytes
-         * @var int|null
+         * @var int
          */
         public ?int $file_size,
     ) {

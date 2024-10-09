@@ -18,7 +18,7 @@ final class SendGame extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -29,7 +29,7 @@ final class SendGame extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
@@ -40,29 +40,29 @@ final class SendGame extends Data implements TelegramMethodContract
         public string $game_short_name,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent message from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only
-         * @var string|null
+         * @var string
          */
         public ?string $message_effect_id,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
         /**
          * A JSON-serialized object for an inline keyboard. If empty, one 'Play game_title'
          * button will be shown. If not empty, the first button must launch the game.
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

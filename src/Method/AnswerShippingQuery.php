@@ -30,14 +30,14 @@ final class AnswerShippingQuery extends Data implements TelegramMethodContract
         public bool $ok,
         /**
          * Required if ok is True. A JSON-serialized array of available shipping options.
-         * @var ShippingOption|null
+         * @var array<ShippingOption>
          */
         public ?ShippingOption $shipping_options,
         /**
          * Required if ok is False. Error message in human readable form that explains why
          * it is impossible to complete the order (e.g. "Sorry, delivery to your desired
          * address is unavailable'). Telegram will display this message to the user.
-         * @var string|null
+         * @var string
          */
         public ?string $error_message,
     ) {

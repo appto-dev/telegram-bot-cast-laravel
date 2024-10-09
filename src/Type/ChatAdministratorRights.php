@@ -76,24 +76,24 @@ final class ChatAdministratorRights extends Data implements TelegramTypeContract
         /**
          * True, if the administrator can post messages in the channel, or access channel
          * statistics; for channels only
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_post_messages,
         /**
          * True, if the administrator can edit messages of other users and can pin
          * messages; for channels only
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_edit_messages,
         /**
          * True, if the user is allowed to pin messages; for groups and supergroups only
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_pin_messages,
         /**
          * True, if the user is allowed to create, rename, close, and reopen forum topics;
          * for supergroups only
-         * @var bool|null
+         * @var bool
          */
         public ?bool $can_manage_topics,
     ) {

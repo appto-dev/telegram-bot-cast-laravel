@@ -33,7 +33,7 @@ final class CreateInvoiceLink extends Data implements TelegramMethodContract
         /**
          * Payment provider token, obtained via @BotFather. Pass an empty string for
          * payments in Telegram Stars.
-         * @var string|null
+         * @var string
          */
         public ?string $provider_token,
         /**
@@ -46,7 +46,7 @@ final class CreateInvoiceLink extends Data implements TelegramMethodContract
          * Price breakdown, a JSON-serialized list of components (e.g. product price, tax,
          * discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one
          * item for payments in Telegram Stars.
-         * @var LabeledPrice
+         * @var array<LabeledPrice>
          */
         public LabeledPrice $prices,
         /**
@@ -55,7 +55,7 @@ final class CreateInvoiceLink extends Data implements TelegramMethodContract
          * max_tip_amount = 145. See the exp parameter in currencies.json, it shows the
          * number of digits past the decimal point for each currency (2 for the majority of
          * currencies). Defaults to 0. Not supported for payments in Telegram Stars.
-         * @var int|null
+         * @var int
          */
         public ?int $max_tip_amount,
         /**
@@ -63,77 +63,77 @@ final class CreateInvoiceLink extends Data implements TelegramMethodContract
          * the currency (integer, not float/double). At most 4 suggested tip amounts can be
          * specified. The suggested tip amounts must be positive, passed in a strictly
          * increased order and must not exceed max_tip_amount.
-         * @var int|null
+         * @var array<int>
          */
         public ?int $suggested_tip_amounts,
         /**
          * JSON-serialized data about the invoice, which will be shared with the payment
          * provider. A detailed description of required fields should be provided by the
          * payment provider.
-         * @var string|null
+         * @var string
          */
         public ?string $provider_data,
         /**
          * URL of the product photo for the invoice. Can be a photo of the goods or a
          * marketing image for a service.
-         * @var string|null
+         * @var string
          */
         public ?string $photo_url,
         /**
          * Photo size in bytes
-         * @var int|null
+         * @var int
          */
         public ?int $photo_size,
         /**
          * Photo width
-         * @var int|null
+         * @var int
          */
         public ?int $photo_width,
         /**
          * Photo height
-         * @var int|null
+         * @var int
          */
         public ?int $photo_height,
         /**
          * Pass True if you require the user's full name to complete the order. Ignored for
          * payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $need_name,
         /**
          * Pass True if you require the user's phone number to complete the order. Ignored
          * for payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $need_phone_number,
         /**
          * Pass True if you require the user's email address to complete the order. Ignored
          * for payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $need_email,
         /**
          * Pass True if you require the user's shipping address to complete the order.
          * Ignored for payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $need_shipping_address,
         /**
          * Pass True if the user's phone number should be sent to the provider. Ignored for
          * payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $send_phone_number_to_provider,
         /**
          * Pass True if the user's email address should be sent to the provider. Ignored
          * for payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $send_email_to_provider,
         /**
          * Pass True if the final price depends on the shipping method. Ignored for
          * payments in Telegram Stars.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $is_flexible,
     ) {

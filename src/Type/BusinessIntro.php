@@ -15,17 +15,17 @@ final class BusinessIntro extends Data implements TelegramTypeContract
     public function __construct(
         /**
          * Title text of the business intro
-         * @var string|null
+         * @var string
          */
         public ?string $title,
         /**
          * Message text of the business intro
-         * @var string|null
+         * @var string
          */
         public ?string $message,
         /**
          * Sticker of the business intro
-         * @var Sticker|null
+         * @var Sticker
          */
         public ?Sticker $sticker,
     ) {

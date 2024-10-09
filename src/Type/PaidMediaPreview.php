@@ -19,17 +19,17 @@ final class PaidMediaPreview extends Data implements TelegramTypeContract
         public string $type,
         /**
          * Media width as defined by the sender
-         * @var int|null
+         * @var int
          */
         public ?int $width,
         /**
          * Media height as defined by the sender
-         * @var int|null
+         * @var int
          */
         public ?int $height,
         /**
          * Duration of the media in seconds as defined by the sender
-         * @var int|null
+         * @var int
          */
         public ?int $duration,
     ) {

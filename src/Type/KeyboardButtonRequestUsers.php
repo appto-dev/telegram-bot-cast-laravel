@@ -24,33 +24,33 @@ final class KeyboardButtonRequestUsers extends Data implements TelegramTypeContr
         /**
          * Pass True to request bots, pass False to request regular users. If not
          * specified, no additional restrictions are applied.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $user_is_bot,
         /**
          * Pass True to request premium users, pass False to request non-premium users. If
          * not specified, no additional restrictions are applied.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $user_is_premium,
         /**
          * The maximum number of users to be selected; 1-10. Defaults to 1.
-         * @var int|null
+         * @var int
          */
         public ?int $max_quantity,
         /**
          * Pass True to request the users' first and last names
-         * @var bool|null
+         * @var bool
          */
         public ?bool $request_name,
         /**
          * Pass True to request the users' usernames
-         * @var bool|null
+         * @var bool
          */
         public ?bool $request_username,
         /**
          * Pass True to request the users' photos
-         * @var bool|null
+         * @var bool
          */
         public ?bool $request_photo,
     ) {

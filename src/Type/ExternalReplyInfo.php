@@ -21,120 +21,120 @@ final class ExternalReplyInfo extends Data implements TelegramTypeContract
         /**
          * Chat the original message belongs to. Available only if the chat is a supergroup
          * or a channel.
-         * @var Chat|null
+         * @var Chat
          */
         public ?Chat $chat,
         /**
          * Unique message identifier inside the original chat. Available only if the
          * original chat is a supergroup or a channel.
-         * @var int|null
+         * @var int
          */
         public ?int $message_id,
         /**
          * Options used for link preview generation for the original message, if it is a
          * text message
-         * @var LinkPreviewOptions|null
+         * @var LinkPreviewOptions
          */
         public ?LinkPreviewOptions $link_preview_options,
         /**
          * Message is an animation, information about the animation
-         * @var Animation|null
+         * @var Animation
          */
         public ?Animation $animation,
         /**
          * Message is an audio file, information about the file
-         * @var Audio|null
+         * @var Audio
          */
         public ?Audio $audio,
         /**
          * Message is a general file, information about the file
-         * @var Document|null
+         * @var Document
          */
         public ?Document $document,
         /**
          * Message contains paid media; information about the paid media
-         * @var PaidMediaInfo|null
+         * @var PaidMediaInfo
          */
         public ?PaidMediaInfo $paid_media,
         /**
          * Message is a photo, available sizes of the photo
-         * @var PhotoSize|null
+         * @var array<PhotoSize>
          */
         public ?PhotoSize $photo,
         /**
          * Message is a sticker, information about the sticker
-         * @var Sticker|null
+         * @var Sticker
          */
         public ?Sticker $sticker,
         /**
          * Message is a forwarded story
-         * @var Story|null
+         * @var Story
          */
         public ?Story $story,
         /**
          * Message is a video, information about the video
-         * @var Video|null
+         * @var Video
          */
         public ?Video $video,
         /**
          * Message is a video note, information about the video message
-         * @var VideoNote|null
+         * @var VideoNote
          */
         public ?VideoNote $video_note,
         /**
          * Message is a voice message, information about the file
-         * @var Voice|null
+         * @var Voice
          */
         public ?Voice $voice,
         /**
          * True, if the message media is covered by a spoiler animation
-         * @var true|null
+         * @var true
          */
         public ?true $has_media_spoiler,
         /**
          * Message is a shared contact, information about the contact
-         * @var Contact|null
+         * @var Contact
          */
         public ?Contact $contact,
         /**
          * Message is a dice with random value
-         * @var Dice|null
+         * @var Dice
          */
         public ?Dice $dice,
         /**
          * Message is a game, information about the game. More about games
-         * @var Game|null
+         * @var Game
          */
         public ?Game $game,
         /**
          * Message is a scheduled giveaway, information about the giveaway
-         * @var Giveaway|null
+         * @var Giveaway
          */
         public ?Giveaway $giveaway,
         /**
          * A giveaway with public winners was completed
-         * @var GiveawayWinners|null
+         * @var GiveawayWinners
          */
         public ?GiveawayWinners $giveaway_winners,
         /**
          * Message is an invoice for a payment, information about the invoice. More about
          * payments
-         * @var Invoice|null
+         * @var Invoice
          */
         public ?Invoice $invoice,
         /**
          * Message is a shared location, information about the location
-         * @var Location|null
+         * @var Location
          */
         public ?Location $location,
         /**
          * Message is a native poll, information about the poll
-         * @var Poll|null
+         * @var Poll
          */
         public ?Poll $poll,
         /**
          * Message is a venue, information about the venue
-         * @var Venue|null
+         * @var Venue
          */
         public ?Venue $venue,
     ) {

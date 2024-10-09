@@ -23,7 +23,7 @@ final class SetStickerMaskPosition extends Data implements TelegramMethodContrac
         /**
          * A JSON-serialized object with the position where the mask should be placed on
          * faces. Omit the parameter to remove the mask position.
-         * @var MaskPosition|null
+         * @var MaskPosition
          */
         public ?MaskPosition $mask_position,
     ) {

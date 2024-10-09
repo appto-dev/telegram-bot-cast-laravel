@@ -25,7 +25,7 @@ final class SendAnimation extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -37,7 +37,7 @@ final class SendAnimation extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
@@ -50,17 +50,17 @@ final class SendAnimation extends Data implements TelegramMethodContract
         public InputFile|string $animation,
         /**
          * Duration of sent animation in seconds
-         * @var int|null
+         * @var int
          */
         public ?int $duration,
         /**
          * Animation width
-         * @var int|null
+         * @var int
          */
         public ?int $width,
         /**
          * Animation height
-         * @var int|null
+         * @var int
          */
         public ?int $height,
         /**
@@ -71,63 +71,63 @@ final class SendAnimation extends Data implements TelegramMethodContract
          * and can be only uploaded as a new file, so you can pass
          * "attach://<file_attach_name>" if the thumbnail was uploaded using
          * multipart/form-data under <file_attach_name>. More information on Sending Files
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**
          * Animation caption (may also be used when resending animation by file_id), 0-1024
          * characters after entities parsing
-         * @var string|null
+         * @var string
          */
         public ?string $caption,
         /**
          * Mode for parsing entities in the animation caption. See formatting options for
          * more details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can
          * be specified instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $caption_entities,
         /**
          * Pass True, if the caption must be shown above the message media
-         * @var bool|null
+         * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
          * Pass True if the animation needs to be covered with a spoiler animation
-         * @var bool|null
+         * @var bool
          */
         public ?bool $has_spoiler,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent message from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only
-         * @var string|null
+         * @var string
          */
         public ?string $message_effect_id,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
         /**
          * Additional interface options. A JSON-serialized object for an inline keyboard,
          * custom reply keyboard, instructions to remove a reply keyboard or to force a
          * reply from the user
-         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null
+         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
     ) {

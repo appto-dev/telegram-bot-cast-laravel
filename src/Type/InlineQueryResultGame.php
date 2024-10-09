@@ -29,7 +29,7 @@ final class InlineQueryResultGame extends Data implements TelegramTypeContract
         public string $game_short_name,
         /**
          * Inline keyboard attached to the message
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

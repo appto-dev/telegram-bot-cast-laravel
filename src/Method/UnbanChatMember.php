@@ -31,7 +31,7 @@ final class UnbanChatMember extends Data implements TelegramMethodContract
         public int $user_id,
         /**
          * Do nothing if the user is not banned
-         * @var bool|null
+         * @var bool
          */
         public ?bool $only_if_banned,
     ) {

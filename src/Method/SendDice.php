@@ -21,7 +21,7 @@ final class SendDice extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -33,42 +33,42 @@ final class SendDice extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
          * Emoji on which the dice throw animation is based. Currently, must be one of "",
          * "", "", "", "", or "". Dice can have values 1-6 for "", "" and "", values 1-5
          * for "" and "", and values 1-64 for "". Defaults to ""
-         * @var string|null
+         * @var string
          */
         public ?string $emoji,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent message from forwarding
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only
-         * @var string|null
+         * @var string
          */
         public ?string $message_effect_id,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
         /**
          * Additional interface options. A JSON-serialized object for an inline keyboard,
          * custom reply keyboard, instructions to remove a reply keyboard or to force a
          * reply from the user
-         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null
+         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
     ) {

@@ -26,18 +26,18 @@ final class GetGameHighScores extends Data implements TelegramMethodContract
         /**
          * Required if inline_message_id is not specified. Unique identifier for the target
          * chat
-         * @var int|null
+         * @var int
          */
         public ?int $chat_id,
         /**
          * Required if inline_message_id is not specified. Identifier of the sent message
-         * @var int|null
+         * @var int
          */
         public ?int $message_id,
         /**
          * Required if chat_id and message_id are not specified. Identifier of the inline
          * message
-         * @var string|null
+         * @var string
          */
         public ?string $inline_message_id,
     ) {

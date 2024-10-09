@@ -34,7 +34,7 @@ final class MessageOriginChannel extends Data implements TelegramTypeContract
         public int $message_id,
         /**
          * Signature of the original post author
-         * @var string|null
+         * @var string
          */
         public ?string $author_signature,
     ) {

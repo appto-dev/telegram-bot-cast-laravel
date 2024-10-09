@@ -23,7 +23,7 @@ final class DeleteMessages extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of 1-100 identifiers of messages to delete. See
          * deleteMessage for limitations on which messages can be deleted
-         * @var int
+         * @var array<int>
          */
         public int $message_ids,
     ) {

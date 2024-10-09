@@ -24,12 +24,12 @@ final class MessageReactionUpdated extends Data implements TelegramTypeContract
         public int $message_id,
         /**
          * The user that changed the reaction, if the user isn't anonymous
-         * @var User|null
+         * @var User
          */
         public ?User $user,
         /**
          * The chat on behalf of which the reaction was changed, if the user is anonymous
-         * @var Chat|null
+         * @var Chat
          */
         public ?Chat $actor_chat,
         /**
@@ -39,12 +39,12 @@ final class MessageReactionUpdated extends Data implements TelegramTypeContract
         public int $date,
         /**
          * Previous list of reaction types that were set by the user
-         * @var ReactionType
+         * @var array<ReactionType>
          */
         public ReactionType $old_reaction,
         /**
          * New list of reaction types that have been set by the user
-         * @var ReactionType
+         * @var array<ReactionType>
          */
         public ReactionType $new_reaction,
     ) {

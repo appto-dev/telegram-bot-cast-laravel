@@ -15,13 +15,13 @@ final class SetMyName extends Data implements TelegramMethodContract
         /**
          * New bot name; 0-64 characters. Pass an empty string to remove the dedicated name
          * for the given language.
-         * @var string|null
+         * @var string
          */
         public ?string $name,
         /**
          * A two-letter ISO 639-1 language code. If empty, the name will be shown to all
          * users for whose language there is no dedicated name.
-         * @var string|null
+         * @var string
          */
         public ?string $language_code,
     ) {

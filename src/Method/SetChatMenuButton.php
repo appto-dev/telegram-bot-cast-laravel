@@ -17,13 +17,13 @@ final class SetChatMenuButton extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target private chat. If not specified, default bot's
          * menu button will be changed
-         * @var int|null
+         * @var int
          */
         public ?int $chat_id,
         /**
          * A JSON-serialized object for the bot's new menu button. Defaults to
          * MenuButtonDefault
-         * @var MenuButton|null
+         * @var MenuButton
          */
         public ?MenuButton $menu_button,
     ) {

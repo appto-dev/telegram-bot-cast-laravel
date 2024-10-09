@@ -25,12 +25,12 @@ final class Poll extends Data implements TelegramTypeContract
         /**
          * Special entities that appear in the question. Currently, only custom emoji
          * entities are allowed in poll questions
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $question_entities,
         /**
          * List of poll options
-         * @var PollOption
+         * @var array<PollOption>
          */
         public PollOption $options,
         /**
@@ -62,29 +62,29 @@ final class Poll extends Data implements TelegramTypeContract
          * 0-based identifier of the correct answer option. Available only for polls in the
          * quiz mode, which are closed, or was sent (not forwarded) by the bot or to the
          * private chat with the bot.
-         * @var int|null
+         * @var int
          */
         public ?int $correct_option_id,
         /**
          * Text that is shown when a user chooses an incorrect answer or taps on the lamp
          * icon in a quiz-style poll, 0-200 characters
-         * @var string|null
+         * @var string
          */
         public ?string $explanation,
         /**
          * Special entities like usernames, URLs, bot commands, etc. that appear in the
          * explanation
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $explanation_entities,
         /**
          * Amount of time in seconds the poll will be active after creation
-         * @var int|null
+         * @var int
          */
         public ?int $open_period,
         /**
          * Point in time (Unix timestamp) when the poll will be automatically closed
-         * @var int|null
+         * @var int
          */
         public ?int $close_date,
     ) {

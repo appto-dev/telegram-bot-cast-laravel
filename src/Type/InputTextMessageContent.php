@@ -21,18 +21,18 @@ final class InputTextMessageContent extends Data implements TelegramTypeContract
         /**
          * Mode for parsing entities in the message text. See formatting options for more
          * details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * List of special entities that appear in message text, which can be specified
          * instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $entities,
         /**
          * Link preview generation options for the message
-         * @var LinkPreviewOptions|null
+         * @var LinkPreviewOptions
          */
         public ?LinkPreviewOptions $link_preview_options,
     ) {

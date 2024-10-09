@@ -21,13 +21,13 @@ final class GetUserProfilePhotos extends Data implements TelegramMethodContract
         /**
          * Sequential number of the first photo to be returned. By default, all photos are
          * returned.
-         * @var int|null
+         * @var int
          */
         public ?int $offset,
         /**
          * Limits the number of photos to be retrieved. Values between 1-100 are accepted.
          * Defaults to 100.
-         * @var int|null
+         * @var int
          */
         public ?int $limit,
     ) {

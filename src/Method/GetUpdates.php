@@ -22,19 +22,19 @@ final class GetUpdates extends Data implements TelegramMethodContract
          * its update_id. The negative offset can be specified to retrieve updates starting
          * from -offset update from the end of the updates queue. All previous updates will
          * be forgotten.
-         * @var int|null
+         * @var int
          */
         public ?int $offset,
         /**
          * Limits the number of updates to be retrieved. Values between 1-100 are accepted.
          * Defaults to 100.
-         * @var int|null
+         * @var int
          */
         public ?int $limit,
         /**
          * Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling.
          * Should be positive, short polling should be used for testing purposes only.
-         * @var int|null
+         * @var int
          */
         public ?int $timeout,
         /**
@@ -46,7 +46,7 @@ final class GetUpdates extends Data implements TelegramMethodContract
          * specified, the previous setting will be used.Please note that this parameter
          * doesn't affect updates created before the call to the getUpdates, so unwanted
          * updates may be received for a short period of time.
-         * @var string|null
+         * @var array<string>
          */
         public ?string $allowed_updates,
     ) {

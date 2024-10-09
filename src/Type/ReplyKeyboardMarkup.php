@@ -24,7 +24,7 @@ final class ReplyKeyboardMarkup extends Data implements TelegramTypeContract
          * Requests clients to always show the keyboard when the regular keyboard is
          * hidden. Defaults to false, in which case the custom keyboard can be hidden and
          * opened with a keyboard icon.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $is_persistent,
         /**
@@ -32,7 +32,7 @@ final class ReplyKeyboardMarkup extends Data implements TelegramTypeContract
          * the keyboard smaller if there are just two rows of buttons). Defaults to false,
          * in which case the custom keyboard is always of the same height as the app's
          * standard keyboard.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $resize_keyboard,
         /**
@@ -40,13 +40,13 @@ final class ReplyKeyboardMarkup extends Data implements TelegramTypeContract
          * will still be available, but clients will automatically display the usual
          * letter-keyboard in the chat - the user can press a special button in the input
          * field to see the custom keyboard again. Defaults to false.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $one_time_keyboard,
         /**
          * The placeholder to be shown in the input field when the keyboard is active; 1-64
          * characters
-         * @var string|null
+         * @var string
          */
         public ?string $input_field_placeholder,
         /**
@@ -56,7 +56,7 @@ final class ReplyKeyboardMarkup extends Data implements TelegramTypeContract
          * sender of the original message.Example: A user requests to change the bot's
          * language, bot replies to the request with a keyboard to select the new language.
          * Other users in the group don't see the keyboard.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $selective,
     ) {

@@ -25,22 +25,22 @@ final class SharedUser extends Data implements TelegramTypeContract
         public int $user_id,
         /**
          * First name of the user, if the name was requested by the bot
-         * @var string|null
+         * @var string
          */
         public ?string $first_name,
         /**
          * Last name of the user, if the name was requested by the bot
-         * @var string|null
+         * @var string
          */
         public ?string $last_name,
         /**
          * Username of the user, if the username was requested by the bot
-         * @var string|null
+         * @var string
          */
         public ?string $username,
         /**
          * Available sizes of the chat photo, if the photo was requested by the bot
-         * @var PhotoSize|null
+         * @var array<PhotoSize>
          */
         public ?PhotoSize $photo,
     ) {

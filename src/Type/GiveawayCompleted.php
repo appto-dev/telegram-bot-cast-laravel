@@ -20,18 +20,18 @@ final class GiveawayCompleted extends Data implements TelegramTypeContract
         public int $winner_count,
         /**
          * Number of undistributed prizes
-         * @var int|null
+         * @var int
          */
         public ?int $unclaimed_prize_count,
         /**
          * Message with the giveaway that was completed, if it wasn't deleted
-         * @var Message|null
+         * @var Message
          */
         public ?Message $giveaway_message,
         /**
          * True, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the
          * giveaway is a Telegram Premium giveaway.
-         * @var true|null
+         * @var true
          */
         public ?true $is_star_giveaway,
     ) {

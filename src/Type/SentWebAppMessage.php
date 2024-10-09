@@ -16,7 +16,7 @@ final class SentWebAppMessage extends Data implements TelegramTypeContract
         /**
          * Identifier of the sent inline message. Available only if there is an inline
          * keyboard attached to the message.
-         * @var string|null
+         * @var string
          */
         public ?string $inline_message_id,
     ) {

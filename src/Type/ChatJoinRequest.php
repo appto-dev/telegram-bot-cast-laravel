@@ -40,12 +40,12 @@ final class ChatJoinRequest extends Data implements TelegramTypeContract
         public int $date,
         /**
          * Bio of the user.
-         * @var string|null
+         * @var string
          */
         public ?string $bio,
         /**
          * Chat invite link that was used by the user to send the join request
-         * @var ChatInviteLink|null
+         * @var ChatInviteLink
          */
         public ?ChatInviteLink $invite_link,
     ) {

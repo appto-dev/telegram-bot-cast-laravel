@@ -20,7 +20,7 @@ final class PollOption extends Data implements TelegramTypeContract
         /**
          * Special entities that appear in the option text. Currently, only custom emoji
          * entities are allowed in poll option texts
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $text_entities,
         /**

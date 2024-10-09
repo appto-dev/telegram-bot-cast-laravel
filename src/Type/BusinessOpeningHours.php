@@ -19,7 +19,7 @@ final class BusinessOpeningHours extends Data implements TelegramTypeContract
         public string $time_zone_name,
         /**
          * List of time intervals describing business opening hours
-         * @var BusinessOpeningHoursInterval
+         * @var array<BusinessOpeningHoursInterval>
          */
         public BusinessOpeningHoursInterval $opening_hours,
     ) {

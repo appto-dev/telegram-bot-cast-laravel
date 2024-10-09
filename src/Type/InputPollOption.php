@@ -20,13 +20,13 @@ final class InputPollOption extends Data implements TelegramTypeContract
         /**
          * Mode for parsing entities in the text. See formatting options for more details.
          * Currently, only custom emoji entities are allowed
-         * @var string|null
+         * @var string
          */
         public ?string $text_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the poll option text.
          * It can be specified instead of text_parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $text_entities,
     ) {

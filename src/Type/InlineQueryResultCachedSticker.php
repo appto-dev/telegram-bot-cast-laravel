@@ -32,12 +32,12 @@ final class InlineQueryResultCachedSticker extends Data implements TelegramTypeC
         public string $sticker_file_id,
         /**
          * Inline keyboard attached to the message
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
         /**
          * Content of the message to be sent instead of the sticker
-         * @var InputMessageContent|null
+         * @var InputMessageContent
          */
         public ?InputMessageContent $input_message_content,
     ) {

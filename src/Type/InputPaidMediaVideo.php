@@ -33,27 +33,27 @@ final class InputPaidMediaVideo extends Data implements TelegramTypeContract
          * and can be only uploaded as a new file, so you can pass
          * "attach://<file_attach_name>" if the thumbnail was uploaded using
          * multipart/form-data under <file_attach_name>. More information on Sending Files
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**
          * Video width
-         * @var int|null
+         * @var int
          */
         public ?int $width,
         /**
          * Video height
-         * @var int|null
+         * @var int
          */
         public ?int $height,
         /**
          * Video duration in seconds
-         * @var int|null
+         * @var int
          */
         public ?int $duration,
         /**
          * Pass True if the uploaded video is suitable for streaming
-         * @var bool|null
+         * @var bool
          */
         public ?bool $supports_streaming,
     ) {

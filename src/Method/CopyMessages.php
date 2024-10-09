@@ -29,7 +29,7 @@ final class CopyMessages extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
@@ -41,22 +41,22 @@ final class CopyMessages extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of 1-100 identifiers of messages in the chat from_chat_id
          * to copy. The identifiers must be specified in a strictly increasing order.
-         * @var int
+         * @var array<int>
          */
         public int $message_ids,
         /**
          * Sends the messages silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent messages from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Pass True to copy the messages without their captions
-         * @var bool|null
+         * @var bool
          */
         public ?bool $remove_caption,
     ) {

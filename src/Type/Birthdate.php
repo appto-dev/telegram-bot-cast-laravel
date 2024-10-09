@@ -24,7 +24,7 @@ final class Birthdate extends Data implements TelegramTypeContract
         public int $month,
         /**
          * Year of the user's birth
-         * @var int|null
+         * @var int
          */
         public ?int $year,
     ) {

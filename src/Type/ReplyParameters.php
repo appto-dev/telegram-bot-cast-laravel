@@ -22,14 +22,14 @@ final class ReplyParameters extends Data implements TelegramTypeContract
          * If the message to be replied to is from a different chat, unique identifier for
          * the chat or username of the channel (in the format @channelusername). Not
          * supported for messages sent on behalf of a business account.
-         * @var int|string|null
+         * @var int|string
          */
         public int|string|null $chat_id,
         /**
          * Pass True if the message should be sent even if the specified message to be
          * replied to is not found. Always False for replies in another chat or forum
          * topic. Always True for messages sent on behalf of a business account.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $allow_sending_without_reply,
         /**
@@ -38,23 +38,23 @@ final class ReplyParameters extends Data implements TelegramTypeContract
          * including bold, italic, underline, strikethrough, spoiler, and custom_emoji
          * entities. The message will fail to send if the quote isn't found in the original
          * message.
-         * @var string|null
+         * @var string
          */
         public ?string $quote,
         /**
          * Mode for parsing entities in the quote. See formatting options for more details.
-         * @var string|null
+         * @var string
          */
         public ?string $quote_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the quote. It can be
          * specified instead of quote_parse_mode.
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $quote_entities,
         /**
          * Position of the quote in the original message in UTF-16 code units
-         * @var int|null
+         * @var int
          */
         public ?int $quote_position,
     ) {

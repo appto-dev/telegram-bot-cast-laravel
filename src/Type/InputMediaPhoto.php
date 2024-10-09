@@ -27,29 +27,29 @@ final class InputMediaPhoto extends Data implements TelegramTypeContract
         public string $media,
         /**
          * Caption of the photo to be sent, 0-1024 characters after entities parsing
-         * @var string|null
+         * @var string
          */
         public ?string $caption,
         /**
          * Mode for parsing entities in the photo caption. See formatting options for more
          * details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $caption_entities,
         /**
          * Pass True, if the caption must be shown above the message media
-         * @var bool|null
+         * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
          * Pass True if the photo needs to be covered with a spoiler animation
-         * @var bool|null
+         * @var bool
          */
         public ?bool $has_spoiler,
     ) {

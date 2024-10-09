@@ -39,12 +39,12 @@ final class InlineQuery extends Data implements TelegramTypeContract
          * "supergroup", or "channel". The chat type should be always known for requests
          * sent from official clients and most third-party clients, unless the request was
          * sent from a secret chat
-         * @var string|null
+         * @var string
          */
         public ?string $chat_type,
         /**
          * Sender location, only for bots that request user location
-         * @var Location|null
+         * @var Location
          */
         public ?Location $location,
     ) {

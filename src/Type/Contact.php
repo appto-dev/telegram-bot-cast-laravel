@@ -24,7 +24,7 @@ final class Contact extends Data implements TelegramTypeContract
         public string $first_name,
         /**
          * Contact's last name
-         * @var string|null
+         * @var string
          */
         public ?string $last_name,
         /**
@@ -32,12 +32,12 @@ final class Contact extends Data implements TelegramTypeContract
          * significant bits and some programming languages may have difficulty/silent
          * defects in interpreting it. But it has at most 52 significant bits, so a 64-bit
          * integer or double-precision float type are safe for storing this identifier.
-         * @var int|null
+         * @var int
          */
         public ?int $user_id,
         /**
          * Additional data about the contact in the form of a vCard
-         * @var string|null
+         * @var string
          */
         public ?string $vcard,
     ) {

@@ -33,13 +33,13 @@ final class StarTransaction extends Data implements TelegramTypeContract
         /**
          * Source of an incoming transaction (e.g., a user purchasing goods or services,
          * Fragment refunding a failed withdrawal). Only for incoming transactions
-         * @var TransactionPartner|null
+         * @var TransactionPartner
          */
         public ?TransactionPartner $source,
         /**
          * Receiver of an outgoing transaction (e.g., a user for a purchase refund,
          * Fragment for a withdrawal). Only for outgoing transactions
-         * @var TransactionPartner|null
+         * @var TransactionPartner
          */
         public ?TransactionPartner $receiver,
     ) {

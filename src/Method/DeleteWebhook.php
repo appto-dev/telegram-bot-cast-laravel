@@ -15,7 +15,7 @@ final class DeleteWebhook extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Pass True to drop all pending updates
-         * @var bool|null
+         * @var bool
          */
         public ?bool $drop_pending_updates,
     ) {

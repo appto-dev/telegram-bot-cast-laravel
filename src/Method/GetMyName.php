@@ -15,7 +15,7 @@ final class GetMyName extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * A two-letter ISO 639-1 language code or an empty string
-         * @var string|null
+         * @var string
          */
         public ?string $language_code,
     ) {

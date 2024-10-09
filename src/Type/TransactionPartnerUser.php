@@ -24,17 +24,17 @@ final class TransactionPartnerUser extends Data implements TelegramTypeContract
         public User $user,
         /**
          * Bot-specified invoice payload
-         * @var string|null
+         * @var string
          */
         public ?string $invoice_payload,
         /**
          * Information about the paid media bought by the user
-         * @var PaidMedia|null
+         * @var array<PaidMedia>
          */
         public ?PaidMedia $paid_media,
         /**
          * Bot-specified paid media payload
-         * @var string|null
+         * @var string
          */
         public ?string $paid_media_payload,
     ) {

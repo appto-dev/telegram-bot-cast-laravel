@@ -33,54 +33,54 @@ final class InputMediaVideo extends Data implements TelegramTypeContract
          * and can be only uploaded as a new file, so you can pass
          * "attach://<file_attach_name>" if the thumbnail was uploaded using
          * multipart/form-data under <file_attach_name>. More information on Sending Files
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**
          * Caption of the video to be sent, 0-1024 characters after entities parsing
-         * @var string|null
+         * @var string
          */
         public ?string $caption,
         /**
          * Mode for parsing entities in the video caption. See formatting options for more
          * details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $caption_entities,
         /**
          * Pass True, if the caption must be shown above the message media
-         * @var bool|null
+         * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
          * Video width
-         * @var int|null
+         * @var int
          */
         public ?int $width,
         /**
          * Video height
-         * @var int|null
+         * @var int
          */
         public ?int $height,
         /**
          * Video duration in seconds
-         * @var int|null
+         * @var int
          */
         public ?int $duration,
         /**
          * Pass True if the uploaded video is suitable for streaming
-         * @var bool|null
+         * @var bool
          */
         public ?bool $supports_streaming,
         /**
          * Pass True if the video needs to be covered with a spoiler animation
-         * @var bool|null
+         * @var bool
          */
         public ?bool $has_spoiler,
     ) {

@@ -41,35 +41,35 @@ final class ChatInviteLink extends Data implements TelegramTypeContract
         public bool $is_revoked,
         /**
          * Invite link name
-         * @var string|null
+         * @var string
          */
         public ?string $name,
         /**
          * Point in time (Unix timestamp) when the link will expire or has been expired
-         * @var int|null
+         * @var int
          */
         public ?int $expire_date,
         /**
          * The maximum number of users that can be members of the chat simultaneously after
          * joining the chat via this invite link; 1-99999
-         * @var int|null
+         * @var int
          */
         public ?int $member_limit,
         /**
          * Number of pending join requests created using this link
-         * @var int|null
+         * @var int
          */
         public ?int $pending_join_request_count,
         /**
          * The number of seconds the subscription will be active for before the next
          * payment
-         * @var int|null
+         * @var int
          */
         public ?int $subscription_period,
         /**
          * The amount of Telegram Stars a user must pay initially and after each subsequent
          * subscription period to be a member of the chat using the link
-         * @var int|null
+         * @var int
          */
         public ?int $subscription_price,
     ) {

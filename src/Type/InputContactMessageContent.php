@@ -25,12 +25,12 @@ final class InputContactMessageContent extends Data implements TelegramTypeContr
         public string $first_name,
         /**
          * Contact's last name
-         * @var string|null
+         * @var string
          */
         public ?string $last_name,
         /**
          * Additional data about the contact in the form of a vCard, 0-2048 bytes
-         * @var string|null
+         * @var string
          */
         public ?string $vcard,
     ) {

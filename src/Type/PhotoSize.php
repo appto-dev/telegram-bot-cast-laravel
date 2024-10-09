@@ -36,7 +36,7 @@ final class PhotoSize extends Data implements TelegramTypeContract
         public int $height,
         /**
          * File size in bytes
-         * @var int|null
+         * @var int
          */
         public ?int $file_size,
     ) {

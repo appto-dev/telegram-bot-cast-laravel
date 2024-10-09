@@ -32,12 +32,12 @@ final class SuccessfulPayment extends Data implements TelegramTypeContract
         public string $invoice_payload,
         /**
          * Identifier of the shipping option chosen by the user
-         * @var string|null
+         * @var string
          */
         public ?string $shipping_option_id,
         /**
          * Order information provided by the user
-         * @var OrderInfo|null
+         * @var OrderInfo
          */
         public ?OrderInfo $order_info,
         /**

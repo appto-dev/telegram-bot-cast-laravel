@@ -30,13 +30,13 @@ final class CreateForumTopic extends Data implements TelegramMethodContract
          * Color of the topic icon in RGB format. Currently, must be one of 7322096
          * (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98),
          * 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)
-         * @var int|null
+         * @var int
          */
         public ?int $icon_color,
         /**
          * Unique identifier of the custom emoji shown as the topic icon. Use
          * getForumTopicIconStickers to get all allowed custom emoji identifiers.
-         * @var string|null
+         * @var string
          */
         public ?string $icon_custom_emoji_id,
     ) {

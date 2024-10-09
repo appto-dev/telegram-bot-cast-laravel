@@ -25,7 +25,7 @@ final class SendVideoNote extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the message will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -37,7 +37,7 @@ final class SendVideoNote extends Data implements TelegramMethodContract
         /**
          * Unique identifier for the target message thread (topic) of the forum; for forum
          * supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**
@@ -50,12 +50,12 @@ final class SendVideoNote extends Data implements TelegramMethodContract
         public InputFile|string $video_note,
         /**
          * Duration of sent video in seconds
-         * @var int|null
+         * @var int
          */
         public ?int $duration,
         /**
          * Video width and height, i.e. diameter of the video message
-         * @var int|null
+         * @var int
          */
         public ?int $length,
         /**
@@ -66,35 +66,35 @@ final class SendVideoNote extends Data implements TelegramMethodContract
          * and can be only uploaded as a new file, so you can pass
          * "attach://<file_attach_name>" if the thumbnail was uploaded using
          * multipart/form-data under <file_attach_name>. More information on Sending Files
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**
          * Sends the message silently. Users will receive a notification with no sound.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_notification,
         /**
          * Protects the contents of the sent message from forwarding and saving
-         * @var bool|null
+         * @var bool
          */
         public ?bool $protect_content,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only
-         * @var string|null
+         * @var string
          */
         public ?string $message_effect_id,
         /**
          * Description of the message to reply to
-         * @var ReplyParameters|null
+         * @var ReplyParameters
          */
         public ?ReplyParameters $reply_parameters,
         /**
          * Additional interface options. A JSON-serialized object for an inline keyboard,
          * custom reply keyboard, instructions to remove a reply keyboard or to force a
          * reply from the user
-         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null
+         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
     ) {

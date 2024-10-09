@@ -26,7 +26,7 @@ final class SendChatAction extends Data implements TelegramMethodContract
         /**
          * Unique identifier of the business connection on behalf of which the action will
          * be sent
-         * @var string|null
+         * @var string
          */
         public ?string $business_connection_id,
         /**
@@ -37,7 +37,7 @@ final class SendChatAction extends Data implements TelegramMethodContract
         public int|string $chat_id,
         /**
          * Unique identifier for the target message thread; for supergroups only
-         * @var int|null
+         * @var int
          */
         public ?int $message_thread_id,
         /**

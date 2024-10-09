@@ -34,13 +34,13 @@ final class CreateNewStickerSet extends Data implements TelegramMethodContract
         public string $title,
         /**
          * A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
-         * @var InputSticker
+         * @var array<InputSticker>
          */
         public InputSticker $stickers,
         /**
          * Type of stickers in the set, pass "regular", "mask", or "custom_emoji". By
          * default, a regular sticker set is created.
-         * @var string|null
+         * @var string
          */
         public ?string $sticker_type,
         /**
@@ -48,7 +48,7 @@ final class CreateNewStickerSet extends Data implements TelegramMethodContract
          * when used in messages, the accent color if used as emoji status, white on chat
          * photos, or another appropriate color based on context; for custom emoji sticker
          * sets only
-         * @var bool|null
+         * @var bool
          */
         public ?bool $needs_repainting,
     ) {

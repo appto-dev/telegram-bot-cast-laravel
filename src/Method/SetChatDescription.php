@@ -22,7 +22,7 @@ final class SetChatDescription extends Data implements TelegramMethodContract
         public int|string $chat_id,
         /**
          * New chat description, 0-255 characters
-         * @var string|null
+         * @var string
          */
         public ?string $description,
     ) {

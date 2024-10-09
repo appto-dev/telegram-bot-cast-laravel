@@ -30,12 +30,12 @@ final class BackgroundTypeWallpaper extends Data implements TelegramTypeContract
         /**
          * True, if the wallpaper is downscaled to fit in a 450x450 square and then
          * box-blurred with radius 12
-         * @var true|null
+         * @var true
          */
         public ?true $is_blurred,
         /**
          * True, if the background moves slightly when the device is tilted
-         * @var true|null
+         * @var true
          */
         public ?true $is_moving,
     ) {

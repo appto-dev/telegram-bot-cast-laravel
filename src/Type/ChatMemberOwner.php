@@ -30,7 +30,7 @@ final class ChatMemberOwner extends Data implements TelegramTypeContract
         public bool $is_anonymous,
         /**
          * Custom title for this user
-         * @var string|null
+         * @var string
          */
         public ?string $custom_title,
     ) {

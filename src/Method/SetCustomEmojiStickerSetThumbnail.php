@@ -21,7 +21,7 @@ final class SetCustomEmojiStickerSetThumbnail extends Data implements TelegramMe
         /**
          * Custom emoji identifier of a sticker from the sticker set; pass an empty string
          * to drop the thumbnail and use the first sticker as the thumbnail.
-         * @var string|null
+         * @var string
          */
         public ?string $custom_emoji_id,
     ) {

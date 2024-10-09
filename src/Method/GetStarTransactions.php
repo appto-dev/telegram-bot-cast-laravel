@@ -15,13 +15,13 @@ final class GetStarTransactions extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Number of transactions to skip in the response
-         * @var int|null
+         * @var int
          */
         public ?int $offset,
         /**
          * The maximum number of transactions to be retrieved. Values between 1-100 are
          * accepted. Defaults to 100.
-         * @var int|null
+         * @var int
          */
         public ?int $limit,
     ) {

@@ -38,7 +38,7 @@ final class RefundedPayment extends Data implements TelegramTypeContract
         public string $telegram_payment_charge_id,
         /**
          * Provider payment identifier
-         * @var string|null
+         * @var string
          */
         public ?string $provider_payment_charge_id,
     ) {

@@ -24,25 +24,25 @@ final class Location extends Data implements TelegramTypeContract
         public float $longitude,
         /**
          * The radius of uncertainty for the location, measured in meters; 0-1500
-         * @var float|null
+         * @var float
          */
         public ?float $horizontal_accuracy,
         /**
          * Time relative to the message sending date, during which the location can be
          * updated; in seconds. For active live locations only.
-         * @var int|null
+         * @var int
          */
         public ?int $live_period,
         /**
          * The direction in which user is moving, in degrees; 1-360. For active live
          * locations only.
-         * @var int|null
+         * @var int
          */
         public ?int $heading,
         /**
          * The maximum distance for proximity alerts about approaching another chat member,
          * in meters. For sent live locations only.
-         * @var int|null
+         * @var int
          */
         public ?int $proximity_alert_radius,
     ) {

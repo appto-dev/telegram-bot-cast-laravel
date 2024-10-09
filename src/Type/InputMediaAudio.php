@@ -33,39 +33,39 @@ final class InputMediaAudio extends Data implements TelegramTypeContract
          * and can be only uploaded as a new file, so you can pass
          * "attach://<file_attach_name>" if the thumbnail was uploaded using
          * multipart/form-data under <file_attach_name>. More information on Sending Files
-         * @var InputFile|string|null
+         * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,
         /**
          * Caption of the audio to be sent, 0-1024 characters after entities parsing
-         * @var string|null
+         * @var string
          */
         public ?string $caption,
         /**
          * Mode for parsing entities in the audio caption. See formatting options for more
          * details.
-         * @var string|null
+         * @var string
          */
         public ?string $parse_mode,
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var MessageEntity|null
+         * @var array<MessageEntity>
          */
         public ?MessageEntity $caption_entities,
         /**
          * Duration of the audio in seconds
-         * @var int|null
+         * @var int
          */
         public ?int $duration,
         /**
          * Performer of the audio
-         * @var string|null
+         * @var string
          */
         public ?string $performer,
         /**
          * Title of the audio
-         * @var string|null
+         * @var string
          */
         public ?string $title,
     ) {

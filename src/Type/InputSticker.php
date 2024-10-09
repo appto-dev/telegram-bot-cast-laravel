@@ -30,18 +30,18 @@ final class InputSticker extends Data implements TelegramTypeContract
         public string $format,
         /**
          * List of 1-20 emoji associated with the sticker
-         * @var string
+         * @var array<string>
          */
         public string $emoji_list,
         /**
          * Position where the mask should be placed on faces. For "mask" stickers only.
-         * @var MaskPosition|null
+         * @var MaskPosition
          */
         public ?MaskPosition $mask_position,
         /**
          * List of 0-20 search keywords for the sticker with total length of up to 64
          * characters. For "regular" and "custom_emoji" stickers only.
-         * @var string|null
+         * @var array<string>
          */
         public ?string $keywords,
     ) {

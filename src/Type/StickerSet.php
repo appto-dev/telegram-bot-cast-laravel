@@ -29,12 +29,12 @@ final class StickerSet extends Data implements TelegramTypeContract
         public string $sticker_type,
         /**
          * List of all set stickers
-         * @var Sticker
+         * @var array<Sticker>
          */
         public Sticker $stickers,
         /**
          * Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format
-         * @var PhotoSize|null
+         * @var PhotoSize
          */
         public ?PhotoSize $thumbnail,
     ) {

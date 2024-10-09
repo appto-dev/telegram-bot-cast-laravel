@@ -19,7 +19,7 @@ final class BusinessLocation extends Data implements TelegramTypeContract
         public string $address,
         /**
          * Location of the business
-         * @var Location|null
+         * @var Location
          */
         public ?Location $location,
     ) {

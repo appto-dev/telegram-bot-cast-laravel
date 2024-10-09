@@ -29,30 +29,30 @@ final class SetGameScore extends Data implements TelegramMethodContract
         /**
          * Pass True if the high score is allowed to decrease. This can be useful when
          * fixing mistakes or banning cheaters
-         * @var bool|null
+         * @var bool
          */
         public ?bool $force,
         /**
          * Pass True if the game message should not be automatically edited to include the
          * current scoreboard
-         * @var bool|null
+         * @var bool
          */
         public ?bool $disable_edit_message,
         /**
          * Required if inline_message_id is not specified. Unique identifier for the target
          * chat
-         * @var int|null
+         * @var int
          */
         public ?int $chat_id,
         /**
          * Required if inline_message_id is not specified. Identifier of the sent message
-         * @var int|null
+         * @var int
          */
         public ?int $message_id,
         /**
          * Required if chat_id and message_id are not specified. Identifier of the inline
          * message
-         * @var string|null
+         * @var string
          */
         public ?string $inline_message_id,
     ) {

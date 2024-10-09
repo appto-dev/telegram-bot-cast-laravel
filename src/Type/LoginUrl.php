@@ -36,7 +36,7 @@ final class LoginUrl extends Data implements TelegramTypeContract
         public string $url,
         /**
          * New text of the button in forwarded messages.
-         * @var string|null
+         * @var string
          */
         public ?string $forward_text,
         /**
@@ -44,12 +44,12 @@ final class LoginUrl extends Data implements TelegramTypeContract
          * bot for more details. If not specified, the current bot's username will be
          * assumed. The url's domain must be the same as the domain linked with the bot.
          * See Linking your domain to the bot for more details.
-         * @var string|null
+         * @var string
          */
         public ?string $bot_username,
         /**
          * Pass True to request the permission for your bot to send messages to the user.
-         * @var bool|null
+         * @var bool
          */
         public ?bool $request_write_access,
     ) {

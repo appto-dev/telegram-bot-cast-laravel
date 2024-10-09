@@ -37,12 +37,12 @@ final class BackgroundTypePattern extends Data implements TelegramTypeContract
         /**
          * True, if the background fill must be applied only to the pattern itself. All
          * other pixels are black in this case. For dark themes only
-         * @var true|null
+         * @var true
          */
         public ?true $is_inverted,
         /**
          * True, if the background moves slightly when the device is tilted
-         * @var true|null
+         * @var true
          */
         public ?true $is_moving,
     ) {

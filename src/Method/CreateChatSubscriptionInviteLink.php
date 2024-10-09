@@ -28,7 +28,7 @@ final class CreateChatSubscriptionInviteLink extends Data implements TelegramMet
         public int|string $chat_id,
         /**
          * Invite link name; 0-32 characters
-         * @var string|null
+         * @var string
          */
         public ?string $name,
         /**

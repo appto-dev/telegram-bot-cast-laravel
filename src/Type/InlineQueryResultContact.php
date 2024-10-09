@@ -36,37 +36,37 @@ final class InlineQueryResultContact extends Data implements TelegramTypeContrac
         public string $first_name,
         /**
          * Contact's last name
-         * @var string|null
+         * @var string
          */
         public ?string $last_name,
         /**
          * Additional data about the contact in the form of a vCard, 0-2048 bytes
-         * @var string|null
+         * @var string
          */
         public ?string $vcard,
         /**
          * Inline keyboard attached to the message
-         * @var InlineKeyboardMarkup|null
+         * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
         /**
          * Content of the message to be sent instead of the contact
-         * @var InputMessageContent|null
+         * @var InputMessageContent
          */
         public ?InputMessageContent $input_message_content,
         /**
          * Url of the thumbnail for the result
-         * @var string|null
+         * @var string
          */
         public ?string $thumbnail_url,
         /**
          * Thumbnail width
-         * @var int|null
+         * @var int
          */
         public ?int $thumbnail_width,
         /**
          * Thumbnail height
-         * @var int|null
+         * @var int
          */
         public ?int $thumbnail_height,
     ) {

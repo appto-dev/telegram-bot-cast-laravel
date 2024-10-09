@@ -16,7 +16,7 @@ final class GiveawayCreated extends Data implements TelegramTypeContract
         /**
          * The number of Telegram Stars to be split between giveaway winners; for Telegram
          * Star giveaways only
-         * @var int|null
+         * @var int
          */
         public ?int $prize_star_count,
     ) {

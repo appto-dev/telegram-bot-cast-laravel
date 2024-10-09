@@ -19,7 +19,7 @@ final class PaidMediaPhoto extends Data implements TelegramTypeContract
         public string $type,
         /**
          * The photo
-         * @var PhotoSize
+         * @var array<PhotoSize>
          */
         public PhotoSize $photo,
     ) {
