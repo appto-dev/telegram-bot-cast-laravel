@@ -13,4 +13,14 @@ use Spatie\LaravelData\Data;
  */
 final class InputFile extends Data implements TelegramTypeContract
 {
+    public function __construct(
+        /**
+         * The attached file.
+         * Please note that this parameter does not exist in the documentation, it has been
+         * added to make it easier to work with files.
+         * @var string
+         */
+        public string $attach,
+    ) {
+    }
 }
