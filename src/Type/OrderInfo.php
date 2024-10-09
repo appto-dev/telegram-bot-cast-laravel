@@ -1,28 +1,36 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * OrderInfo
- *
  * This object represents information about an order.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class OrderInfo extends Data implements TypeInterface
+final class OrderInfo extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** User name */
+        /**
+         * User name
+         * @var string|null
+         */
         public ?string $name,
-        /** User's phone number */
+        /**
+         * User's phone number
+         * @var string|null
+         */
         public ?string $phone_number,
-        /** User email */
+        /**
+         * User email
+         * @var string|null
+         */
         public ?string $email,
-        /** User shipping address */
+        /**
+         * User shipping address
+         * @var ShippingAddress|null
+         */
         public ?ShippingAddress $shipping_address,
     ) {
     }

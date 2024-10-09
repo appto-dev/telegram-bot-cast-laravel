@@ -1,42 +1,50 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * VideoNote
+ * This object represents a <a
+ * href="https://telegram.org/blog/video-messages-and-telescope">video message</a>
+ * (available in Telegram apps as of <a
+ * href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>).
  *
- * This object represents a video message (available in Telegram apps as of v.4.0).
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class VideoNote extends Data implements TypeInterface
+final class VideoNote extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Identifier for this file, which can be used to download or reuse the
-         * file
+         * Identifier for this file, which can be used to download or reuse the file
+         * @var string
          */
         public string $file_id,
         /**
-         * Unique identifier for this file, which is supposed to be the same over
-         * time and for different bots. Can't be used to download or reuse the
-         * file.
+         * Unique identifier for this file, which is supposed to be the same over time and
+         * for different bots. Can't be used to download or reuse the file.
+         * @var string
          */
         public string $file_unique_id,
         /**
-         * Video width and height (diameter of the video message) as defined by
-         * sender
+         * Video width and height (diameter of the video message) as defined by the sender
+         * @var int
          */
         public int $length,
-        /** Duration of the video in seconds as defined by sender */
+        /**
+         * Duration of the video in seconds as defined by the sender
+         * @var int
+         */
         public int $duration,
-        /** Video thumbnail */
+        /**
+         * Video thumbnail
+         * @var PhotoSize|null
+         */
         public ?PhotoSize $thumbnail,
-        /** File size in bytes */
+        /**
+         * File size in bytes
+         * @var int|null
+         */
         public ?int $file_size,
     ) {
     }

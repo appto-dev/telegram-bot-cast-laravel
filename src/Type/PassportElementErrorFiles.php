@@ -1,36 +1,39 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportElementErrorFiles
- *
  * Represents an issue with a list of scans. The error is considered resolved when
  * the list of files containing the scans changes.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportElementErrorFiles extends Data implements TypeInterface
+final class PassportElementErrorFiles extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Error source, must be files */
+        /**
+         * Error source, must be files
+         * @var string
+         */
         public string $source,
         /**
-         * The section of the user's Telegram Passport which has the issue, one
-         * of "utility_bill", "bank_statement", "rental_agreement",
-         * "passport_registration", "temporary_registration"
+         * The section of the user's Telegram Passport which has the issue, one of
+         * "utility_bill", "bank_statement", "rental_agreement", "passport_registration",
+         * "temporary_registration"
+         * @var string
          */
         public string $type,
         /**
          * List of base64-encoded file hashes
-         * @var array<string>
+         * @var string
          */
-        public array $file_hashes,
-        /** Error message */
+        public string $file_hashes,
+        /**
+         * Error message
+         * @var string
+         */
         public string $message,
     ) {
     }

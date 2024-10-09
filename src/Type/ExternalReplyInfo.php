@@ -1,82 +1,141 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ExternalReplyInfo
- *
  * This object contains information about a message that is being replied to, which
  * may come from another chat or forum topic.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ExternalReplyInfo extends Data implements TypeInterface
+final class ExternalReplyInfo extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Origin of the message replied to by the given message */
+        /**
+         * Origin of the message replied to by the given message
+         * @var MessageOrigin
+         */
         public MessageOrigin $origin,
         /**
-         * Chat the original message belongs to. Available only if the chat is a
-         * supergroup or a channel.
+         * Chat the original message belongs to. Available only if the chat is a supergroup
+         * or a channel.
+         * @var Chat|null
          */
         public ?Chat $chat,
         /**
-         * Unique message identifier inside the original chat. Available only if
-         * the original chat is a supergroup or a channel.
+         * Unique message identifier inside the original chat. Available only if the
+         * original chat is a supergroup or a channel.
+         * @var int|null
          */
         public ?int $message_id,
         /**
-         * Options used for link preview generation for the original message, if
-         * it is a text message
+         * Options used for link preview generation for the original message, if it is a
+         * text message
+         * @var LinkPreviewOptions|null
          */
         public ?LinkPreviewOptions $link_preview_options,
-        /** Message is an animation, information about the animation */
+        /**
+         * Message is an animation, information about the animation
+         * @var Animation|null
+         */
         public ?Animation $animation,
-        /** Message is an audio file, information about the file */
+        /**
+         * Message is an audio file, information about the file
+         * @var Audio|null
+         */
         public ?Audio $audio,
-        /** Message is a general file, information about the file */
+        /**
+         * Message is a general file, information about the file
+         * @var Document|null
+         */
         public ?Document $document,
         /**
-         * Message is a photo, available sizes of the photo
-         * @var array<PhotoSize>
+         * Message contains paid media; information about the paid media
+         * @var PaidMediaInfo|null
          */
-        public ?array $photo,
-        /** Message is a sticker, information about the sticker */
+        public ?PaidMediaInfo $paid_media,
+        /**
+         * Message is a photo, available sizes of the photo
+         * @var PhotoSize|null
+         */
+        public ?PhotoSize $photo,
+        /**
+         * Message is a sticker, information about the sticker
+         * @var Sticker|null
+         */
         public ?Sticker $sticker,
-        /** Message is a forwarded story */
+        /**
+         * Message is a forwarded story
+         * @var Story|null
+         */
         public ?Story $story,
-        /** Message is a video, information about the video */
+        /**
+         * Message is a video, information about the video
+         * @var Video|null
+         */
         public ?Video $video,
-        /** Message is a video note, information about the video message */
+        /**
+         * Message is a video note, information about the video message
+         * @var VideoNote|null
+         */
         public ?VideoNote $video_note,
-        /** Message is a voice message, information about the file */
+        /**
+         * Message is a voice message, information about the file
+         * @var Voice|null
+         */
         public ?Voice $voice,
-        /** True, if the message media is covered by a spoiler animation */
+        /**
+         * True, if the message media is covered by a spoiler animation
+         * @var true|null
+         */
         public ?true $has_media_spoiler,
-        /** Message is a shared contact, information about the contact */
+        /**
+         * Message is a shared contact, information about the contact
+         * @var Contact|null
+         */
         public ?Contact $contact,
-        /** Message is a dice with random value */
+        /**
+         * Message is a dice with random value
+         * @var Dice|null
+         */
         public ?Dice $dice,
-        /** Message is a game, information about the game. More about games » */
+        /**
+         * Message is a game, information about the game. More about games
+         * @var Game|null
+         */
         public ?Game $game,
-        /** Message is a scheduled giveaway, information about the giveaway */
+        /**
+         * Message is a scheduled giveaway, information about the giveaway
+         * @var Giveaway|null
+         */
         public ?Giveaway $giveaway,
-        /** A giveaway with public winners was completed */
+        /**
+         * A giveaway with public winners was completed
+         * @var GiveawayWinners|null
+         */
         public ?GiveawayWinners $giveaway_winners,
         /**
-         * Message is an invoice for a payment, information about the invoice.
-         * More about payments »
+         * Message is an invoice for a payment, information about the invoice. More about
+         * payments
+         * @var Invoice|null
          */
         public ?Invoice $invoice,
-        /** Message is a shared location, information about the location */
+        /**
+         * Message is a shared location, information about the location
+         * @var Location|null
+         */
         public ?Location $location,
-        /** Message is a native poll, information about the poll */
+        /**
+         * Message is a native poll, information about the poll
+         * @var Poll|null
+         */
         public ?Poll $poll,
-        /** Message is a venue, information about the venue */
+        /**
+         * Message is a venue, information about the venue
+         * @var Venue|null
+         */
         public ?Venue $venue,
     ) {
     }

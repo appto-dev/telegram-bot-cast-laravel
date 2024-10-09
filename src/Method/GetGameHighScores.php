@@ -1,47 +1,43 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\GameHighScore;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetGameHighScores
- *
  * Use this method to get data for high score tables. Will return the score of the
- * specified user and several of their neighbors in a game. Returns an Array of
- * GameHighScore objects.
+ * specified user and several of their neighbors in a game. Returns an Array of <a
+ * href="#gamehighscore">GameHighScore</a> objects.
+ * This method will currently return scores for the target user, plus two of their
+ * closest neighbors on each side. Will also return the top three users if the user
+ * and their neighbors are not among them. Please note that this behavior is
+ * subject to change.
  *
- * This method will currently return scores for the target
- * user, plus two of their closest neighbors on each side. Will also return the top
- * three users if the user and their neighbors are not among them. Please note that
- * this behavior is subject to change.
- *
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetGameHighScores extends Data implements MethodInterface
+final class GetGameHighScores extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = [GameHighScore::class];
-
     public function __construct(
-        /** Target user id */
+        /**
+         * Target user id
+         * @var int
+         */
         public int $user_id,
         /**
-         * Required if inline_message_id is not specified. Unique identifier for
-         * the target chat
+         * Required if inline_message_id is not specified. Unique identifier for the target
+         * chat
+         * @var int|null
          */
         public ?int $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the sent
-         * message
+         * Required if inline_message_id is not specified. Identifier of the sent message
+         * @var int|null
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of
-         * the inline message
+         * Required if chat_id and message_id are not specified. Identifier of the inline
+         * message
+         * @var string|null
          */
         public ?string $inline_message_id,
     ) {

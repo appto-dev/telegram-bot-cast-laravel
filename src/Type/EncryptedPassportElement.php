@@ -1,20 +1,16 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * EncryptedPassportElement
- *
  * Describes documents or other Telegram Passport elements shared with the bot by
  * the user.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class EncryptedPassportElement extends Data implements TypeInterface
+final class EncryptedPassportElement extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
@@ -22,64 +18,70 @@ final class EncryptedPassportElement extends Data implements TypeInterface
          * "identity_card", "internal_passport", "address", "utility_bill",
          * "bank_statement", "rental_agreement", "passport_registration",
          * "temporary_registration", "phone_number", "email".
+         * @var string
          */
         public string $type,
         /**
-         * Base64-encoded encrypted Telegram Passport element data provided by
-         * the user; available only for "personal_details", "passport",
-         * "driver_license", "identity_card", "internal_passport" and "address"
-         * types. Can be decrypted and verified using the accompanying
-         * EncryptedCredentials.
+         * Base64-encoded encrypted Telegram Passport element data provided by the user;
+         * available only for "personal_details", "passport", "driver_license",
+         * "identity_card", "internal_passport" and "address" types. Can be decrypted and
+         * verified using the accompanying EncryptedCredentials.
+         * @var string|null
          */
         public ?string $data,
-        /** User's verified phone number; available only for "phone_number" type */
+        /**
+         * User's verified phone number; available only for "phone_number" type
+         * @var string|null
+         */
         public ?string $phone_number,
-        /** User's verified email address; available only for "email" type */
+        /**
+         * User's verified email address; available only for "email" type
+         * @var string|null
+         */
         public ?string $email,
         /**
-         * Array of encrypted files with documents provided by the user;
-         * available only for "utility_bill", "bank_statement",
-         * "rental_agreement", "passport_registration" and
-         * "temporary_registration" types. Files can be decrypted and verified
-         * using the accompanying EncryptedCredentials.
-         * @var array<PassportFile>
-         */
-        public ?array $files,
-        /**
-         * Encrypted file with the front side of the document, provided by the
-         * user; available only for "passport", "driver_license", "identity_card"
-         * and "internal_passport". The file can be decrypted and verified using
+         * Array of encrypted files with documents provided by the user; available only for
+         * "utility_bill", "bank_statement", "rental_agreement", "passport_registration"
+         * and "temporary_registration" types. Files can be decrypted and verified using
          * the accompanying EncryptedCredentials.
+         * @var PassportFile|null
+         */
+        public ?PassportFile $files,
+        /**
+         * Encrypted file with the front side of the document, provided by the user;
+         * available only for "passport", "driver_license", "identity_card" and
+         * "internal_passport". The file can be decrypted and verified using the
+         * accompanying EncryptedCredentials.
+         * @var PassportFile|null
          */
         public ?PassportFile $front_side,
         /**
-         * Encrypted file with the reverse side of the document, provided by the
-         * user; available only for "driver_license" and "identity_card". The
-         * file can be decrypted and verified using the accompanying
-         * EncryptedCredentials.
+         * Encrypted file with the reverse side of the document, provided by the user;
+         * available only for "driver_license" and "identity_card". The file can be
+         * decrypted and verified using the accompanying EncryptedCredentials.
+         * @var PassportFile|null
          */
         public ?PassportFile $reverse_side,
         /**
-         * Encrypted file with the selfie of the user holding a document,
-         * provided by the user; available if requested for "passport",
-         * "driver_license", "identity_card" and "internal_passport". The file
-         * can be decrypted and verified using the accompanying
-         * EncryptedCredentials.
+         * Encrypted file with the selfie of the user holding a document, provided by the
+         * user; available if requested for "passport", "driver_license", "identity_card"
+         * and "internal_passport". The file can be decrypted and verified using the
+         * accompanying EncryptedCredentials.
+         * @var PassportFile|null
          */
         public ?PassportFile $selfie,
         /**
-         * Array of encrypted files with translated versions of documents
-         * provided by the user; available if requested for "passport",
-         * "driver_license", "identity_card", "internal_passport",
-         * "utility_bill", "bank_statement", "rental_agreement",
-         * "passport_registration" and "temporary_registration" types. Files can
-         * be decrypted and verified using the accompanying EncryptedCredentials.
-         * @var array<PassportFile>
+         * Array of encrypted files with translated versions of documents provided by the
+         * user; available if requested for "passport", "driver_license", "identity_card",
+         * "internal_passport", "utility_bill", "bank_statement", "rental_agreement",
+         * "passport_registration" and "temporary_registration" types. Files can be
+         * decrypted and verified using the accompanying EncryptedCredentials.
+         * @var PassportFile|null
          */
-        public ?array $translation,
+        public ?PassportFile $translation,
         /**
-         * Base64-encoded element hash for using in
-         * PassportElementErrorUnspecified
+         * Base64-encoded element hash for using in PassportElementErrorUnspecified
+         * @var string
          */
         public string $hash,
     ) {

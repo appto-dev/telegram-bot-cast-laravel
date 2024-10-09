@@ -1,27 +1,21 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatMember
- *
  * This object contains information about one member of a chat. Currently, the
  * following 6 types of chat members are supported:
- *  - ChatMemberOwner
- *  -
- * ChatMemberAdministrator
- *  - ChatMemberMember
- *  - ChatMemberRestricted
- *  -
- * ChatMemberLeft
- *  - ChatMemberBanned
+ *  - <a href="#chatmemberowner">ChatMemberOwner</a>
+ *  - <a href="#chatmemberadministrator">ChatMemberAdministrator</a>
+ *  - <a href="#chatmembermember">ChatMemberMember</a>
+ *  - <a href="#chatmemberrestricted">ChatMemberRestricted</a>
+ *  - <a href="#chatmemberleft">ChatMemberLeft</a>
+ *  - <a href="#chatmemberbanned">ChatMemberBanned</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatMember extends Data implements TypeInterface
+final class ChatMember extends Data implements TelegramTypeContract
 {
 }

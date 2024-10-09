@@ -1,21 +1,17 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ReactionType
- *
  * This object describes the type of a reaction. Currently, it can be one of
- *  -
- * ReactionTypeEmoji
- *  - ReactionTypeCustomEmoji
+ *  - <a href="#reactiontypeemoji">ReactionTypeEmoji</a>
+ *  - <a href="#reactiontypecustomemoji">ReactionTypeCustomEmoji</a>
+ *  - <a href="#reactiontypepaid">ReactionTypePaid</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ReactionType extends Data implements TypeInterface
+final class ReactionType extends Data implements TelegramTypeContract
 {
 }

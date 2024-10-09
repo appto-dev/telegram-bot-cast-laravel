@@ -1,25 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ReactionCount
- *
  * Represents a reaction added to a message along with the number of times it was
  * added.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ReactionCount extends Data implements TypeInterface
+final class ReactionCount extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the reaction */
+        /**
+         * Type of the reaction
+         * @var ReactionType
+         */
         public ReactionType $type,
-        /** Number of times the reaction was added */
+        /**
+         * Number of times the reaction was added
+         * @var int
+         */
         public int $total_count,
     ) {
     }

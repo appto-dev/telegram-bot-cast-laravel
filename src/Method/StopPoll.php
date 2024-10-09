@@ -1,34 +1,40 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InlineKeyboardMarkup;
-use ApptoTeam\TelegramBotCastLaravel\Type\Poll;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Spatie\LaravelData\Data;
 
 /**
- * StopPoll
- *
  * Use this method to stop a poll which was sent by the bot. On success, the
- * stopped Poll is returned.
+ * stopped <a href="#poll">Poll</a> is returned.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class StopPoll extends Data implements MethodInterface
+final class StopPoll extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = Poll::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier of the business connection on behalf of which the message to
+         * be edited was sent
+         * @var string|null
+         */
+        public ?string $business_connection_id,
+        /**
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** Identifier of the original message with the poll */
+        /**
+         * Identifier of the original message with the poll
+         * @var int
+         */
         public int $message_id,
-        /** A JSON-serialized object for a new message inline keyboard. */
+        /**
+         * A JSON-serialized object for a new message inline keyboard.
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {
     }

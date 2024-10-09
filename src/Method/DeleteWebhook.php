@@ -1,26 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * DeleteWebhook
+ * Use this method to remove webhook integration if you decide to switch back to <a
+ * href="#getupdates">getUpdates</a>. Returns <em>True</em> on success.
  *
- * Use this method to remove webhook integration if you decide to switch back to
- * getUpdates. Returns True on success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class DeleteWebhook extends Data implements MethodInterface
+final class DeleteWebhook extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
-        /** Pass True to drop all pending updates */
+        /**
+         * Pass True to drop all pending updates
+         * @var bool|null
+         */
         public ?bool $drop_pending_updates,
     ) {
     }

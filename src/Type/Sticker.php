@@ -1,65 +1,96 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * Sticker
- *
  * This object represents a sticker.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class Sticker extends Data implements TypeInterface
+final class Sticker extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Identifier for this file, which can be used to download or reuse the
-         * file
+         * Identifier for this file, which can be used to download or reuse the file
+         * @var string
          */
         public string $file_id,
         /**
-         * Unique identifier for this file, which is supposed to be the same over
-         * time and for different bots. Can't be used to download or reuse the
-         * file.
+         * Unique identifier for this file, which is supposed to be the same over time and
+         * for different bots. Can't be used to download or reuse the file.
+         * @var string
          */
         public string $file_unique_id,
         /**
-         * Type of the sticker, currently one of "regular", "mask",
-         * "custom_emoji". The type of the sticker is independent from its
-         * format, which is determined by the fields is_animated and is_video.
+         * Type of the sticker, currently one of "regular", "mask", "custom_emoji". The
+         * type of the sticker is independent from its format, which is determined by the
+         * fields is_animated and is_video.
+         * @var string
          */
         public string $type,
-        /** Sticker width */
+        /**
+         * Sticker width
+         * @var int
+         */
         public int $width,
-        /** Sticker height */
+        /**
+         * Sticker height
+         * @var int
+         */
         public int $height,
-        /** True, if the sticker is animated */
+        /**
+         * True, if the sticker is animated
+         * @var bool
+         */
         public bool $is_animated,
-        /** True, if the sticker is a video sticker */
+        /**
+         * True, if the sticker is a video sticker
+         * @var bool
+         */
         public bool $is_video,
-        /** Sticker thumbnail in the .WEBP or .JPG format */
+        /**
+         * Sticker thumbnail in the .WEBP or .JPG format
+         * @var PhotoSize|null
+         */
         public ?PhotoSize $thumbnail,
-        /** Emoji associated with the sticker */
+        /**
+         * Emoji associated with the sticker
+         * @var string|null
+         */
         public ?string $emoji,
-        /** Name of the sticker set to which the sticker belongs */
+        /**
+         * Name of the sticker set to which the sticker belongs
+         * @var string|null
+         */
         public ?string $set_name,
-        /** For premium regular stickers, premium animation for the sticker */
+        /**
+         * For premium regular stickers, premium animation for the sticker
+         * @var File|null
+         */
         public ?File $premium_animation,
-        /** For mask stickers, the position where the mask should be placed */
+        /**
+         * For mask stickers, the position where the mask should be placed
+         * @var MaskPosition|null
+         */
         public ?MaskPosition $mask_position,
-        /** For custom emoji stickers, unique identifier of the custom emoji */
+        /**
+         * For custom emoji stickers, unique identifier of the custom emoji
+         * @var string|null
+         */
         public ?string $custom_emoji_id,
         /**
-         * True, if the sticker must be repainted to a text color in messages,
-         * the color of the Telegram Premium badge in emoji status, white color
-         * on chat photos, or another appropriate color in other places
+         * True, if the sticker must be repainted to a text color in messages, the color of
+         * the Telegram Premium badge in emoji status, white color on chat photos, or
+         * another appropriate color in other places
+         * @var true|null
          */
         public ?true $needs_repainting,
-        /** File size in bytes */
+        /**
+         * File size in bytes
+         * @var int|null
+         */
         public ?int $file_size,
     ) {
     }

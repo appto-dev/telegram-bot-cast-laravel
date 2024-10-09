@@ -1,22 +1,21 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MessageId
- *
  * This object represents a unique message identifier.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MessageId extends Data implements TypeInterface
+final class MessageId extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique message identifier */
+        /**
+         * Unique message identifier
+         * @var int
+         */
         public int $message_id,
     ) {
     }

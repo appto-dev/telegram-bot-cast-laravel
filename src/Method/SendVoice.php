@@ -1,86 +1,104 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ForceReply;
-use ApptoTeam\TelegramBotCastLaravel\Type\InlineKeyboardMarkup;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputFile;
-use ApptoTeam\TelegramBotCastLaravel\Type\Message;
-use ApptoTeam\TelegramBotCastLaravel\Type\MessageEntity;
-use ApptoTeam\TelegramBotCastLaravel\Type\ReplyKeyboardMarkup;
-use ApptoTeam\TelegramBotCastLaravel\Type\ReplyKeyboardRemove;
-use ApptoTeam\TelegramBotCastLaravel\Type\ReplyParameters;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\ForceReply;
+use Appto\TelegramBot\Type\InlineKeyboardMarkup;
+use Appto\TelegramBot\Type\InputFile;
+use Appto\TelegramBot\Type\MessageEntity;
+use Appto\TelegramBot\Type\ReplyKeyboardMarkup;
+use Appto\TelegramBot\Type\ReplyKeyboardRemove;
+use Appto\TelegramBot\Type\ReplyParameters;
 use Spatie\LaravelData\Data;
 
 /**
- * SendVoice
- *
  * Use this method to send audio files, if you want Telegram clients to display the
  * file as a playable voice message. For this to work, your audio must be in an
- * .OGG file encoded with OPUS (other formats may be sent as Audio or Document). On
- * success, the sent Message is returned. Bots can currently send voice messages of
- * up to 50 MB in size, this limit may be changed in the future.
+ * .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats
+ * may be sent as <a href="#audio">Audio</a> or <a href="#document">Document</a>).
+ * On success, the sent <a href="#message">Message</a> is returned. Bots can
+ * currently send voice messages of up to 50 MB in size, this limit may be changed
+ * in the future.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SendVoice extends Data implements MethodInterface
+final class SendVoice extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = Message::class;
-
     public function __construct(
         /**
-         * Unique identifier of the business connection on behalf of which the
-         * message will be sent
+         * Unique identifier of the business connection on behalf of which the message will
+         * be sent
+         * @var string|null
          */
         public ?string $business_connection_id,
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of the forum;
-         * for forum supergroups only
+         * Unique identifier for the target message thread (topic) of the forum; for forum
+         * supergroups only
+         * @var int|null
          */
         public ?int $message_thread_id,
         /**
-         * Audio file to send. Pass a file_id as String to send a file that
-         * exists on the Telegram servers (recommended), pass an HTTP URL as a
-         * String for Telegram to get a file from the Internet, or upload a new
-         * one using multipart/form-data. More information on Sending Files »
+         * Audio file to send. Pass a file_id as String to send a file that exists on the
+         * Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get
+         * a file from the Internet, or upload a new one using multipart/form-data. More
+         * information on Sending Files
+         * @var InputFile|string
          */
         public InputFile|string $voice,
-        /** Voice message caption, 0-1024 characters after entities parsing */
+        /**
+         * Voice message caption, 0-1024 characters after entities parsing
+         * @var string|null
+         */
         public ?string $caption,
         /**
-         * Mode for parsing entities in the voice message caption. See formatting
-         * options for more details.
+         * Mode for parsing entities in the voice message caption. See formatting options
+         * for more details.
+         * @var string|null
          */
         public ?string $parse_mode,
         /**
-         * A JSON-serialized list of special entities that appear in the caption,
-         * which can be specified instead of parse_mode
-         * @var array<MessageEntity>
+         * A JSON-serialized list of special entities that appear in the caption, which can
+         * be specified instead of parse_mode
+         * @var MessageEntity|null
          */
-        public ?array $caption_entities,
-        /** Duration of the voice message in seconds */
+        public ?MessageEntity $caption_entities,
+        /**
+         * Duration of the voice message in seconds
+         * @var int|null
+         */
         public ?int $duration,
         /**
-         * Sends the message silently. Users will receive a notification with no
-         * sound.
+         * Sends the message silently. Users will receive a notification with no sound.
+         * @var bool|null
          */
         public ?bool $disable_notification,
-        /** Protects the contents of the sent message from forwarding and saving */
+        /**
+         * Protects the contents of the sent message from forwarding and saving
+         * @var bool|null
+         */
         public ?bool $protect_content,
-        /** Description of the message to reply to */
+        /**
+         * Unique identifier of the message effect to be added to the message; for private
+         * chats only
+         * @var string|null
+         */
+        public ?string $message_effect_id,
+        /**
+         * Description of the message to reply to
+         * @var ReplyParameters|null
+         */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline
-         * keyboard, custom reply keyboard, instructions to remove a reply
-         * keyboard or to force a reply from the user. Not supported for messages
-         * sent on behalf of a business account
+         * Additional interface options. A JSON-serialized object for an inline keyboard,
+         * custom reply keyboard, instructions to remove a reply keyboard or to force a
+         * reply from the user
+         * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
     ) {

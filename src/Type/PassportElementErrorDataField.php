@@ -1,35 +1,44 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportElementErrorDataField
- *
  * Represents an issue in one of the data fields that was provided by the user. The
  * error is considered resolved when the field's value changes.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportElementErrorDataField extends Data implements TypeInterface
+final class PassportElementErrorDataField extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Error source, must be data */
+        /**
+         * Error source, must be data
+         * @var string
+         */
         public string $source,
         /**
-         * The section of the user's Telegram Passport which has the error, one
-         * of "personal_details", "passport", "driver_license", "identity_card",
+         * The section of the user's Telegram Passport which has the error, one of
+         * "personal_details", "passport", "driver_license", "identity_card",
          * "internal_passport", "address"
+         * @var string
          */
         public string $type,
-        /** Name of the data field which has the error */
+        /**
+         * Name of the data field which has the error
+         * @var string
+         */
         public string $field_name,
-        /** Base64-encoded data hash */
+        /**
+         * Base64-encoded data hash
+         * @var string
+         */
         public string $data_hash,
-        /** Error message */
+        /**
+         * Error message
+         * @var string
+         */
         public string $message,
     ) {
     }

@@ -1,26 +1,26 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ForumTopicEdited
- *
  * This object represents a service message about an edited forum topic.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ForumTopicEdited extends Data implements TypeInterface
+final class ForumTopicEdited extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** New name of the topic, if it was edited */
+        /**
+         * New name of the topic, if it was edited
+         * @var string|null
+         */
         public ?string $name,
         /**
-         * New identifier of the custom emoji shown as the topic icon, if it was
-         * edited; an empty string if the icon was removed
+         * New identifier of the custom emoji shown as the topic icon, if it was edited; an
+         * empty string if the icon was removed
+         * @var string|null
          */
         public ?string $icon_custom_emoji_id,
     ) {

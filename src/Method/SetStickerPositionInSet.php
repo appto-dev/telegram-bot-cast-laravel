@@ -1,28 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SetStickerPositionInSet
- *
  * Use this method to move a sticker in a set created by the bot to a specific
- * position. Returns True on success.
+ * position. Returns <em>True</em> on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetStickerPositionInSet extends Data implements MethodInterface
+final class SetStickerPositionInSet extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
-        /** File identifier of the sticker */
+        /**
+         * File identifier of the sticker
+         * @var string
+         */
         public string $sticker,
-        /** New sticker position in the set, zero-based */
+        /**
+         * New sticker position in the set, zero-based
+         * @var int
+         */
         public int $position,
     ) {
     }

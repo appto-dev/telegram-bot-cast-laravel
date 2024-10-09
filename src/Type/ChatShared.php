@@ -1,47 +1,48 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatShared
- *
  * This object contains information about a chat that was shared with the bot using
- * a KeyboardButtonRequestChat button.
+ * a <a href="#keyboardbuttonrequestchat">KeyboardButtonRequestChat</a> button.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatShared extends Data implements TypeInterface
+final class ChatShared extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Identifier of the request */
+        /**
+         * Identifier of the request
+         * @var int
+         */
         public int $request_id,
         /**
-         * Identifier of the shared chat. This number may have more than 32
-         * significant bits and some programming languages may have
-         * difficulty/silent defects in interpreting it. But it has at most 52
-         * significant bits, so a 64-bit integer or double-precision float type
-         * are safe for storing this identifier. The bot may not have access to
-         * the chat and could be unable to use this identifier, unless the chat
-         * is already known to the bot by some other means.
+         * Identifier of the shared chat. This number may have more than 32 significant
+         * bits and some programming languages may have difficulty/silent defects in
+         * interpreting it. But it has at most 52 significant bits, so a 64-bit integer or
+         * double-precision float type are safe for storing this identifier. The bot may
+         * not have access to the chat and could be unable to use this identifier, unless
+         * the chat is already known to the bot by some other means.
+         * @var int
          */
         public int $chat_id,
-        /** Title of the chat, if the title was requested by the bot. */
+        /**
+         * Title of the chat, if the title was requested by the bot.
+         * @var string|null
+         */
         public ?string $title,
         /**
-         * Username of the chat, if the username was requested by the bot and
-         * available.
+         * Username of the chat, if the username was requested by the bot and available.
+         * @var string|null
          */
         public ?string $username,
         /**
-         * Available sizes of the chat photo, if the photo was requested by the
-         * bot
-         * @var array<PhotoSize>
+         * Available sizes of the chat photo, if the photo was requested by the bot
+         * @var PhotoSize|null
          */
-        public ?array $photo,
+        public ?PhotoSize $photo,
     ) {
     }
 }

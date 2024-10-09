@@ -1,36 +1,46 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatBoostSourceGiveaway
+ * The boost was obtained by the creation of a Telegram Premium or a Telegram Star
+ * giveaway. This boosts the chat 4 times for the duration of the corresponding
+ * Telegram Premium subscription for Telegram Premium giveaways and
+ * <em>prize_star_count</em> / 500 times for one year for Telegram Star giveaways.
  *
- * The boost was obtained by the creation of a Telegram Premium giveaway. This
- * boosts the chat 4 times for the duration of the corresponding Telegram Premium
- * subscription.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatBoostSourceGiveaway extends Data implements TypeInterface
+final class ChatBoostSourceGiveaway extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Source of the boost, always "giveaway" */
+        /**
+         * Source of the boost, always "giveaway"
+         * @var string
+         */
         public string $source,
         /**
-         * Identifier of a message in the chat with the giveaway; the message
-         * could have been deleted already. May be 0 if the message isn't sent
-         * yet.
+         * Identifier of a message in the chat with the giveaway; the message could have
+         * been deleted already. May be 0 if the message isn't sent yet.
+         * @var int
          */
         public int $giveaway_message_id,
-        /** User that won the prize in the giveaway if any */
+        /**
+         * User that won the prize in the giveaway if any; for Telegram Premium giveaways
+         * only
+         * @var User|null
+         */
         public ?User $user,
         /**
-         * True, if the giveaway was completed, but there was no user to win the
-         * prize
+         * The number of Telegram Stars to be split between giveaway winners; for Telegram
+         * Star giveaways only
+         * @var int|null
+         */
+        public ?int $prize_star_count,
+        /**
+         * True, if the giveaway was completed, but there was no user to win the prize
+         * @var true|null
          */
         public ?true $is_unclaimed,
     ) {

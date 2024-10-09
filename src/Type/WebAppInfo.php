@@ -1,24 +1,21 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * WebAppInfo
+ * Describes a <a href="/bots/webapps">Web App</a>.
  *
- * Describes a Web App.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class WebAppInfo extends Data implements TypeInterface
+final class WebAppInfo extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * An HTTPS URL of a Web App to be opened with additional data as
-         * specified in Initializing Web Apps
+         * An HTTPS URL of a Web App to be opened with additional data as specified in
+         * Initializing Web Apps
+         * @var string
          */
         public string $url,
     ) {

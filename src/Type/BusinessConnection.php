@@ -1,42 +1,51 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BusinessConnection
- *
  * Describes the connection of the bot with a business account.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BusinessConnection extends Data implements TypeInterface
+final class BusinessConnection extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique identifier of the business connection */
+        /**
+         * Unique identifier of the business connection
+         * @var string
+         */
         public string $id,
-        /** Business account user that created the business connection */
+        /**
+         * Business account user that created the business connection
+         * @var User
+         */
         public User $user,
         /**
-         * Identifier of a private chat with the user who created the business
-         * connection. This number may have more than 32 significant bits and
-         * some programming languages may have difficulty/silent defects in
-         * interpreting it. But it has at most 52 significant bits, so a 64-bit
-         * integer or double-precision float type are safe for storing this
-         * identifier.
+         * Identifier of a private chat with the user who created the business connection.
+         * This number may have more than 32 significant bits and some programming
+         * languages may have difficulty/silent defects in interpreting it. But it has at
+         * most 52 significant bits, so a 64-bit integer or double-precision float type are
+         * safe for storing this identifier.
+         * @var int
          */
         public int $user_chat_id,
-        /** Date the connection was established in Unix time */
+        /**
+         * Date the connection was established in Unix time
+         * @var int
+         */
         public int $date,
         /**
-         * True, if the bot can act on behalf of the business account in chats
-         * that were active in the last 24 hours
+         * True, if the bot can act on behalf of the business account in chats that were
+         * active in the last 24 hours
+         * @var bool
          */
         public bool $can_reply,
-        /** True, if the connection is active */
+        /**
+         * True, if the connection is active
+         * @var bool
+         */
         public bool $is_enabled,
     ) {
     }

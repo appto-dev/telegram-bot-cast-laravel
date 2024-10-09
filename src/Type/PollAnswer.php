@@ -1,39 +1,38 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PollAnswer
- *
  * This object represents an answer of a user in a non-anonymous poll.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PollAnswer extends Data implements TypeInterface
+final class PollAnswer extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique poll identifier */
+        /**
+         * Unique poll identifier
+         * @var string
+         */
         public string $poll_id,
         /**
-         * The chat that changed the answer to the poll, if the voter is
-         * anonymous
+         * The chat that changed the answer to the poll, if the voter is anonymous
+         * @var Chat|null
          */
         public ?Chat $voter_chat,
         /**
-         * The user that changed the answer to the poll, if the voter isn't
-         * anonymous
+         * The user that changed the answer to the poll, if the voter isn't anonymous
+         * @var User|null
          */
         public ?User $user,
         /**
-         * 0-based identifiers of chosen answer options. May be empty if the vote
-         * was retracted.
-         * @var array<int>
+         * 0-based identifiers of chosen answer options. May be empty if the vote was
+         * retracted.
+         * @var int
          */
-        public array $option_ids,
+        public int $option_ids,
     ) {
     }
 }

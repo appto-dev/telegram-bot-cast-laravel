@@ -1,65 +1,89 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatPermissions
- *
  * Describes actions that a non-administrator user is allowed to take in a chat.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatPermissions extends Data implements TypeInterface
+final class ChatPermissions extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * True, if the user is allowed to send text messages, contacts,
-         * giveaways, giveaway winners, invoices, locations and venues
+         * True, if the user is allowed to send text messages, contacts, giveaways,
+         * giveaway winners, invoices, locations and venues
+         * @var bool|null
          */
         public ?bool $can_send_messages,
-        /** True, if the user is allowed to send audios */
+        /**
+         * True, if the user is allowed to send audios
+         * @var bool|null
+         */
         public ?bool $can_send_audios,
-        /** True, if the user is allowed to send documents */
+        /**
+         * True, if the user is allowed to send documents
+         * @var bool|null
+         */
         public ?bool $can_send_documents,
-        /** True, if the user is allowed to send photos */
+        /**
+         * True, if the user is allowed to send photos
+         * @var bool|null
+         */
         public ?bool $can_send_photos,
-        /** True, if the user is allowed to send videos */
+        /**
+         * True, if the user is allowed to send videos
+         * @var bool|null
+         */
         public ?bool $can_send_videos,
-        /** True, if the user is allowed to send video notes */
+        /**
+         * True, if the user is allowed to send video notes
+         * @var bool|null
+         */
         public ?bool $can_send_video_notes,
-        /** True, if the user is allowed to send voice notes */
+        /**
+         * True, if the user is allowed to send voice notes
+         * @var bool|null
+         */
         public ?bool $can_send_voice_notes,
-        /** True, if the user is allowed to send polls */
+        /**
+         * True, if the user is allowed to send polls
+         * @var bool|null
+         */
         public ?bool $can_send_polls,
         /**
-         * True, if the user is allowed to send animations, games, stickers and
-         * use inline bots
+         * True, if the user is allowed to send animations, games, stickers and use inline
+         * bots
+         * @var bool|null
          */
         public ?bool $can_send_other_messages,
         /**
-         * True, if the user is allowed to add web page previews to their
-         * messages
+         * True, if the user is allowed to add web page previews to their messages
+         * @var bool|null
          */
         public ?bool $can_add_web_page_previews,
         /**
-         * True, if the user is allowed to change the chat title, photo and other
-         * settings. Ignored in public supergroups
+         * True, if the user is allowed to change the chat title, photo and other settings.
+         * Ignored in public supergroups
+         * @var bool|null
          */
         public ?bool $can_change_info,
-        /** True, if the user is allowed to invite new users to the chat */
+        /**
+         * True, if the user is allowed to invite new users to the chat
+         * @var bool|null
+         */
         public ?bool $can_invite_users,
         /**
-         * True, if the user is allowed to pin messages. Ignored in public
-         * supergroups
+         * True, if the user is allowed to pin messages. Ignored in public supergroups
+         * @var bool|null
          */
         public ?bool $can_pin_messages,
         /**
-         * True, if the user is allowed to create forum topics. If omitted
-         * defaults to the value of can_pin_messages
+         * True, if the user is allowed to create forum topics. If omitted defaults to the
+         * value of can_pin_messages
+         * @var bool|null
          */
         public ?bool $can_manage_topics,
     ) {

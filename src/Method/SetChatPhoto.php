@@ -1,33 +1,31 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputFile;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InputFile;
 use Spatie\LaravelData\Data;
 
 /**
- * SetChatPhoto
- *
  * Use this method to set a new profile photo for the chat. Photos can't be changed
  * for private chats. The bot must be an administrator in the chat for this to work
- * and must have the appropriate administrator rights. Returns True on success.
+ * and must have the appropriate administrator rights. Returns <em>True</em> on
+ * success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetChatPhoto extends Data implements MethodInterface
+final class SetChatPhoto extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** New chat photo, uploaded using multipart/form-data */
+        /**
+         * New chat photo, uploaded using multipart/form-data
+         * @var InputFile
+         */
         public InputFile $photo,
     ) {
     }

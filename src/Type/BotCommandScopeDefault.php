@@ -1,23 +1,24 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BotCommandScopeDefault
+ * Represents the default <a href="#botcommandscope">scope</a> of bot commands.
+ * Default commands are used if no commands with a <a
+ * href="#determining-list-of-commands">narrower scope</a> are specified for the
+ * user.
  *
- * Represents the default scope of bot commands. Default commands are used if no
- * commands with a narrower scope are specified for the user.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BotCommandScopeDefault extends Data implements TypeInterface
+final class BotCommandScopeDefault extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Scope type, must be default */
+        /**
+         * Scope type, must be default
+         * @var string
+         */
         public string $type,
     ) {
     }

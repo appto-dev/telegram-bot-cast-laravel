@@ -1,47 +1,50 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * Game
- *
  * This object represents a game. Use BotFather to create and edit games, their
  * short names will act as unique identifiers.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class Game extends Data implements TypeInterface
+final class Game extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Title of the game */
+        /**
+         * Title of the game
+         * @var string
+         */
         public string $title,
-        /** Description of the game */
+        /**
+         * Description of the game
+         * @var string
+         */
         public string $description,
         /**
          * Photo that will be displayed in the game message in chats.
-         * @var array<PhotoSize>
+         * @var PhotoSize
          */
-        public array $photo,
+        public PhotoSize $photo,
         /**
-         * Brief description of the game or high scores included in the game
-         * message. Can be automatically edited to include current high scores
-         * for the game when the bot calls setGameScore, or manually edited using
-         * editMessageText. 0-4096 characters.
+         * Brief description of the game or high scores included in the game message. Can
+         * be automatically edited to include current high scores for the game when the bot
+         * calls setGameScore, or manually edited using editMessageText. 0-4096 characters.
+         * @var string|null
          */
         public ?string $text,
         /**
-         * Special entities that appear in text, such as usernames, URLs, bot
-         * commands, etc.
-         * @var array<MessageEntity>
+         * Special entities that appear in text, such as usernames, URLs, bot commands,
+         * etc.
+         * @var MessageEntity|null
          */
-        public ?array $text_entities,
+        public ?MessageEntity $text_entities,
         /**
-         * Animation that will be displayed in the game message in chats. Upload
-         * via BotFather
+         * Animation that will be displayed in the game message in chats. Upload via
+         * BotFather
+         * @var Animation|null
          */
         public ?Animation $animation,
     ) {

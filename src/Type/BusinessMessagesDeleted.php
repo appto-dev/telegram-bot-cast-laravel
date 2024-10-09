@@ -1,35 +1,34 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BusinessMessagesDeleted
- *
  * This object is received when messages are deleted from a connected business
  * account.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BusinessMessagesDeleted extends Data implements TypeInterface
+final class BusinessMessagesDeleted extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique identifier of the business connection */
+        /**
+         * Unique identifier of the business connection
+         * @var string
+         */
         public string $business_connection_id,
         /**
-         * Information about a chat in the business account. The bot may not have
-         * access to the chat or the corresponding user.
+         * Information about a chat in the business account. The bot may not have access to
+         * the chat or the corresponding user.
+         * @var Chat
          */
         public Chat $chat,
         /**
-         * A JSON-serialized list of identifiers of deleted messages in the chat
-         * of the business account
-         * @var array<int>
+         * The list of identifiers of deleted messages in the chat of the business account
+         * @var int
          */
-        public array $message_ids,
+        public int $message_ids,
     ) {
     }
 }

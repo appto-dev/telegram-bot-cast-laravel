@@ -1,19 +1,24 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GiveawayCreated
- *
  * This object represents a service message about the creation of a scheduled
- * giveaway. Currently holds no information.
+ * giveaway.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GiveawayCreated extends Data implements TypeInterface
+final class GiveawayCreated extends Data implements TelegramTypeContract
 {
+    public function __construct(
+        /**
+         * The number of Telegram Stars to be split between giveaway winners; for Telegram
+         * Star giveaways only
+         * @var int|null
+         */
+        public ?int $prize_star_count,
+    ) {
+    }
 }

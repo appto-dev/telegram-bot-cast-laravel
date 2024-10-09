@@ -1,36 +1,44 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * Contact
- *
  * This object represents a phone contact.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class Contact extends Data implements TypeInterface
+final class Contact extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Contact's phone number */
+        /**
+         * Contact's phone number
+         * @var string
+         */
         public string $phone_number,
-        /** Contact's first name */
+        /**
+         * Contact's first name
+         * @var string
+         */
         public string $first_name,
-        /** Contact's last name */
+        /**
+         * Contact's last name
+         * @var string|null
+         */
         public ?string $last_name,
         /**
-         * Contact's user identifier in Telegram. This number may have more than
-         * 32 significant bits and some programming languages may have
-         * difficulty/silent defects in interpreting it. But it has at most 52
-         * significant bits, so a 64-bit integer or double-precision float type
-         * are safe for storing this identifier.
+         * Contact's user identifier in Telegram. This number may have more than 32
+         * significant bits and some programming languages may have difficulty/silent
+         * defects in interpreting it. But it has at most 52 significant bits, so a 64-bit
+         * integer or double-precision float type are safe for storing this identifier.
+         * @var int|null
          */
         public ?int $user_id,
-        /** Additional data about the contact in the form of a vCard */
+        /**
+         * Additional data about the contact in the form of a vCard
+         * @var string|null
+         */
         public ?string $vcard,
     ) {
     }

@@ -5,7 +5,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ApptoTeam\\TelegramBotCastLaravel\\": "src/"
+            "\\Appto\\TelegramBot\\": "src/"
         }
     },
     "authors": [
@@ -13,5 +13,8 @@
             "name": "Makhlenko Sergey",
             "email": "mahlenko-weblive@yandex.ru"
         }
-    ]
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^7.1"
+    }
 }

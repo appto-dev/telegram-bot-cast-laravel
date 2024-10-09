@@ -1,32 +1,30 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SetChatTitle
- *
  * Use this method to change the title of a chat. Titles can't be changed for
  * private chats. The bot must be an administrator in the chat for this to work and
- * must have the appropriate administrator rights. Returns True on success.
+ * must have the appropriate administrator rights. Returns <em>True</em> on
+ * success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetChatTitle extends Data implements MethodInterface
+final class SetChatTitle extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** New chat title, 1-128 characters */
+        /**
+         * New chat title, 1-128 characters
+         * @var string
+         */
         public string $title,
     ) {
     }

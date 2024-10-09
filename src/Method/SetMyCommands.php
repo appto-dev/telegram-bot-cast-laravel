@@ -1,42 +1,37 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\BotCommand;
-use ApptoTeam\TelegramBotCastLaravel\Type\BotCommandScope;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\BotCommand;
+use Appto\TelegramBot\Type\BotCommandScope;
 use Spatie\LaravelData\Data;
 
 /**
- * SetMyCommands
+ * Use this method to change the list of the bot's commands. See <a
+ * href="/bots/features#commands">this manual</a> for more details about bot
+ * commands. Returns <em>True</em> on success.
  *
- * Use this method to change the list of the bot's commands. See this manual for
- * more details about bot commands. Returns True on success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetMyCommands extends Data implements MethodInterface
+final class SetMyCommands extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * A JSON-serialized list of bot commands to be set as the list of the
-         * bot's commands. At most 100 commands can be specified.
-         * @var array<BotCommand>
+         * A JSON-serialized list of bot commands to be set as the list of the bot's
+         * commands. At most 100 commands can be specified.
+         * @var BotCommand
          */
-        public array $commands,
+        public BotCommand $commands,
         /**
-         * A JSON-serialized object, describing scope of users for which the
-         * commands are relevant. Defaults to BotCommandScopeDefault.
+         * A JSON-serialized object, describing scope of users for which the commands are
+         * relevant. Defaults to BotCommandScopeDefault.
+         * @var BotCommandScope|null
          */
         public ?BotCommandScope $scope,
         /**
-         * A two-letter ISO 639-1 language code. If empty, commands will be
-         * applied to all users from the given scope, for whose language there
-         * are no dedicated commands
+         * A two-letter ISO 639-1 language code. If empty, commands will be applied to all
+         * users from the given scope, for whose language there are no dedicated commands
+         * @var string|null
          */
         public ?string $language_code,
     ) {

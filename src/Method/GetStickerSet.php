@@ -1,26 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\StickerSet;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetStickerSet
+ * Use this method to get a sticker set. On success, a <a
+ * href="#stickerset">StickerSet</a> object is returned.
  *
- * Use this method to get a sticker set. On success, a StickerSet object is
- * returned.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetStickerSet extends Data implements MethodInterface
+final class GetStickerSet extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = StickerSet::class;
-
     public function __construct(
-        /** Name of the sticker set */
+        /**
+         * Name of the sticker set
+         * @var string
+         */
         public string $name,
     ) {
     }

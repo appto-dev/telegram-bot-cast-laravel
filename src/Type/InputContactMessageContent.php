@@ -1,29 +1,37 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InputContactMessageContent
+ * Represents the <a href="#inputmessagecontent">content</a> of a contact message
+ * to be sent as the result of an inline query.
  *
- * Represents the content of a contact message to be sent as the result of an
- * inline query.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InputContactMessageContent extends Data implements TypeInterface
+final class InputContactMessageContent extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Contact's phone number */
+        /**
+         * Contact's phone number
+         * @var string
+         */
         public string $phone_number,
-        /** Contact's first name */
+        /**
+         * Contact's first name
+         * @var string
+         */
         public string $first_name,
-        /** Contact's last name */
+        /**
+         * Contact's last name
+         * @var string|null
+         */
         public ?string $last_name,
-        /** Additional data about the contact in the form of a vCard, 0-2048 bytes */
+        /**
+         * Additional data about the contact in the form of a vCard, 0-2048 bytes
+         * @var string|null
+         */
         public ?string $vcard,
     ) {
     }

@@ -1,29 +1,29 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * UsersShared
- *
  * This object contains information about the users whose identifiers were shared
- * with the bot using a KeyboardButtonRequestUsers button.
+ * with the bot using a <a
+ * href="#keyboardbuttonrequestusers">KeyboardButtonRequestUsers</a> button.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class UsersShared extends Data implements TypeInterface
+final class UsersShared extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Identifier of the request */
+        /**
+         * Identifier of the request
+         * @var int
+         */
         public int $request_id,
         /**
          * Information about users shared with the bot.
-         * @var array<SharedUser>
+         * @var SharedUser
          */
-        public array $users,
+        public SharedUser $users,
     ) {
     }
 }

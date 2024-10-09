@@ -1,37 +1,40 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportElementErrorTranslationFiles
- *
  * Represents an issue with the translated version of a document. The error is
  * considered resolved when a file with the document translation change.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportElementErrorTranslationFiles extends Data implements TypeInterface
+final class PassportElementErrorTranslationFiles extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Error source, must be translation_files */
+        /**
+         * Error source, must be translation_files
+         * @var string
+         */
         public string $source,
         /**
-         * Type of element of the user's Telegram Passport which has the issue,
-         * one of "passport", "driver_license", "identity_card",
-         * "internal_passport", "utility_bill", "bank_statement",
-         * "rental_agreement", "passport_registration", "temporary_registration"
+         * Type of element of the user's Telegram Passport which has the issue, one of
+         * "passport", "driver_license", "identity_card", "internal_passport",
+         * "utility_bill", "bank_statement", "rental_agreement", "passport_registration",
+         * "temporary_registration"
+         * @var string
          */
         public string $type,
         /**
          * List of base64-encoded file hashes
-         * @var array<string>
+         * @var string
          */
-        public array $file_hashes,
-        /** Error message */
+        public string $file_hashes,
+        /**
+         * Error message
+         * @var string
+         */
         public string $message,
     ) {
     }

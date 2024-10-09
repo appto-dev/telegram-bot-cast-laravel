@@ -1,54 +1,60 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * CallbackQuery
- *
  * This object represents an incoming callback query from a callback button in an
- * inline keyboard. If the button that originated the query was attached to a
- * message sent by the bot, the field message will be present. If the button was
- * attached to a message sent via the bot (in inline mode), the field
- * inline_message_id will be present. Exactly one of the fields data or
- * game_short_name will be present.
+ * <a href="/bots/features#inline-keyboards">inline keyboard</a>. If the button
+ * that originated the query was attached to a message sent by the bot, the field
+ * <em>message</em> will be present. If the button was attached to a message sent
+ * via the bot (in <a href="#inline-mode">inline mode</a>), the field
+ * <em>inline_message_id</em> will be present. Exactly one of the fields
+ * <em>data</em> or <em>game_short_name</em> will be present.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class CallbackQuery extends Data implements TypeInterface
+final class CallbackQuery extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique identifier for this query */
+        /**
+         * Unique identifier for this query
+         * @var string
+         */
         public string $id,
-        /** Sender */
+        /**
+         * Sender
+         * @var User
+         */
         public User $from,
         /**
-         * Message sent by the bot with the callback button that originated the
-         * query
+         * Message sent by the bot with the callback button that originated the query
+         * @var MaybeInaccessibleMessage|null
          */
         public ?MaybeInaccessibleMessage $message,
         /**
-         * Identifier of the message sent via the bot in inline mode, that
-         * originated the query.
+         * Identifier of the message sent via the bot in inline mode, that originated the
+         * query.
+         * @var string|null
          */
         public ?string $inline_message_id,
         /**
-         * Global identifier, uniquely corresponding to the chat to which the
-         * message with the callback button was sent. Useful for high scores in
-         * games.
+         * Global identifier, uniquely corresponding to the chat to which the message with
+         * the callback button was sent. Useful for high scores in games.
+         * @var string
          */
         public string $chat_instance,
         /**
-         * Data associated with the callback button. Be aware that the message
-         * originated the query can contain no callback buttons with this data.
+         * Data associated with the callback button. Be aware that the message originated
+         * the query can contain no callback buttons with this data.
+         * @var string|null
          */
         public ?string $data,
         /**
-         * Short name of a Game to be returned, serves as the unique identifier
-         * for the game
+         * Short name of a Game to be returned, serves as the unique identifier for the
+         * game
+         * @var string|null
          */
         public ?string $game_short_name,
     ) {

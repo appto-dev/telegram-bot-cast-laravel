@@ -1,26 +1,31 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MessageOriginUser
- *
  * The message was originally sent by a known user.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MessageOriginUser extends Data implements TypeInterface
+final class MessageOriginUser extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the message origin, always "user" */
+        /**
+         * Type of the message origin, always "user"
+         * @var string
+         */
         public string $type,
-        /** Date the message was sent originally in Unix time */
+        /**
+         * Date the message was sent originally in Unix time
+         * @var int
+         */
         public int $date,
-        /** User that sent the message originally */
+        /**
+         * User that sent the message originally
+         * @var User
+         */
         public User $sender_user,
     ) {
     }

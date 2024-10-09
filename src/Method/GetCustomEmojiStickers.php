@@ -1,31 +1,24 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\Sticker;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetCustomEmojiStickers
- *
  * Use this method to get information about custom emoji stickers by their
- * identifiers. Returns an Array of Sticker objects.
+ * identifiers. Returns an Array of <a href="#sticker">Sticker</a> objects.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetCustomEmojiStickers extends Data implements MethodInterface
+final class GetCustomEmojiStickers extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = [Sticker::class];
-
     public function __construct(
         /**
-         * A JSON-serialized list of custom emoji identifiers. At most 200 custom
-         * emoji identifiers can be specified.
-         * @var array<string>
+         * A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji
+         * identifiers can be specified.
+         * @var string
          */
-        public array $custom_emoji_ids,
+        public string $custom_emoji_ids,
     ) {
     }
 }

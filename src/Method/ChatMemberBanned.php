@@ -1,33 +1,33 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ChatMember;
-use ApptoTeam\TelegramBotCastLaravel\Type\User;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\User;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatMemberBanned
+ * Represents a <a href="#chatmember">chat member</a> that was banned in the chat
+ * and can't return to the chat or view chat messages.
  *
- * Represents a chat member that was banned in the chat and can't return to the
- * chat or view chat messages.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatMemberBanned extends Data implements MethodInterface
+final class ChatMemberBanned extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ChatMember::class;
-
     public function __construct(
-        /** The member's status in the chat, always "kicked" */
+        /**
+         * The member's status in the chat, always "kicked"
+         * @var string
+         */
         public string $status,
-        /** Information about the user */
+        /**
+         * Information about the user
+         * @var User
+         */
         public User $user,
         /**
-         * Date when restrictions will be lifted for this user; Unix time. If 0,
-         * then the user is banned forever
+         * Date when restrictions will be lifted for this user; Unix time. If 0, then the
+         * user is banned forever
+         * @var int
          */
         public int $until_date,
     ) {

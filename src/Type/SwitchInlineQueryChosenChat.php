@@ -1,34 +1,43 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SwitchInlineQueryChosenChat
- *
  * This object represents an inline button that switches the current user to inline
  * mode in a chosen chat, with an optional default inline query.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SwitchInlineQueryChosenChat extends Data implements TypeInterface
+final class SwitchInlineQueryChosenChat extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * The default inline query to be inserted in the input field. If left
-         * empty, only the bot's username will be inserted
+         * The default inline query to be inserted in the input field. If left empty, only
+         * the bot's username will be inserted
+         * @var string|null
          */
         public ?string $query,
-        /** True, if private chats with users can be chosen */
+        /**
+         * True, if private chats with users can be chosen
+         * @var bool|null
+         */
         public ?bool $allow_user_chats,
-        /** True, if private chats with bots can be chosen */
+        /**
+         * True, if private chats with bots can be chosen
+         * @var bool|null
+         */
         public ?bool $allow_bot_chats,
-        /** True, if group and supergroup chats can be chosen */
+        /**
+         * True, if group and supergroup chats can be chosen
+         * @var bool|null
+         */
         public ?bool $allow_group_chats,
-        /** True, if channel chats can be chosen */
+        /**
+         * True, if channel chats can be chosen
+         * @var bool|null
+         */
         public ?bool $allow_channel_chats,
     ) {
     }

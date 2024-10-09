@@ -1,39 +1,43 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PinChatMessage
- *
  * Use this method to add a message to the list of pinned messages in a chat. If
  * the chat is not a private chat, the bot must be an administrator in the chat for
  * this to work and must have the 'can_pin_messages' administrator right in a
- * supergroup or 'can_edit_messages' administrator right in a channel. Returns True
- * on success.
+ * supergroup or 'can_edit_messages' administrator right in a channel. Returns
+ * <em>True</em> on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PinChatMessage extends Data implements MethodInterface
+final class PinChatMessage extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier of the business connection on behalf of which the message will
+         * be pinned
+         * @var string|null
+         */
+        public ?string $business_connection_id,
+        /**
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** Identifier of a message to pin */
+        /**
+         * Identifier of a message to pin
+         * @var int
+         */
         public int $message_id,
         /**
-         * Pass True if it is not necessary to send a notification to all chat
-         * members about the new pinned message. Notifications are always
-         * disabled in channels and private chats.
+         * Pass True if it is not necessary to send a notification to all chat members
+         * about the new pinned message. Notifications are always disabled in channels and
+         * private chats.
+         * @var bool|null
          */
         public ?bool $disable_notification,
     ) {

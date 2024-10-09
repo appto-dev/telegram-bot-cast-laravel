@@ -1,44 +1,49 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InlineKeyboardMarkup;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Spatie\LaravelData\Data;
 
 /**
- * StopMessageLiveLocation
+ * Use this method to stop updating a live location message before
+ * <em>live_period</em> expires. On success, if the message is not an inline
+ * message, the edited <a href="#message">Message</a> is returned, otherwise
+ * <em>True</em> is returned.
  *
- * Use this method to stop updating a live location message before live_period
- * expires. On success, if the message is not an inline message, the edited Message
- * is returned, otherwise True is returned.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class StopMessageLiveLocation extends Data implements MethodInterface
+final class StopMessageLiveLocation extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Required if inline_message_id is not specified. Unique identifier for
-         * the target chat or username of the target channel (in the format
-         * @channelusername)
+         * Unique identifier of the business connection on behalf of which the message to
+         * be edited was sent
+         * @var string|null
+         */
+        public ?string $business_connection_id,
+        /**
+         * Required if inline_message_id is not specified. Unique identifier for the target
+         * chat or username of the target channel (in the format @channelusername)
+         * @var int|string|null
          */
         public int|string|null $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the
-         * message with live location to stop
+         * Required if inline_message_id is not specified. Identifier of the message with
+         * live location to stop
+         * @var int|null
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of
-         * the inline message
+         * Required if chat_id and message_id are not specified. Identifier of the inline
+         * message
+         * @var string|null
          */
         public ?string $inline_message_id,
-        /** A JSON-serialized object for a new inline keyboard. */
+        /**
+         * A JSON-serialized object for a new inline keyboard.
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {
     }

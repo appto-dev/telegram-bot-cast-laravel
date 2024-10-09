@@ -1,32 +1,38 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportElementErrorSelfie
- *
  * Represents an issue with the selfie with a document. The error is considered
  * resolved when the file with the selfie changes.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportElementErrorSelfie extends Data implements TypeInterface
+final class PassportElementErrorSelfie extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Error source, must be selfie */
+        /**
+         * Error source, must be selfie
+         * @var string
+         */
         public string $source,
         /**
-         * The section of the user's Telegram Passport which has the issue, one
-         * of "passport", "driver_license", "identity_card", "internal_passport"
+         * The section of the user's Telegram Passport which has the issue, one of
+         * "passport", "driver_license", "identity_card", "internal_passport"
+         * @var string
          */
         public string $type,
-        /** Base64-encoded hash of the file with the selfie */
+        /**
+         * Base64-encoded hash of the file with the selfie
+         * @var string
+         */
         public string $file_hash,
-        /** Error message */
+        /**
+         * Error message
+         * @var string
+         */
         public string $message,
     ) {
     }

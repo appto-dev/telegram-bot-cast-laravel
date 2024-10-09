@@ -1,38 +1,52 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * Venue
- *
  * This object represents a venue.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class Venue extends Data implements TypeInterface
+final class Venue extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Venue location. Can't be a live location */
+        /**
+         * Venue location. Can't be a live location
+         * @var Location
+         */
         public Location $location,
-        /** Name of the venue */
+        /**
+         * Name of the venue
+         * @var string
+         */
         public string $title,
-        /** Address of the venue */
+        /**
+         * Address of the venue
+         * @var string
+         */
         public string $address,
-        /** Foursquare identifier of the venue */
+        /**
+         * Foursquare identifier of the venue
+         * @var string|null
+         */
         public ?string $foursquare_id,
         /**
-         * Foursquare type of the venue. (For example,
-         * "arts_entertainment/default", "arts_entertainment/aquarium" or
-         * "food/icecream".)
+         * Foursquare type of the venue. (For example, "arts_entertainment/default",
+         * "arts_entertainment/aquarium" or "food/icecream".)
+         * @var string|null
          */
         public ?string $foursquare_type,
-        /** Google Places identifier of the venue */
+        /**
+         * Google Places identifier of the venue
+         * @var string|null
+         */
         public ?string $google_place_id,
-        /** Google Places type of the venue. (See supported types.) */
+        /**
+         * Google Places type of the venue. (See supported types.)
+         * @var string|null
+         */
         public ?string $google_place_type,
     ) {
     }

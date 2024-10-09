@@ -1,36 +1,41 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * StickerSet
- *
  * This object represents a sticker set.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class StickerSet extends Data implements TypeInterface
+final class StickerSet extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Sticker set name */
+        /**
+         * Sticker set name
+         * @var string
+         */
         public string $name,
-        /** Sticker set title */
+        /**
+         * Sticker set title
+         * @var string
+         */
         public string $title,
         /**
-         * Type of stickers in the set, currently one of "regular", "mask",
-         * "custom_emoji"
+         * Type of stickers in the set, currently one of "regular", "mask", "custom_emoji"
+         * @var string
          */
         public string $sticker_type,
         /**
          * List of all set stickers
-         * @var array<Sticker>
+         * @var Sticker
          */
-        public array $stickers,
-        /** Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format */
+        public Sticker $stickers,
+        /**
+         * Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format
+         * @var PhotoSize|null
+         */
         public ?PhotoSize $thumbnail,
     ) {
     }

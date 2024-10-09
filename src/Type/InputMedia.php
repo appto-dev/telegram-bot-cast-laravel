@@ -1,25 +1,20 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InputMedia
- *
  * This object represents the content of a media message to be sent. It should be
  * one of
- *  - InputMediaAnimation
- *  - InputMediaDocument
- *  - InputMediaAudio
- *  -
- * InputMediaPhoto
- *  - InputMediaVideo
+ *  - <a href="#inputmediaanimation">InputMediaAnimation</a>
+ *  - <a href="#inputmediadocument">InputMediaDocument</a>
+ *  - <a href="#inputmediaaudio">InputMediaAudio</a>
+ *  - <a href="#inputmediaphoto">InputMediaPhoto</a>
+ *  - <a href="#inputmediavideo">InputMediaVideo</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InputMedia extends Data implements TypeInterface
+final class InputMedia extends Data implements TelegramTypeContract
 {
 }

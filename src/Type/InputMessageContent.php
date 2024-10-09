@@ -1,27 +1,20 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InputMessageContent
- *
  * This object represents the content of a message to be sent as a result of an
  * inline query. Telegram clients currently support the following 5 types:
- *  -
- * InputTextMessageContent
- *  - InputLocationMessageContent
- *  -
- * InputVenueMessageContent
- *  - InputContactMessageContent
- *  -
- * InputInvoiceMessageContent
+ *  - <a href="#inputtextmessagecontent">InputTextMessageContent</a>
+ *  - <a href="#inputlocationmessagecontent">InputLocationMessageContent</a>
+ *  - <a href="#inputvenuemessagecontent">InputVenueMessageContent</a>
+ *  - <a href="#inputcontactmessagecontent">InputContactMessageContent</a>
+ *  - <a href="#inputinvoicemessagecontent">InputInvoiceMessageContent</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InputMessageContent extends Data implements TypeInterface
+final class InputMessageContent extends Data implements TelegramTypeContract
 {
 }

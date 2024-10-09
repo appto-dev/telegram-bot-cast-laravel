@@ -1,29 +1,24 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BotCommandScope
- *
  * This object represents the scope to which bot commands are applied. Currently,
  * the following 7 scopes are supported:
- *  - BotCommandScopeDefault
- *  -
- * BotCommandScopeAllPrivateChats
- *  - BotCommandScopeAllGroupChats
- *  -
- * BotCommandScopeAllChatAdministrators
- *  - BotCommandScopeChat
- *  -
- * BotCommandScopeChatAdministrators
- *  - BotCommandScopeChatMember
+ *  - <a href="#botcommandscopedefault">BotCommandScopeDefault</a>
+ *  - <a href="#botcommandscopeallprivatechats">BotCommandScopeAllPrivateChats</a>
+ *  - <a href="#botcommandscopeallgroupchats">BotCommandScopeAllGroupChats</a>
+ *  - <a
+ * href="#botcommandscopeallchatadministrators">BotCommandScopeAllChatAdministrators</a>
+ *  - <a href="#botcommandscopechat">BotCommandScopeChat</a>
+ *  - <a
+ * href="#botcommandscopechatadministrators">BotCommandScopeChatAdministrators</a>
+ *  - <a href="#botcommandscopechatmember">BotCommandScopeChatMember</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BotCommandScope extends Data implements TypeInterface
+final class BotCommandScope extends Data implements TelegramTypeContract
 {
 }

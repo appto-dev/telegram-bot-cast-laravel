@@ -1,36 +1,39 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InputTextMessageContent
+ * Represents the <a href="#inputmessagecontent">content</a> of a text message to
+ * be sent as the result of an inline query.
  *
- * Represents the content of a text message to be sent as the result of an inline
- * query.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InputTextMessageContent extends Data implements TypeInterface
+final class InputTextMessageContent extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Text of the message to be sent, 1-4096 characters */
+        /**
+         * Text of the message to be sent, 1-4096 characters
+         * @var string
+         */
         public string $message_text,
         /**
-         * Mode for parsing entities in the message text. See formatting options
-         * for more details.
+         * Mode for parsing entities in the message text. See formatting options for more
+         * details.
+         * @var string|null
          */
         public ?string $parse_mode,
         /**
-         * List of special entities that appear in message text, which can be
-         * specified instead of parse_mode
-         * @var array<MessageEntity>
+         * List of special entities that appear in message text, which can be specified
+         * instead of parse_mode
+         * @var MessageEntity|null
          */
-        public ?array $entities,
-        /** Link preview generation options for the message */
+        public ?MessageEntity $entities,
+        /**
+         * Link preview generation options for the message
+         * @var LinkPreviewOptions|null
+         */
         public ?LinkPreviewOptions $link_preview_options,
     ) {
     }

@@ -1,32 +1,37 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MessageReactionCountUpdated
- *
  * This object represents reaction changes on a message with anonymous reactions.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MessageReactionCountUpdated extends Data implements TypeInterface
+final class MessageReactionCountUpdated extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The chat containing the message */
+        /**
+         * The chat containing the message
+         * @var Chat
+         */
         public Chat $chat,
-        /** Unique message identifier inside the chat */
+        /**
+         * Unique message identifier inside the chat
+         * @var int
+         */
         public int $message_id,
-        /** Date of the change in Unix time */
+        /**
+         * Date of the change in Unix time
+         * @var int
+         */
         public int $date,
         /**
          * List of reactions that are present on the message
-         * @var array<ReactionCount>
+         * @var ReactionCount
          */
-        public array $reactions,
+        public ReactionCount $reactions,
     ) {
     }
 }

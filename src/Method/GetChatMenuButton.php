@@ -1,28 +1,23 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\MenuButton;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetChatMenuButton
- *
  * Use this method to get the current value of the bot's menu button in a private
- * chat, or the default menu button. Returns MenuButton on success.
+ * chat, or the default menu button. Returns <a href="#menubutton">MenuButton</a>
+ * on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetChatMenuButton extends Data implements MethodInterface
+final class GetChatMenuButton extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = MenuButton::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target private chat. If not specified,
-         * default bot's menu button will be returned
+         * Unique identifier for the target private chat. If not specified, default bot's
+         * menu button will be returned
+         * @var int|null
          */
         public ?int $chat_id,
     ) {

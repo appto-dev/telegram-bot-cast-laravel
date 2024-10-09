@@ -1,26 +1,28 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatBoostSourceGiftCode
- *
  * The boost was obtained by the creation of Telegram Premium gift codes to boost a
  * chat. Each such code boosts the chat 4 times for the duration of the
  * corresponding Telegram Premium subscription.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatBoostSourceGiftCode extends Data implements TypeInterface
+final class ChatBoostSourceGiftCode extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Source of the boost, always "gift_code" */
+        /**
+         * Source of the boost, always "gift_code"
+         * @var string
+         */
         public string $source,
-        /** User for which the gift code was created */
+        /**
+         * User for which the gift code was created
+         * @var User
+         */
         public User $user,
     ) {
     }

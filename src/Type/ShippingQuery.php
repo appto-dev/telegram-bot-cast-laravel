@@ -1,28 +1,36 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ShippingQuery
- *
  * This object contains information about an incoming shipping query.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ShippingQuery extends Data implements TypeInterface
+final class ShippingQuery extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique query identifier */
+        /**
+         * Unique query identifier
+         * @var string
+         */
         public string $id,
-        /** User who sent the query */
+        /**
+         * User who sent the query
+         * @var User
+         */
         public User $from,
-        /** Bot specified invoice payload */
+        /**
+         * Bot-specified invoice payload
+         * @var string
+         */
         public string $invoice_payload,
-        /** User specified shipping address */
+        /**
+         * User specified shipping address
+         * @var ShippingAddress
+         */
         public ShippingAddress $shipping_address,
     ) {
     }

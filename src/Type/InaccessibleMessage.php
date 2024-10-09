@@ -1,29 +1,32 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InaccessibleMessage
- *
  * This object describes a message that was deleted or is otherwise inaccessible to
  * the bot.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InaccessibleMessage extends Data implements TypeInterface
+final class InaccessibleMessage extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Chat the message belonged to */
+        /**
+         * Chat the message belonged to
+         * @var Chat
+         */
         public Chat $chat,
-        /** Unique message identifier inside the chat */
+        /**
+         * Unique message identifier inside the chat
+         * @var int
+         */
         public int $message_id,
         /**
-         * Always 0. The field can be used to differentiate regular and
-         * inaccessible messages.
+         * Always 0. The field can be used to differentiate regular and inaccessible
+         * messages.
+         * @var int
          */
         public int $date,
     ) {

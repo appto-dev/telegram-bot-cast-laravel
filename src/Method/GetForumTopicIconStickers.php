@@ -1,21 +1,16 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\Sticker;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetForumTopicIconStickers
- *
  * Use this method to get custom emoji stickers, which can be used as a forum topic
- * icon by any user. Requires no parameters. Returns an Array of Sticker objects.
+ * icon by any user. Requires no parameters. Returns an Array of <a
+ * href="#sticker">Sticker</a> objects.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetForumTopicIconStickers extends Data implements MethodInterface
+final class GetForumTopicIconStickers extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = [Sticker::class];
 }

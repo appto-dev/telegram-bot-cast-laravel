@@ -1,33 +1,44 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InlineQueryResultCachedSticker
- *
  * Represents a link to a sticker stored on the Telegram servers. By default, this
  * sticker will be sent by the user. Alternatively, you can use
- * input_message_content to send a message with the specified content instead of
- * the sticker.
+ * <em>input_message_content</em> to send a message with the specified content
+ * instead of the sticker.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InlineQueryResultCachedSticker extends Data implements TypeInterface
+final class InlineQueryResultCachedSticker extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the result, must be sticker */
+        /**
+         * Type of the result, must be sticker
+         * @var string
+         */
         public string $type,
-        /** Unique identifier for this result, 1-64 bytes */
+        /**
+         * Unique identifier for this result, 1-64 bytes
+         * @var string
+         */
         public string $id,
-        /** A valid file identifier of the sticker */
+        /**
+         * A valid file identifier of the sticker
+         * @var string
+         */
         public string $sticker_file_id,
-        /** Inline keyboard attached to the message */
+        /**
+         * Inline keyboard attached to the message
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
-        /** Content of the message to be sent instead of the sticker */
+        /**
+         * Content of the message to be sent instead of the sticker
+         * @var InputMessageContent|null
+         */
         public ?InputMessageContent $input_message_content,
     ) {
     }

@@ -1,27 +1,26 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatLocation
- *
  * Represents a location to which a chat is connected.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatLocation extends Data implements TypeInterface
+final class ChatLocation extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * The location to which the supergroup is connected. Can't be a live
-         * location.
+         * The location to which the supergroup is connected. Can't be a live location.
+         * @var Location
          */
         public Location $location,
-        /** Location address; 1-64 characters, as defined by the chat owner */
+        /**
+         * Location address; 1-64 characters, as defined by the chat owner
+         * @var string
+         */
         public string $address,
     ) {
     }

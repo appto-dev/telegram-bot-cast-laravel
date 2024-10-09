@@ -1,20 +1,16 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InputFile
- *
  * This object represents the contents of a file to be uploaded. Must be posted
  * using multipart/form-data in the usual way that files are uploaded via the
  * browser.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InputFile extends Data implements TypeInterface
+final class InputFile extends Data implements TelegramTypeContract
 {
 }

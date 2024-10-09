@@ -1,24 +1,18 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MessageOrigin
- *
  * This object describes the origin of a message. It can be one of
- *  -
- * MessageOriginUser
- *  - MessageOriginHiddenUser
- *  - MessageOriginChat
- *  -
- * MessageOriginChannel
+ *  - <a href="#messageoriginuser">MessageOriginUser</a>
+ *  - <a href="#messageoriginhiddenuser">MessageOriginHiddenUser</a>
+ *  - <a href="#messageoriginchat">MessageOriginChat</a>
+ *  - <a href="#messageoriginchannel">MessageOriginChannel</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MessageOrigin extends Data implements TypeInterface
+final class MessageOrigin extends Data implements TelegramTypeContract
 {
 }

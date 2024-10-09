@@ -1,33 +1,31 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ChatInviteLink;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * RevokeChatInviteLink
- *
  * Use this method to revoke an invite link created by the bot. If the primary link
  * is revoked, a new link is automatically generated. The bot must be an
  * administrator in the chat for this to work and must have the appropriate
- * administrator rights. Returns the revoked invite link as ChatInviteLink object.
+ * administrator rights. Returns the revoked invite link as <a
+ * href="#chatinvitelink">ChatInviteLink</a> object.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class RevokeChatInviteLink extends Data implements MethodInterface
+final class RevokeChatInviteLink extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ChatInviteLink::class;
-
     public function __construct(
         /**
-         * Unique identifier of the target chat or username of the target channel
-         * (in the format @channelusername)
+         * Unique identifier of the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** The invite link to revoke */
+        /**
+         * The invite link to revoke
+         * @var string
+         */
         public string $invite_link,
     ) {
     }

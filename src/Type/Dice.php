@@ -1,26 +1,26 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * Dice
- *
  * This object represents an animated emoji that displays a random value.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class Dice extends Data implements TypeInterface
+final class Dice extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Emoji on which the dice throw animation is based */
+        /**
+         * Emoji on which the dice throw animation is based
+         * @var string
+         */
         public string $emoji,
         /**
-         * Value of the dice, 1-6 for "", "" and "" base emoji, 1-5 for "" and ""
-         * base emoji, 1-64 for "" base emoji
+         * Value of the dice, 1-6 for "", "" and "" base emoji, 1-5 for "" and "" base
+         * emoji, 1-64 for "" base emoji
+         * @var int
          */
         public int $value,
     ) {

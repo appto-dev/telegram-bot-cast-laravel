@@ -1,34 +1,28 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SetMyDescription
- *
  * Use this method to change the bot's description, which is shown in the chat with
- * the bot if the chat is empty. Returns True on success.
+ * the bot if the chat is empty. Returns <em>True</em> on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetMyDescription extends Data implements MethodInterface
+final class SetMyDescription extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * New bot description; 0-512 characters. Pass an empty string to remove
-         * the dedicated description for the given language.
+         * New bot description; 0-512 characters. Pass an empty string to remove the
+         * dedicated description for the given language.
+         * @var string|null
          */
         public ?string $description,
         /**
-         * A two-letter ISO 639-1 language code. If empty, the description will
-         * be applied to all users for whose language there is no dedicated
-         * description.
+         * A two-letter ISO 639-1 language code. If empty, the description will be applied
+         * to all users for whose language there is no dedicated description.
+         * @var string|null
          */
         public ?string $language_code,
     ) {

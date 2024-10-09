@@ -1,24 +1,26 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ReactionTypeCustomEmoji
- *
  * The reaction is based on a custom emoji.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ReactionTypeCustomEmoji extends Data implements TypeInterface
+final class ReactionTypeCustomEmoji extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the reaction, always "custom_emoji" */
+        /**
+         * Type of the reaction, always "custom_emoji"
+         * @var string
+         */
         public string $type,
-        /** Custom emoji identifier */
+        /**
+         * Custom emoji identifier
+         * @var string
+         */
         public string $custom_emoji_id,
     ) {
     }

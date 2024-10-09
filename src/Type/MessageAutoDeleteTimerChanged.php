@@ -1,23 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MessageAutoDeleteTimerChanged
- *
  * This object represents a service message about a change in auto-delete timer
  * settings.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MessageAutoDeleteTimerChanged extends Data implements TypeInterface
+final class MessageAutoDeleteTimerChanged extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** New auto-delete time for messages in the chat; in seconds */
+        /**
+         * New auto-delete time for messages in the chat; in seconds
+         * @var int
+         */
         public int $message_auto_delete_time,
     ) {
     }

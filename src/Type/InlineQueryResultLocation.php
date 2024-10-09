@@ -1,60 +1,91 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InlineQueryResultLocation
- *
  * Represents a location on a map. By default, the location will be sent by the
- * user. Alternatively, you can use input_message_content to send a message with
- * the specified content instead of the location.
+ * user. Alternatively, you can use <em>input_message_content</em> to send a
+ * message with the specified content instead of the location.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InlineQueryResultLocation extends Data implements TypeInterface
+final class InlineQueryResultLocation extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the result, must be location */
+        /**
+         * Type of the result, must be location
+         * @var string
+         */
         public string $type,
-        /** Unique identifier for this result, 1-64 Bytes */
+        /**
+         * Unique identifier for this result, 1-64 Bytes
+         * @var string
+         */
         public string $id,
-        /** Location latitude in degrees */
+        /**
+         * Location latitude in degrees
+         * @var float
+         */
         public float $latitude,
-        /** Location longitude in degrees */
+        /**
+         * Location longitude in degrees
+         * @var float
+         */
         public float $longitude,
-        /** Location title */
+        /**
+         * Location title
+         * @var string
+         */
         public string $title,
-        /** The radius of uncertainty for the location, measured in meters; 0-1500 */
+        /**
+         * The radius of uncertainty for the location, measured in meters; 0-1500
+         * @var float|null
+         */
         public ?float $horizontal_accuracy,
         /**
-         * Period in seconds for which the location can be updated, should be
-         * between 60 and 86400.
+         * Period in seconds during which the location can be updated, should be between 60
+         * and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely.
+         * @var int|null
          */
         public ?int $live_period,
         /**
-         * For live locations, a direction in which the user is moving, in
-         * degrees. Must be between 1 and 360 if specified.
+         * For live locations, a direction in which the user is moving, in degrees. Must be
+         * between 1 and 360 if specified.
+         * @var int|null
          */
         public ?int $heading,
         /**
-         * For live locations, a maximum distance for proximity alerts about
-         * approaching another chat member, in meters. Must be between 1 and
-         * 100000 if specified.
+         * For live locations, a maximum distance for proximity alerts about approaching
+         * another chat member, in meters. Must be between 1 and 100000 if specified.
+         * @var int|null
          */
         public ?int $proximity_alert_radius,
-        /** Inline keyboard attached to the message */
+        /**
+         * Inline keyboard attached to the message
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
-        /** Content of the message to be sent instead of the location */
+        /**
+         * Content of the message to be sent instead of the location
+         * @var InputMessageContent|null
+         */
         public ?InputMessageContent $input_message_content,
-        /** Url of the thumbnail for the result */
+        /**
+         * Url of the thumbnail for the result
+         * @var string|null
+         */
         public ?string $thumbnail_url,
-        /** Thumbnail width */
+        /**
+         * Thumbnail width
+         * @var int|null
+         */
         public ?int $thumbnail_width,
-        /** Thumbnail height */
+        /**
+         * Thumbnail height
+         * @var int|null
+         */
         public ?int $thumbnail_height,
     ) {
     }

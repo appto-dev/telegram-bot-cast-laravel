@@ -1,40 +1,54 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PreCheckoutQuery
- *
  * This object contains information about an incoming pre-checkout query.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PreCheckoutQuery extends Data implements TypeInterface
+final class PreCheckoutQuery extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique query identifier */
+        /**
+         * Unique query identifier
+         * @var string
+         */
         public string $id,
-        /** User who sent the query */
+        /**
+         * User who sent the query
+         * @var User
+         */
         public User $from,
-        /** Three-letter ISO 4217 currency code */
+        /**
+         * Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars
+         * @var string
+         */
         public string $currency,
         /**
-         * Total price in the smallest units of the currency (integer, not
-         * float/double). For example, for a price of US$ 1.45 pass amount = 145.
-         * See the exp parameter in currencies.json, it shows the number of
-         * digits past the decimal point for each currency (2 for the majority of
-         * currencies).
+         * Total price in the smallest units of the currency (integer, not float/double).
+         * For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in
+         * currencies.json, it shows the number of digits past the decimal point for each
+         * currency (2 for the majority of currencies).
+         * @var int
          */
         public int $total_amount,
-        /** Bot specified invoice payload */
+        /**
+         * Bot-specified invoice payload
+         * @var string
+         */
         public string $invoice_payload,
-        /** Identifier of the shipping option chosen by the user */
+        /**
+         * Identifier of the shipping option chosen by the user
+         * @var string|null
+         */
         public ?string $shipping_option_id,
-        /** Order information provided by the user */
+        /**
+         * Order information provided by the user
+         * @var OrderInfo|null
+         */
         public ?OrderInfo $order_info,
     ) {
     }

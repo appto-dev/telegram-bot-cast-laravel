@@ -1,54 +1,58 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SetGameScore
- *
  * Use this method to set the score of the specified user in a game message. On
- * success, if the message is not an inline message, the Message is returned,
- * otherwise True is returned. Returns an error, if the new score is not greater
- * than the user's current score in the chat and force is False.
+ * success, if the message is not an inline message, the <a
+ * href="#message">Message</a> is returned, otherwise <em>True</em> is returned.
+ * Returns an error, if the new score is not greater than the user's current score
+ * in the chat and <em>force</em> is <em>False</em>.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetGameScore extends Data implements MethodInterface
+final class SetGameScore extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
-        /** User identifier */
+        /**
+         * User identifier
+         * @var int
+         */
         public int $user_id,
-        /** New score, must be non-negative */
+        /**
+         * New score, must be non-negative
+         * @var int
+         */
         public int $score,
         /**
-         * Pass True if the high score is allowed to decrease. This can be useful
-         * when fixing mistakes or banning cheaters
+         * Pass True if the high score is allowed to decrease. This can be useful when
+         * fixing mistakes or banning cheaters
+         * @var bool|null
          */
         public ?bool $force,
         /**
-         * Pass True if the game message should not be automatically edited to
-         * include the current scoreboard
+         * Pass True if the game message should not be automatically edited to include the
+         * current scoreboard
+         * @var bool|null
          */
         public ?bool $disable_edit_message,
         /**
-         * Required if inline_message_id is not specified. Unique identifier for
-         * the target chat
+         * Required if inline_message_id is not specified. Unique identifier for the target
+         * chat
+         * @var int|null
          */
         public ?int $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the sent
-         * message
+         * Required if inline_message_id is not specified. Identifier of the sent message
+         * @var int|null
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of
-         * the inline message
+         * Required if chat_id and message_id are not specified. Identifier of the inline
+         * message
+         * @var string|null
          */
         public ?string $inline_message_id,
     ) {

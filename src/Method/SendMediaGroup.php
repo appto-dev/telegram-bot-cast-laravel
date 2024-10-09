@@ -1,63 +1,68 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputMediaAudio;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputMediaDocument;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputMediaPhoto;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputMediaVideo;
-use ApptoTeam\TelegramBotCastLaravel\Type\Message;
-use ApptoTeam\TelegramBotCastLaravel\Type\ReplyParameters;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InputMediaAudio;
+use Appto\TelegramBot\Type\InputMediaDocument;
+use Appto\TelegramBot\Type\InputMediaPhoto;
+use Appto\TelegramBot\Type\InputMediaVideo;
+use Appto\TelegramBot\Type\ReplyParameters;
 use Spatie\LaravelData\Data;
 
 /**
- * SendMediaGroup
- *
  * Use this method to send a group of photos, videos, documents or audios as an
  * album. Documents and audio files can be only grouped in an album with messages
- * of the same type. On success, an array of Messages that were sent is returned.
+ * of the same type. On success, an array of <a href="#message">Messages</a> that
+ * were sent is returned.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SendMediaGroup extends Data implements MethodInterface
+final class SendMediaGroup extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = [Message::class];
-
     public function __construct(
         /**
-         * Unique identifier of the business connection on behalf of which the
-         * message will be sent
+         * Unique identifier of the business connection on behalf of which the message will
+         * be sent
+         * @var string|null
          */
         public ?string $business_connection_id,
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of the forum;
-         * for forum supergroups only
+         * Unique identifier for the target message thread (topic) of the forum; for forum
+         * supergroups only
+         * @var int|null
          */
         public ?int $message_thread_id,
         /**
-         * A JSON-serialized array describing messages to be sent, must include
-         * 2-10 items
-         * @var array<InputMediaAudio>
-         * @var array<InputMediaDocument>
-         * @var array<InputMediaPhoto>
-         * @var array<InputMediaVideo>
+         * A JSON-serialized array describing messages to be sent, must include 2-10 items
+         * @var InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo
          */
-        public array $media,
+        public InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo $media,
         /**
-         * Sends messages silently. Users will receive a notification with no
-         * sound.
+         * Sends messages silently. Users will receive a notification with no sound.
+         * @var bool|null
          */
         public ?bool $disable_notification,
-        /** Protects the contents of the sent messages from forwarding and saving */
+        /**
+         * Protects the contents of the sent messages from forwarding and saving
+         * @var bool|null
+         */
         public ?bool $protect_content,
-        /** Description of the message to reply to */
+        /**
+         * Unique identifier of the message effect to be added to the message; for private
+         * chats only
+         * @var string|null
+         */
+        public ?string $message_effect_id,
+        /**
+         * Description of the message to reply to
+         * @var ReplyParameters|null
+         */
         public ?ReplyParameters $reply_parameters,
     ) {
     }

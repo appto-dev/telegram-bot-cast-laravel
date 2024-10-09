@@ -1,26 +1,31 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GameHighScore
- *
  * This object represents one row of the high scores table for a game.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GameHighScore extends Data implements TypeInterface
+final class GameHighScore extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Position in high score table for the game */
+        /**
+         * Position in high score table for the game
+         * @var int
+         */
         public int $position,
-        /** User */
+        /**
+         * User
+         * @var User
+         */
         public User $user,
-        /** Score */
+        /**
+         * Score
+         * @var int
+         */
         public int $score,
     ) {
     }

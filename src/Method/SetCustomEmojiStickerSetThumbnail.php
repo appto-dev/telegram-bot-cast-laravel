@@ -1,31 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SetCustomEmojiStickerSetThumbnail
+ * Use this method to set the thumbnail of a custom emoji sticker set. Returns
+ * <em>True</em> on success.
  *
- * Use this method to set the thumbnail of a custom emoji sticker set. Returns True
- * on success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetCustomEmojiStickerSetThumbnail extends Data implements MethodInterface
+final class SetCustomEmojiStickerSetThumbnail extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
-        /** Sticker set name */
+        /**
+         * Sticker set name
+         * @var string
+         */
         public string $name,
         /**
-         * Custom emoji identifier of a sticker from the sticker set; pass an
-         * empty string to drop the thumbnail and use the first sticker as the
-         * thumbnail.
+         * Custom emoji identifier of a sticker from the sticker set; pass an empty string
+         * to drop the thumbnail and use the first sticker as the thumbnail.
+         * @var string|null
          */
         public ?string $custom_emoji_id,
     ) {

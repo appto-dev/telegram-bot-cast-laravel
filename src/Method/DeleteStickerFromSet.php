@@ -1,26 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * DeleteStickerFromSet
+ * Use this method to delete a sticker from a set created by the bot. Returns
+ * <em>True</em> on success.
  *
- * Use this method to delete a sticker from a set created by the bot. Returns True
- * on success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class DeleteStickerFromSet extends Data implements MethodInterface
+final class DeleteStickerFromSet extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
-        /** File identifier of the sticker */
+        /**
+         * File identifier of the sticker
+         * @var string
+         */
         public string $sticker,
     ) {
     }

@@ -1,26 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MenuButton
- *
  * This object describes the bot's menu button in a private chat. It should be one
  * of
- *  - MenuButtonCommands
- *  - MenuButtonWebApp
- *  - MenuButtonDefault
- * If a menu
- * button other than MenuButtonDefault is set for a private chat, then it is
- * applied in the chat. Otherwise the default menu button is applied. By default,
- * the menu button opens the list of bot commands.
+ *  - <a href="#menubuttoncommands">MenuButtonCommands</a>
+ *  - <a href="#menubuttonwebapp">MenuButtonWebApp</a>
+ *  - <a href="#menubuttondefault">MenuButtonDefault</a>
+ * If a menu button other than <a href="#menubuttondefault">MenuButtonDefault</a>
+ * is set for a private chat, then it is applied in the chat. Otherwise the default
+ * menu button is applied. By default, the menu button opens the list of bot
+ * commands.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MenuButton extends Data implements TypeInterface
+final class MenuButton extends Data implements TelegramTypeContract
 {
 }

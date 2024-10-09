@@ -1,33 +1,28 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportElementError
- *
  * This object represents an error in the Telegram Passport element which was
  * submitted that should be resolved by the user. It should be one of:
- *  -
- * PassportElementErrorDataField
- *  - PassportElementErrorFrontSide
- *  -
- * PassportElementErrorReverseSide
- *  - PassportElementErrorSelfie
- *  -
- * PassportElementErrorFile
- *  - PassportElementErrorFiles
- *  -
- * PassportElementErrorTranslationFile
- *  - PassportElementErrorTranslationFiles
- *  -
- * PassportElementErrorUnspecified
+ *  - <a href="#passportelementerrordatafield">PassportElementErrorDataField</a>
+ *  - <a href="#passportelementerrorfrontside">PassportElementErrorFrontSide</a>
+ *  - <a
+ * href="#passportelementerrorreverseside">PassportElementErrorReverseSide</a>
+ *  - <a href="#passportelementerrorselfie">PassportElementErrorSelfie</a>
+ *  - <a href="#passportelementerrorfile">PassportElementErrorFile</a>
+ *  - <a href="#passportelementerrorfiles">PassportElementErrorFiles</a>
+ *  - <a
+ * href="#passportelementerrortranslationfile">PassportElementErrorTranslationFile</a>
+ *  - <a
+ * href="#passportelementerrortranslationfiles">PassportElementErrorTranslationFiles</a>
+ *  - <a
+ * href="#passportelementerrorunspecified">PassportElementErrorUnspecified</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportElementError extends Data implements TypeInterface
+final class PassportElementError extends Data implements TelegramTypeContract
 {
 }

@@ -1,25 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatMemberLeft
+ * Represents a <a href="#chatmember">chat member</a> that isn't currently a member
+ * of the chat, but may join it themselves.
  *
- * Represents a chat member that isn't currently a member of the chat, but may join
- * it themselves.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatMemberLeft extends Data implements TypeInterface
+final class ChatMemberLeft extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The member's status in the chat, always "left" */
+        /**
+         * The member's status in the chat, always "left"
+         * @var string
+         */
         public string $status,
-        /** Information about the user */
+        /**
+         * Information about the user
+         * @var User
+         */
         public User $user,
     ) {
     }

@@ -1,36 +1,38 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\File;
-use ApptoTeam\TelegramBotCastLaravel\Type\InputFile;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InputFile;
 use Spatie\LaravelData\Data;
 
 /**
- * UploadStickerFile
+ * Use this method to upload a file with a sticker for later use in the <a
+ * href="#createnewstickerset">createNewStickerSet</a>, <a
+ * href="#addstickertoset">addStickerToSet</a>, or <a
+ * href="#replacestickerinset">replaceStickerInSet</a> methods (the file can be
+ * used multiple times). Returns the uploaded <a href="#file">File</a> on success.
  *
- * Use this method to upload a file with a sticker for later use in the
- * createNewStickerSet, addStickerToSet, or replaceStickerInSet methods (the file
- * can be used multiple times). Returns the uploaded File on success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class UploadStickerFile extends Data implements MethodInterface
+final class UploadStickerFile extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = File::class;
-
     public function __construct(
-        /** User identifier of sticker file owner */
+        /**
+         * User identifier of sticker file owner
+         * @var int
+         */
         public int $user_id,
         /**
          * A file with the sticker in .WEBP, .PNG, .TGS, or .WEBM format. See
-         * https://core.telegram.org/stickers for technical requirements. More
-         * information on Sending Files »
+         * https://core.telegram.org/stickers for technical requirements. More information
+         * on Sending Files
+         * @var InputFile
          */
         public InputFile $sticker,
-        /** Format of the sticker, must be one of "static", "animated", "video" */
+        /**
+         * Format of the sticker, must be one of "static", "animated", "video"
+         * @var string
+         */
         public string $sticker_format,
     ) {
     }

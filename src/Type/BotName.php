@@ -1,22 +1,21 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BotName
- *
  * This object represents the bot's name.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BotName extends Data implements TypeInterface
+final class BotName extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The bot's name */
+        /**
+         * The bot's name
+         * @var string
+         */
         public string $name,
     ) {
     }

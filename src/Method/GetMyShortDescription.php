@@ -1,26 +1,23 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\BotShortDescription;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetMyShortDescription
- *
  * Use this method to get the current bot short description for the given user
- * language. Returns BotShortDescription on success.
+ * language. Returns <a href="#botshortdescription">BotShortDescription</a> on
+ * success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetMyShortDescription extends Data implements MethodInterface
+final class GetMyShortDescription extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = BotShortDescription::class;
-
     public function __construct(
-        /** A two-letter ISO 639-1 language code or an empty string */
+        /**
+         * A two-letter ISO 639-1 language code or an empty string
+         * @var string|null
+         */
         public ?string $language_code,
     ) {
     }

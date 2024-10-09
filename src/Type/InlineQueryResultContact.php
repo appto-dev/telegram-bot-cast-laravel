@@ -1,44 +1,73 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InlineQueryResultContact
- *
  * Represents a contact with a phone number. By default, this contact will be sent
- * by the user. Alternatively, you can use input_message_content to send a message
- * with the specified content instead of the contact.
+ * by the user. Alternatively, you can use <em>input_message_content</em> to send a
+ * message with the specified content instead of the contact.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InlineQueryResultContact extends Data implements TypeInterface
+final class InlineQueryResultContact extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the result, must be contact */
+        /**
+         * Type of the result, must be contact
+         * @var string
+         */
         public string $type,
-        /** Unique identifier for this result, 1-64 Bytes */
+        /**
+         * Unique identifier for this result, 1-64 Bytes
+         * @var string
+         */
         public string $id,
-        /** Contact's phone number */
+        /**
+         * Contact's phone number
+         * @var string
+         */
         public string $phone_number,
-        /** Contact's first name */
+        /**
+         * Contact's first name
+         * @var string
+         */
         public string $first_name,
-        /** Contact's last name */
+        /**
+         * Contact's last name
+         * @var string|null
+         */
         public ?string $last_name,
-        /** Additional data about the contact in the form of a vCard, 0-2048 bytes */
+        /**
+         * Additional data about the contact in the form of a vCard, 0-2048 bytes
+         * @var string|null
+         */
         public ?string $vcard,
-        /** Inline keyboard attached to the message */
+        /**
+         * Inline keyboard attached to the message
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
-        /** Content of the message to be sent instead of the contact */
+        /**
+         * Content of the message to be sent instead of the contact
+         * @var InputMessageContent|null
+         */
         public ?InputMessageContent $input_message_content,
-        /** Url of the thumbnail for the result */
+        /**
+         * Url of the thumbnail for the result
+         * @var string|null
+         */
         public ?string $thumbnail_url,
-        /** Thumbnail width */
+        /**
+         * Thumbnail width
+         * @var int|null
+         */
         public ?int $thumbnail_width,
-        /** Thumbnail height */
+        /**
+         * Thumbnail height
+         * @var int|null
+         */
         public ?int $thumbnail_height,
     ) {
     }

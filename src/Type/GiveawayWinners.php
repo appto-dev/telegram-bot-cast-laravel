@@ -1,61 +1,81 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GiveawayWinners
- *
  * This object represents a message about the completion of a giveaway with public
  * winners.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GiveawayWinners extends Data implements TypeInterface
+final class GiveawayWinners extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The chat that created the giveaway */
+        /**
+         * The chat that created the giveaway
+         * @var Chat
+         */
         public Chat $chat,
-        /** Identifier of the message with the giveaway in the chat */
+        /**
+         * Identifier of the message with the giveaway in the chat
+         * @var int
+         */
         public int $giveaway_message_id,
         /**
-         * Point in time (Unix timestamp) when winners of the giveaway were
-         * selected
+         * Point in time (Unix timestamp) when winners of the giveaway were selected
+         * @var int
          */
         public int $winners_selection_date,
-        /** Total number of winners in the giveaway */
+        /**
+         * Total number of winners in the giveaway
+         * @var int
+         */
         public int $winner_count,
         /**
          * List of up to 100 winners of the giveaway
-         * @var array<User>
+         * @var User
          */
-        public array $winners,
+        public User $winners,
         /**
-         * The number of other chats the user had to join in order to be eligible
-         * for the giveaway
+         * The number of other chats the user had to join in order to be eligible for the
+         * giveaway
+         * @var int|null
          */
         public ?int $additional_chat_count,
         /**
-         * The number of months the Telegram Premium subscription won from the
-         * giveaway will be active for
+         * The number of Telegram Stars that were split between giveaway winners; for
+         * Telegram Star giveaways only
+         * @var int|null
+         */
+        public ?int $prize_star_count,
+        /**
+         * The number of months the Telegram Premium subscription won from the giveaway
+         * will be active for; for Telegram Premium giveaways only
+         * @var int|null
          */
         public ?int $premium_subscription_month_count,
-        /** Number of undistributed prizes */
+        /**
+         * Number of undistributed prizes
+         * @var int|null
+         */
         public ?int $unclaimed_prize_count,
         /**
-         * True, if only users who had joined the chats after the giveaway
-         * started were eligible to win
+         * True, if only users who had joined the chats after the giveaway started were
+         * eligible to win
+         * @var true|null
          */
         public ?true $only_new_members,
         /**
-         * True, if the giveaway was canceled because the payment for it was
-         * refunded
+         * True, if the giveaway was canceled because the payment for it was refunded
+         * @var true|null
          */
         public ?true $was_refunded,
-        /** Description of additional giveaway prize */
+        /**
+         * Description of additional giveaway prize
+         * @var string|null
+         */
         public ?string $prize_description,
     ) {
     }

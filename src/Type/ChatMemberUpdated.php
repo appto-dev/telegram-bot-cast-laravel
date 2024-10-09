@@ -1,37 +1,58 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatMemberUpdated
- *
  * This object represents changes in the status of a chat member.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatMemberUpdated extends Data implements TypeInterface
+final class ChatMemberUpdated extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Chat the user belongs to */
+        /**
+         * Chat the user belongs to
+         * @var Chat
+         */
         public Chat $chat,
-        /** Performer of the action, which resulted in the change */
+        /**
+         * Performer of the action, which resulted in the change
+         * @var User
+         */
         public User $from,
-        /** Date the change was done in Unix time */
+        /**
+         * Date the change was done in Unix time
+         * @var int
+         */
         public int $date,
-        /** Previous information about the chat member */
+        /**
+         * Previous information about the chat member
+         * @var ChatMember
+         */
         public ChatMember $old_chat_member,
-        /** New information about the chat member */
+        /**
+         * New information about the chat member
+         * @var ChatMember
+         */
         public ChatMember $new_chat_member,
         /**
-         * Chat invite link, which was used by the user to join the chat; for
-         * joining by invite link events only.
+         * Chat invite link, which was used by the user to join the chat; for joining by
+         * invite link events only.
+         * @var ChatInviteLink|null
          */
         public ?ChatInviteLink $invite_link,
-        /** True, if the user joined the chat via a chat folder invite link */
+        /**
+         * True, if the user joined the chat after sending a direct join request without
+         * using an invite link and being approved by an administrator
+         * @var bool|null
+         */
+        public ?bool $via_join_request,
+        /**
+         * True, if the user joined the chat via a chat folder invite link
+         * @var bool|null
+         */
         public ?bool $via_chat_folder_invite_link,
     ) {
     }

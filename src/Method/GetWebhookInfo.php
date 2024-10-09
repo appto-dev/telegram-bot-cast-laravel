@@ -1,22 +1,17 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\WebhookInfo;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetWebhookInfo
- *
  * Use this method to get current webhook status. Requires no parameters. On
- * success, returns a WebhookInfo object. If the bot is using getUpdates, will
- * return an object with the url field empty.
+ * success, returns a <a href="#webhookinfo">WebhookInfo</a> object. If the bot is
+ * using <a href="#getupdates">getUpdates</a>, will return an object with the
+ * <em>url</em> field empty.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetWebhookInfo extends Data implements MethodInterface
+final class GetWebhookInfo extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = WebhookInfo::class;
 }

@@ -1,22 +1,26 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BusinessLocation
+ * Contains information about the location of a Telegram Business account.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BusinessLocation extends Data implements TypeInterface
+final class BusinessLocation extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Address of the business */
+        /**
+         * Address of the business
+         * @var string
+         */
         public string $address,
-        /** Location of the business */
+        /**
+         * Location of the business
+         * @var Location|null
+         */
         public ?Location $location,
     ) {
     }

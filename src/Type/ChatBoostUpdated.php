@@ -1,24 +1,26 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatBoostUpdated
- *
  * This object represents a boost added to a chat or changed.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatBoostUpdated extends Data implements TypeInterface
+final class ChatBoostUpdated extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Chat which was boosted */
+        /**
+         * Chat which was boosted
+         * @var Chat
+         */
         public Chat $chat,
-        /** Information about the chat boost */
+        /**
+         * Information about the chat boost
+         * @var ChatBoost
+         */
         public ChatBoost $boost,
     ) {
     }

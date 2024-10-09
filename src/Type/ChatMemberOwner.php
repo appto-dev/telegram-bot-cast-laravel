@@ -1,29 +1,37 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatMemberOwner
+ * Represents a <a href="#chatmember">chat member</a> that owns the chat and has
+ * all administrator privileges.
  *
- * Represents a chat member that owns the chat and has all administrator
- * privileges.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatMemberOwner extends Data implements TypeInterface
+final class ChatMemberOwner extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The member's status in the chat, always "creator" */
+        /**
+         * The member's status in the chat, always "creator"
+         * @var string
+         */
         public string $status,
-        /** Information about the user */
+        /**
+         * Information about the user
+         * @var User
+         */
         public User $user,
-        /** True, if the user's presence in the chat is hidden */
+        /**
+         * True, if the user's presence in the chat is hidden
+         * @var bool
+         */
         public bool $is_anonymous,
-        /** Custom title for this user */
+        /**
+         * Custom title for this user
+         * @var string|null
+         */
         public ?string $custom_title,
     ) {
     }

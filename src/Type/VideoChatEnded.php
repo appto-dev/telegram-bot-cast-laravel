@@ -1,22 +1,21 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * VideoChatEnded
- *
  * This object represents a service message about a video chat ended in the chat.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class VideoChatEnded extends Data implements TypeInterface
+final class VideoChatEnded extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Video chat duration in seconds */
+        /**
+         * Video chat duration in seconds
+         * @var int
+         */
         public int $duration,
     ) {
     }

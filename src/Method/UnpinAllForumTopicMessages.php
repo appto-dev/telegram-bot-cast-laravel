@@ -1,32 +1,30 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * UnpinAllForumTopicMessages
- *
  * Use this method to clear the list of pinned messages in a forum topic. The bot
  * must be an administrator in the chat for this to work and must have the
- * can_pin_messages administrator right in the supergroup. Returns True on success.
+ * <em>can_pin_messages</em> administrator right in the supergroup. Returns
+ * <em>True</em> on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class UnpinAllForumTopicMessages extends Data implements MethodInterface
+final class UnpinAllForumTopicMessages extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * supergroup (in the format @supergroupusername)
+         * Unique identifier for the target chat or username of the target supergroup (in
+         * the format @supergroupusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** Unique identifier for the target message thread of the forum topic */
+        /**
+         * Unique identifier for the target message thread of the forum topic
+         * @var int
+         */
         public int $message_thread_id,
     ) {
     }

@@ -1,37 +1,43 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PhotoSize
+ * This object represents one size of a photo or a <a href="#document">file</a> /
+ * <a href="#sticker">sticker</a> thumbnail.
  *
- * This object represents one size of a photo or a file / sticker thumbnail.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PhotoSize extends Data implements TypeInterface
+final class PhotoSize extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Identifier for this file, which can be used to download or reuse the
-         * file
+         * Identifier for this file, which can be used to download or reuse the file
+         * @var string
          */
         public string $file_id,
         /**
-         * Unique identifier for this file, which is supposed to be the same over
-         * time and for different bots. Can't be used to download or reuse the
-         * file.
+         * Unique identifier for this file, which is supposed to be the same over time and
+         * for different bots. Can't be used to download or reuse the file.
+         * @var string
          */
         public string $file_unique_id,
-        /** Photo width */
+        /**
+         * Photo width
+         * @var int
+         */
         public int $width,
-        /** Photo height */
+        /**
+         * Photo height
+         * @var int
+         */
         public int $height,
-        /** File size in bytes */
+        /**
+         * File size in bytes
+         * @var int|null
+         */
         public ?int $file_size,
     ) {
     }

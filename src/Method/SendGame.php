@@ -1,57 +1,68 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InlineKeyboardMarkup;
-use ApptoTeam\TelegramBotCastLaravel\Type\Message;
-use ApptoTeam\TelegramBotCastLaravel\Type\ReplyParameters;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InlineKeyboardMarkup;
+use Appto\TelegramBot\Type\ReplyParameters;
 use Spatie\LaravelData\Data;
 
 /**
- * SendGame
+ * Use this method to send a game. On success, the sent <a
+ * href="#message">Message</a> is returned.
  *
- * Use this method to send a game. On success, the sent Message is returned.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SendGame extends Data implements MethodInterface
+final class SendGame extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = Message::class;
-
     public function __construct(
         /**
-         * Unique identifier of the business connection on behalf of which the
-         * message will be sent
+         * Unique identifier of the business connection on behalf of which the message will
+         * be sent
+         * @var string|null
          */
         public ?string $business_connection_id,
-        /** Unique identifier for the target chat */
+        /**
+         * Unique identifier for the target chat
+         * @var int
+         */
         public int $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of the forum;
-         * for forum supergroups only
+         * Unique identifier for the target message thread (topic) of the forum; for forum
+         * supergroups only
+         * @var int|null
          */
         public ?int $message_thread_id,
         /**
-         * Short name of the game, serves as the unique identifier for the game.
-         * Set up your games via @BotFather.
+         * Short name of the game, serves as the unique identifier for the game. Set up
+         * your games via @BotFather.
+         * @var string
          */
         public string $game_short_name,
         /**
-         * Sends the message silently. Users will receive a notification with no
-         * sound.
+         * Sends the message silently. Users will receive a notification with no sound.
+         * @var bool|null
          */
         public ?bool $disable_notification,
-        /** Protects the contents of the sent message from forwarding and saving */
+        /**
+         * Protects the contents of the sent message from forwarding and saving
+         * @var bool|null
+         */
         public ?bool $protect_content,
-        /** Description of the message to reply to */
+        /**
+         * Unique identifier of the message effect to be added to the message; for private
+         * chats only
+         * @var string|null
+         */
+        public ?string $message_effect_id,
+        /**
+         * Description of the message to reply to
+         * @var ReplyParameters|null
+         */
         public ?ReplyParameters $reply_parameters,
         /**
-         * A JSON-serialized object for an inline keyboard. If empty, one 'Play
-         * game_title' button will be shown. If not empty, the first button must
-         * launch the game. Not supported for messages sent on behalf of a
-         * business account.
+         * A JSON-serialized object for an inline keyboard. If empty, one 'Play game_title'
+         * button will be shown. If not empty, the first button must launch the game.
+         * @var InlineKeyboardMarkup|null
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

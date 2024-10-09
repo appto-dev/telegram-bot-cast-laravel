@@ -1,22 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BotCommandScopeAllGroupChats
+ * Represents the <a href="#botcommandscope">scope</a> of bot commands, covering
+ * all group and supergroup chats.
  *
- * Represents the scope of bot commands, covering all group and supergroup chats.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BotCommandScopeAllGroupChats extends Data implements TypeInterface
+final class BotCommandScopeAllGroupChats extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Scope type, must be all_group_chats */
+        /**
+         * Scope type, must be all_group_chats
+         * @var string
+         */
         public string $type,
     ) {
     }

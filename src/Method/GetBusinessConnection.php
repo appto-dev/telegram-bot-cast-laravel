@@ -1,26 +1,23 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\BusinessConnection;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetBusinessConnection
- *
  * Use this method to get information about the connection of the bot with a
- * business account. Returns a BusinessConnection object on success.
+ * business account. Returns a <a href="#businessconnection">BusinessConnection</a>
+ * object on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetBusinessConnection extends Data implements MethodInterface
+final class GetBusinessConnection extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = BusinessConnection::class;
-
     public function __construct(
-        /** Unique identifier of the business connection */
+        /**
+         * Unique identifier of the business connection
+         * @var string
+         */
         public string $business_connection_id,
     ) {
     }

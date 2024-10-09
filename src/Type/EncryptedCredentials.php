@@ -1,34 +1,36 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * EncryptedCredentials
+ * Describes data required for decrypting and authenticating <a
+ * href="#encryptedpassportelement">EncryptedPassportElement</a>. See the <a
+ * href="/passport#receiving-information">Telegram Passport Documentation</a> for a
+ * complete description of the data decryption and authentication processes.
  *
- * Describes data required for decrypting and authenticating
- * EncryptedPassportElement. See the Telegram Passport Documentation for a complete
- * description of the data decryption and authentication processes.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class EncryptedCredentials extends Data implements TypeInterface
+final class EncryptedCredentials extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Base64-encoded encrypted JSON-serialized data with unique user's
-         * payload, data hashes and secrets required for EncryptedPassportElement
-         * decryption and authentication
+         * Base64-encoded encrypted JSON-serialized data with unique user's payload, data
+         * hashes and secrets required for EncryptedPassportElement decryption and
+         * authentication
+         * @var string
          */
         public string $data,
-        /** Base64-encoded data hash for data authentication */
+        /**
+         * Base64-encoded data hash for data authentication
+         * @var string
+         */
         public string $hash,
         /**
-         * Base64-encoded secret, encrypted with the bot's public RSA key,
-         * required for data decryption
+         * Base64-encoded secret, encrypted with the bot's public RSA key, required for
+         * data decryption
+         * @var string
          */
         public string $secret,
     ) {

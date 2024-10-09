@@ -1,29 +1,37 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportElementErrorUnspecified
- *
  * Represents an issue in an unspecified place. The error is considered resolved
  * when new data is added.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportElementErrorUnspecified extends Data implements TypeInterface
+final class PassportElementErrorUnspecified extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Error source, must be unspecified */
+        /**
+         * Error source, must be unspecified
+         * @var string
+         */
         public string $source,
-        /** Type of element of the user's Telegram Passport which has the issue */
+        /**
+         * Type of element of the user's Telegram Passport which has the issue
+         * @var string
+         */
         public string $type,
-        /** Base64-encoded element hash */
+        /**
+         * Base64-encoded element hash
+         * @var string
+         */
         public string $element_hash,
-        /** Error message */
+        /**
+         * Error message
+         * @var string
+         */
         public string $message,
     ) {
     }

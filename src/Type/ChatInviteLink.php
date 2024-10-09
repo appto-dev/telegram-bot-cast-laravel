@@ -1,52 +1,77 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatInviteLink
- *
  * Represents an invite link for a chat.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatInviteLink extends Data implements TypeInterface
+final class ChatInviteLink extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * The invite link. If the link was created by another chat
-         * administrator, then the second part of the link will be replaced with
-         * "…".
+         * The invite link. If the link was created by another chat administrator, then the
+         * second part of the link will be replaced with "…".
+         * @var string
          */
         public string $invite_link,
-        /** Creator of the link */
+        /**
+         * Creator of the link
+         * @var User
+         */
         public User $creator,
         /**
-         * True, if users joining the chat via the link need to be approved by
-         * chat administrators
+         * True, if users joining the chat via the link need to be approved by chat
+         * administrators
+         * @var bool
          */
         public bool $creates_join_request,
-        /** True, if the link is primary */
+        /**
+         * True, if the link is primary
+         * @var bool
+         */
         public bool $is_primary,
-        /** True, if the link is revoked */
+        /**
+         * True, if the link is revoked
+         * @var bool
+         */
         public bool $is_revoked,
-        /** Invite link name */
+        /**
+         * Invite link name
+         * @var string|null
+         */
         public ?string $name,
         /**
-         * Point in time (Unix timestamp) when the link will expire or has been
-         * expired
+         * Point in time (Unix timestamp) when the link will expire or has been expired
+         * @var int|null
          */
         public ?int $expire_date,
         /**
-         * The maximum number of users that can be members of the chat
-         * simultaneously after joining the chat via this invite link; 1-99999
+         * The maximum number of users that can be members of the chat simultaneously after
+         * joining the chat via this invite link; 1-99999
+         * @var int|null
          */
         public ?int $member_limit,
-        /** Number of pending join requests created using this link */
+        /**
+         * Number of pending join requests created using this link
+         * @var int|null
+         */
         public ?int $pending_join_request_count,
+        /**
+         * The number of seconds the subscription will be active for before the next
+         * payment
+         * @var int|null
+         */
+        public ?int $subscription_period,
+        /**
+         * The amount of Telegram Stars a user must pay initially and after each subsequent
+         * subscription period to be a member of the chat using the link
+         * @var int|null
+         */
+        public ?int $subscription_price,
     ) {
     }
 }

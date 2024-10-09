@@ -1,44 +1,52 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MessageReactionUpdated
- *
  * This object represents a change of a reaction on a message performed by a user.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MessageReactionUpdated extends Data implements TypeInterface
+final class MessageReactionUpdated extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The chat containing the message the user reacted to */
+        /**
+         * The chat containing the message the user reacted to
+         * @var Chat
+         */
         public Chat $chat,
-        /** Unique identifier of the message inside the chat */
+        /**
+         * Unique identifier of the message inside the chat
+         * @var int
+         */
         public int $message_id,
-        /** The user that changed the reaction, if the user isn't anonymous */
+        /**
+         * The user that changed the reaction, if the user isn't anonymous
+         * @var User|null
+         */
         public ?User $user,
         /**
-         * The chat on behalf of which the reaction was changed, if the user is
-         * anonymous
+         * The chat on behalf of which the reaction was changed, if the user is anonymous
+         * @var Chat|null
          */
         public ?Chat $actor_chat,
-        /** Date of the change in Unix time */
+        /**
+         * Date of the change in Unix time
+         * @var int
+         */
         public int $date,
         /**
          * Previous list of reaction types that were set by the user
-         * @var array<ReactionType>
+         * @var ReactionType
          */
-        public array $old_reaction,
+        public ReactionType $old_reaction,
         /**
          * New list of reaction types that have been set by the user
-         * @var array<ReactionType>
+         * @var ReactionType
          */
-        public array $new_reaction,
+        public ReactionType $new_reaction,
     ) {
     }
 }

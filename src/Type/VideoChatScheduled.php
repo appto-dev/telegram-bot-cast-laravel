@@ -1,25 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * VideoChatScheduled
- *
  * This object represents a service message about a video chat scheduled in the
  * chat.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class VideoChatScheduled extends Data implements TypeInterface
+final class VideoChatScheduled extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Point in time (Unix timestamp) when the video chat is supposed to be
-         * started by a chat administrator
+         * Point in time (Unix timestamp) when the video chat is supposed to be started by
+         * a chat administrator
+         * @var int
          */
         public int $start_date,
     ) {

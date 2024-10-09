@@ -1,21 +1,16 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\User;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetMe
- *
  * A simple method for testing your bot's authentication token. Requires no
- * parameters. Returns basic information about the bot in form of a User object.
+ * parameters. Returns basic information about the bot in form of a <a
+ * href="#user">User</a> object.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetMe extends Data implements MethodInterface
+final class GetMe extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = User::class;
 }

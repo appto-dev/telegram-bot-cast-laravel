@@ -1,32 +1,29 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * UnbanChatSenderChat
- *
  * Use this method to unban a previously banned channel chat in a supergroup or
  * channel. The bot must be an administrator for this to work and must have the
- * appropriate administrator rights. Returns True on success.
+ * appropriate administrator rights. Returns <em>True</em> on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class UnbanChatSenderChat extends Data implements MethodInterface
+final class UnbanChatSenderChat extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** Unique identifier of the target sender chat */
+        /**
+         * Unique identifier of the target sender chat
+         * @var int
+         */
         public int $sender_chat_id,
     ) {
     }

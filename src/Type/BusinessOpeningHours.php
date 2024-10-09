@@ -1,26 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BusinessOpeningHours
+ * Describes the opening hours of a business.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BusinessOpeningHours extends Data implements TypeInterface
+final class BusinessOpeningHours extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique name of the time zone for which the opening hours are defined */
+        /**
+         * Unique name of the time zone for which the opening hours are defined
+         * @var string
+         */
         public string $time_zone_name,
         /**
          * List of time intervals describing business opening hours
-         * @var array<BusinessOpeningHoursInterval>
+         * @var BusinessOpeningHoursInterval
          */
-        public array $opening_hours,
+        public BusinessOpeningHoursInterval $opening_hours,
     ) {
     }
 }

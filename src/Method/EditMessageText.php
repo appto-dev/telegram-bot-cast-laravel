@@ -1,61 +1,74 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InlineKeyboardMarkup;
-use ApptoTeam\TelegramBotCastLaravel\Type\LinkPreviewOptions;
-use ApptoTeam\TelegramBotCastLaravel\Type\MessageEntity;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InlineKeyboardMarkup;
+use Appto\TelegramBot\Type\LinkPreviewOptions;
+use Appto\TelegramBot\Type\MessageEntity;
 use Spatie\LaravelData\Data;
 
 /**
- * EditMessageText
+ * Use this method to edit text and <a href="#games">game</a> messages. On success,
+ * if the edited message is not an inline message, the edited <a
+ * href="#message">Message</a> is returned, otherwise <em>True</em> is returned.
+ * Note that business messages that were not sent by the bot and do not contain an
+ * inline keyboard can only be edited within 48 hours from the time they were sent.
  *
- * Use this method to edit text and game messages. On success, if the edited
- * message is not an inline message, the edited Message is returned, otherwise True
- * is returned.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class EditMessageText extends Data implements MethodInterface
+final class EditMessageText extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Required if inline_message_id is not specified. Unique identifier for
-         * the target chat or username of the target channel (in the format
-         * @channelusername)
+         * Unique identifier of the business connection on behalf of which the message to
+         * be edited was sent
+         * @var string|null
+         */
+        public ?string $business_connection_id,
+        /**
+         * Required if inline_message_id is not specified. Unique identifier for the target
+         * chat or username of the target channel (in the format @channelusername)
+         * @var int|string|null
          */
         public int|string|null $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the
-         * message to edit
+         * Required if inline_message_id is not specified. Identifier of the message to
+         * edit
+         * @var int|null
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of
-         * the inline message
+         * Required if chat_id and message_id are not specified. Identifier of the inline
+         * message
+         * @var string|null
          */
         public ?string $inline_message_id,
-        /** New text of the message, 1-4096 characters after entities parsing */
+        /**
+         * New text of the message, 1-4096 characters after entities parsing
+         * @var string
+         */
         public string $text,
         /**
-         * Mode for parsing entities in the message text. See formatting options
-         * for more details.
+         * Mode for parsing entities in the message text. See formatting options for more
+         * details.
+         * @var string|null
          */
         public ?string $parse_mode,
         /**
-         * A JSON-serialized list of special entities that appear in message
-         * text, which can be specified instead of parse_mode
-         * @var array<MessageEntity>
+         * A JSON-serialized list of special entities that appear in message text, which
+         * can be specified instead of parse_mode
+         * @var MessageEntity|null
          */
-        public ?array $entities,
-        /** Link preview generation options for the message */
+        public ?MessageEntity $entities,
+        /**
+         * Link preview generation options for the message
+         * @var LinkPreviewOptions|null
+         */
         public ?LinkPreviewOptions $link_preview_options,
-        /** A JSON-serialized object for an inline keyboard. */
+        /**
+         * A JSON-serialized object for an inline keyboard.
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {
     }

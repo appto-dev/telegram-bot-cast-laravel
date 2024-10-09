@@ -1,42 +1,39 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * TextQuote
- *
  * This object contains information about the quoted part of a message that is
  * replied to by the given message.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class TextQuote extends Data implements TypeInterface
+final class TextQuote extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Text of the quoted part of a message that is replied to by the given
-         * message
+         * Text of the quoted part of a message that is replied to by the given message
+         * @var string
          */
         public string $text,
         /**
-         * Special entities that appear in the quote. Currently, only bold,
-         * italic, underline, strikethrough, spoiler, and custom_emoji entities
-         * are kept in quotes.
-         * @var array<MessageEntity>
+         * Special entities that appear in the quote. Currently, only bold, italic,
+         * underline, strikethrough, spoiler, and custom_emoji entities are kept in quotes.
+         * @var MessageEntity|null
          */
-        public ?array $entities,
+        public ?MessageEntity $entities,
         /**
-         * Approximate quote position in the original message in UTF-16 code
-         * units as specified by the sender
+         * Approximate quote position in the original message in UTF-16 code units as
+         * specified by the sender
+         * @var int
          */
         public int $position,
         /**
-         * True, if the quote was chosen manually by the message sender.
-         * Otherwise, the quote was added automatically by the server.
+         * True, if the quote was chosen manually by the message sender. Otherwise, the
+         * quote was added automatically by the server.
+         * @var true|null
          */
         public ?true $is_manual,
     ) {

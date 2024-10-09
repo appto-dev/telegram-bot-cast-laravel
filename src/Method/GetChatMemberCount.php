@@ -1,26 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GetChatMemberCount
+ * Use this method to get the number of members in a chat. Returns <em>Int</em> on
+ * success.
  *
- * Use this method to get the number of members in a chat. Returns Int on success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GetChatMemberCount extends Data implements MethodInterface
+final class GetChatMemberCount extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = 'int';
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * supergroup or channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target supergroup or
+         * channel (in the format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
     ) {

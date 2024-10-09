@@ -1,28 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * PassportData
- *
  * Describes Telegram Passport data shared with the bot by the user.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class PassportData extends Data implements TypeInterface
+final class PassportData extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Array with information about documents and other Telegram Passport
-         * elements that was shared with the bot
-         * @var array<EncryptedPassportElement>
+         * Array with information about documents and other Telegram Passport elements that
+         * was shared with the bot
+         * @var EncryptedPassportElement
          */
-        public array $data,
-        /** Encrypted credentials required to decrypt the data */
+        public EncryptedPassportElement $data,
+        /**
+         * Encrypted credentials required to decrypt the data
+         * @var EncryptedCredentials
+         */
         public EncryptedCredentials $credentials,
     ) {
     }

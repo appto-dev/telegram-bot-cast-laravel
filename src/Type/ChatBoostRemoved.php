@@ -1,28 +1,36 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatBoostRemoved
- *
  * This object represents a boost removed from a chat.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatBoostRemoved extends Data implements TypeInterface
+final class ChatBoostRemoved extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Chat which was boosted */
+        /**
+         * Chat which was boosted
+         * @var Chat
+         */
         public Chat $chat,
-        /** Unique identifier of the boost */
+        /**
+         * Unique identifier of the boost
+         * @var string
+         */
         public string $boost_id,
-        /** Point in time (Unix timestamp) when the boost was removed */
+        /**
+         * Point in time (Unix timestamp) when the boost was removed
+         * @var int
+         */
         public int $remove_date,
-        /** Source of the removed boost */
+        /**
+         * Source of the removed boost
+         * @var ChatBoostSource
+         */
         public ChatBoostSource $source,
     ) {
     }

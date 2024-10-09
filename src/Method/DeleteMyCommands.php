@@ -1,36 +1,31 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\BotCommandScope;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\BotCommandScope;
 use Spatie\LaravelData\Data;
 
 /**
- * DeleteMyCommands
- *
  * Use this method to delete the list of the bot's commands for the given scope and
- * user language. After deletion, higher level commands will be shown to affected
- * users. Returns True on success.
+ * user language. After deletion, <a href="#determining-list-of-commands">higher
+ * level commands</a> will be shown to affected users. Returns <em>True</em> on
+ * success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class DeleteMyCommands extends Data implements MethodInterface
+final class DeleteMyCommands extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * A JSON-serialized object, describing scope of users for which the
-         * commands are relevant. Defaults to BotCommandScopeDefault.
+         * A JSON-serialized object, describing scope of users for which the commands are
+         * relevant. Defaults to BotCommandScopeDefault.
+         * @var BotCommandScope|null
          */
         public ?BotCommandScope $scope,
         /**
-         * A two-letter ISO 639-1 language code. If empty, commands will be
-         * applied to all users from the given scope, for whose language there
-         * are no dedicated commands
+         * A two-letter ISO 639-1 language code. If empty, commands will be applied to all
+         * users from the given scope, for whose language there are no dedicated commands
+         * @var string|null
          */
         public ?string $language_code,
     ) {

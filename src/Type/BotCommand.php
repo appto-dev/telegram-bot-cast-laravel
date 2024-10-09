@@ -1,27 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BotCommand
- *
  * This object represents a bot command.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BotCommand extends Data implements TypeInterface
+final class BotCommand extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Text of the command; 1-32 characters. Can contain only lowercase
-         * English letters, digits and underscores.
+         * Text of the command; 1-32 characters. Can contain only lowercase English
+         * letters, digits and underscores.
+         * @var string
          */
         public string $command,
-        /** Description of the command; 1-256 characters. */
+        /**
+         * Description of the command; 1-256 characters.
+         * @var string
+         */
         public string $description,
     ) {
     }

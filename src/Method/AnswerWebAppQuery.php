@@ -1,30 +1,30 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\InlineQueryResult;
-use ApptoTeam\TelegramBotCastLaravel\Type\SentWebAppMessage;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InlineQueryResult;
 use Spatie\LaravelData\Data;
 
 /**
- * AnswerWebAppQuery
+ * Use this method to set the result of an interaction with a <a
+ * href="/bots/webapps">Web App</a> and send a corresponding message on behalf of
+ * the user to the chat from which the query originated. On success, a <a
+ * href="#sentwebappmessage">SentWebAppMessage</a> object is returned.
  *
- * Use this method to set the result of an interaction with a Web App and send a
- * corresponding message on behalf of the user to the chat from which the query
- * originated. On success, a SentWebAppMessage object is returned.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class AnswerWebAppQuery extends Data implements MethodInterface
+final class AnswerWebAppQuery extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = SentWebAppMessage::class;
-
     public function __construct(
-        /** Unique identifier for the query to be answered */
+        /**
+         * Unique identifier for the query to be answered
+         * @var string
+         */
         public string $web_app_query_id,
-        /** A JSON-serialized object describing the message to be sent */
+        /**
+         * A JSON-serialized object describing the message to be sent
+         * @var InlineQueryResult
+         */
         public InlineQueryResult $result,
     ) {
     }

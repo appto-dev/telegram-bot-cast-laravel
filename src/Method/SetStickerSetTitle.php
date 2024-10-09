@@ -1,28 +1,27 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SetStickerSetTitle
+ * Use this method to set the title of a created sticker set. Returns <em>True</em>
+ * on success.
  *
- * Use this method to set the title of a created sticker set. Returns True on
- * success.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SetStickerSetTitle extends Data implements MethodInterface
+final class SetStickerSetTitle extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
-        /** Sticker set name */
+        /**
+         * Sticker set name
+         * @var string
+         */
         public string $name,
-        /** Sticker set title, 1-64 characters */
+        /**
+         * Sticker set title, 1-64 characters
+         * @var string
+         */
         public string $title,
     ) {
     }

@@ -1,27 +1,23 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * KeyboardButtonPollType
- *
  * This object represents type of a poll, which is allowed to be created and sent
  * when the corresponding button is pressed.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class KeyboardButtonPollType extends Data implements TypeInterface
+final class KeyboardButtonPollType extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * If quiz is passed, the user will be allowed to create only polls in
-         * the quiz mode. If regular is passed, only regular polls will be
-         * allowed. Otherwise, the user will be allowed to create a poll of any
-         * type.
+         * If quiz is passed, the user will be allowed to create only polls in the quiz
+         * mode. If regular is passed, only regular polls will be allowed. Otherwise, the
+         * user will be allowed to create a poll of any type.
+         * @var string|null
          */
         public ?string $type,
     ) {

@@ -1,30 +1,32 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ShippingOption
- *
  * This object represents one shipping option.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ShippingOption extends Data implements TypeInterface
+final class ShippingOption extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Shipping option identifier */
+        /**
+         * Shipping option identifier
+         * @var string
+         */
         public string $id,
-        /** Option title */
+        /**
+         * Option title
+         * @var string
+         */
         public string $title,
         /**
          * List of price portions
-         * @var array<LabeledPrice>
+         * @var LabeledPrice
          */
-        public array $prices,
+        public LabeledPrice $prices,
     ) {
     }
 }

@@ -1,21 +1,17 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * MaybeInaccessibleMessage
- *
  * This object describes a message that can be inaccessible to the bot. It can be
  * one of
- *  - Message
- *  - InaccessibleMessage
+ *  - <a href="#message">Message</a>
+ *  - <a href="#inaccessiblemessage">InaccessibleMessage</a>
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class MaybeInaccessibleMessage extends Data implements TypeInterface
+final class MaybeInaccessibleMessage extends Data implements TelegramTypeContract
 {
 }

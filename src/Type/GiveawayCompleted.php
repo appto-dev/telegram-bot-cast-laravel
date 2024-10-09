@@ -1,28 +1,39 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * GiveawayCompleted
- *
  * This object represents a service message about the completion of a giveaway
  * without public winners.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class GiveawayCompleted extends Data implements TypeInterface
+final class GiveawayCompleted extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Number of winners in the giveaway */
+        /**
+         * Number of winners in the giveaway
+         * @var int
+         */
         public int $winner_count,
-        /** Number of undistributed prizes */
+        /**
+         * Number of undistributed prizes
+         * @var int|null
+         */
         public ?int $unclaimed_prize_count,
-        /** Message with the giveaway that was completed, if it wasn't deleted */
+        /**
+         * Message with the giveaway that was completed, if it wasn't deleted
+         * @var Message|null
+         */
         public ?Message $giveaway_message,
+        /**
+         * True, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the
+         * giveaway is a Telegram Premium giveaway.
+         * @var true|null
+         */
+        public ?true $is_star_giveaway,
     ) {
     }
 }

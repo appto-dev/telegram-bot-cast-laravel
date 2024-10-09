@@ -1,25 +1,33 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ChatMemberMember
+ * Represents a <a href="#chatmember">chat member</a> that has no additional
+ * privileges or restrictions.
  *
- * Represents a chat member that has no additional privileges or restrictions.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ChatMemberMember extends Data implements TypeInterface
+final class ChatMemberMember extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** The member's status in the chat, always "member" */
+        /**
+         * The member's status in the chat, always "member"
+         * @var string
+         */
         public string $status,
-        /** Information about the user */
+        /**
+         * Information about the user
+         * @var User
+         */
         public User $user,
+        /**
+         * Date when the user's subscription will expire; Unix time
+         * @var int|null
+         */
+        public ?int $until_date,
     ) {
     }
 }

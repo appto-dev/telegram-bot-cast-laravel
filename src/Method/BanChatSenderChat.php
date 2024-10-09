@@ -1,34 +1,31 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Method;
+namespace Appto\TelegramBot\Method;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\MethodInterface;
-use ApptoTeam\TelegramBotCastLaravel\Type\ResponseObject;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
 use Spatie\LaravelData\Data;
 
 /**
- * BanChatSenderChat
- *
  * Use this method to ban a channel chat in a supergroup or a channel. Until the
- * chat is unbanned, the owner of the banned chat won't be able to send messages on
- * behalf of any of their channels. The bot must be an administrator in the
- * supergroup or channel for this to work and must have the appropriate
- * administrator rights. Returns True on success.
+ * chat is <a href="#unbanchatsenderchat">unbanned</a>, the owner of the banned
+ * chat won't be able to send messages on behalf of any of their channels. The bot
+ * must be an administrator in the supergroup or channel for this to work and must
+ * have the appropriate administrator rights. Returns <em>True</em> on success.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class BanChatSenderChat extends Data implements MethodInterface
+final class BanChatSenderChat extends Data implements TelegramMethodContract
 {
-    public const RESPONSE_TYPE = ResponseObject::class;
-
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target
-         * channel (in the format @channelusername)
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format @channelusername)
+         * @var int|string
          */
         public int|string $chat_id,
-        /** Unique identifier of the target sender chat */
+        /**
+         * Unique identifier of the target sender chat
+         * @var int
+         */
         public int $sender_chat_id,
     ) {
     }

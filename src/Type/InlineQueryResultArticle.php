@@ -1,42 +1,71 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * InlineQueryResultArticle
- *
  * Represents a link to an article or web page.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class InlineQueryResultArticle extends Data implements TypeInterface
+final class InlineQueryResultArticle extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Type of the result, must be article */
+        /**
+         * Type of the result, must be article
+         * @var string
+         */
         public string $type,
-        /** Unique identifier for this result, 1-64 Bytes */
+        /**
+         * Unique identifier for this result, 1-64 Bytes
+         * @var string
+         */
         public string $id,
-        /** Title of the result */
+        /**
+         * Title of the result
+         * @var string
+         */
         public string $title,
-        /** Content of the message to be sent */
+        /**
+         * Content of the message to be sent
+         * @var InputMessageContent
+         */
         public InputMessageContent $input_message_content,
-        /** Inline keyboard attached to the message */
+        /**
+         * Inline keyboard attached to the message
+         * @var InlineKeyboardMarkup|null
+         */
         public ?InlineKeyboardMarkup $reply_markup,
-        /** URL of the result */
+        /**
+         * URL of the result
+         * @var string|null
+         */
         public ?string $url,
-        /** Pass True if you don't want the URL to be shown in the message */
+        /**
+         * Pass True if you don't want the URL to be shown in the message
+         * @var bool|null
+         */
         public ?bool $hide_url,
-        /** Short description of the result */
+        /**
+         * Short description of the result
+         * @var string|null
+         */
         public ?string $description,
-        /** Url of the thumbnail for the result */
+        /**
+         * Url of the thumbnail for the result
+         * @var string|null
+         */
         public ?string $thumbnail_url,
-        /** Thumbnail width */
+        /**
+         * Thumbnail width
+         * @var int|null
+         */
         public ?int $thumbnail_width,
-        /** Thumbnail height */
+        /**
+         * Thumbnail height
+         * @var int|null
+         */
         public ?int $thumbnail_height,
     ) {
     }

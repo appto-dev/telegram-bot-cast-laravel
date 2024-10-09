@@ -1,27 +1,32 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ProximityAlertTriggered
- *
  * This object represents the content of a service message, sent whenever a user in
  * the chat triggers a proximity alert set by another user.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ProximityAlertTriggered extends Data implements TypeInterface
+final class ProximityAlertTriggered extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** User that triggered the alert */
+        /**
+         * User that triggered the alert
+         * @var User
+         */
         public User $traveler,
-        /** User that set the alert */
+        /**
+         * User that set the alert
+         * @var User
+         */
         public User $watcher,
-        /** The distance between the users */
+        /**
+         * The distance between the users
+         * @var int
+         */
         public int $distance,
     ) {
     }

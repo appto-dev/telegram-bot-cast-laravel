@@ -1,38 +1,43 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * Invoice
- *
  * This object contains basic information about an invoice.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class Invoice extends Data implements TypeInterface
+final class Invoice extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Product name */
+        /**
+         * Product name
+         * @var string
+         */
         public string $title,
-        /** Product description */
+        /**
+         * Product description
+         * @var string
+         */
         public string $description,
         /**
-         * Unique bot deep-linking parameter that can be used to generate this
-         * invoice
+         * Unique bot deep-linking parameter that can be used to generate this invoice
+         * @var string
          */
         public string $start_parameter,
-        /** Three-letter ISO 4217 currency code */
+        /**
+         * Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars
+         * @var string
+         */
         public string $currency,
         /**
-         * Total price in the smallest units of the currency (integer, not
-         * float/double). For example, for a price of US$ 1.45 pass amount = 145.
-         * See the exp parameter in currencies.json, it shows the number of
-         * digits past the decimal point for each currency (2 for the majority of
-         * currencies).
+         * Total price in the smallest units of the currency (integer, not float/double).
+         * For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in
+         * currencies.json, it shows the number of digits past the decimal point for each
+         * currency (2 for the majority of currencies).
+         * @var int
          */
         public int $total_amount,
     ) {

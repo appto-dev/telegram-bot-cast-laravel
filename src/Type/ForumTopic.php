@@ -1,28 +1,36 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * ForumTopic
- *
  * This object represents a forum topic.
  *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class ForumTopic extends Data implements TypeInterface
+final class ForumTopic extends Data implements TelegramTypeContract
 {
     public function __construct(
-        /** Unique identifier of the forum topic */
+        /**
+         * Unique identifier of the forum topic
+         * @var int
+         */
         public int $message_thread_id,
-        /** Name of the topic */
+        /**
+         * Name of the topic
+         * @var string
+         */
         public string $name,
-        /** Color of the topic icon in RGB format */
+        /**
+         * Color of the topic icon in RGB format
+         * @var int
+         */
         public int $icon_color,
-        /** Unique identifier of the custom emoji shown as the topic icon */
+        /**
+         * Unique identifier of the custom emoji shown as the topic icon
+         * @var string|null
+         */
         public ?string $icon_custom_emoji_id,
     ) {
     }

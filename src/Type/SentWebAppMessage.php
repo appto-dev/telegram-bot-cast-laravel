@@ -1,24 +1,22 @@
 <?php
-namespace ApptoTeam\TelegramBotCastLaravel\Type;
+namespace Appto\TelegramBot\Type;
 
-use ApptoTeam\TelegramBotCastLaravel\Interface\TypeInterface;
+use Appto\TelegramBot\Contracts\TelegramTypeContract;
 use Spatie\LaravelData\Data;
 
 /**
- * SentWebAppMessage
+ * Describes an inline message sent by a <a href="/bots/webapps">Web App</a> on
+ * behalf of a user.
  *
- * Describes an inline message sent by a Web App on behalf of a user.
- *
- * @package Telegram Bot Cast
- * @author Sergey Makhlenko <https://t.me/SergeyMakhlenko>
- * @license https://mit-license.org/license.txt The MIT License (MIT)
+ * @version Telegram Bot API 7.10
  */
-final class SentWebAppMessage extends Data implements TypeInterface
+final class SentWebAppMessage extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Identifier of the sent inline message. Available only if there is an
-         * inline keyboard attached to the message.
+         * Identifier of the sent inline message. Available only if there is an inline
+         * keyboard attached to the message.
+         * @var string|null
          */
         public ?string $inline_message_id,
     ) {
