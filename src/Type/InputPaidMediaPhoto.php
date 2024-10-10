@@ -22,9 +22,9 @@ final class InputPaidMediaPhoto extends Data implements TelegramTypeContract
          * (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or
          * pass "attach://<file_attach_name>" to upload a new one using multipart/form-data
          * under <file_attach_name> name. More information on Sending Files
-         * @var string
+         * @var InputFile|string
          */
-        public string $media,
+        public InputFile|string $media,
     ) {
     }
 }
