@@ -14,11 +14,6 @@ final class PassportElementErrorSelfie extends Data implements TelegramTypeContr
 {
     public function __construct(
         /**
-         * Error source, must be selfie
-         * @var string
-         */
-        public string $source,
-        /**
          * The section of the user's Telegram Passport which has the issue, one of
          * "passport", "driver_license", "identity_card", "internal_passport"
          * @var string
@@ -34,6 +29,11 @@ final class PassportElementErrorSelfie extends Data implements TelegramTypeContr
          * @var string
          */
         public string $message,
+        /**
+         * Error source, must be selfie
+         * @var string
+         */
+        public string $source = 'selfie',
     ) {
     }
 }

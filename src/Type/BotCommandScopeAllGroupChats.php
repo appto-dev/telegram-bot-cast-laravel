@@ -17,7 +17,7 @@ final class BotCommandScopeAllGroupChats extends Data implements TelegramTypeCon
          * Scope type, must be all_group_chats
          * @var string
          */
-        public string $type,
+        public string $type = 'all_group_chats',
     ) {
     }
 }

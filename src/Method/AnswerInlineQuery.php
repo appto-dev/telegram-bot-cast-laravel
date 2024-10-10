@@ -32,9 +32,9 @@ final class AnswerInlineQuery extends Data implements TelegramMethodContract
          */
         public ?int $cache_time,
         /**
-         * Pass True if results may be cached on the server side only for the user that
-         * sent the query. By default, results may be returned to any user who sends the
-         * same query.
+         * Pass <em>True</em> if results may be cached on the server side only for the user
+         * that sent the query. By default, results may be returned to any user who sends
+         * the same query.
          * @var bool
          */
         public ?bool $is_personal,

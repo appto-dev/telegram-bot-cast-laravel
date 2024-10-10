@@ -19,7 +19,7 @@ final class BotCommandScopeDefault extends Data implements TelegramTypeContract
          * Scope type, must be default
          * @var string
          */
-        public string $type,
+        public string $type = 'default',
     ) {
     }
 }

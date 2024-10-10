@@ -18,7 +18,8 @@ final class DeleteMyCommands extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * A JSON-serialized object, describing scope of users for which the commands are
-         * relevant. Defaults to BotCommandScopeDefault.
+         * relevant. Defaults to <a
+         * href="#botcommandscopedefault">BotCommandScopeDefault</a>.
          * @var BotCommandScope
          */
         public ?BotCommandScope $scope,

@@ -16,11 +16,6 @@ final class InlineQueryResultDocument extends Data implements TelegramTypeContra
 {
     public function __construct(
         /**
-         * Type of the result, must be document
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 bytes
          * @var string
          */
@@ -88,6 +83,11 @@ final class InlineQueryResultDocument extends Data implements TelegramTypeContra
          * @var int
          */
         public ?int $thumbnail_height,
+        /**
+         * Type of the result, must be document
+         * @var string
+         */
+        public string $type = 'document',
     ) {
     }
 }

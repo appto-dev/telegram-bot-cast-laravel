@@ -140,7 +140,7 @@ final class ChatFullInfo extends Data implements TelegramTypeContract
         public ?string $bio,
         /**
          * True, if privacy settings of the other party in the private chat allows to use
-         * tg://user?id=<user_id> links only in chats with the user
+         * tg://user?id=&lt;user_id&gt; links only in chats with the user
          * @var true
          */
         public ?true $has_private_forwards,

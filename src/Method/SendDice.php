@@ -26,7 +26,7 @@ final class SendDice extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -37,14 +37,37 @@ final class SendDice extends Data implements TelegramMethodContract
          */
         public ?int $message_thread_id,
         /**
-         * Emoji on which the dice throw animation is based. Currently, must be one of "",
-         * "", "", "", "", or "". Dice can have values 1-6 for "", "" and "", values 1-5
-         * for "" and "", and values 1-64 for "". Defaults to ""
+         * Emoji on which the dice throw animation is based. Currently, must be one of
+         * "<img class="emoji" src="//telegram.org/img/emoji/40/F09F8EB2.png" width="20"
+         * height="20" alt="🎲">", "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8EAF.png" width="20" height="20"
+         * alt="🎯">", "<img class="emoji" src="//telegram.org/img/emoji/40/F09F8F80.png"
+         * width="20" height="20" alt="🏀">", "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/E29ABD.png" width="20" height="20" alt="⚽">",
+         * "<img class="emoji" src="//telegram.org/img/emoji/40/F09F8EB3.png" width="20"
+         * height="20" alt="🎳">", or "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8EB0.png" width="20" height="20"
+         * alt="🎰">". Dice can have values 1-6 for "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8EB2.png" width="20" height="20"
+         * alt="🎲">", "<img class="emoji" src="//telegram.org/img/emoji/40/F09F8EAF.png"
+         * width="20" height="20" alt="🎯">" and "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8EB3.png" width="20" height="20"
+         * alt="🎳">", values 1-5 for "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8F80.png" width="20" height="20"
+         * alt="🏀">" and "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/E29ABD.png" width="20" height="20" alt="⚽">",
+         * and values 1-64 for "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8EB0.png" width="20" height="20"
+         * alt="🎰">". Defaults to "<img class="emoji"
+         * src="//telegram.org/img/emoji/40/F09F8EB2.png" width="20" height="20"
+         * alt="🎲">"
          * @var string
          */
         public ?string $emoji,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -65,9 +88,10 @@ final class SendDice extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

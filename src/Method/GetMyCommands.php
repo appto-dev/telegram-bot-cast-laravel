@@ -17,8 +17,8 @@ final class GetMyCommands extends Data implements TelegramMethodContract
 {
     public function __construct(
         /**
-         * A JSON-serialized object, describing scope of users. Defaults to
-         * BotCommandScopeDefault.
+         * A JSON-serialized object, describing scope of users. Defaults to <a
+         * href="#botcommandscopedefault">BotCommandScopeDefault</a>.
          * @var BotCommandScope
          */
         public ?BotCommandScope $scope,

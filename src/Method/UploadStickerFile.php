@@ -23,9 +23,11 @@ final class UploadStickerFile extends Data implements TelegramMethodContract
          */
         public int $user_id,
         /**
-         * A file with the sticker in .WEBP, .PNG, .TGS, or .WEBM format. See
-         * https://core.telegram.org/stickers for technical requirements. More information
-         * on Sending Files
+         * A file with the sticker in .WEBP, .PNG, .TGS, or .WEBM format. See <a
+         * href="/stickers"></a><a
+         * href="https://core.telegram.org/stickers">https://core.telegram.org/stickers</a>
+         * for technical requirements. <a href="#sending-files">More information on Sending
+         * Files </a>
          * @var InputFile
          */
         public InputFile $sticker,

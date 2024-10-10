@@ -18,7 +18,7 @@ final class SetMessageReaction extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -37,7 +37,7 @@ final class SetMessageReaction extends Data implements TelegramMethodContract
          */
         public ?array $reaction,
         /**
-         * Pass True to set the reaction with a big animation
+         * Pass <em>True</em> to set the reaction with a big animation
          * @var bool
          */
         public ?bool $is_big,

@@ -28,7 +28,7 @@ final class SendMessage extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -44,14 +44,14 @@ final class SendMessage extends Data implements TelegramMethodContract
          */
         public string $text,
         /**
-         * Mode for parsing entities in the message text. See formatting options for more
-         * details.
+         * Mode for parsing entities in the message text. See <a
+         * href="#formatting-options">formatting options</a> for more details.
          * @var string
          */
         public ?string $parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in message text, which
-         * can be specified instead of parse_mode
+         * can be specified instead of <em>parse_mode</em>
          * @var MessageEntity[]
          */
         public ?array $entities,
@@ -61,7 +61,9 @@ final class SendMessage extends Data implements TelegramMethodContract
          */
         public ?LinkPreviewOptions $link_preview_options,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -82,9 +84,10 @@ final class SendMessage extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

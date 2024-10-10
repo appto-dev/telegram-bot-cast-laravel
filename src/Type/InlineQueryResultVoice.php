@@ -16,11 +16,6 @@ final class InlineQueryResultVoice extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Type of the result, must be voice
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 bytes
          * @var string
          */
@@ -67,6 +62,11 @@ final class InlineQueryResultVoice extends Data implements TelegramTypeContract
          * @var InputMessageContent
          */
         public ?InputMessageContent $input_message_content,
+        /**
+         * Type of the result, must be voice
+         * @var string
+         */
+        public string $type = 'voice',
     ) {
     }
 }

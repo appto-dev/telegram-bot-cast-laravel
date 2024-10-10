@@ -16,7 +16,7 @@ final class EditChatSubscriptionInviteLink extends Data implements TelegramMetho
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,

@@ -16,7 +16,7 @@ final class MenuButtonCommands extends Data implements TelegramTypeContract
          * Type of the button, must be commands
          * @var string
          */
-        public string $type,
+        public string $type = 'commands',
     ) {
     }
 }

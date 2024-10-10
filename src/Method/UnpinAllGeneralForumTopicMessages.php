@@ -17,7 +17,7 @@ final class UnpinAllGeneralForumTopicMessages extends Data implements TelegramMe
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target supergroup (in
-         * the format @supergroupusername)
+         * the format <code>@supergroupusername</code>)
          * @var int|string
          */
         public int|string $chat_id,

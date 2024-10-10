@@ -34,12 +34,14 @@ final class SendGame extends Data implements TelegramMethodContract
         public ?int $message_thread_id,
         /**
          * Short name of the game, serves as the unique identifier for the game. Set up
-         * your games via @BotFather.
+         * your games via <a href="https://t.me/botfather">@BotFather</a>.
          * @var string
          */
         public string $game_short_name,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -60,8 +62,9 @@ final class SendGame extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * A JSON-serialized object for an inline keyboard. If empty, one 'Play game_title'
-         * button will be shown. If not empty, the first button must launch the game.
+         * A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
+         * keyboard</a>. If empty, one 'Play game_title' button will be shown. If not
+         * empty, the first button must launch the game.
          * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,

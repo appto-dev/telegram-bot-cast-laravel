@@ -15,11 +15,6 @@ final class InlineQueryResultLocation extends Data implements TelegramTypeContra
 {
     public function __construct(
         /**
-         * Type of the result, must be location
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 Bytes
          * @var string
          */
@@ -87,6 +82,11 @@ final class InlineQueryResultLocation extends Data implements TelegramTypeContra
          * @var int
          */
         public ?int $thumbnail_height,
+        /**
+         * Type of the result, must be location
+         * @var string
+         */
+        public string $type = 'location',
     ) {
     }
 }

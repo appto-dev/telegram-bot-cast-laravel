@@ -29,7 +29,7 @@ final class SendSticker extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -43,8 +43,8 @@ final class SendSticker extends Data implements TelegramMethodContract
          * Sticker to send. Pass a file_id as String to send a file that exists on the
          * Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get
          * a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker
-         * using multipart/form-data. More information on Sending Files . Video and
-         * animated stickers can't be sent via an HTTP URL.
+         * using multipart/form-data. <a href="#sending-files">More information on Sending
+         * Files </a>. Video and animated stickers can't be sent via an HTTP URL.
          * @var InputFile|string
          */
         public InputFile|string $sticker,
@@ -54,7 +54,9 @@ final class SendSticker extends Data implements TelegramMethodContract
          */
         public ?string $emoji,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -75,9 +77,10 @@ final class SendSticker extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

@@ -21,8 +21,8 @@ final class SetChatMenuButton extends Data implements TelegramMethodContract
          */
         public ?int $chat_id,
         /**
-         * A JSON-serialized object for the bot's new menu button. Defaults to
-         * MenuButtonDefault
+         * A JSON-serialized object for the bot's new menu button. Defaults to <a
+         * href="#menubuttondefault">MenuButtonDefault</a>
          * @var MenuButton
          */
         public ?MenuButton $menu_button,

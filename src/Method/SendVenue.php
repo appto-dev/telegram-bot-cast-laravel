@@ -26,7 +26,7 @@ final class SendVenue extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -73,12 +73,16 @@ final class SendVenue extends Data implements TelegramMethodContract
          */
         public ?string $google_place_id,
         /**
-         * Google Places type of the venue. (See supported types.)
+         * Google Places type of the venue. (See <a
+         * href="https://developers.google.com/places/web-service/supported_types">supported
+         * types</a>.)
          * @var string
          */
         public ?string $google_place_type,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -99,9 +103,10 @@ final class SendVenue extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

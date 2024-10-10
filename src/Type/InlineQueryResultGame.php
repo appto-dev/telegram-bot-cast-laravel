@@ -13,11 +13,6 @@ final class InlineQueryResultGame extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Type of the result, must be game
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 bytes
          * @var string
          */
@@ -32,6 +27,11 @@ final class InlineQueryResultGame extends Data implements TelegramTypeContract
          * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,
+        /**
+         * Type of the result, must be game
+         * @var string
+         */
+        public string $type = 'game',
     ) {
     }
 }

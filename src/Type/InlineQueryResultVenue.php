@@ -15,11 +15,6 @@ final class InlineQueryResultVenue extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Type of the result, must be venue
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 Bytes
          * @var string
          */
@@ -90,6 +85,11 @@ final class InlineQueryResultVenue extends Data implements TelegramTypeContract
          * @var int
          */
         public ?int $thumbnail_height,
+        /**
+         * Type of the result, must be venue
+         * @var string
+         */
+        public string $type = 'venue',
     ) {
     }
 }

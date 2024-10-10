@@ -14,11 +14,6 @@ final class BotCommandScopeChatMember extends Data implements TelegramTypeContra
 {
     public function __construct(
         /**
-         * Scope type, must be chat_member
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for the target chat or username of the target supergroup (in
          * the format @supergroupusername)
          * @var int|string
@@ -29,6 +24,11 @@ final class BotCommandScopeChatMember extends Data implements TelegramTypeContra
          * @var int
          */
         public int $user_id,
+        /**
+         * Scope type, must be chat_member
+         * @var string
+         */
+        public string $type = 'chat_member',
     ) {
     }
 }

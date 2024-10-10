@@ -13,11 +13,6 @@ final class MenuButtonWebApp extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Type of the button, must be web_app
-         * @var string
-         */
-        public string $type,
-        /**
          * Text on the button
          * @var string
          */
@@ -31,6 +26,11 @@ final class MenuButtonWebApp extends Data implements TelegramTypeContract
          * @var WebAppInfo
          */
         public WebAppInfo $web_app,
+        /**
+         * Type of the button, must be web_app
+         * @var string
+         */
+        public string $type = 'web_app',
     ) {
     }
 }

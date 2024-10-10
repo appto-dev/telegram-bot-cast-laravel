@@ -18,7 +18,7 @@ final class CreateChatInviteLink extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -39,8 +39,8 @@ final class CreateChatInviteLink extends Data implements TelegramMethodContract
          */
         public ?int $member_limit,
         /**
-         * True, if users joining the chat via the link need to be approved by chat
-         * administrators. If True, member_limit can't be specified
+         * <em>True</em>, if users joining the chat via the link need to be approved by
+         * chat administrators. If <em>True</em>, <em>member_limit</em> can't be specified
          * @var bool
          */
         public ?bool $creates_join_request,

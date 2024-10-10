@@ -17,7 +17,7 @@ final class BotCommandScopeAllPrivateChats extends Data implements TelegramTypeC
          * Scope type, must be all_private_chats
          * @var string
          */
-        public string $type,
+        public string $type = 'all_private_chats',
     ) {
     }
 }

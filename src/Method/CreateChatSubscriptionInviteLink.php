@@ -22,7 +22,7 @@ final class CreateChatSubscriptionInviteLink extends Data implements TelegramMet
     public function __construct(
         /**
          * Unique identifier for the target channel chat or username of the target channel
-         * (in the format @channelusername)
+         * (in the format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,

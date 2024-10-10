@@ -26,7 +26,7 @@ final class CopyMessage extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -38,12 +38,12 @@ final class CopyMessage extends Data implements TelegramMethodContract
         public ?int $message_thread_id,
         /**
          * Unique identifier for the chat where the original message was sent (or channel
-         * username in the format @channelusername)
+         * username in the format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $from_chat_id,
         /**
-         * Message identifier in the chat specified in from_chat_id
+         * Message identifier in the chat specified in <em>from_chat_id</em>
          * @var int
          */
         public int $message_id,
@@ -54,25 +54,27 @@ final class CopyMessage extends Data implements TelegramMethodContract
          */
         public ?string $caption,
         /**
-         * Mode for parsing entities in the new caption. See formatting options for more
-         * details.
+         * Mode for parsing entities in the new caption. See <a
+         * href="#formatting-options">formatting options</a> for more details.
          * @var string
          */
         public ?string $parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the new caption, which
-         * can be specified instead of parse_mode
+         * can be specified instead of <em>parse_mode</em>
          * @var MessageEntity[]
          */
         public ?array $caption_entities,
         /**
-         * Pass True, if the caption must be shown above the message media. Ignored if a
-         * new caption isn't specified.
+         * Pass <em>True</em>, if the caption must be shown above the message media.
+         * Ignored if a new caption isn't specified.
          * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -87,9 +89,10 @@ final class CopyMessage extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

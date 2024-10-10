@@ -24,20 +24,21 @@ final class EditMessageLiveLocation extends Data implements TelegramMethodContra
          */
         public ?string $business_connection_id,
         /**
-         * Required if inline_message_id is not specified. Unique identifier for the target
-         * chat or username of the target channel (in the format @channelusername)
+         * Required if <em>inline_message_id</em> is not specified. Unique identifier for
+         * the target chat or username of the target channel (in the format
+         * <code>@channelusername</code>)
          * @var int|string
          */
         public int|string|null $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the message to
-         * edit
+         * Required if <em>inline_message_id</em> is not specified. Identifier of the
+         * message to edit
          * @var int
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of the inline
-         * message
+         * Required if <em>chat_id</em> and <em>message_id</em> are not specified.
+         * Identifier of the inline message
          * @var string
          */
         public ?string $inline_message_id,
@@ -55,9 +56,9 @@ final class EditMessageLiveLocation extends Data implements TelegramMethodContra
          * New period in seconds during which the location can be updated, starting from
          * the message send date. If 0x7FFFFFFF is specified, then the location can be
          * updated forever. Otherwise, the new value must not exceed the current
-         * live_period by more than a day, and the live location expiration date must
-         * remain within the next 90 days. If not specified, then live_period remains
-         * unchanged
+         * <em>live_period</em> by more than a day, and the live location expiration date
+         * must remain within the next 90 days. If not specified, then <em>live_period</em>
+         * remains unchanged
          * @var int
          */
         public ?int $live_period,
@@ -79,7 +80,8 @@ final class EditMessageLiveLocation extends Data implements TelegramMethodContra
          */
         public ?int $proximity_alert_radius,
         /**
-         * A JSON-serialized object for a new inline keyboard.
+         * A JSON-serialized object for a new <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>.
          * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,

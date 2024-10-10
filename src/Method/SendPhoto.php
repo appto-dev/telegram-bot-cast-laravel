@@ -28,7 +28,7 @@ final class SendPhoto extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -43,41 +43,43 @@ final class SendPhoto extends Data implements TelegramMethodContract
          * Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get
          * a photo from the Internet, or upload a new photo using multipart/form-data. The
          * photo must be at most 10 MB in size. The photo's width and height must not
-         * exceed 10000 in total. Width and height ratio must be at most 20. More
-         * information on Sending Files
+         * exceed 10000 in total. Width and height ratio must be at most 20. <a
+         * href="#sending-files">More information on Sending Files </a>
          * @var InputFile|string
          */
         public InputFile|string $photo,
         /**
-         * Photo caption (may also be used when resending photos by file_id), 0-1024
-         * characters after entities parsing
+         * Photo caption (may also be used when resending photos by <em>file_id</em>),
+         * 0-1024 characters after entities parsing
          * @var string
          */
         public ?string $caption,
         /**
-         * Mode for parsing entities in the photo caption. See formatting options for more
-         * details.
+         * Mode for parsing entities in the photo caption. See <a
+         * href="#formatting-options">formatting options</a> for more details.
          * @var string
          */
         public ?string $parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can
-         * be specified instead of parse_mode
+         * be specified instead of <em>parse_mode</em>
          * @var MessageEntity[]
          */
         public ?array $caption_entities,
         /**
-         * Pass True, if the caption must be shown above the message media
+         * Pass <em>True</em>, if the caption must be shown above the message media
          * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
-         * Pass True if the photo needs to be covered with a spoiler animation
+         * Pass <em>True</em> if the photo needs to be covered with a spoiler animation
          * @var bool
          */
         public ?bool $has_spoiler,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -98,9 +100,10 @@ final class SendPhoto extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

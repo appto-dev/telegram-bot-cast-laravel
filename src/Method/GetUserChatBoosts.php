@@ -16,7 +16,7 @@ final class GetUserChatBoosts extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the chat or username of the channel (in the format
-         * @channelusername)
+         * <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,

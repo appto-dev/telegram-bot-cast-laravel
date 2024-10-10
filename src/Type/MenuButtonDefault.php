@@ -16,7 +16,7 @@ final class MenuButtonDefault extends Data implements TelegramTypeContract
          * Type of the button, must be default
          * @var string
          */
-        public string $type,
+        public string $type = 'default',
     ) {
     }
 }

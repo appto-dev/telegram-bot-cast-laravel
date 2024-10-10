@@ -18,11 +18,6 @@ final class InlineQueryResultVideo extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Type of the result, must be video
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 bytes
          * @var string
          */
@@ -101,6 +96,11 @@ final class InlineQueryResultVideo extends Data implements TelegramTypeContract
          * @var InputMessageContent
          */
         public ?InputMessageContent $input_message_content,
+        /**
+         * Type of the result, must be video
+         * @var string
+         */
+        public string $type = 'video',
     ) {
     }
 }

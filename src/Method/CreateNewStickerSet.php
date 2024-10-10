@@ -20,10 +20,11 @@ final class CreateNewStickerSet extends Data implements TelegramMethodContract
          */
         public int $user_id,
         /**
-         * Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals).
-         * Can contain only English letters, digits and underscores. Must begin with a
-         * letter, can't contain consecutive underscores and must end in
-         * "_by_<bot_username>". <bot_username> is case insensitive. 1-64 characters.
+         * Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs
+         * (e.g., <em>animals</em>). Can contain only English letters, digits and
+         * underscores. Must begin with a letter, can't contain consecutive underscores and
+         * must end in <code>"_by_&lt;bot_username&gt;"</code>.
+         * <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.
          * @var string
          */
         public string $name,
@@ -44,10 +45,10 @@ final class CreateNewStickerSet extends Data implements TelegramMethodContract
          */
         public ?string $sticker_type,
         /**
-         * Pass True if stickers in the sticker set must be repainted to the color of text
-         * when used in messages, the accent color if used as emoji status, white on chat
-         * photos, or another appropriate color based on context; for custom emoji sticker
-         * sets only
+         * Pass <em>True</em> if stickers in the sticker set must be repainted to the color
+         * of text when used in messages, the accent color if used as emoji status, white
+         * on chat photos, or another appropriate color based on context; for custom emoji
+         * sticker sets only
          * @var bool
          */
         public ?bool $needs_repainting,

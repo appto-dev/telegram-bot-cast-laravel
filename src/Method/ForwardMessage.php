@@ -16,7 +16,7 @@ final class ForwardMessage extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -28,12 +28,14 @@ final class ForwardMessage extends Data implements TelegramMethodContract
         public ?int $message_thread_id,
         /**
          * Unique identifier for the chat where the original message was sent (or channel
-         * username in the format @channelusername)
+         * username in the format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $from_chat_id,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -43,7 +45,7 @@ final class ForwardMessage extends Data implements TelegramMethodContract
          */
         public ?bool $protect_content,
         /**
-         * Message identifier in the chat specified in from_chat_id
+         * Message identifier in the chat specified in <em>from_chat_id</em>
          * @var int
          */
         public int $message_id,

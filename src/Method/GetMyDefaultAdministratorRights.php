@@ -15,9 +15,9 @@ final class GetMyDefaultAdministratorRights extends Data implements TelegramMeth
 {
     public function __construct(
         /**
-         * Pass True to get default administrator rights of the bot in channels. Otherwise,
-         * default administrator rights of the bot for groups and supergroups will be
-         * returned.
+         * Pass <em>True</em> to get default administrator rights of the bot in channels.
+         * Otherwise, default administrator rights of the bot for groups and supergroups
+         * will be returned.
          * @var bool
          */
         public ?bool $for_channels,

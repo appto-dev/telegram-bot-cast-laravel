@@ -19,7 +19,7 @@ final class BanChatMember extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target group or username of the target supergroup or
-         * channel (in the format @channelusername)
+         * channel (in the format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -36,9 +36,10 @@ final class BanChatMember extends Data implements TelegramMethodContract
          */
         public ?int $until_date,
         /**
-         * Pass True to delete all messages from the chat for the user that is being
-         * removed. If False, the user will be able to see messages in the group that were
-         * sent before the user was removed. Always True for supergroups and channels.
+         * Pass <em>True</em> to delete all messages from the chat for the user that is
+         * being removed. If <em>False</em>, the user will be able to see messages in the
+         * group that were sent before the user was removed. Always <em>True</em> for
+         * supergroups and channels.
          * @var bool
          */
         public ?bool $revoke_messages,

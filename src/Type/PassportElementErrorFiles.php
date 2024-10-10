@@ -14,11 +14,6 @@ final class PassportElementErrorFiles extends Data implements TelegramTypeContra
 {
     public function __construct(
         /**
-         * Error source, must be files
-         * @var string
-         */
-        public string $source,
-        /**
          * The section of the user's Telegram Passport which has the issue, one of
          * "utility_bill", "bank_statement", "rental_agreement", "passport_registration",
          * "temporary_registration"
@@ -35,6 +30,11 @@ final class PassportElementErrorFiles extends Data implements TelegramTypeContra
          * @var string
          */
         public string $message,
+        /**
+         * Error source, must be files
+         * @var string
+         */
+        public string $source = 'files',
     ) {
     }
 }

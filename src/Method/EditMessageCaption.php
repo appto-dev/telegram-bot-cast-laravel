@@ -25,20 +25,21 @@ final class EditMessageCaption extends Data implements TelegramMethodContract
          */
         public ?string $business_connection_id,
         /**
-         * Required if inline_message_id is not specified. Unique identifier for the target
-         * chat or username of the target channel (in the format @channelusername)
+         * Required if <em>inline_message_id</em> is not specified. Unique identifier for
+         * the target chat or username of the target channel (in the format
+         * <code>@channelusername</code>)
          * @var int|string
          */
         public int|string|null $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the message to
-         * edit
+         * Required if <em>inline_message_id</em> is not specified. Identifier of the
+         * message to edit
          * @var int
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of the inline
-         * message
+         * Required if <em>chat_id</em> and <em>message_id</em> are not specified.
+         * Identifier of the inline message
          * @var string
          */
         public ?string $inline_message_id,
@@ -48,25 +49,26 @@ final class EditMessageCaption extends Data implements TelegramMethodContract
          */
         public ?string $caption,
         /**
-         * Mode for parsing entities in the message caption. See formatting options for
-         * more details.
+         * Mode for parsing entities in the message caption. See <a
+         * href="#formatting-options">formatting options</a> for more details.
          * @var string
          */
         public ?string $parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can
-         * be specified instead of parse_mode
+         * be specified instead of <em>parse_mode</em>
          * @var MessageEntity[]
          */
         public ?array $caption_entities,
         /**
-         * Pass True, if the caption must be shown above the message media. Supported only
-         * for animation, photo and video messages.
+         * Pass <em>True</em>, if the caption must be shown above the message media.
+         * Supported only for animation, photo and video messages.
          * @var bool
          */
         public ?bool $show_caption_above_media,
         /**
-         * A JSON-serialized object for an inline keyboard.
+         * A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
+         * keyboard</a>.
          * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,

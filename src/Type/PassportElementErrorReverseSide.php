@@ -14,11 +14,6 @@ final class PassportElementErrorReverseSide extends Data implements TelegramType
 {
     public function __construct(
         /**
-         * Error source, must be reverse_side
-         * @var string
-         */
-        public string $source,
-        /**
          * The section of the user's Telegram Passport which has the issue, one of
          * "driver_license", "identity_card"
          * @var string
@@ -34,6 +29,11 @@ final class PassportElementErrorReverseSide extends Data implements TelegramType
          * @var string
          */
         public string $message,
+        /**
+         * Error source, must be reverse_side
+         * @var string
+         */
+        public string $source = 'reverse_side',
     ) {
     }
 }

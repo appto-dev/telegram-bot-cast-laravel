@@ -14,11 +14,6 @@ final class PassportElementErrorTranslationFile extends Data implements Telegram
 {
     public function __construct(
         /**
-         * Error source, must be translation_file
-         * @var string
-         */
-        public string $source,
-        /**
          * Type of element of the user's Telegram Passport which has the issue, one of
          * "passport", "driver_license", "identity_card", "internal_passport",
          * "utility_bill", "bank_statement", "rental_agreement", "passport_registration",
@@ -36,6 +31,11 @@ final class PassportElementErrorTranslationFile extends Data implements Telegram
          * @var string
          */
         public string $message,
+        /**
+         * Error source, must be translation_file
+         * @var string
+         */
+        public string $source = 'translation_file',
     ) {
     }
 }

@@ -17,7 +17,7 @@ final class BotCommandScopeAllChatAdministrators extends Data implements Telegra
          * Scope type, must be all_chat_administrators
          * @var string
          */
-        public string $type,
+        public string $type = 'all_chat_administrators',
     ) {
     }
 }

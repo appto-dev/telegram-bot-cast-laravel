@@ -22,7 +22,7 @@ final class StopPoll extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -32,7 +32,8 @@ final class StopPoll extends Data implements TelegramMethodContract
          */
         public int $message_id,
         /**
-         * A JSON-serialized object for a new message inline keyboard.
+         * A JSON-serialized object for a new message <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>.
          * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,

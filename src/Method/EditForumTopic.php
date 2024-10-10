@@ -17,7 +17,7 @@ final class EditForumTopic extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target supergroup (in
-         * the format @supergroupusername)
+         * the format <code>@supergroupusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -33,9 +33,10 @@ final class EditForumTopic extends Data implements TelegramMethodContract
          */
         public ?string $name,
         /**
-         * New unique identifier of the custom emoji shown as the topic icon. Use
-         * getForumTopicIconStickers to get all allowed custom emoji identifiers. Pass an
-         * empty string to remove the icon. If not specified, the current icon will be kept
+         * New unique identifier of the custom emoji shown as the topic icon. Use <a
+         * href="#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all
+         * allowed custom emoji identifiers. Pass an empty string to remove the icon. If
+         * not specified, the current icon will be kept
          * @var string
          */
         public ?string $icon_custom_emoji_id,

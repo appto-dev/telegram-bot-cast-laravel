@@ -24,13 +24,13 @@ final class UnpinChatMessage extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
         /**
-         * Identifier of the message to unpin. Required if business_connection_id is
-         * specified. If not specified, the most recent pinned message (by sending date)
+         * Identifier of the message to unpin. Required if <em>business_connection_id</em>
+         * is specified. If not specified, the most recent pinned message (by sending date)
          * will be unpinned.
          * @var int
          */

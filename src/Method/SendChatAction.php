@@ -31,7 +31,7 @@ final class SendChatAction extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -42,10 +42,15 @@ final class SendChatAction extends Data implements TelegramMethodContract
         public ?int $message_thread_id,
         /**
          * Type of action to broadcast. Choose one, depending on what the user is about to
-         * receive: typing for text messages, upload_photo for photos, record_video or
-         * upload_video for videos, record_voice or upload_voice for voice notes,
-         * upload_document for general files, choose_sticker for stickers, find_location
-         * for location data, record_video_note or upload_video_note for video notes.
+         * receive: <em>typing</em> for <a href="#sendmessage">text messages</a>,
+         * <em>upload_photo</em> for <a href="#sendphoto">photos</a>, <em>record_video</em>
+         * or <em>upload_video</em> for <a href="#sendvideo">videos</a>,
+         * <em>record_voice</em> or <em>upload_voice</em> for <a href="#sendvoice">voice
+         * notes</a>, <em>upload_document</em> for <a href="#senddocument">general
+         * files</a>, <em>choose_sticker</em> for <a href="#sendsticker">stickers</a>,
+         * <em>find_location</em> for <a href="#sendlocation">location data</a>,
+         * <em>record_video_note</em> or <em>upload_video_note</em> for <a
+         * href="#sendvideonote">video notes</a>.
          * @var string
          */
         public string $action,

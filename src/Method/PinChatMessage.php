@@ -24,7 +24,7 @@ final class PinChatMessage extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -34,9 +34,9 @@ final class PinChatMessage extends Data implements TelegramMethodContract
          */
         public int $message_id,
         /**
-         * Pass True if it is not necessary to send a notification to all chat members
-         * about the new pinned message. Notifications are always disabled in channels and
-         * private chats.
+         * Pass <em>True</em> if it is not necessary to send a notification to all chat
+         * members about the new pinned message. Notifications are always disabled in
+         * channels and private chats.
          * @var bool
          */
         public ?bool $disable_notification,

@@ -14,16 +14,16 @@ final class BotCommandScopeChat extends Data implements TelegramTypeContract
 {
     public function __construct(
         /**
-         * Scope type, must be chat
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for the target chat or username of the target supergroup (in
          * the format @supergroupusername)
          * @var int|string
          */
         public int|string $chat_id,
+        /**
+         * Scope type, must be chat
+         * @var string
+         */
+        public string $type = 'chat',
     ) {
     }
 }

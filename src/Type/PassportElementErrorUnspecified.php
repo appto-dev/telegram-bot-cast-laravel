@@ -14,11 +14,6 @@ final class PassportElementErrorUnspecified extends Data implements TelegramType
 {
     public function __construct(
         /**
-         * Error source, must be unspecified
-         * @var string
-         */
-        public string $source,
-        /**
          * Type of element of the user's Telegram Passport which has the issue
          * @var string
          */
@@ -33,6 +28,11 @@ final class PassportElementErrorUnspecified extends Data implements TelegramType
          * @var string
          */
         public string $message,
+        /**
+         * Error source, must be unspecified
+         * @var string
+         */
+        public string $source = 'unspecified',
     ) {
     }
 }

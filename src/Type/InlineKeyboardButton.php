@@ -20,8 +20,8 @@ final class InlineKeyboardButton extends Data implements TelegramTypeContract
         public string $text,
         /**
          * HTTP or tg:// URL to be opened when the button is pressed. Links
-         * tg://user?id=<user_id> can be used to mention a user by their identifier without
-         * using a username, if this is allowed by their privacy settings.
+         * tg://user?id=&lt;user_id&gt; can be used to mention a user by their identifier
+         * without using a username, if this is allowed by their privacy settings.
          * @var string
          */
         public ?string $url,

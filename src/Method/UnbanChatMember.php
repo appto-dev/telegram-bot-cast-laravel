@@ -20,7 +20,7 @@ final class UnbanChatMember extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target group or username of the target supergroup or
-         * channel (in the format @channelusername)
+         * channel (in the format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,

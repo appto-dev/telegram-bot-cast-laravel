@@ -16,11 +16,6 @@ final class InlineQueryResultCachedAudio extends Data implements TelegramTypeCon
 {
     public function __construct(
         /**
-         * Type of the result, must be audio
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 bytes
          * @var string
          */
@@ -57,6 +52,11 @@ final class InlineQueryResultCachedAudio extends Data implements TelegramTypeCon
          * @var InputMessageContent
          */
         public ?InputMessageContent $input_message_content,
+        /**
+         * Type of the result, must be audio
+         * @var string
+         */
+        public string $type = 'audio',
     ) {
     }
 }

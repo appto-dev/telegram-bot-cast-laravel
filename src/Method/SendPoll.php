@@ -28,7 +28,7 @@ final class SendPoll extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -44,14 +44,15 @@ final class SendPoll extends Data implements TelegramMethodContract
          */
         public string $question,
         /**
-         * Mode for parsing entities in the question. See formatting options for more
-         * details. Currently, only custom emoji entities are allowed
+         * Mode for parsing entities in the question. See <a
+         * href="#formatting-options">formatting options</a> for more details. Currently,
+         * only custom emoji entities are allowed
          * @var string
          */
         public ?string $question_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the poll question. It
-         * can be specified instead of question_parse_mode
+         * can be specified instead of <em>question_parse_mode</em>
          * @var MessageEntity[]
          */
         public ?array $question_entities,
@@ -61,7 +62,7 @@ final class SendPoll extends Data implements TelegramMethodContract
          */
         public array $options,
         /**
-         * True, if the poll needs to be anonymous, defaults to True
+         * <em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em>
          * @var bool
          */
         public ?bool $is_anonymous,
@@ -71,8 +72,8 @@ final class SendPoll extends Data implements TelegramMethodContract
          */
         public ?string $type,
         /**
-         * True, if the poll allows multiple answers, ignored for polls in quiz mode,
-         * defaults to False
+         * <em>True</em>, if the poll allows multiple answers, ignored for polls in quiz
+         * mode, defaults to <em>False</em>
          * @var bool
          */
         public ?bool $allows_multiple_answers,
@@ -89,38 +90,40 @@ final class SendPoll extends Data implements TelegramMethodContract
          */
         public ?string $explanation,
         /**
-         * Mode for parsing entities in the explanation. See formatting options for more
-         * details.
+         * Mode for parsing entities in the explanation. See <a
+         * href="#formatting-options">formatting options</a> for more details.
          * @var string
          */
         public ?string $explanation_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the poll explanation.
-         * It can be specified instead of explanation_parse_mode
+         * It can be specified instead of <em>explanation_parse_mode</em>
          * @var MessageEntity[]
          */
         public ?array $explanation_entities,
         /**
          * Amount of time in seconds the poll will be active after creation, 5-600. Can't
-         * be used together with close_date.
+         * be used together with <em>close_date</em>.
          * @var int
          */
         public ?int $open_period,
         /**
          * Point in time (Unix timestamp) when the poll will be automatically closed. Must
          * be at least 5 and no more than 600 seconds in the future. Can't be used together
-         * with open_period.
+         * with <em>open_period</em>.
          * @var int
          */
         public ?int $close_date,
         /**
-         * Pass True if the poll needs to be immediately closed. This can be useful for
-         * poll preview.
+         * Pass <em>True</em> if the poll needs to be immediately closed. This can be
+         * useful for poll preview.
          * @var bool
          */
         public ?bool $is_closed,
         /**
-         * Sends the message silently. Users will receive a notification with no sound.
+         * Sends the message <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,
@@ -141,9 +144,10 @@ final class SendPoll extends Data implements TelegramMethodContract
          */
         public ?ReplyParameters $reply_parameters,
         /**
-         * Additional interface options. A JSON-serialized object for an inline keyboard,
-         * custom reply keyboard, instructions to remove a reply keyboard or to force a
-         * reply from the user
+         * Additional interface options. A JSON-serialized object for an <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>, <a
+         * href="/bots/features#keyboards">custom reply keyboard</a>, instructions to
+         * remove a reply keyboard or to force a reply from the user
          * @var InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply
          */
         public InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,

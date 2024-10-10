@@ -15,11 +15,6 @@ final class InlineQueryResultContact extends Data implements TelegramTypeContrac
 {
     public function __construct(
         /**
-         * Type of the result, must be contact
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 Bytes
          * @var string
          */
@@ -69,6 +64,11 @@ final class InlineQueryResultContact extends Data implements TelegramTypeContrac
          * @var int
          */
         public ?int $thumbnail_height,
+        /**
+         * Type of the result, must be contact
+         * @var string
+         */
+        public string $type = 'contact',
     ) {
     }
 }

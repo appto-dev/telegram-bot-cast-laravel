@@ -36,8 +36,8 @@ final class File extends Data implements TelegramTypeContract
          */
         public ?int $file_size,
         /**
-         * File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the
-         * file.
+         * File path. Use https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;
+         * to get the file.
          * @var string
          */
         public ?string $file_path,

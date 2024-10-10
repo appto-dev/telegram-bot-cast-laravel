@@ -23,25 +23,27 @@ final class StopMessageLiveLocation extends Data implements TelegramMethodContra
          */
         public ?string $business_connection_id,
         /**
-         * Required if inline_message_id is not specified. Unique identifier for the target
-         * chat or username of the target channel (in the format @channelusername)
+         * Required if <em>inline_message_id</em> is not specified. Unique identifier for
+         * the target chat or username of the target channel (in the format
+         * <code>@channelusername</code>)
          * @var int|string
          */
         public int|string|null $chat_id,
         /**
-         * Required if inline_message_id is not specified. Identifier of the message with
-         * live location to stop
+         * Required if <em>inline_message_id</em> is not specified. Identifier of the
+         * message with live location to stop
          * @var int
          */
         public ?int $message_id,
         /**
-         * Required if chat_id and message_id are not specified. Identifier of the inline
-         * message
+         * Required if <em>chat_id</em> and <em>message_id</em> are not specified.
+         * Identifier of the inline message
          * @var string
          */
         public ?string $inline_message_id,
         /**
-         * A JSON-serialized object for a new inline keyboard.
+         * A JSON-serialized object for a new <a
+         * href="/bots/features#inline-keyboards">inline keyboard</a>.
          * @var InlineKeyboardMarkup
          */
         public ?InlineKeyboardMarkup $reply_markup,

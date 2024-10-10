@@ -28,7 +28,7 @@ final class SendMediaGroup extends Data implements TelegramMethodContract
         public ?string $business_connection_id,
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
@@ -44,7 +44,9 @@ final class SendMediaGroup extends Data implements TelegramMethodContract
          */
         public array $media,
         /**
-         * Sends messages silently. Users will receive a notification with no sound.
+         * Sends messages <a
+         * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
+         * Users will receive a notification with no sound.
          * @var bool
          */
         public ?bool $disable_notification,

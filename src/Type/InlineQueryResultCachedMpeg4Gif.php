@@ -17,11 +17,6 @@ final class InlineQueryResultCachedMpeg4Gif extends Data implements TelegramType
 {
     public function __construct(
         /**
-         * Type of the result, must be mpeg4_gif
-         * @var string
-         */
-        public string $type,
-        /**
          * Unique identifier for this result, 1-64 bytes
          * @var string
          */
@@ -68,6 +63,11 @@ final class InlineQueryResultCachedMpeg4Gif extends Data implements TelegramType
          * @var InputMessageContent
          */
         public ?InputMessageContent $input_message_content,
+        /**
+         * Type of the result, must be mpeg4_gif
+         * @var string
+         */
+        public string $type = 'mpeg4_gif',
     ) {
     }
 }

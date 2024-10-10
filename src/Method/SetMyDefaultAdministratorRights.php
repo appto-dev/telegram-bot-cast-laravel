@@ -23,8 +23,8 @@ final class SetMyDefaultAdministratorRights extends Data implements TelegramMeth
          */
         public ?ChatAdministratorRights $rights,
         /**
-         * Pass True to change the default administrator rights of the bot in channels.
-         * Otherwise, the default administrator rights of the bot for groups and
+         * Pass <em>True</em> to change the default administrator rights of the bot in
+         * channels. Otherwise, the default administrator rights of the bot for groups and
          * supergroups will be changed.
          * @var bool
          */

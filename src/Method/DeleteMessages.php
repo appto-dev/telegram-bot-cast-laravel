@@ -16,13 +16,14 @@ final class DeleteMessages extends Data implements TelegramMethodContract
     public function __construct(
         /**
          * Unique identifier for the target chat or username of the target channel (in the
-         * format @channelusername)
+         * format <code>@channelusername</code>)
          * @var int|string
          */
         public int|string $chat_id,
         /**
-         * A JSON-serialized list of 1-100 identifiers of messages to delete. See
-         * deleteMessage for limitations on which messages can be deleted
+         * A JSON-serialized list of 1-100 identifiers of messages to delete. See <a
+         * href="#deletemessage">deleteMessage</a> for limitations on which messages can be
+         * deleted
          * @var int[]
          */
         public array $message_ids,
