@@ -59,9 +59,9 @@ final class WebhookInfo extends Data implements TelegramTypeContract
         /**
          * A list of update types the bot is subscribed to. Defaults to all update types
          * except chat_member
-         * @var array<string>
+         * @var string[]
          */
-        public ?string $allowed_updates,
+        public ?array $allowed_updates,
     ) {
     }
 }

@@ -17,7 +17,7 @@ final class ReplyKeyboardMarkup extends Data implements TelegramTypeContract
     public function __construct(
         /**
          * Array of button rows, each represented by an Array of KeyboardButton objects
-         * @var array<array<KeyboardButton>>
+         * @var KeyboardButton[][]
          */
         public array $keyboard,
         /**

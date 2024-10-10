@@ -50,9 +50,9 @@ final class InputMediaDocument extends Data implements TelegramTypeContract
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /**
          * Disables automatic server-side content type detection for files uploaded using
          * multipart/form-data. Always True, if the document is sent as part of an album.

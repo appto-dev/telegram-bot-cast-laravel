@@ -50,9 +50,9 @@ final class InputMediaAudio extends Data implements TelegramTypeContract
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /**
          * Duration of the audio in seconds
          * @var int

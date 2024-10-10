@@ -21,9 +21,9 @@ final class BackgroundFillFreeformGradient extends Data implements TelegramTypeC
         /**
          * A list of the 3 or 4 base colors that are used to generate the freeform gradient
          * in the RGB24 format
-         * @var array<int>
+         * @var int[]
          */
-        public int $colors,
+        public array $colors,
     ) {
     }
 }

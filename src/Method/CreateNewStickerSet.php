@@ -34,9 +34,9 @@ final class CreateNewStickerSet extends Data implements TelegramMethodContract
         public string $title,
         /**
          * A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
-         * @var array<InputSticker>
+         * @var InputSticker[]
          */
-        public InputSticker $stickers,
+        public array $stickers,
         /**
          * Type of stickers in the set, pass "regular", "mask", or "custom_emoji". By
          * default, a regular sticker set is created.

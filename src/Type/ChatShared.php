@@ -40,9 +40,9 @@ final class ChatShared extends Data implements TelegramTypeContract
         public ?string $username,
         /**
          * Available sizes of the chat photo, if the photo was requested by the bot
-         * @var array<PhotoSize>
+         * @var PhotoSize[]
          */
-        public ?PhotoSize $photo,
+        public ?array $photo,
     ) {
     }
 }

@@ -52,9 +52,9 @@ final class SendMessage extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of special entities that appear in message text, which
          * can be specified instead of parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $entities,
+        public ?array $entities,
         /**
          * Link preview generation options for the message
          * @var LinkPreviewOptions

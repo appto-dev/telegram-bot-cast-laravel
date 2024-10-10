@@ -50,9 +50,9 @@ final class InputMediaVideo extends Data implements TelegramTypeContract
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /**
          * Pass True, if the caption must be shown above the message media
          * @var bool

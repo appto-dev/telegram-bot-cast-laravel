@@ -29,9 +29,9 @@ final class MessageReactionCountUpdated extends Data implements TelegramTypeCont
         public int $date,
         /**
          * List of reactions that are present on the message
-         * @var array<ReactionCount>
+         * @var ReactionCount[]
          */
-        public ReactionCount $reactions,
+        public array $reactions,
     ) {
     }
 }

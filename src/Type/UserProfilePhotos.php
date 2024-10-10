@@ -19,7 +19,7 @@ final class UserProfilePhotos extends Data implements TelegramTypeContract
         public int $total_count,
         /**
          * Requested profile pictures (in up to 4 sizes each)
-         * @var array<array<PhotoSize>>
+         * @var PhotoSize[][]
          */
         public array $photos,
     ) {

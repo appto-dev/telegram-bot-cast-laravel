@@ -69,9 +69,9 @@ final class ChatFullInfo extends Data implements TelegramTypeContract
         /**
          * If non-empty, the list of all active chat usernames; for private chats,
          * supergroups and channels
-         * @var array<string>
+         * @var string[]
          */
-        public ?string $active_usernames,
+        public ?array $active_usernames,
         /**
          * For private chats, the date of birth of the user
          * @var Birthdate
@@ -100,9 +100,9 @@ final class ChatFullInfo extends Data implements TelegramTypeContract
         /**
          * List of available reactions allowed in the chat. If omitted, then all emoji
          * reactions are allowed.
-         * @var array<ReactionType>
+         * @var ReactionType[]
          */
-        public ?ReactionType $available_reactions,
+        public ?array $available_reactions,
         /**
          * Custom emoji identifier of the emoji chosen by the chat for the reply header and
          * link preview background

@@ -39,14 +39,14 @@ final class MessageReactionUpdated extends Data implements TelegramTypeContract
         public int $date,
         /**
          * Previous list of reaction types that were set by the user
-         * @var array<ReactionType>
+         * @var ReactionType[]
          */
-        public ReactionType $old_reaction,
+        public array $old_reaction,
         /**
          * New list of reaction types that have been set by the user
-         * @var array<ReactionType>
+         * @var ReactionType[]
          */
-        public ReactionType $new_reaction,
+        public array $new_reaction,
     ) {
     }
 }

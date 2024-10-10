@@ -58,9 +58,9 @@ final class ExternalReplyInfo extends Data implements TelegramTypeContract
         public ?PaidMediaInfo $paid_media,
         /**
          * Message is a photo, available sizes of the photo
-         * @var array<PhotoSize>
+         * @var PhotoSize[]
          */
-        public ?PhotoSize $photo,
+        public ?array $photo,
         /**
          * Message is a sticker, information about the sticker
          * @var Sticker

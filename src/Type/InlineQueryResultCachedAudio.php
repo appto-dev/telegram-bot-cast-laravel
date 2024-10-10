@@ -44,9 +44,9 @@ final class InlineQueryResultCachedAudio extends Data implements TelegramTypeCon
         /**
          * List of special entities that appear in the caption, which can be specified
          * instead of parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /**
          * Inline keyboard attached to the message
          * @var InlineKeyboardMarkup

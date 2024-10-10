@@ -30,9 +30,9 @@ final class PollAnswer extends Data implements TelegramTypeContract
         /**
          * 0-based identifiers of chosen answer options. May be empty if the vote was
          * retracted.
-         * @var array<int>
+         * @var int[]
          */
-        public int $option_ids,
+        public array $option_ids,
     ) {
     }
 }

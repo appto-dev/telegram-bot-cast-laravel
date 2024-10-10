@@ -52,14 +52,14 @@ final class SendPoll extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of special entities that appear in the poll question. It
          * can be specified instead of question_parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $question_entities,
+        public ?array $question_entities,
         /**
          * A JSON-serialized list of 2-10 answer options
-         * @var array<InputPollOption>
+         * @var InputPollOption[]
          */
-        public InputPollOption $options,
+        public array $options,
         /**
          * True, if the poll needs to be anonymous, defaults to True
          * @var bool
@@ -97,9 +97,9 @@ final class SendPoll extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of special entities that appear in the poll explanation.
          * It can be specified instead of explanation_parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $explanation_entities,
+        public ?array $explanation_entities,
         /**
          * Amount of time in seconds the poll will be active after creation, 5-600. Can't
          * be used together with close_date.

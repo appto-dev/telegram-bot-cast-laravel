@@ -37,9 +37,9 @@ final class ForwardMessages extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of 1-100 identifiers of messages in the chat from_chat_id
          * to forward. The identifiers must be specified in a strictly increasing order.
-         * @var array<int>
+         * @var int[]
          */
-        public int $message_ids,
+        public array $message_ids,
         /**
          * Sends the messages silently. Users will receive a notification with no sound.
          * @var bool

@@ -42,7 +42,7 @@ final class SendMediaGroup extends Data implements TelegramMethodContract
          * A JSON-serialized array describing messages to be sent, must include 2-10 items
          * @var array<InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo>
          */
-        public InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo $media,
+        public array $media,
         /**
          * Sends messages silently. Users will receive a notification with no sound.
          * @var bool

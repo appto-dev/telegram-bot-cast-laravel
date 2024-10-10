@@ -46,9 +46,9 @@ final class GetUpdates extends Data implements TelegramMethodContract
          * specified, the previous setting will be used.Please note that this parameter
          * doesn't affect updates created before the call to the getUpdates, so unwanted
          * updates may be received for a short period of time.
-         * @var array<string>
+         * @var string[]
          */
-        public ?string $allowed_updates,
+        public ?array $allowed_updates,
     ) {
     }
 }

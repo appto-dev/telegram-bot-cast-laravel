@@ -21,9 +21,9 @@ final class SetStickerEmojiList extends Data implements TelegramMethodContract
         public string $sticker,
         /**
          * A JSON-serialized list of 1-20 emoji associated with the sticker
-         * @var array<string>
+         * @var string[]
          */
-        public string $emoji_list,
+        public array $emoji_list,
     ) {
     }
 }

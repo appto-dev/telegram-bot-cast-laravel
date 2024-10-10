@@ -19,9 +19,9 @@ final class PaidMediaInfo extends Data implements TelegramTypeContract
         public int $star_count,
         /**
          * Information about the paid media
-         * @var array<PaidMedia>
+         * @var PaidMedia[]
          */
-        public PaidMedia $paid_media,
+        public array $paid_media,
     ) {
     }
 }

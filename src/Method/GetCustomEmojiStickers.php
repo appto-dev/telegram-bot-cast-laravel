@@ -16,9 +16,9 @@ final class GetCustomEmojiStickers extends Data implements TelegramMethodContrac
         /**
          * A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji
          * identifiers can be specified.
-         * @var array<string>
+         * @var string[]
          */
-        public string $custom_emoji_ids,
+        public array $custom_emoji_ids,
     ) {
     }
 }

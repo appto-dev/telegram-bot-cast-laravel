@@ -28,9 +28,9 @@ final class SetPassportDataErrors extends Data implements TelegramMethodContract
         public int $user_id,
         /**
          * A JSON-serialized array describing the errors
-         * @var array<PassportElementError>
+         * @var PassportElementError[]
          */
-        public PassportElementError $errors,
+        public array $errors,
     ) {
     }
 }

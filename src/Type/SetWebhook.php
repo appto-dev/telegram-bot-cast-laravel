@@ -53,9 +53,9 @@ final class SetWebhook extends Data implements TelegramTypeContract
          * specified, the previous setting will be used.Please note that this parameter
          * doesn't affect updates created before the call to the setWebhook, so unwanted
          * updates may be received for a short period of time.
-         * @var array<string>
+         * @var string[]
          */
-        public ?string $allowed_updates,
+        public ?array $allowed_updates,
         /**
          * Pass True to drop all pending updates
          * @var bool

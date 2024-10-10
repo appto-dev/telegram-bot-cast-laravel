@@ -14,9 +14,9 @@ final class Giveaway extends Data implements TelegramTypeContract
     public function __construct(
         /**
          * The list of chats which the user must join to participate in the giveaway
-         * @var array<Chat>
+         * @var Chat[]
          */
-        public Chat $chats,
+        public array $chats,
         /**
          * Point in time (Unix timestamp) when winners of the giveaway will be selected
          * @var int
@@ -48,9 +48,9 @@ final class Giveaway extends Data implements TelegramTypeContract
          * from which eligible users for the giveaway must come. If empty, then all users
          * can participate in the giveaway. Users with a phone number that was bought on
          * Fragment can always participate in giveaways.
-         * @var array<string>
+         * @var string[]
          */
-        public ?string $country_codes,
+        public ?array $country_codes,
         /**
          * The number of Telegram Stars to be split between giveaway winners; for Telegram
          * Star giveaways only

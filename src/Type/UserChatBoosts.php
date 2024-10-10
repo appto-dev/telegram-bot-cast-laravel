@@ -14,9 +14,9 @@ final class UserChatBoosts extends Data implements TelegramTypeContract
     public function __construct(
         /**
          * The list of boosts added to the chat by the user
-         * @var array<ChatBoost>
+         * @var ChatBoost[]
          */
-        public ChatBoost $boosts,
+        public array $boosts,
     ) {
     }
 }

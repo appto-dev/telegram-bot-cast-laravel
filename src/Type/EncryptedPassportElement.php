@@ -44,9 +44,9 @@ final class EncryptedPassportElement extends Data implements TelegramTypeContrac
          * "utility_bill", "bank_statement", "rental_agreement", "passport_registration"
          * and "temporary_registration" types. Files can be decrypted and verified using
          * the accompanying EncryptedCredentials.
-         * @var array<PassportFile>
+         * @var PassportFile[]
          */
-        public ?PassportFile $files,
+        public ?array $files,
         /**
          * Encrypted file with the front side of the document, provided by the user;
          * available only for "passport", "driver_license", "identity_card" and
@@ -76,9 +76,9 @@ final class EncryptedPassportElement extends Data implements TelegramTypeContrac
          * "internal_passport", "utility_bill", "bank_statement", "rental_agreement",
          * "passport_registration" and "temporary_registration" types. Files can be
          * decrypted and verified using the accompanying EncryptedCredentials.
-         * @var array<PassportFile>
+         * @var PassportFile[]
          */
-        public ?PassportFile $translation,
+        public ?array $translation,
         /**
          * Base64-encoded element hash for using in PassportElementErrorUnspecified
          * @var string

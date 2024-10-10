@@ -46,9 +46,9 @@ final class CreateInvoiceLink extends Data implements TelegramMethodContract
          * Price breakdown, a JSON-serialized list of components (e.g. product price, tax,
          * discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one
          * item for payments in Telegram Stars.
-         * @var array<LabeledPrice>
+         * @var LabeledPrice[]
          */
-        public LabeledPrice $prices,
+        public array $prices,
         /**
          * The maximum accepted amount for tips in the smallest units of the currency
          * (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass
@@ -63,9 +63,9 @@ final class CreateInvoiceLink extends Data implements TelegramMethodContract
          * the currency (integer, not float/double). At most 4 suggested tip amounts can be
          * specified. The suggested tip amounts must be positive, passed in a strictly
          * increased order and must not exceed max_tip_amount.
-         * @var array<int>
+         * @var int[]
          */
-        public ?int $suggested_tip_amounts,
+        public ?array $suggested_tip_amounts,
         /**
          * JSON-serialized data about the invoice, which will be shared with the payment
          * provider. A detailed description of required fields should be provided by the

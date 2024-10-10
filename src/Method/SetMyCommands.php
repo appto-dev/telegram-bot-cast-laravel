@@ -19,9 +19,9 @@ final class SetMyCommands extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of bot commands to be set as the list of the bot's
          * commands. At most 100 commands can be specified.
-         * @var array<BotCommand>
+         * @var BotCommand[]
          */
-        public BotCommand $commands,
+        public array $commands,
         /**
          * A JSON-serialized object, describing scope of users for which the commands are
          * relevant. Defaults to BotCommandScopeDefault.

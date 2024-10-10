@@ -35,9 +35,9 @@ final class GiveawayWinners extends Data implements TelegramTypeContract
         public int $winner_count,
         /**
          * List of up to 100 winners of the giveaway
-         * @var array<User>
+         * @var User[]
          */
-        public User $winners,
+        public array $winners,
         /**
          * The number of other chats the user had to join in order to be eligible for the
          * giveaway

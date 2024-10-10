@@ -22,9 +22,9 @@ final class AnswerInlineQuery extends Data implements TelegramMethodContract
         public string $inline_query_id,
         /**
          * A JSON-serialized array of results for the inline query
-         * @var array<InlineQueryResult>
+         * @var InlineQueryResult[]
          */
-        public InlineQueryResult $results,
+        public array $results,
         /**
          * The maximum amount of time in seconds that the result of the inline query may be
          * cached on the server. Defaults to 300.

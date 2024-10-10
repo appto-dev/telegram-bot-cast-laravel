@@ -25,9 +25,9 @@ final class Game extends Data implements TelegramTypeContract
         public string $description,
         /**
          * Photo that will be displayed in the game message in chats.
-         * @var array<PhotoSize>
+         * @var PhotoSize[]
          */
-        public PhotoSize $photo,
+        public array $photo,
         /**
          * Brief description of the game or high scores included in the game message. Can
          * be automatically edited to include current high scores for the game when the bot
@@ -38,9 +38,9 @@ final class Game extends Data implements TelegramTypeContract
         /**
          * Special entities that appear in text, such as usernames, URLs, bot commands,
          * etc.
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $text_entities,
+        public ?array $text_entities,
         /**
          * Animation that will be displayed in the game message in chats. Upload via
          * BotFather

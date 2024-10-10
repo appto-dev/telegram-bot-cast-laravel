@@ -27,9 +27,9 @@ final class PassportElementErrorFiles extends Data implements TelegramTypeContra
         public string $type,
         /**
          * List of base64-encoded file hashes
-         * @var array<string>
+         * @var string[]
          */
-        public string $file_hashes,
+        public array $file_hashes,
         /**
          * Error message
          * @var string

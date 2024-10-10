@@ -15,9 +15,9 @@ final class VideoChatParticipantsInvited extends Data implements TelegramTypeCon
     public function __construct(
         /**
          * New members that were invited to the video chat
-         * @var array<User>
+         * @var User[]
          */
-        public User $users,
+        public array $users,
     ) {
     }
 }

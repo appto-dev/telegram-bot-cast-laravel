@@ -73,9 +73,9 @@ final class SendDocument extends Data implements TelegramMethodContract
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can
          * be specified instead of parse_mode
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /**
          * Disables automatic server-side content type detection for files uploaded using
          * multipart/form-data

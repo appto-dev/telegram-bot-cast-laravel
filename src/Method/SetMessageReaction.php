@@ -33,9 +33,9 @@ final class SetMessageReaction extends Data implements TelegramMethodContract
          * non-premium users, bots can set up to one reaction per message. A custom emoji
          * reaction can be used if it is either already present on the message or
          * explicitly allowed by chat administrators. Paid reactions can't be used by bots.
-         * @var array<ReactionType>
+         * @var ReactionType[]
          */
-        public ?ReactionType $reaction,
+        public ?array $reaction,
         /**
          * Pass True to set the reaction with a big animation
          * @var bool

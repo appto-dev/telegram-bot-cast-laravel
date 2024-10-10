@@ -152,9 +152,9 @@ final class Message extends Data implements TelegramTypeContract
         /**
          * For text messages, special entities like usernames, URLs, bot commands, etc.
          * that appear in the text
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $entities,
+        public ?array $entities,
         /**
          * Options used for link preview generation for the message, if it is a text
          * message and link preview options were changed
@@ -189,9 +189,9 @@ final class Message extends Data implements TelegramTypeContract
         public ?PaidMediaInfo $paid_media,
         /**
          * Message is a photo, available sizes of the photo
-         * @var array<PhotoSize>
+         * @var PhotoSize[]
          */
-        public ?PhotoSize $photo,
+        public ?array $photo,
         /**
          * Message is a sticker, information about the sticker
          * @var Sticker
@@ -225,9 +225,9 @@ final class Message extends Data implements TelegramTypeContract
         /**
          * For messages with a caption, special entities like usernames, URLs, bot
          * commands, etc. that appear in the caption
-         * @var array<MessageEntity>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /**
          * True, if the caption must be shown above the message media
          * @var true
@@ -272,9 +272,9 @@ final class Message extends Data implements TelegramTypeContract
         /**
          * New members that were added to the group or supergroup and information about
          * them (the bot itself may be one of these members)
-         * @var array<User>
+         * @var User[]
          */
-        public ?User $new_chat_members,
+        public ?array $new_chat_members,
         /**
          * A member was removed from the group, information about them (this member may be
          * the bot itself)
@@ -288,9 +288,9 @@ final class Message extends Data implements TelegramTypeContract
         public ?string $new_chat_title,
         /**
          * A chat photo was change to this value
-         * @var array<PhotoSize>
+         * @var PhotoSize[]
          */
-        public ?PhotoSize $new_chat_photo,
+        public ?array $new_chat_photo,
         /**
          * Service message: the chat photo was deleted
          * @var true

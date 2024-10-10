@@ -14,9 +14,9 @@ final class StarTransactions extends Data implements TelegramTypeContract
     public function __construct(
         /**
          * The list of transactions
-         * @var array<StarTransaction>
+         * @var StarTransaction[]
          */
-        public StarTransaction $transactions,
+        public array $transactions,
     ) {
     }
 }
