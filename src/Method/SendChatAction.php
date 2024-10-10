@@ -11,10 +11,9 @@ use Spatie\LaravelData\Data;
  * on success.
  * Example: The <a href="https://t.me/imagebot">ImageBot</a> needs some time to
  * process a request and upload the image. Instead of sending a text message along
- * the lines of “Retrieving image, please wait…”, the bot may use <a
+ * the lines of "Retrieving image, please wait…", the bot may use <a
  * href="#sendchataction">sendChatAction</a> with <em>action</em> =
- * <em>upload_photo</em>. The user will see a “sending photo” status for the
- * bot.
+ * <em>upload_photo</em>. The user will see a "sending photo" status for the bot.
  * We only recommend using this method when a response from the bot will take a
  * noticeable amount of time to arrive.
  *

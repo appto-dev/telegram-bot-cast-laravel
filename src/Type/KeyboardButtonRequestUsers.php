@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * This object defines the criteria used to request suitable users. Information
  * about the selected users will be shared with the bot when the corresponding
  * button is pressed. <a href="/bots/features#chat-and-user-selection">More about
- * requesting users »</a>
+ * requesting users </a>
  *
  * @version Telegram Bot API 7.10
  */

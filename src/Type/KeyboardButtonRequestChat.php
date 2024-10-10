@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * about the selected chat will be shared with the bot when the corresponding
  * button is pressed. The bot will be granted requested rights in the chat if
  * appropriate. <a href="/bots/features#chat-and-user-selection">More about
- * requesting chats »</a>.
+ * requesting chats </a>.
  *
  * @version Telegram Bot API 7.10
  */

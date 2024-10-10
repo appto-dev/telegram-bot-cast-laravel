@@ -69,9 +69,9 @@ final class SendVideo extends Data implements TelegramMethodContract
          * 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if
          * the file is not uploaded using multipart/form-data. Thumbnails can't be reused
          * and can be only uploaded as a new file, so you can pass
-         * "attach://&lt;file_attach_name&gt;" if the thumbnail was uploaded using
-         * multipart/form-data under &lt;file_attach_name&gt;. <a
-         * href="#sending-files">More information on Sending Files </a>
+         * "attach://<file_attach_name>" if the thumbnail was uploaded using
+         * multipart/form-data under <file_attach_name>. <a href="#sending-files">More
+         * information on Sending Files </a>
          * @var InputFile|string
          */
         public InputFile|string|null $thumbnail,

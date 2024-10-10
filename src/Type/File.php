@@ -6,8 +6,8 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a file ready to be downloaded. The file can be downloaded
- * via the link https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;.
- * It is guaranteed that the link will be valid for at least 1 hour. When the link
+ * via the link https://api.telegram.org/file/bot<token>/<file_path>. It is
+ * guaranteed that the link will be valid for at least 1 hour. When the link
  * expires, a new one can be requested by calling <a href="#getfile">getFile</a>.
  * The maximum file size to download is 20 MB
  *
@@ -36,8 +36,8 @@ final class File extends Data implements TelegramTypeContract
          */
         public ?int $file_size,
         /**
-         * File path. Use https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;
-         * to get the file.
+         * File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the
+         * file.
          * @var string
          */
         public ?string $file_path,

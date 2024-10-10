@@ -12,8 +12,8 @@ use Spatie\LaravelData\Data;
  * after a reasonable amount of attempts. Returns <em>True</em> on success.
  * If you'd like to make sure that the webhook was set by you, you can specify
  * secret data in the parameter <em>secret_token</em>. If specified, the request
- * will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret
- * token as content.
+ * will contain a header "X-Telegram-Bot-Api-Secret-Token" with the secret token as
+ * content.
  *
  * @version Telegram Bot API 7.10
  */
