@@ -16,7 +16,7 @@ final class InlineKeyboardMarkup extends Data implements TelegramTypeContract
         /**
          * Array of button rows, each represented by an Array of InlineKeyboardButton
          * objects
-         * @var InlineKeyboardButton[][]
+         * @var array<InlineKeyboardButton[]>
          */
         public array $inline_keyboard,
     ) {
