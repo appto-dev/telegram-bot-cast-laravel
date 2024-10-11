@@ -1,7 +1,7 @@
 <?php
 namespace Appto\TelegramBot\Method;
 
-use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Spatie\LaravelData\Data;
 
@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class StopMessageLiveLocation extends Data implements TelegramMethodContract
+final class StopMessageLiveLocation extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**

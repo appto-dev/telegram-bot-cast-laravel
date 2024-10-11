@@ -1,7 +1,7 @@
 <?php
 namespace Appto\TelegramBot\Method;
 
-use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Appto\TelegramBot\Type\ForceReply;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Appto\TelegramBot\Type\ReplyKeyboardMarkup;
@@ -15,7 +15,7 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class SendVenue extends Data implements TelegramMethodContract
+final class SendVenue extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**

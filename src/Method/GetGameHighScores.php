@@ -1,7 +1,7 @@
 <?php
 namespace Appto\TelegramBot\Method;
 
-use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Spatie\LaravelData\Data;
 
 /**
@@ -15,7 +15,7 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class GetGameHighScores extends Data implements TelegramMethodContract
+final class GetGameHighScores extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**

@@ -1,7 +1,7 @@
 <?php
 namespace Appto\TelegramBot\Method;
 
-use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Appto\TelegramBot\Type\MenuButton;
 use Spatie\LaravelData\Data;
 
@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class SetChatMenuButton extends Data implements TelegramMethodContract
+final class SetChatMenuButton extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**

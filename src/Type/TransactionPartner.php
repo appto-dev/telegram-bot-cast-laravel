@@ -1,7 +1,7 @@
 <?php
 namespace Appto\TelegramBot\Type;
 
-use Appto\TelegramBot\Contracts\TelegramTypeContract;
+use Appto\TelegramBot\Interface\TelegramTypeInterface;
 use Spatie\LaravelData\Data;
 
 /**
@@ -14,6 +14,6 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class TransactionPartner extends Data implements TelegramTypeContract
+final class TransactionPartner extends Data implements TelegramTypeInterface
 {
 }

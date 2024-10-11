@@ -1,7 +1,7 @@
 <?php
 namespace Appto\TelegramBot\Method;
 
-use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Appto\TelegramBot\Type\LinkPreviewOptions;
 use Appto\TelegramBot\Type\MessageEntity;
@@ -16,7 +16,7 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class EditMessageText extends Data implements TelegramMethodContract
+final class EditMessageText extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**
