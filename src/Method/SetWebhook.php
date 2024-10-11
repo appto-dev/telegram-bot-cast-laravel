@@ -1,7 +1,8 @@
 <?php
-namespace Appto\TelegramBot\Type;
+namespace Appto\TelegramBot\Method;
 
-use Appto\TelegramBot\Contracts\TelegramTypeContract;
+use Appto\TelegramBot\Contracts\TelegramMethodContract;
+use Appto\TelegramBot\Type\InputFile;
 use Spatie\LaravelData\Data;
 
 /**
@@ -17,7 +18,7 @@ use Spatie\LaravelData\Data;
  *
  * @version Telegram Bot API 7.10
  */
-final class SetWebhook extends Data implements TelegramTypeContract
+final class SetWebhook extends Data implements TelegramMethodContract
 {
     public function __construct(
         /**
