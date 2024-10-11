@@ -11,7 +11,6 @@ use Appto\TelegramBot\Method\ApproveChatJoinRequest;
 use Appto\TelegramBot\Method\BanChatMember;
 use Appto\TelegramBot\Method\BanChatSenderChat;
 use Appto\TelegramBot\Method\ChatMemberBanned;
-use Appto\TelegramBot\Method\Close;
 use Appto\TelegramBot\Method\CloseForumTopic;
 use Appto\TelegramBot\Method\CloseGeneralForumTopic;
 use Appto\TelegramBot\Method\CopyMessage;
@@ -51,9 +50,7 @@ use Appto\TelegramBot\Method\GetChatMemberCount;
 use Appto\TelegramBot\Method\GetChatMenuButton;
 use Appto\TelegramBot\Method\GetCustomEmojiStickers;
 use Appto\TelegramBot\Method\GetFile;
-use Appto\TelegramBot\Method\GetForumTopicIconStickers;
 use Appto\TelegramBot\Method\GetGameHighScores;
-use Appto\TelegramBot\Method\GetMe;
 use Appto\TelegramBot\Method\GetMyCommands;
 use Appto\TelegramBot\Method\GetMyDefaultAdministratorRights;
 use Appto\TelegramBot\Method\GetMyDescription;
@@ -64,10 +61,8 @@ use Appto\TelegramBot\Method\GetStickerSet;
 use Appto\TelegramBot\Method\GetUpdates;
 use Appto\TelegramBot\Method\GetUserChatBoosts;
 use Appto\TelegramBot\Method\GetUserProfilePhotos;
-use Appto\TelegramBot\Method\GetWebhookInfo;
 use Appto\TelegramBot\Method\HideGeneralForumTopic;
 use Appto\TelegramBot\Method\LeaveChat;
-use Appto\TelegramBot\Method\LogOut;
 use Appto\TelegramBot\Method\PinChatMessage;
 use Appto\TelegramBot\Method\PromoteChatMember;
 use Appto\TelegramBot\Method\RefundStarPayment;
@@ -183,10 +178,9 @@ interface TelegramBotInterface
 
     /**
      * Use this method to get current webhook status. Requires no parameters. On success, returns a <a href="#webhookinfo">WebhookInfo</a> object. If the bot is using <a href="#getupdates">getUpdates</a>, will return an object with the <em>url</em> field empty.
-     * @param GetWebhookInfo $method
      * @return WebhookInfo
      */
-    function getWebhookInfo(GetWebhookInfo $method): WebhookInfo;
+    function getWebhookInfo(): WebhookInfo;
 
 
     /**
@@ -199,26 +193,23 @@ interface TelegramBotInterface
 
     /**
      * A simple method for testing your bot's authentication token. Requires no parameters. Returns basic information about the bot in form of a <a href="#user">User</a> object.
-     * @param GetMe $method
      * @return User
      */
-    function getMe(GetMe $method): User;
+    function getMe(): User;
 
 
     /**
      * Use this method to log out from the cloud Bot API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes. Returns <em>True</em> on success. Requires no parameters.
-     * @param LogOut $method
      * @return true
      */
-    function logOut(LogOut $method): true;
+    function logOut(): true;
 
 
     /**
      * Use this method to close the bot instance before moving it from one local server to another. You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart. The method will return error 429 in the first 10 minutes after the bot is launched. Returns <em>True</em> on success. Requires no parameters.
-     * @param Close $method
      * @return true
      */
-    function close(Close $method): true;
+    function close(): true;
 
 
     /**
@@ -650,10 +641,9 @@ interface TelegramBotInterface
 
     /**
      * Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user. Requires no parameters. Returns an Array of <a href="#sticker">Sticker</a> objects.
-     * @param GetForumTopicIconStickers $method
      * @return Sticker[]
      */
-    function getForumTopicIconStickers(GetForumTopicIconStickers $method): array;
+    function getForumTopicIconStickers(): array;
 
 
     /**
