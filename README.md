@@ -21,5 +21,5 @@ composer require appto-team/telegram-bot-cast-laravel@dev
 ![TonBlockchainLogo](/ton_logo_dark_background.svg#gh-dark-mode-only)
 ![TonBlockchainLogo](/ton_logo_light_background.svg#gh-light-mode-only)
 
-Вы всегда можете отправить благодарность на чашку кофе или больше 😉 с помощью TON на мой кошелек
+Вы всегда можете отправить благодарность на чашку кофе или больше 😉 на мой TON кошелек (USDT, TON)
 `appto-wallet.ton`
