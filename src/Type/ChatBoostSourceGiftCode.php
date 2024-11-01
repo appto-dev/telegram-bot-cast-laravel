@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * chat. Each such code boosts the chat 4 times for the duration of the
  * corresponding Telegram Premium subscription.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ChatBoostSourceGiftCode extends Data implements TelegramTypeInterface
 {

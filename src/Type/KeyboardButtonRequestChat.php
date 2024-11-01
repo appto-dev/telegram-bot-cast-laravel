@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * appropriate. <a href="/bots/features#chat-and-user-selection">More about
  * requesting chats </a>.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class KeyboardButtonRequestChat extends Data implements TelegramTypeInterface
 {

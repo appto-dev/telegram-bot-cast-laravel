@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Use this method to get information about custom emoji stickers by their
  * identifiers. Returns an Array of <a href="#sticker">Sticker</a> objects.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetCustomEmojiStickers extends Data implements TelegramMethodInterface
 {

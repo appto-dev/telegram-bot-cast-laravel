@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * This object represents one button of an inline keyboard. Exactly one of the
  * optional fields must be used to specify type of the button.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InlineKeyboardButton extends Data implements TelegramTypeInterface
 {
@@ -73,6 +73,11 @@ final class InlineKeyboardButton extends Data implements TelegramTypeInterface
          * @var SwitchInlineQueryChosenChat
          */
         public ?SwitchInlineQueryChosenChat $switch_inline_query_chosen_chat,
+        /**
+         * Description of the button that copies the specified text to the clipboard.
+         * @var CopyTextButton
+         */
+        public ?CopyTextButton $copy_text,
         /**
          * Description of the game that will be launched when the user presses the
          * button.NOTE: This type of button must always be the first button in the first

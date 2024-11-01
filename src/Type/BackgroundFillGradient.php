@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * The background is a gradient fill.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class BackgroundFillGradient extends Data implements TelegramTypeInterface
 {

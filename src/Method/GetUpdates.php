@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * href="https://en.wikipedia.org/wiki/Push_technology#Long_polling">wiki</a>).
  * Returns an Array of <a href="#update">Update</a> objects.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetUpdates extends Data implements TelegramMethodInterface
 {

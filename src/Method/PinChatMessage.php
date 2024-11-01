@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * supergroup or 'can_edit_messages' administrator right in a channel. Returns
  * <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class PinChatMessage extends Data implements TelegramMethodInterface
 {

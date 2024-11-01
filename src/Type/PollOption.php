@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object contains information about one answer option in a poll.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class PollOption extends Data implements TelegramTypeInterface
 {

@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * Alternatively, you can use <em>input_message_content</em> to send a message with
  * the specified content instead of the video.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultCachedVideo extends Data implements TelegramTypeInterface
 {

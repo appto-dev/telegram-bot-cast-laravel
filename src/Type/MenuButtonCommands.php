@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Represents a menu button, which opens the bot's list of commands.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class MenuButtonCommands extends Data implements TelegramTypeInterface
 {

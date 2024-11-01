@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * format of the thumbnail file must match the format of the stickers in the set.
  * Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class SetStickerSetThumbnail extends Data implements TelegramMethodInterface
 {

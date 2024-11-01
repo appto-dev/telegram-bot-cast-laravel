@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * This object describes the position on faces where a mask should be placed by
  * default.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class MaskPosition extends Data implements TelegramTypeInterface
 {

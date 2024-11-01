@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * Use this method to create a link for an invoice. Returns the created invoice
  * link as <em>String</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class CreateInvoiceLink extends Data implements TelegramMethodInterface
 {

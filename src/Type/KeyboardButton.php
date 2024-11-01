@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * buttons, <em>String</em> can be used instead of this object to specify the
  * button text.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class KeyboardButton extends Data implements TelegramTypeInterface
 {

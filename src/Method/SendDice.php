@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  * Use this method to send an animated emoji that will display a random value. On
  * success, the sent <a href="#message">Message</a> is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class SendDice extends Data implements TelegramMethodInterface
 {
@@ -76,6 +76,14 @@ final class SendDice extends Data implements TelegramMethodInterface
          * @var bool
          */
         public ?bool $protect_content,
+        /**
+         * Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a
+         * href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting
+         * limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will
+         * be withdrawn from the bot's balance
+         * @var bool
+         */
+        public ?bool $allow_paid_broadcast,
         /**
          * Unique identifier of the message effect to be added to the message; for private
          * chats only

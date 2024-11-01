@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * The background is taken directly from a built-in chat theme.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class BackgroundTypeChatTheme extends Data implements TelegramTypeInterface
 {

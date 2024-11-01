@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  * href="#setstickerpositioninset">setStickerPositionInSet</a>. Returns
  * <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ReplaceStickerInSet extends Data implements TelegramMethodInterface
 {

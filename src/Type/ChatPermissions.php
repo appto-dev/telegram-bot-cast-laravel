@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Describes actions that a non-administrator user is allowed to take in a chat.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ChatPermissions extends Data implements TelegramTypeInterface
 {

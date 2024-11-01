@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to change the bot's name. Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class SetMyName extends Data implements TelegramMethodInterface
 {

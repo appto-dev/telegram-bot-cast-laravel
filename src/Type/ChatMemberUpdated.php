@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents changes in the status of a chat member.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ChatMemberUpdated extends Data implements TelegramTypeInterface
 {

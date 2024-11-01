@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * message, the edited <a href="#message">Message</a> is returned, otherwise
  * <em>True</em> is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class StopMessageLiveLocation extends Data implements TelegramMethodInterface
 {

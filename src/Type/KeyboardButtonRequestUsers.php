@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * button is pressed. <a href="/bots/features#chat-and-user-selection">More about
  * requesting users </a>
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class KeyboardButtonRequestUsers extends Data implements TelegramTypeInterface
 {

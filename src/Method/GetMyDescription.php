@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Use this method to get the current bot description for the given user language.
  * Returns <a href="#botdescription">BotDescription</a> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetMyDescription extends Data implements TelegramMethodInterface
 {

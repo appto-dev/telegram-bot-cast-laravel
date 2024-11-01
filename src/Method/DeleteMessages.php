@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * specified messages can't be found, they are skipped. Returns <em>True</em> on
  * success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class DeleteMessages extends Data implements TelegramMethodInterface
 {

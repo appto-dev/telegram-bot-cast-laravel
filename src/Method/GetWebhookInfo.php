@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * using <a href="#getupdates">getUpdates</a>, will return an object with the
  * <em>url</em> field empty.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetWebhookInfo extends Data implements TelegramMethodInterface
 {

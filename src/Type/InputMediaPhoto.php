@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Represents a photo to be sent.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InputMediaPhoto extends Data implements TelegramTypeInterface
 {

@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Represents an animation file (GIF or H.264/MPEG-4 AVC video without sound) to be
  * sent.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InputMediaAnimation extends Data implements TelegramTypeInterface
 {

@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  * they will also be removed from the chat. If you don't want this, use the
  * parameter <em>only_if_banned</em>. Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class UnbanChatMember extends Data implements TelegramMethodInterface
 {

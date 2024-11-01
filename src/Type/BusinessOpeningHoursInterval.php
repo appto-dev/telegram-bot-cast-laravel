@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Describes an interval of time during which a business is open.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class BusinessOpeningHoursInterval extends Data implements TelegramTypeInterface
 {

@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * administrator rights. Pass <em>True</em> for all permissions to lift
  * restrictions from a user. Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class RestrictChatMember extends Data implements TelegramMethodInterface
 {

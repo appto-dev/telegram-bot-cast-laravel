@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * to send a message with the specified content instead of the file. Currently,
  * only .PDF and .ZIP files can be sent using this method.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultDocument extends Data implements TelegramTypeInterface
 {

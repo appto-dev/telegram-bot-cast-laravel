@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents a point on the map.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class Location extends Data implements TelegramTypeInterface
 {

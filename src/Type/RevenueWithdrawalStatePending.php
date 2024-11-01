@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * The withdrawal is in progress.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class RevenueWithdrawalStatePending extends Data implements TelegramTypeInterface
 {

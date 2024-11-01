@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * sets can have up to 200 stickers. Other sticker sets can have up to 120
  * stickers. Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class AddStickerToSet extends Data implements TelegramMethodInterface
 {

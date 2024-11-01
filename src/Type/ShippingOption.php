@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents one shipping option.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ShippingOption extends Data implements TelegramTypeInterface
 {

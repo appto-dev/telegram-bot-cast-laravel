@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Use this method to get a sticker set. On success, a <a
  * href="#stickerset">StickerSet</a> object is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetStickerSet extends Data implements TelegramMethodInterface
 {

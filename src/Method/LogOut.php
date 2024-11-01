@@ -12,7 +12,7 @@ use Spatie\LaravelData\Data;
  * the cloud Bot API server for 10 minutes. Returns <em>True</em> on success.
  * Requires no parameters.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class LogOut extends Data implements TelegramMethodInterface
 {

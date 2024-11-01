@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * href="#photosize">photos</a>, <a href="#voice">voice messages</a> and <a
  * href="#audio">audio files</a>).
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class Document extends Data implements TelegramTypeInterface
 {

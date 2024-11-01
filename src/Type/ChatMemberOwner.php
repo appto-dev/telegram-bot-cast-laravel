@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Represents a <a href="#chatmember">chat member</a> that owns the chat and has
  * all administrator privileges.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ChatMemberOwner extends Data implements TelegramTypeInterface
 {

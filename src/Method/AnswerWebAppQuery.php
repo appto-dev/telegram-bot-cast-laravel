@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * the user to the chat from which the query originated. On success, a <a
  * href="#sentwebappmessage">SentWebAppMessage</a> object is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class AnswerWebAppQuery extends Data implements TelegramMethodInterface
 {

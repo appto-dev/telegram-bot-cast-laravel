@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * <em>can_manage_topics</em> administrator rights. The topic will be automatically
  * closed if it was open. Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class HideGeneralForumTopic extends Data implements TelegramMethodInterface
 {

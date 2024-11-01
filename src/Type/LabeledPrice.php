@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents a portion of the price for goods or services.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class LabeledPrice extends Data implements TelegramTypeInterface
 {

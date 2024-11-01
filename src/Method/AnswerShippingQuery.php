@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * href="#update">Update</a> with a <em>shipping_query</em> field to the bot. Use
  * this method to reply to shipping queries. On success, <em>True</em> is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class AnswerShippingQuery extends Data implements TelegramMethodInterface
 {

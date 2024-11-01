@@ -19,7 +19,7 @@ use Spatie\LaravelData\Data;
  * copied message doesn't have a link to the original message. Returns the <a
  * href="#messageid">MessageId</a> of the sent message on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class CopyMessage extends Data implements TelegramMethodInterface
 {
@@ -83,6 +83,14 @@ final class CopyMessage extends Data implements TelegramMethodInterface
          * @var bool
          */
         public ?bool $protect_content,
+        /**
+         * Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a
+         * href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting
+         * limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will
+         * be withdrawn from the bot's balance
+         * @var bool
+         */
+        public ?bool $allow_paid_broadcast,
         /**
          * Description of the message to reply to
          * @var ReplyParameters

@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Represents the <a href="#botcommandscope">scope</a> of bot commands, covering
  * all private chats.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class BotCommandScopeAllPrivateChats extends Data implements TelegramTypeInterface
 {

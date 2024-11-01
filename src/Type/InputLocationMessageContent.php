@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Represents the <a href="#inputmessagecontent">content</a> of a location message
  * to be sent as the result of an inline query.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InputLocationMessageContent extends Data implements TelegramTypeInterface
 {

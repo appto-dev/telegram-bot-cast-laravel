@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * Represents a <a href="#chatmember">chat member</a> that was banned in the chat
  * and can't return to the chat or view chat messages.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ChatMemberBanned extends Data implements TelegramMethodInterface
 {

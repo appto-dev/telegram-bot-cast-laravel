@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * emoji sticker. The sticker must belong to a sticker set created by the bot.
  * Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class SetStickerEmojiList extends Data implements TelegramMethodInterface
 {

@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  * sent by the bot and do not contain an inline keyboard can only be edited within
  * 48 hours from the time they were sent.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class EditMessageCaption extends Data implements TelegramMethodInterface
 {

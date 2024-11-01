@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Represents an issue with the selfie with a document. The error is considered
  * resolved when the file with the selfie changes.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class PassportElementErrorSelfie extends Data implements TelegramTypeInterface
 {

@@ -16,7 +16,7 @@ use Spatie\LaravelData\Data;
  * some details in the error message to make sure the user knows how to correct the
  * issues.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class SetPassportDataErrors extends Data implements TelegramMethodInterface
 {

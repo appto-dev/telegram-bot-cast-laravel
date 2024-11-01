@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Describes a transaction with an unknown source or recipient.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class TransactionPartnerOther extends Data implements TelegramTypeInterface
 {

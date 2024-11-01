@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * <em>can_manage_topics</em> administrator rights. Returns information about the
  * created topic as a <a href="#forumtopic">ForumTopic</a> object.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class CreateForumTopic extends Data implements TelegramMethodInterface
 {

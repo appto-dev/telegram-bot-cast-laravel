@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * chats. The bot must be an administrator in the chat for this to work and must
  * have the appropriate administrator rights. Returns <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class DeleteChatPhoto extends Data implements TelegramMethodInterface
 {

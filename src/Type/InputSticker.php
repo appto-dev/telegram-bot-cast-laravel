@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object describes a sticker to be added to a sticker set.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InputSticker extends Data implements TelegramTypeInterface
 {

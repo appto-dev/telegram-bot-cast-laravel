@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * The message was originally sent to a channel chat.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class MessageOriginChannel extends Data implements TelegramTypeInterface
 {

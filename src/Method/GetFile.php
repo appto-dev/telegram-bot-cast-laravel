@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  * will be valid for at least 1 hour. When the link expires, a new one can be
  * requested by calling <a href="#getfile">getFile</a> again.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetFile extends Data implements TelegramMethodInterface
 {

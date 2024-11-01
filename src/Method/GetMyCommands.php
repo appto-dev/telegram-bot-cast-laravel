@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * href="#botcommand">BotCommand</a> objects. If commands aren't set, an empty list
  * is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetMyCommands extends Data implements TelegramMethodInterface
 {

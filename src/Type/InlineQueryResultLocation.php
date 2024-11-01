@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * user. Alternatively, you can use <em>input_message_content</em> to send a
  * message with the specified content instead of the location.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultLocation extends Data implements TelegramTypeInterface
 {

@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents information about an order.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class OrderInfo extends Data implements TelegramTypeInterface
 {

@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Describes data sent from a <a href="/bots/webapps">Web App</a> to the bot.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class WebAppData extends Data implements TelegramTypeInterface
 {

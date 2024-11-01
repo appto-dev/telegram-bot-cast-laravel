@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * administrator rights in the chat. Returns a <a
  * href="#userchatboosts">UserChatBoosts</a> object.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetUserChatBoosts extends Data implements TelegramMethodInterface
 {

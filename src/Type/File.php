@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * expires, a new one can be requested by calling <a href="#getfile">getFile</a>.
  * The maximum file size to download is 20 MB
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class File extends Data implements TelegramTypeInterface
 {

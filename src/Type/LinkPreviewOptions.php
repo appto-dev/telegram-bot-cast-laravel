@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Describes the options used for link preview generation.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class LinkPreviewOptions extends Data implements TelegramTypeInterface
 {

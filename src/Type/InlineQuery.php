@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * This object represents an incoming inline query. When the user sends an empty
  * query, your bot could return some default or trending results.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InlineQuery extends Data implements TelegramTypeInterface
 {

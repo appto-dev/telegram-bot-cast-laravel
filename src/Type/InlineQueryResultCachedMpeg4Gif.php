@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * <em>input_message_content</em> to send a message with the specified content
  * instead of the animation.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultCachedMpeg4Gif extends Data implements TelegramTypeInterface
 {

@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object contains information about a chat boost.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ChatBoost extends Data implements TelegramTypeInterface
 {

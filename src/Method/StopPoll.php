@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
  * Use this method to stop a poll which was sent by the bot. On success, the
  * stopped <a href="#poll">Poll</a> is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class StopPoll extends Data implements TelegramMethodInterface
 {

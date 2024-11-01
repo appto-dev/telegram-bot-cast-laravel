@@ -15,7 +15,7 @@ use Spatie\LaravelData\Data;
  * kept for copied messages. On success, an array of <a
  * href="#messageid">MessageId</a> of the sent messages is returned.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class CopyMessages extends Data implements TelegramMethodInterface
 {

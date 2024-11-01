@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Represents the <a href="#botcommandscope">scope</a> of bot commands, covering a
  * specific member of a group or supergroup chat.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class BotCommandScopeChatMember extends Data implements TelegramTypeInterface
 {

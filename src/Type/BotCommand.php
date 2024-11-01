@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents a bot command.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class BotCommand extends Data implements TelegramTypeInterface
 {

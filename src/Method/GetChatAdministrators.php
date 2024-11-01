@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * Use this method to get a list of administrators in a chat, which aren't bots.
  * Returns an Array of <a href="#chatmember">ChatMember</a> objects.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class GetChatAdministrators extends Data implements TelegramMethodInterface
 {

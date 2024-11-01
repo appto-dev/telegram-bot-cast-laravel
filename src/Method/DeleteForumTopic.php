@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * and must have the <em>can_delete_messages</em> administrator rights. Returns
  * <em>True</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class DeleteForumTopic extends Data implements TelegramMethodInterface
 {

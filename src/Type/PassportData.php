@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * Describes Telegram Passport data shared with the bot by the user.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class PassportData extends Data implements TelegramTypeInterface
 {

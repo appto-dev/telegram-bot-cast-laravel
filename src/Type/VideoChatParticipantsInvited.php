@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * This object represents a service message about new members invited to a video
  * chat.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class VideoChatParticipantsInvited extends Data implements TelegramTypeInterface
 {

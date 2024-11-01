@@ -12,7 +12,7 @@ use Spatie\LaravelData\Data;
  * href="/bots/features#privacy-mode">privacy mode</a>. Not supported in channels
  * and for messages sent on behalf of a Telegram Business account.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ForceReply extends Data implements TelegramTypeInterface
 {

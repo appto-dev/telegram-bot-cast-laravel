@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * error 429 in the first 10 minutes after the bot is launched. Returns
  * <em>True</em> on success. Requires no parameters.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class Close extends Data implements TelegramMethodInterface
 {

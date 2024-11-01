@@ -19,7 +19,7 @@ use Spatie\LaravelData\Data;
  * 5.7</a>.
  * Sample bot: <a href="https://t.me/discussbot">@discussbot</a>
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class LoginUrl extends Data implements TelegramTypeInterface
 {

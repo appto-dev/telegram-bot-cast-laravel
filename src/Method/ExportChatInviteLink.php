@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
  * for this to work and must have the appropriate administrator rights. Returns the
  * new invite link as <em>String</em> on success.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ExportChatInviteLink extends Data implements TelegramMethodInterface
 {

@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
  * This object represents a game. Use BotFather to create and edit games, their
  * short names will act as unique identifiers.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class Game extends Data implements TelegramTypeInterface
 {

@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 /**
  * The reaction is based on an emoji.
  *
- * @version Telegram Bot API 7.10
+ * @version Telegram Bot API 7.11
  */
 final class ReactionTypeEmoji extends Data implements TelegramTypeInterface
 {
