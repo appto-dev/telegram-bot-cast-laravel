@@ -13,7 +13,7 @@
 # Простая установка
 
 ```shell
-composer require appto-team/telegram-bot-cast-laravel@dev
+composer require appto-team/telegram-bot-cast-laravel:dev-main
 ```
 
 ## ☕️ На кофе
