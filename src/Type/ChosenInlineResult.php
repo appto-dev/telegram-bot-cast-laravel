@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Represents a <a href="#inlinequeryresult">result</a> of an inline query that was
  * chosen by the user and sent to their chat partner.
- *
- * @version Telegram Bot API 7.11
  */
 final class ChosenInlineResult extends Data implements TelegramTypeInterface
 {

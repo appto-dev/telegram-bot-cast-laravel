@@ -16,8 +16,6 @@ use Spatie\LaravelData\Data;
  *  - <a
  * href="#botcommandscopechatadministrators">BotCommandScopeChatAdministrators</a>
  *  - <a href="#botcommandscopechatmember">BotCommandScopeChatMember</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class BotCommandScope extends Data implements TelegramTypeInterface
 {

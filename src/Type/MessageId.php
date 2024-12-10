@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a unique message identifier.
- *
- * @version Telegram Bot API 7.11
  */
 final class MessageId extends Data implements TelegramTypeInterface
 {

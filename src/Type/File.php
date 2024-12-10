@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * guaranteed that the link will be valid for at least 1 hour. When the link
  * expires, a new one can be requested by calling <a href="#getfile">getFile</a>.
  * The maximum file size to download is 20 MB
- *
- * @version Telegram Bot API 7.11
  */
 final class File extends Data implements TelegramTypeInterface
 {

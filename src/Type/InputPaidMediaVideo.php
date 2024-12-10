@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * The paid media to send is a video.
- *
- * @version Telegram Bot API 7.11
  */
 final class InputPaidMediaVideo extends Data implements TelegramTypeInterface
 {

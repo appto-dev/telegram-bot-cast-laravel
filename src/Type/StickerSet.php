@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a sticker set.
- *
- * @version Telegram Bot API 7.11
  */
 final class StickerSet extends Data implements TelegramTypeInterface
 {

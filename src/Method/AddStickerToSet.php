@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * Use this method to add a new sticker to a set created by the bot. Emoji sticker
  * sets can have up to 200 stickers. Other sticker sets can have up to 120
  * stickers. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class AddStickerToSet extends Data implements TelegramMethodInterface
 {

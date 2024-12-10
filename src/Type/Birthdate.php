@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Describes the birthdate of a user.
- *
- * @version Telegram Bot API 7.11
  */
 final class Birthdate extends Data implements TelegramTypeInterface
 {

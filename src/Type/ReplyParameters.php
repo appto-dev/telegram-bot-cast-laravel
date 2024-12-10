@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Describes reply parameters for the message that is being sent.
- *
- * @version Telegram Bot API 7.11
  */
 final class ReplyParameters extends Data implements TelegramTypeInterface
 {

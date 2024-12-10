@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * work and must have the 'can_pin_messages' administrator right in a supergroup or
  * 'can_edit_messages' administrator right in a channel. Returns <em>True</em> on
  * success.
- *
- * @version Telegram Bot API 7.11
  */
 final class UnpinAllChatMessages extends Data implements TelegramMethodInterface
 {

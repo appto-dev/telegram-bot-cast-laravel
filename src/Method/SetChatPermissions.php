@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * an administrator in the group or a supergroup for this to work and must have the
  * <em>can_restrict_members</em> administrator rights. Returns <em>True</em> on
  * success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetChatPermissions extends Data implements TelegramMethodInterface
 {

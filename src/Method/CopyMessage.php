@@ -18,8 +18,6 @@ use Spatie\LaravelData\Data;
  * analogous to the method <a href="#forwardmessage">forwardMessage</a>, but the
  * copied message doesn't have a link to the original message. Returns the <a
  * href="#messageid">MessageId</a> of the sent message on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class CopyMessage extends Data implements TelegramMethodInterface
 {

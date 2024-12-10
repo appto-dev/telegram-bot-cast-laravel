@@ -15,8 +15,6 @@ use Spatie\LaravelData\Data;
  * a submitted document is blurry, a scan shows evidence of tampering, etc. Supply
  * some details in the error message to make sure the user knows how to correct the
  * issues.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetPassportDataErrors extends Data implements TelegramMethodInterface
 {

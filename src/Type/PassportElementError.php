@@ -20,8 +20,6 @@ use Spatie\LaravelData\Data;
  * href="#passportelementerrortranslationfiles">PassportElementErrorTranslationFiles</a>
  *  - <a
  * href="#passportelementerrorunspecified">PassportElementErrorUnspecified</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class PassportElementError extends Data implements TelegramTypeInterface
 {

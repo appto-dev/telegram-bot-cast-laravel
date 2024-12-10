@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Represents a <a href="#chatmember">chat member</a> that isn't currently a member
  * of the chat, but may join it themselves.
- *
- * @version Telegram Bot API 7.11
  */
 final class ChatMemberLeft extends Data implements TelegramTypeInterface
 {

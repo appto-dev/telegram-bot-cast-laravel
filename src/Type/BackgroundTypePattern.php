@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * The background is a PNG or TGV (gzipped subset of SVG with MIME type
  * "application/x-tgwallpattern") pattern to be combined with the background fill
  * chosen by the user.
- *
- * @version Telegram Bot API 7.11
  */
 final class BackgroundTypePattern extends Data implements TelegramTypeInterface
 {

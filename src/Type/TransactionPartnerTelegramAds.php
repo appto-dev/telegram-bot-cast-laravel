@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Describes a withdrawal transaction to the Telegram Ads platform.
- *
- * @version Telegram Bot API 7.11
  */
 final class TransactionPartnerTelegramAds extends Data implements TelegramTypeInterface
 {

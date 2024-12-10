@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * The withdrawal failed and the transaction was refunded.
- *
- * @version Telegram Bot API 7.11
  */
 final class RevenueWithdrawalStateFailed extends Data implements TelegramTypeInterface
 {

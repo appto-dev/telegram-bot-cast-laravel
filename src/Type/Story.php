@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a story.
- *
- * @version Telegram Bot API 7.11
  */
 final class Story extends Data implements TelegramTypeInterface
 {

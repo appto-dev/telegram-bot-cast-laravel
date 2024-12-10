@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents an answer of a user in a non-anonymous poll.
- *
- * @version Telegram Bot API 7.11
  */
 final class PollAnswer extends Data implements TelegramTypeInterface
 {

@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Use this method to get the current bot short description for the given user
  * language. Returns <a href="#botshortdescription">BotShortDescription</a> on
  * success.
- *
- * @version Telegram Bot API 7.11
  */
 final class GetMyShortDescription extends Data implements TelegramMethodInterface
 {

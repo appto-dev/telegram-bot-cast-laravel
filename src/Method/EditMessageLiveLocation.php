@@ -11,8 +11,6 @@ use Spatie\LaravelData\Data;
  * <a href="#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if
  * the edited message is not an inline message, the edited <a
  * href="#message">Message</a> is returned, otherwise <em>True</em> is returned.
- *
- * @version Telegram Bot API 7.11
  */
 final class EditMessageLiveLocation extends Data implements TelegramMethodInterface
 {

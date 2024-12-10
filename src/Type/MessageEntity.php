@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents one special entity in a text message. For example,
  * hashtags, usernames, URLs, etc.
- *
- * @version Telegram Bot API 7.11
  */
 final class MessageEntity extends Data implements TelegramTypeInterface
 {

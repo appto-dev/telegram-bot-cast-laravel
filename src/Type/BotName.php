@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents the bot's name.
- *
- * @version Telegram Bot API 7.11
  */
 final class BotName extends Data implements TelegramTypeInterface
 {

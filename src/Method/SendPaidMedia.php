@@ -14,8 +14,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to send paid media. On success, the sent <a
  * href="#message">Message</a> is returned.
- *
- * @version Telegram Bot API 7.11
  */
 final class SendPaidMedia extends Data implements TelegramMethodInterface
 {

@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  *  - <a href="#paidmediapreview">PaidMediaPreview</a>
  *  - <a href="#paidmediaphoto">PaidMediaPhoto</a>
  *  - <a href="#paidmediavideo">PaidMediaVideo</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class PaidMedia extends Data implements TelegramTypeInterface
 {

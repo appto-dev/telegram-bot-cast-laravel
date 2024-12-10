@@ -39,6 +39,7 @@ use Appto\TelegramBot\Method\EditMessageLiveLocation;
 use Appto\TelegramBot\Method\EditMessageMedia;
 use Appto\TelegramBot\Method\EditMessageReplyMarkup;
 use Appto\TelegramBot\Method\EditMessageText;
+use Appto\TelegramBot\Method\EditUserStarSubscription;
 use Appto\TelegramBot\Method\ExportChatInviteLink;
 use Appto\TelegramBot\Method\ForwardMessage;
 use Appto\TelegramBot\Method\ForwardMessages;
@@ -71,6 +72,7 @@ use Appto\TelegramBot\Method\ReopenGeneralForumTopic;
 use Appto\TelegramBot\Method\ReplaceStickerInSet;
 use Appto\TelegramBot\Method\RestrictChatMember;
 use Appto\TelegramBot\Method\RevokeChatInviteLink;
+use Appto\TelegramBot\Method\SavePreparedInlineMessage;
 use Appto\TelegramBot\Method\SendAnimation;
 use Appto\TelegramBot\Method\SendAudio;
 use Appto\TelegramBot\Method\SendChatAction;
@@ -78,6 +80,7 @@ use Appto\TelegramBot\Method\SendContact;
 use Appto\TelegramBot\Method\SendDice;
 use Appto\TelegramBot\Method\SendDocument;
 use Appto\TelegramBot\Method\SendGame;
+use Appto\TelegramBot\Method\SendGift;
 use Appto\TelegramBot\Method\SendInvoice;
 use Appto\TelegramBot\Method\SendLocation;
 use Appto\TelegramBot\Method\SendMediaGroup;
@@ -112,6 +115,7 @@ use Appto\TelegramBot\Method\SetStickerMaskPosition;
 use Appto\TelegramBot\Method\SetStickerPositionInSet;
 use Appto\TelegramBot\Method\SetStickerSetThumbnail;
 use Appto\TelegramBot\Method\SetStickerSetTitle;
+use Appto\TelegramBot\Method\SetUserEmojiStatus;
 use Appto\TelegramBot\Method\SetWebhook;
 use Appto\TelegramBot\Method\StopMessageLiveLocation;
 use Appto\TelegramBot\Method\StopPoll;
@@ -135,10 +139,12 @@ use Appto\TelegramBot\Type\ChatMember;
 use Appto\TelegramBot\Type\File;
 use Appto\TelegramBot\Type\ForumTopic;
 use Appto\TelegramBot\Type\GameHighScore;
+use Appto\TelegramBot\Type\Gifts;
 use Appto\TelegramBot\Type\MenuButton;
 use Appto\TelegramBot\Type\Message;
 use Appto\TelegramBot\Type\MessageId;
 use Appto\TelegramBot\Type\Poll;
+use Appto\TelegramBot\Type\PreparedInlineMessage;
 use Appto\TelegramBot\Type\SentWebAppMessage;
 use Appto\TelegramBot\Type\StarTransactions;
 use Appto\TelegramBot\Type\Sticker;
@@ -389,6 +395,14 @@ interface TelegramBotInterface
      * @return UserProfilePhotos
      */
     function getUserProfilePhotos(GetUserProfilePhotos|array $method): UserProfilePhotos;
+
+
+    /**
+     * Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the Mini App method <a href="/bots/webapps#initializing-mini-apps">requestEmojiStatusAccess</a>. Returns <em>True</em> on success.
+     * @param SetUserEmojiStatus|array $method
+     * @return true
+     */
+    function setUserEmojiStatus(SetUserEmojiStatus|array $method): true;
 
 
     /**
@@ -1072,6 +1086,21 @@ interface TelegramBotInterface
 
 
     /**
+     * Returns the list of gifts that can be sent by the bot to users. Requires no parameters. Returns a <a href="#gifts">Gifts</a> object.
+     * @return Gifts
+     */
+    function getAvailableGifts(): Gifts;
+
+
+    /**
+     * Sends a gift to the given user. The gift can't be converted to Telegram Stars by the user. Returns <em>True</em> on success.
+     * @param SendGift|array $method
+     * @return true
+     */
+    function sendGift(SendGift|array $method): true;
+
+
+    /**
      * Use this method to send answers to an inline query. On success, <em>True</em> is returned.No more than 50 results per query are allowed.
      * @param AnswerInlineQuery|array $method
      * @return true
@@ -1085,6 +1114,14 @@ interface TelegramBotInterface
      * @return SentWebAppMessage
      */
     function answerWebAppQuery(AnswerWebAppQuery|array $method): SentWebAppMessage;
+
+
+    /**
+     * Stores a message that can be sent by a user of a Mini App. Returns a <a href="#preparedinlinemessage">PreparedInlineMessage</a> object.
+     * @param SavePreparedInlineMessage|array $method
+     * @return PreparedInlineMessage
+     */
+    function savePreparedInlineMessage(SavePreparedInlineMessage|array $method): PreparedInlineMessage;
 
 
     /**
@@ -1133,6 +1170,14 @@ interface TelegramBotInterface
      * @return true
      */
     function refundStarPayment(RefundStarPayment|array $method): true;
+
+
+    /**
+     * Allows the bot to cancel or re-enable extension of a subscription paid in Telegram Stars. Returns <em>True</em> on success.
+     * @param EditUserStarSubscription|array $method
+     * @return true
+     */
+    function editUserStarSubscription(EditUserStarSubscription|array $method): true;
 
 
     /**

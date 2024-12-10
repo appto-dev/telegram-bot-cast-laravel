@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * sent by the user with an optional caption. Alternatively, you can use
  * <em>input_message_content</em> to send a message with the specified content
  * instead of the animation.
- *
- * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultCachedMpeg4Gif extends Data implements TelegramTypeInterface
 {

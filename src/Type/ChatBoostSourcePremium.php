@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * The boost was obtained by subscribing to Telegram Premium or by gifting a
  * Telegram Premium subscription to another user.
- *
- * @version Telegram Bot API 7.11
  */
 final class ChatBoostSourcePremium extends Data implements TelegramTypeInterface
 {

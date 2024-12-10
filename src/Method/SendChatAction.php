@@ -16,8 +16,6 @@ use Spatie\LaravelData\Data;
  * <em>upload_photo</em>. The user will see a "sending photo" status for the bot.
  * We only recommend using this method when a response from the bot will take a
  * noticeable amount of time to arrive.
- *
- * @version Telegram Bot API 7.11
  */
 final class SendChatAction extends Data implements TelegramMethodInterface
 {

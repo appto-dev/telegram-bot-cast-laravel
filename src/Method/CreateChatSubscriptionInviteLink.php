@@ -14,8 +14,6 @@ use Spatie\LaravelData\Data;
  * revoked using the method <a
  * href="#revokechatinvitelink">revokeChatInviteLink</a>. Returns the new invite
  * link as a <a href="#chatinvitelink">ChatInviteLink</a> object.
- *
- * @version Telegram Bot API 7.11
  */
 final class CreateChatSubscriptionInviteLink extends Data implements TelegramMethodInterface
 {

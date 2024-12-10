@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * administrator rights. Use the field <em>can_set_sticker_set</em> optionally
  * returned in <a href="#getchat">getChat</a> requests to check if the bot can use
  * this method. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetChatStickerSet extends Data implements TelegramMethodInterface
 {

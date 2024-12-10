@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Represents a link to a photo. By default, this photo will be sent by the user
  * with optional caption. Alternatively, you can use <em>input_message_content</em>
  * to send a message with the specified content instead of the photo.
- *
- * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultPhoto extends Data implements TelegramTypeInterface
 {

@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Represents a location to which a chat is connected.
- *
- * @version Telegram Bot API 7.11
  */
 final class ChatLocation extends Data implements TelegramTypeInterface
 {

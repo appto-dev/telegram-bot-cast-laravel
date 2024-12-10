@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Describes a withdrawal transaction with Fragment.
- *
- * @version Telegram Bot API 7.11
  */
 final class TransactionPartnerFragment extends Data implements TelegramTypeInterface
 {

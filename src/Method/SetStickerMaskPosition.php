@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * Use this method to change the <a href="#maskposition">mask position</a> of a
  * mask sticker. The sticker must belong to a sticker set that was created by the
  * bot. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetStickerMaskPosition extends Data implements TelegramMethodInterface
 {

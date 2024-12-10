@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents type of a poll, which is allowed to be created and sent
  * when the corresponding button is pressed.
- *
- * @version Telegram Bot API 7.11
  */
 final class KeyboardButtonPollType extends Data implements TelegramTypeInterface
 {

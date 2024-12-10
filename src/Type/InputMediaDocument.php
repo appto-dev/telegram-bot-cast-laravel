@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Represents a general file to be sent.
- *
- * @version Telegram Bot API 7.11
  */
 final class InputMediaDocument extends Data implements TelegramTypeInterface
 {

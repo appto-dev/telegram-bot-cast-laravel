@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * with reply options (see <a href="/bots/features#keyboards">Introduction to
  * bots</a> for details and examples). Not supported in channels and for messages
  * sent on behalf of a Telegram Business account.
- *
- * @version Telegram Bot API 7.11
  */
 final class ReplyKeyboardMarkup extends Data implements TelegramTypeInterface
 {

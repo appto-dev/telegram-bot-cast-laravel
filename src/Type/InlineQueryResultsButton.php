@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents a button to be shown above inline query results. You must
  * use exactly one of the optional fields.
- *
- * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultsButton extends Data implements TelegramTypeInterface
 {

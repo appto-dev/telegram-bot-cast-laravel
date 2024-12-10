@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a change of a reaction on a message performed by a user.
- *
- * @version Telegram Bot API 7.11
  */
 final class MessageReactionUpdated extends Data implements TelegramTypeInterface
 {

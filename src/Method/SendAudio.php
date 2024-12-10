@@ -19,8 +19,6 @@ use Spatie\LaravelData\Data;
  * future.
  * For sending voice messages, use the <a href="#sendvoice">sendVoice</a> method
  * instead.
- *
- * @version Telegram Bot API 7.11
  */
 final class SendAudio extends Data implements TelegramMethodInterface
 {

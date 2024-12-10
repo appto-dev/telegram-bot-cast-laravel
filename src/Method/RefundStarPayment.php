@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Refunds a successful payment in <a href="https://t.me/BotNews/90">Telegram
  * Stars</a>. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class RefundStarPayment extends Data implements TelegramMethodInterface
 {

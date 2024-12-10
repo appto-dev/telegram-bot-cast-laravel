@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This object contains information about a message that is being replied to, which
  * may come from another chat or forum topic.
- *
- * @version Telegram Bot API 7.11
  */
 final class ExternalReplyInfo extends Data implements TelegramTypeInterface
 {

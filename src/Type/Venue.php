@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a venue.
- *
- * @version Telegram Bot API 7.11
  */
 final class Venue extends Data implements TelegramTypeInterface
 {

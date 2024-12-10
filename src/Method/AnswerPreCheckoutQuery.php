@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * the field <em>pre_checkout_query</em>. Use this method to respond to such
  * pre-checkout queries. On success, <em>True</em> is returned. Note: The Bot API
  * must receive an answer within 10 seconds after the pre-checkout query was sent.
- *
- * @version Telegram Bot API 7.11
  */
 final class AnswerPreCheckoutQuery extends Data implements TelegramMethodInterface
 {

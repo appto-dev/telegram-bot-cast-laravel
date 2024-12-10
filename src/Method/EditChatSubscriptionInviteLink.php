@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Use this method to edit a subscription invite link created by the bot. The bot
  * must have the <em>can_invite_users</em> administrator rights. Returns the edited
  * invite link as a <a href="#chatinvitelink">ChatInviteLink</a> object.
- *
- * @version Telegram Bot API 7.11
  */
 final class EditChatSubscriptionInviteLink extends Data implements TelegramMethodInterface
 {

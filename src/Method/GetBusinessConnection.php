@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Use this method to get information about the connection of the bot with a
  * business account. Returns a <a href="#businessconnection">BusinessConnection</a>
  * object on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class GetBusinessConnection extends Data implements TelegramMethodInterface
 {

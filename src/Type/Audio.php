@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents an audio file to be treated as music by the Telegram
  * clients.
- *
- * @version Telegram Bot API 7.11
  */
 final class Audio extends Data implements TelegramTypeInterface
 {

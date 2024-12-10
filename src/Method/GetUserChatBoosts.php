@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Use this method to get the list of boosts added to a chat by a user. Requires
  * administrator rights in the chat. Returns a <a
  * href="#userchatboosts">UserChatBoosts</a> object.
- *
- * @version Telegram Bot API 7.11
  */
 final class GetUserChatBoosts extends Data implements TelegramMethodInterface
 {

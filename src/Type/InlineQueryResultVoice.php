@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * By default, this voice recording will be sent by the user. Alternatively, you
  * can use <em>input_message_content</em> to send a message with the specified
  * content instead of the the voice message.
- *
- * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultVoice extends Data implements TelegramTypeInterface
 {

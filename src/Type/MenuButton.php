@@ -14,8 +14,6 @@ use Spatie\LaravelData\Data;
  * is set for a private chat, then it is applied in the chat. Otherwise the default
  * menu button is applied. By default, the menu button opens the list of bot
  * commands.
- *
- * @version Telegram Bot API 7.11
  */
 final class MenuButton extends Data implements TelegramTypeInterface
 {

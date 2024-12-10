@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to remove webhook integration if you decide to switch back to <a
  * href="#getupdates">getUpdates</a>. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class DeleteWebhook extends Data implements TelegramMethodInterface
 {

@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Use this method to approve a chat join request. The bot must be an administrator
  * in the chat for this to work and must have the <em>can_invite_users</em>
  * administrator right. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class ApproveChatJoinRequest extends Data implements TelegramMethodInterface
 {

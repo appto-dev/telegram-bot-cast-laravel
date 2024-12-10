@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * href="#encryptedpassportelement">EncryptedPassportElement</a>. See the <a
  * href="/passport#receiving-information">Telegram Passport Documentation</a> for a
  * complete description of the data decryption and authentication processes.
- *
- * @version Telegram Bot API 7.11
  */
 final class EncryptedCredentials extends Data implements TelegramTypeInterface
 {

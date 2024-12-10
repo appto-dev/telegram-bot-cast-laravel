@@ -11,8 +11,6 @@ use Spatie\LaravelData\Data;
  * the specified content instead of the video.
  * If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube),
  * you must replace its content using <em>input_message_content</em>.
- *
- * @version Telegram Bot API 7.11
  */
 final class InlineQueryResultVideo extends Data implements TelegramTypeInterface
 {

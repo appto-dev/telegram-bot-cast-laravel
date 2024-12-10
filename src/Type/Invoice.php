@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object contains basic information about an invoice.
- *
- * @version Telegram Bot API 7.11
  */
 final class Invoice extends Data implements TelegramTypeInterface
 {

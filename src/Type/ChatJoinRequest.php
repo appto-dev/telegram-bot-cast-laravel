@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Represents a join request sent to a chat.
- *
- * @version Telegram Bot API 7.11
  */
 final class ChatJoinRequest extends Data implements TelegramTypeInterface
 {

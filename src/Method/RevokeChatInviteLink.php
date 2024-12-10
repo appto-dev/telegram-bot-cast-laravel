@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * administrator in the chat for this to work and must have the appropriate
  * administrator rights. Returns the revoked invite link as <a
  * href="#chatinvitelink">ChatInviteLink</a> object.
- *
- * @version Telegram Bot API 7.11
  */
 final class RevokeChatInviteLink extends Data implements TelegramMethodInterface
 {

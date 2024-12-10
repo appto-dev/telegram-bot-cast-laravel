@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to set the title of a created sticker set. Returns <em>True</em>
  * on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetStickerSetTitle extends Data implements TelegramMethodInterface
 {

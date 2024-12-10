@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * The background is a wallpaper in the JPEG format.
- *
- * @version Telegram Bot API 7.11
  */
 final class BackgroundTypeWallpaper extends Data implements TelegramTypeInterface
 {

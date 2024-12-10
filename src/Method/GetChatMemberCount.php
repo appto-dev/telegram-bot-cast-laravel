@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to get the number of members in a chat. Returns <em>Int</em> on
  * success.
- *
- * @version Telegram Bot API 7.11
  */
 final class GetChatMemberCount extends Data implements TelegramMethodInterface
 {

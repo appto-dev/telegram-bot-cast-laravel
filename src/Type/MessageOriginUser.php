@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * The message was originally sent by a known user.
- *
- * @version Telegram Bot API 7.11
  */
 final class MessageOriginUser extends Data implements TelegramTypeInterface
 {

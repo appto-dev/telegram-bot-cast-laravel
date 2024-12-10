@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * href="#message">Message</a> is returned, otherwise <em>True</em> is returned.
  * Returns an error, if the new score is not greater than the user's current score
  * in the chat and <em>force</em> is <em>False</em>.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetGameScore extends Data implements TelegramMethodInterface
 {

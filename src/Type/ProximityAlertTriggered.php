@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This object represents the content of a service message, sent whenever a user in
  * the chat triggers a proximity alert set by another user.
- *
- * @version Telegram Bot API 7.11
  */
 final class ProximityAlertTriggered extends Data implements TelegramTypeInterface
 {

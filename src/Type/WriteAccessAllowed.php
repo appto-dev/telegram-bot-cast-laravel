@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * messages after adding it to the attachment menu, launching a Web App from a
  * link, or accepting an explicit request from a Web App sent by the method <a
  * href="/bots/webapps#initializing-mini-apps">requestWriteAccess</a>.
- *
- * @version Telegram Bot API 7.11
  */
 final class WriteAccessAllowed extends Data implements TelegramTypeInterface
 {

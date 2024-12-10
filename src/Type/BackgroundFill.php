@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  *  - <a href="#backgroundfillsolid">BackgroundFillSolid</a>
  *  - <a href="#backgroundfillgradient">BackgroundFillGradient</a>
  *  - <a href="#backgroundfillfreeformgradient">BackgroundFillFreeformGradient</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class BackgroundFill extends Data implements TelegramTypeInterface
 {

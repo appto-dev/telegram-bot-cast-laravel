@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * messages and messages with protected content can't be forwarded. Album grouping
  * is kept for forwarded messages. On success, an array of <a
  * href="#messageid">MessageId</a> of the sent messages is returned.
- *
- * @version Telegram Bot API 7.11
  */
 final class ForwardMessages extends Data implements TelegramMethodInterface
 {

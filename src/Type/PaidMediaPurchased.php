@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object contains information about a paid media purchase.
- *
- * @version Telegram Bot API 7.11
  */
 final class PaidMediaPurchased extends Data implements TelegramTypeInterface
 {

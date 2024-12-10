@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * This <a href="#available-types">object</a> represents an incoming update.At most
  * one of the optional parameters can be present in any given update.
- *
- * @version Telegram Bot API 7.11
  */
 final class Update extends Data implements TelegramTypeInterface
 {

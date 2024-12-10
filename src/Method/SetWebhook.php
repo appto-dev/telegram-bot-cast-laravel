@@ -15,8 +15,6 @@ use Spatie\LaravelData\Data;
  * secret data in the parameter <em>secret_token</em>. If specified, the request
  * will contain a header "X-Telegram-Bot-Api-Secret-Token" with the secret token as
  * content.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetWebhook extends Data implements TelegramMethodInterface
 {

@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * Represents the rights of an administrator in a chat.
- *
- * @version Telegram Bot API 7.11
  */
 final class ChatAdministratorRights extends Data implements TelegramTypeInterface
 {

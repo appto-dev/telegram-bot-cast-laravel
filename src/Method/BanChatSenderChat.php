@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * chat won't be able to send messages on behalf of any of their channels. The bot
  * must be an administrator in the supergroup or channel for this to work and must
  * have the appropriate administrator rights. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class BanChatSenderChat extends Data implements TelegramMethodInterface
 {

@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  *  - <a href="#reactiontypeemoji">ReactionTypeEmoji</a>
  *  - <a href="#reactiontypecustomemoji">ReactionTypeCustomEmoji</a>
  *  - <a href="#reactiontypepaid">ReactionTypePaid</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class ReactionType extends Data implements TelegramTypeInterface
 {

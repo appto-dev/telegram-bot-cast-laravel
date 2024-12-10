@@ -8,12 +8,17 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to create a link for an invoice. Returns the created invoice
  * link as <em>String</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class CreateInvoiceLink extends Data implements TelegramMethodInterface
 {
     public function __construct(
+        /**
+         * Unique identifier of the business connection on behalf of which the link will be
+         * created. For payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>
+         * only.
+         * @var string
+         */
+        public ?string $business_connection_id,
         /**
          * Product name, 1-32 characters
          * @var string
@@ -51,6 +56,16 @@ final class CreateInvoiceLink extends Data implements TelegramMethodInterface
          * @var LabeledPrice[]
          */
         public array $prices,
+        /**
+         * The number of seconds the subscription will be active for before the next
+         * payment. The currency must be set to "XTR" (Telegram Stars) if the parameter is
+         * used. Currently, it must always be 2592000 (30 days) if specified. Any number of
+         * subscriptions can be active for a given bot at the same time, including multiple
+         * concurrent subscriptions from the same user. Subscription price must no exceed
+         * 2500 Telegram Stars.
+         * @var int
+         */
+        public ?int $subscription_period,
         /**
          * The maximum accepted amount for tips in the <em>smallest units</em> of the
          * currency (integer, <strong>not</strong> float/double). For example, for a

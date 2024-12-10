@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  *  - <a href="#chatboostsourcepremium">ChatBoostSourcePremium</a>
  *  - <a href="#chatboostsourcegiftcode">ChatBoostSourceGiftCode</a>
  *  - <a href="#chatboostsourcegiveaway">ChatBoostSourceGiveaway</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class ChatBoostSource extends Data implements TelegramTypeInterface
 {

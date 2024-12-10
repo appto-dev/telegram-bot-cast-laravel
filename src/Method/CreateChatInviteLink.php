@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  * administrator rights. The link can be revoked using the method <a
  * href="#revokechatinvitelink">revokeChatInviteLink</a>. Returns the new invite
  * link as <a href="#chatinvitelink">ChatInviteLink</a> object.
- *
- * @version Telegram Bot API 7.11
  */
 final class CreateChatInviteLink extends Data implements TelegramMethodInterface
 {

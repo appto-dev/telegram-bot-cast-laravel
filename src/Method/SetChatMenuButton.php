@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to change the bot's menu button in a private chat, or the
  * default menu button. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetChatMenuButton extends Data implements TelegramMethodInterface
 {

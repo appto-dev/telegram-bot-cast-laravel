@@ -16,8 +16,6 @@ use Spatie\LaravelData\Data;
  * (other formats may be sent as <a href="#document">Document</a>). On success, the
  * sent <a href="#message">Message</a> is returned. Bots can currently send video
  * files of up to 50 MB in size, this limit may be changed in the future.
- *
- * @version Telegram Bot API 7.11
  */
 final class SendVideo extends Data implements TelegramMethodInterface
 {

@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Describes a transaction with payment for <a href="#paid-broadcasts">paid
  * broadcasting</a>.
- *
- * @version Telegram Bot API 7.11
  */
 final class TransactionPartnerTelegramApi extends Data implements TelegramTypeInterface
 {

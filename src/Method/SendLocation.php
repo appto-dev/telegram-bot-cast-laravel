@@ -12,8 +12,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to send point on the map. On success, the sent <a
  * href="#message">Message</a> is returned.
- *
- * @version Telegram Bot API 7.11
  */
 final class SendLocation extends Data implements TelegramMethodInterface
 {

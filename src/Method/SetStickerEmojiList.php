@@ -8,8 +8,6 @@ use Spatie\LaravelData\Data;
  * Use this method to change the list of emoji assigned to a regular or custom
  * emoji sticker. The sticker must belong to a sticker set created by the bot.
  * Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetStickerEmojiList extends Data implements TelegramMethodInterface
 {

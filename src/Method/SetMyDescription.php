@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to change the bot's description, which is shown in the chat with
  * the bot if the chat is empty. Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetMyDescription extends Data implements TelegramMethodInterface
 {

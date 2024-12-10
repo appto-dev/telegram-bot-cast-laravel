@@ -7,8 +7,6 @@ use Spatie\LaravelData\Data;
 /**
  * Describes an inline message sent by a <a href="/bots/webapps">Web App</a> on
  * behalf of a user.
- *
- * @version Telegram Bot API 7.11
  */
 final class SentWebAppMessage extends Data implements TelegramTypeInterface
 {

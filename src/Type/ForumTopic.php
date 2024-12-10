@@ -6,8 +6,6 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents a forum topic.
- *
- * @version Telegram Bot API 7.11
  */
 final class ForumTopic extends Data implements TelegramTypeInterface
 {

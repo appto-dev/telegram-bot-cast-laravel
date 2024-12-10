@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * one of
  *  - <a href="#message">Message</a>
  *  - <a href="#inaccessiblemessage">InaccessibleMessage</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class MaybeInaccessibleMessage extends Data implements TelegramTypeInterface
 {

@@ -18,8 +18,6 @@ use Spatie\LaravelData\Data;
  * href="https://telegram.org/blog/privacy-discussions-web-bots#meet-seamless-web-bots">version
  * 5.7</a>.
  * Sample bot: <a href="https://t.me/discussbot">@discussbot</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class LoginUrl extends Data implements TelegramTypeInterface
 {

@@ -9,8 +9,6 @@ use Spatie\LaravelData\Data;
  * Use this method to set the thumbnail of a regular or mask sticker set. The
  * format of the thumbnail file must match the format of the stickers in the set.
  * Returns <em>True</em> on success.
- *
- * @version Telegram Bot API 7.11
  */
 final class SetStickerSetThumbnail extends Data implements TelegramMethodInterface
 {

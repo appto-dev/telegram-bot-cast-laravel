@@ -10,8 +10,6 @@ use Spatie\LaravelData\Data;
  *  - <a href="#backgroundtypewallpaper">BackgroundTypeWallpaper</a>
  *  - <a href="#backgroundtypepattern">BackgroundTypePattern</a>
  *  - <a href="#backgroundtypechattheme">BackgroundTypeChatTheme</a>
- *
- * @version Telegram Bot API 7.11
  */
 final class BackgroundType extends Data implements TelegramTypeInterface
 {
