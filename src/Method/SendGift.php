@@ -23,6 +23,12 @@ final class SendGift extends Data implements TelegramMethodInterface
          */
         public string $gift_id,
         /**
+         * Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby
+         * making the upgrade free for the receiver
+         * @var bool
+         */
+        public ?bool $pay_for_upgrade,
+        /**
          * Text that will be shown along with the gift; 0-255 characters
          * @var string
          */

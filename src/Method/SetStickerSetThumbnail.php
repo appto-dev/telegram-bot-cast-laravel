@@ -29,7 +29,7 @@ final class SetStickerSetThumbnail extends Data implements TelegramMethodInterfa
          * a <strong>.TGS</strong> animation with a thumbnail up to 32 kilobytes in size
          * (see <a href="/stickers#animation-requirements"></a><a
          * href="https://core.telegram.org/stickers#animation-requirements">https://core.telegram.org/stickers#animation-requirements</a>
-         * for animated sticker technical requirements), or a <strong>WEBM</strong> video
+         * for animated sticker technical requirements), or a <strong>.WEBM</strong> video
          * with the thumbnail up to 32 kilobytes in size; see <a
          * href="/stickers#video-requirements"></a><a
          * href="https://core.telegram.org/stickers#video-requirements">https://core.telegram.org/stickers#video-requirements</a>
@@ -46,7 +46,7 @@ final class SetStickerSetThumbnail extends Data implements TelegramMethodInterfa
         /**
          * Format of the thumbnail, must be one of "static" for a <strong>.WEBP</strong> or
          * <strong>.PNG</strong> image, "animated" for a <strong>.TGS</strong> animation,
-         * or "video" for a <strong>WEBM</strong> video
+         * or "video" for a <strong>.WEBM</strong> video
          * @var string
          */
         public string $format,

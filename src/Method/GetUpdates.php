@@ -43,7 +43,7 @@ final class GetUpdates extends Data implements TelegramMethodInterface
          * an empty list to receive all update types except <em>chat_member</em>,
          * <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not
          * specified, the previous setting will be used.<br><br>Please note that this
-         * parameter doesn't affect updates created before the call to the getUpdates, so
+         * parameter doesn't affect updates created before the call to getUpdates, so
          * unwanted updates may be received for a short period of time.
          * @var string[]
          */

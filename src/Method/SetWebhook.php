@@ -9,7 +9,9 @@ use Spatie\LaravelData\Data;
  * Use this method to specify a URL and receive incoming updates via an outgoing
  * webhook. Whenever there is an update for the bot, we will send an HTTPS POST
  * request to the specified URL, containing a JSON-serialized <a
- * href="#update">Update</a>. In case of an unsuccessful request, we will give up
+ * href="#update">Update</a>. In case of an unsuccessful request (a request with
+ * response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP
+ * status code</a> different from 2XY), we will repeat the request and give up
  * after a reasonable amount of attempts. Returns <em>True</em> on success.
  * If you'd like to make sure that the webhook was set by you, you can specify
  * secret data in the parameter <em>secret_token</em>. If specified, the request

@@ -26,6 +26,12 @@ final class Gift extends Data implements TelegramTypeInterface
          */
         public int $star_count,
         /**
+         * The number of Telegram Stars that must be paid to upgrade the gift to a unique
+         * one
+         * @var int
+         */
+        public ?int $upgrade_star_count,
+        /**
          * The total number of the gifts of this type that can be sent; for limited gifts
          * only
          * @var int

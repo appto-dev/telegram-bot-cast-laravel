@@ -19,7 +19,7 @@ final class InlineQueryResultMpeg4Gif extends Data implements TelegramTypeInterf
          */
         public string $id,
         /**
-         * A valid URL for the MPEG4 file. File size must not exceed 1MB
+         * A valid URL for the MPEG4 file
          * @var string
          */
         public string $mpeg4_url,

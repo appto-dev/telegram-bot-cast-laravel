@@ -67,6 +67,8 @@ use Appto\TelegramBot\Method\LeaveChat;
 use Appto\TelegramBot\Method\PinChatMessage;
 use Appto\TelegramBot\Method\PromoteChatMember;
 use Appto\TelegramBot\Method\RefundStarPayment;
+use Appto\TelegramBot\Method\RemoveChatVerification;
+use Appto\TelegramBot\Method\RemoveUserVerification;
 use Appto\TelegramBot\Method\ReopenForumTopic;
 use Appto\TelegramBot\Method\ReopenGeneralForumTopic;
 use Appto\TelegramBot\Method\ReplaceStickerInSet;
@@ -127,6 +129,8 @@ use Appto\TelegramBot\Method\UnpinAllForumTopicMessages;
 use Appto\TelegramBot\Method\UnpinAllGeneralForumTopicMessages;
 use Appto\TelegramBot\Method\UnpinChatMessage;
 use Appto\TelegramBot\Method\UploadStickerFile;
+use Appto\TelegramBot\Method\VerifyChat;
+use Appto\TelegramBot\Method\VerifyUser;
 use Appto\TelegramBot\Type\BotCommand;
 use Appto\TelegramBot\Type\BotDescription;
 use Appto\TelegramBot\Type\BotName;
@@ -166,7 +170,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <a href="#update">Update</a>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns <em>True</em> on success.
+     * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <a href="#update">Update</a>. In case of an unsuccessful request (a request with response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different from 2XY), we will repeat the request and give up after a reasonable amount of attempts. Returns <em>True</em> on success.
      * If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header "X-Telegram-Bot-Api-Secret-Token" with the secret token as content.
      * @param SetWebhook|array $method
      * @return true
@@ -1098,6 +1102,38 @@ interface TelegramBotInterface
      * @return true
      */
     function sendGift(SendGift|array $method): true;
+
+
+    /**
+     * Verifies a user on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+     * @param VerifyUser|array $method
+     * @return true
+     */
+    function verifyUser(VerifyUser|array $method): true;
+
+
+    /**
+     * Verifies a chat on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+     * @param VerifyChat|array $method
+     * @return true
+     */
+    function verifyChat(VerifyChat|array $method): true;
+
+
+    /**
+     * Removes verification from a user who is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+     * @param RemoveUserVerification|array $method
+     * @return true
+     */
+    function removeUserVerification(RemoveUserVerification|array $method): true;
+
+
+    /**
+     * Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+     * @param RemoveChatVerification|array $method
+     * @return true
+     */
+    function removeChatVerification(RemoveChatVerification|array $method): true;
 
 
     /**
