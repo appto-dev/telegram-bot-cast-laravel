@@ -5,8 +5,9 @@ use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * Removes verification from a chat that is currently verified on behalf of the
- * organization represented by the bot. Returns <em>True</em> on success.
+ * Removes verification from a chat that is currently verified <a
+ * href="https://telegram.org/verify#third-party-verification">on behalf of the
+ * organization</a> represented by the bot. Returns <em>True</em> on success.
  */
 final class RemoveChatVerification extends Data implements TelegramMethodInterface
 {

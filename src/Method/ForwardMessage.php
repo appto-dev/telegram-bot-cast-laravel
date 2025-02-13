@@ -31,6 +31,11 @@ final class ForwardMessage extends Data implements TelegramMethodInterface
          */
         public int|string $from_chat_id,
         /**
+         * New start timestamp for the forwarded video in the message
+         * @var int
+         */
+        public ?int $video_start_timestamp,
+        /**
          * Sends the message <a
          * href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>.
          * Users will receive a notification with no sound.

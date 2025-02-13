@@ -46,6 +46,11 @@ final class CopyMessage extends Data implements TelegramMethodInterface
          */
         public int $message_id,
         /**
+         * New start timestamp for the copied video in the message
+         * @var int
+         */
+        public ?int $video_start_timestamp,
+        /**
          * New caption for media, 0-1024 characters after entities parsing. If not
          * specified, the original caption is kept
          * @var string

@@ -5,8 +5,10 @@ use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * Verifies a chat on behalf of the organization which is represented by the bot.
- * Returns <em>True</em> on success.
+ * Verifies a chat <a
+ * href="https://telegram.org/verify#third-party-verification">on behalf of the
+ * organization</a> which is represented by the bot. Returns <em>True</em> on
+ * success.
  */
 final class VerifyChat extends Data implements TelegramMethodInterface
 {

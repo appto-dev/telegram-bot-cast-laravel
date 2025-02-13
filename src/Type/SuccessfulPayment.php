@@ -5,7 +5,10 @@ use Appto\TelegramBot\Interface\TelegramTypeInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * This object contains basic information about a successful payment.
+ * This object contains basic information about a successful payment. Note that if
+ * the buyer initiates a chargeback with the relevant payment provider following
+ * this transaction, the funds may be debited from your balance. This is outside of
+ * Telegram's control.
  */
 final class SuccessfulPayment extends Data implements TelegramTypeInterface
 {

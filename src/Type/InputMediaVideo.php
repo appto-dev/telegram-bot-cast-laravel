@@ -30,6 +30,20 @@ final class InputMediaVideo extends Data implements TelegramTypeInterface
          */
         public InputFile|string|null $thumbnail,
         /**
+         * Cover for the video in the message. Pass a file_id to send a file that exists on
+         * the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file
+         * from the Internet, or pass "attach://<file_attach_name>" to upload a new one
+         * using multipart/form-data under <file_attach_name> name. More information on
+         * Sending Files
+         * @var InputFile|string
+         */
+        public InputFile|string|null $cover,
+        /**
+         * Start timestamp for the video in the message
+         * @var int
+         */
+        public ?int $start_timestamp,
+        /**
          * Caption of the video to be sent, 0-1024 characters after entities parsing
          * @var string
          */

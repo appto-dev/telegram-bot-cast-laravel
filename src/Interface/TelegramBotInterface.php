@@ -386,7 +386,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns <em>True</em> on success.
+     * Use this method to change the chosen reactions on a message. Service messages of some types can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns <em>True</em> on success.
      * @param SetMessageReaction|array $method
      * @return true
      */
@@ -1090,14 +1090,14 @@ interface TelegramBotInterface
 
 
     /**
-     * Returns the list of gifts that can be sent by the bot to users. Requires no parameters. Returns a <a href="#gifts">Gifts</a> object.
+     * Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters. Returns a <a href="#gifts">Gifts</a> object.
      * @return Gifts
      */
     function getAvailableGifts(): Gifts;
 
 
     /**
-     * Sends a gift to the given user. The gift can't be converted to Telegram Stars by the user. Returns <em>True</em> on success.
+     * Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver. Returns <em>True</em> on success.
      * @param SendGift|array $method
      * @return true
      */
@@ -1105,7 +1105,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Verifies a user on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+     * Verifies a user <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
      * @param VerifyUser|array $method
      * @return true
      */
@@ -1113,7 +1113,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Verifies a chat on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+     * Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
      * @param VerifyChat|array $method
      * @return true
      */
@@ -1121,7 +1121,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Removes verification from a user who is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+     * Removes verification from a user who is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
      * @param RemoveUserVerification|array $method
      * @return true
      */
@@ -1129,7 +1129,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+     * Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
      * @param RemoveChatVerification|array $method
      * @return true
      */

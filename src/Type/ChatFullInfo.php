@@ -180,6 +180,11 @@ final class ChatFullInfo extends Data implements TelegramTypeInterface
          */
         public ?ChatPermissions $permissions,
         /**
+         * True, if gifts can be sent to the chat
+         * @var true
+         */
+        public ?true $can_send_gift,
+        /**
          * True, if paid media messages can be sent or forwarded to the channel chat. The
          * field is available only for channel chats.
          * @var true

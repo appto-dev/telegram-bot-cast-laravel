@@ -35,7 +35,7 @@ final class AnswerShippingQuery extends Data implements TelegramMethodInterface
         /**
          * Required if <em>ok</em> is <em>False</em>. Error message in human readable form
          * that explains why it is impossible to complete the order (e.g. "Sorry, delivery
-         * to your desired address is unavailable'). Telegram will display this message to
+         * to your desired address is unavailable"). Telegram will display this message to
          * the user.
          * @var string
          */
