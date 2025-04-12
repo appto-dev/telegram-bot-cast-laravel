@@ -6,38 +6,33 @@ use Appto\TelegramBot\Type\MessageEntity;
 use Spatie\LaravelData\Data;
 
 /**
- * Sends a gift to the given user or channel chat. The gift can't be converted to
- * Telegram Stars by the receiver. Returns <em>True</em> on success.
+ * Gifts a Telegram Premium subscription to the given user. Returns <em>True</em>
+ * on success.
  */
-final class SendGift extends Data implements TelegramMethodInterface
+final class GiftPremiumSubscription extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**
-         * Required if <em>chat_id</em> is not specified. Unique identifier of the target
-         * user who will receive the gift.
+         * Unique identifier of the target user who will receive a Telegram Premium
+         * subscription
          * @var int
          */
-        public ?int $user_id,
+        public int $user_id,
         /**
-         * Required if <em>user_id</em> is not specified. Unique identifier for the chat or
-         * username of the channel (in the format <code>@channelusername</code>) that will
-         * receive the gift.
-         * @var int|string
+         * Number of months the Telegram Premium subscription will be active for the user;
+         * must be one of 3, 6, or 12
+         * @var int
          */
-        public int|string|null $chat_id,
+        public int $month_count,
         /**
-         * Identifier of the gift
-         * @var string
+         * Number of Telegram Stars to pay for the Telegram Premium subscription; must be
+         * 1000 for 3 months, 1500 for 6 months, and 2500 for 12 months
+         * @var int
          */
-        public string $gift_id,
+        public int $star_count,
         /**
-         * Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby
-         * making the upgrade free for the receiver
-         * @var bool
-         */
-        public ?bool $pay_for_upgrade,
-        /**
-         * Text that will be shown along with the gift; 0-128 characters
+         * Text that will be shown along with the service message about the subscription;
+         * 0-128 characters
          * @var string
          */
         public ?string $text,

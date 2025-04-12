@@ -35,11 +35,10 @@ final class BusinessConnection extends Data implements TelegramTypeInterface
          */
         public int $date,
         /**
-         * True, if the bot can act on behalf of the business account in chats that were
-         * active in the last 24 hours
-         * @var bool
+         * Rights of the business bot
+         * @var BusinessBotRights
          */
-        public bool $can_reply,
+        public ?BusinessBotRights $rights,
         /**
          * True, if the connection is active
          * @var bool

@@ -34,7 +34,7 @@ final class SendPaidMedia extends Data implements TelegramMethodInterface
         public int|string $chat_id,
         /**
          * The number of Telegram Stars that must be paid to buy access to the media;
-         * 1-2500
+         * 1-10000
          * @var int
          */
         public int $star_count,

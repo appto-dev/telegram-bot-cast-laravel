@@ -13,6 +13,7 @@ use Appto\TelegramBot\Method\BanChatSenderChat;
 use Appto\TelegramBot\Method\ChatMemberBanned;
 use Appto\TelegramBot\Method\CloseForumTopic;
 use Appto\TelegramBot\Method\CloseGeneralForumTopic;
+use Appto\TelegramBot\Method\ConvertGiftToStars;
 use Appto\TelegramBot\Method\CopyMessage;
 use Appto\TelegramBot\Method\CopyMessages;
 use Appto\TelegramBot\Method\CreateChatInviteLink;
@@ -21,6 +22,7 @@ use Appto\TelegramBot\Method\CreateForumTopic;
 use Appto\TelegramBot\Method\CreateInvoiceLink;
 use Appto\TelegramBot\Method\CreateNewStickerSet;
 use Appto\TelegramBot\Method\DeclineChatJoinRequest;
+use Appto\TelegramBot\Method\DeleteBusinessMessages;
 use Appto\TelegramBot\Method\DeleteChatPhoto;
 use Appto\TelegramBot\Method\DeleteChatStickerSet;
 use Appto\TelegramBot\Method\DeleteForumTopic;
@@ -29,6 +31,7 @@ use Appto\TelegramBot\Method\DeleteMessages;
 use Appto\TelegramBot\Method\DeleteMyCommands;
 use Appto\TelegramBot\Method\DeleteStickerFromSet;
 use Appto\TelegramBot\Method\DeleteStickerSet;
+use Appto\TelegramBot\Method\DeleteStory;
 use Appto\TelegramBot\Method\DeleteWebhook;
 use Appto\TelegramBot\Method\EditChatInviteLink;
 use Appto\TelegramBot\Method\EditChatSubscriptionInviteLink;
@@ -39,10 +42,13 @@ use Appto\TelegramBot\Method\EditMessageLiveLocation;
 use Appto\TelegramBot\Method\EditMessageMedia;
 use Appto\TelegramBot\Method\EditMessageReplyMarkup;
 use Appto\TelegramBot\Method\EditMessageText;
+use Appto\TelegramBot\Method\EditStory;
 use Appto\TelegramBot\Method\EditUserStarSubscription;
 use Appto\TelegramBot\Method\ExportChatInviteLink;
 use Appto\TelegramBot\Method\ForwardMessage;
 use Appto\TelegramBot\Method\ForwardMessages;
+use Appto\TelegramBot\Method\GetBusinessAccountGifts;
+use Appto\TelegramBot\Method\GetBusinessAccountStarBalance;
 use Appto\TelegramBot\Method\GetBusinessConnection;
 use Appto\TelegramBot\Method\GetChat;
 use Appto\TelegramBot\Method\GetChatAdministrators;
@@ -62,11 +68,15 @@ use Appto\TelegramBot\Method\GetStickerSet;
 use Appto\TelegramBot\Method\GetUpdates;
 use Appto\TelegramBot\Method\GetUserChatBoosts;
 use Appto\TelegramBot\Method\GetUserProfilePhotos;
+use Appto\TelegramBot\Method\GiftPremiumSubscription;
 use Appto\TelegramBot\Method\HideGeneralForumTopic;
 use Appto\TelegramBot\Method\LeaveChat;
 use Appto\TelegramBot\Method\PinChatMessage;
+use Appto\TelegramBot\Method\PostStory;
 use Appto\TelegramBot\Method\PromoteChatMember;
+use Appto\TelegramBot\Method\ReadBusinessMessage;
 use Appto\TelegramBot\Method\RefundStarPayment;
+use Appto\TelegramBot\Method\RemoveBusinessAccountProfilePhoto;
 use Appto\TelegramBot\Method\RemoveChatVerification;
 use Appto\TelegramBot\Method\RemoveUserVerification;
 use Appto\TelegramBot\Method\ReopenForumTopic;
@@ -95,6 +105,11 @@ use Appto\TelegramBot\Method\SendVenue;
 use Appto\TelegramBot\Method\SendVideo;
 use Appto\TelegramBot\Method\SendVideoNote;
 use Appto\TelegramBot\Method\SendVoice;
+use Appto\TelegramBot\Method\SetBusinessAccountBio;
+use Appto\TelegramBot\Method\SetBusinessAccountGiftSettings;
+use Appto\TelegramBot\Method\SetBusinessAccountName;
+use Appto\TelegramBot\Method\SetBusinessAccountProfilePhoto;
+use Appto\TelegramBot\Method\SetBusinessAccountUsername;
 use Appto\TelegramBot\Method\SetChatAdministratorCustomTitle;
 use Appto\TelegramBot\Method\SetChatDescription;
 use Appto\TelegramBot\Method\SetChatMenuButton;
@@ -121,6 +136,8 @@ use Appto\TelegramBot\Method\SetUserEmojiStatus;
 use Appto\TelegramBot\Method\SetWebhook;
 use Appto\TelegramBot\Method\StopMessageLiveLocation;
 use Appto\TelegramBot\Method\StopPoll;
+use Appto\TelegramBot\Method\TransferBusinessAccountStars;
+use Appto\TelegramBot\Method\TransferGift;
 use Appto\TelegramBot\Method\UnbanChatMember;
 use Appto\TelegramBot\Method\UnbanChatSenderChat;
 use Appto\TelegramBot\Method\UnhideGeneralForumTopic;
@@ -128,6 +145,7 @@ use Appto\TelegramBot\Method\UnpinAllChatMessages;
 use Appto\TelegramBot\Method\UnpinAllForumTopicMessages;
 use Appto\TelegramBot\Method\UnpinAllGeneralForumTopicMessages;
 use Appto\TelegramBot\Method\UnpinChatMessage;
+use Appto\TelegramBot\Method\UpgradeGift;
 use Appto\TelegramBot\Method\UploadStickerFile;
 use Appto\TelegramBot\Method\VerifyChat;
 use Appto\TelegramBot\Method\VerifyUser;
@@ -147,12 +165,15 @@ use Appto\TelegramBot\Type\Gifts;
 use Appto\TelegramBot\Type\MenuButton;
 use Appto\TelegramBot\Type\Message;
 use Appto\TelegramBot\Type\MessageId;
+use Appto\TelegramBot\Type\OwnedGifts;
 use Appto\TelegramBot\Type\Poll;
 use Appto\TelegramBot\Type\PreparedInlineMessage;
 use Appto\TelegramBot\Type\SentWebAppMessage;
+use Appto\TelegramBot\Type\StarAmount;
 use Appto\TelegramBot\Type\StarTransactions;
 use Appto\TelegramBot\Type\Sticker;
 use Appto\TelegramBot\Type\StickerSet;
+use Appto\TelegramBot\Type\Story;
 use Appto\TelegramBot\Type\Update;
 use Appto\TelegramBot\Type\User;
 use Appto\TelegramBot\Type\UserChatBoosts;
@@ -962,6 +983,197 @@ interface TelegramBotInterface
 
 
     /**
+     * Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters. Returns a <a href="#gifts">Gifts</a> object.
+     * @return Gifts
+     */
+    function getAvailableGifts(): Gifts;
+
+
+    /**
+     * Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver. Returns <em>True</em> on success.
+     * @param SendGift|array $method
+     * @return true
+     */
+    function sendGift(SendGift|array $method): true;
+
+
+    /**
+     * Gifts a Telegram Premium subscription to the given user. Returns <em>True</em> on success.
+     * @param GiftPremiumSubscription|array $method
+     * @return true
+     */
+    function giftPremiumSubscription(GiftPremiumSubscription|array $method): true;
+
+
+    /**
+     * Verifies a user <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
+     * @param VerifyUser|array $method
+     * @return true
+     */
+    function verifyUser(VerifyUser|array $method): true;
+
+
+    /**
+     * Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
+     * @param VerifyChat|array $method
+     * @return true
+     */
+    function verifyChat(VerifyChat|array $method): true;
+
+
+    /**
+     * Removes verification from a user who is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
+     * @param RemoveUserVerification|array $method
+     * @return true
+     */
+    function removeUserVerification(RemoveUserVerification|array $method): true;
+
+
+    /**
+     * Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
+     * @param RemoveChatVerification|array $method
+     * @return true
+     */
+    function removeChatVerification(RemoveChatVerification|array $method): true;
+
+
+    /**
+     * Marks incoming message as read on behalf of a business account. Requires the <em>can_read_messages</em> business bot right. Returns <em>True</em> on success.
+     * @param ReadBusinessMessage|array $method
+     * @return true
+     */
+    function readBusinessMessage(ReadBusinessMessage|array $method): true;
+
+
+    /**
+     * Delete messages on behalf of a business account. Requires the <em>can_delete_outgoing_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
+     * @param DeleteBusinessMessages|array $method
+     * @return true
+     */
+    function deleteBusinessMessages(DeleteBusinessMessages|array $method): true;
+
+
+    /**
+     * Changes the first and last name of a managed business account. Requires the <em>can_change_name</em> business bot right. Returns <em>True</em> on success.
+     * @param SetBusinessAccountName|array $method
+     * @return true
+     */
+    function setBusinessAccountName(SetBusinessAccountName|array $method): true;
+
+
+    /**
+     * Changes the username of a managed business account. Requires the <em>can_change_username</em> business bot right. Returns <em>True</em> on success.
+     * @param SetBusinessAccountUsername|array $method
+     * @return true
+     */
+    function setBusinessAccountUsername(SetBusinessAccountUsername|array $method): true;
+
+
+    /**
+     * Changes the bio of a managed business account. Requires the <em>can_change_bio</em> business bot right. Returns <em>True</em> on success.
+     * @param SetBusinessAccountBio|array $method
+     * @return true
+     */
+    function setBusinessAccountBio(SetBusinessAccountBio|array $method): true;
+
+
+    /**
+     * Changes the profile photo of a managed business account. Requires the <em>can_edit_profile_photo</em> business bot right. Returns <em>True</em> on success.
+     * @param SetBusinessAccountProfilePhoto|array $method
+     * @return true
+     */
+    function setBusinessAccountProfilePhoto(SetBusinessAccountProfilePhoto|array $method): true;
+
+
+    /**
+     * Removes the current profile photo of a managed business account. Requires the <em>can_edit_profile_photo</em> business bot right. Returns <em>True</em> on success.
+     * @param RemoveBusinessAccountProfilePhoto|array $method
+     * @return true
+     */
+    function removeBusinessAccountProfilePhoto(RemoveBusinessAccountProfilePhoto|array $method): true;
+
+
+    /**
+     * Changes the privacy settings pertaining to incoming gifts in a managed business account. Requires the <em>can_change_gift_settings</em> business bot right. Returns <em>True</em> on success.
+     * @param SetBusinessAccountGiftSettings|array $method
+     * @return true
+     */
+    function setBusinessAccountGiftSettings(SetBusinessAccountGiftSettings|array $method): true;
+
+
+    /**
+     * Returns the amount of Telegram Stars owned by a managed business account. Requires the <em>can_view_gifts_and_stars</em> business bot right. Returns <a href="#staramount">StarAmount</a> on success.
+     * @param GetBusinessAccountStarBalance|array $method
+     * @return StarAmount
+     */
+    function getBusinessAccountStarBalance(GetBusinessAccountStarBalance|array $method): StarAmount;
+
+
+    /**
+     * Transfers Telegram Stars from the business account balance to the bot's balance. Requires the <em>can_transfer_stars</em> business bot right. Returns <em>True</em> on success.
+     * @param TransferBusinessAccountStars|array $method
+     * @return true
+     */
+    function transferBusinessAccountStars(TransferBusinessAccountStars|array $method): true;
+
+
+    /**
+     * Returns the gifts received and owned by a managed business account. Requires the <em>can_view_gifts_and_stars</em> business bot right. Returns <a href="#ownedgifts">OwnedGifts</a> on success.
+     * @param GetBusinessAccountGifts|array $method
+     * @return OwnedGifts
+     */
+    function getBusinessAccountGifts(GetBusinessAccountGifts|array $method): OwnedGifts;
+
+
+    /**
+     * Converts a given regular gift to Telegram Stars. Requires the <em>can_convert_gifts_to_stars</em> business bot right. Returns <em>True</em> on success.
+     * @param ConvertGiftToStars|array $method
+     * @return true
+     */
+    function convertGiftToStars(ConvertGiftToStars|array $method): true;
+
+
+    /**
+     * Upgrades a given regular gift to a unique gift. Requires the <em>can_transfer_and_upgrade_gifts</em> business bot right. Additionally requires the <em>can_transfer_stars</em> business bot right if the upgrade is paid. Returns <em>True</em> on success.
+     * @param UpgradeGift|array $method
+     * @return true
+     */
+    function upgradeGift(UpgradeGift|array $method): true;
+
+
+    /**
+     * Transfers an owned unique gift to another user. Requires the <em>can_transfer_and_upgrade_gifts</em> business bot right. Requires <em>can_transfer_stars</em> business bot right if the transfer is paid. Returns <em>True</em> on success.
+     * @param TransferGift|array $method
+     * @return true
+     */
+    function transferGift(TransferGift|array $method): true;
+
+
+    /**
+     * Posts a story on behalf of a managed business account. Requires the <em>can_manage_stories</em> business bot right. Returns <a href="#story">Story</a> on success.
+     * @param PostStory|array $method
+     * @return Story
+     */
+    function postStory(PostStory|array $method): Story;
+
+
+    /**
+     * Edits a story previously posted by the bot on behalf of a managed business account. Requires the <em>can_manage_stories</em> business bot right. Returns <a href="#story">Story</a> on success.
+     * @param EditStory|array $method
+     * @return Story
+     */
+    function editStory(EditStory|array $method): Story;
+
+
+    /**
+     * Deletes a story previously posted by the bot on behalf of a managed business account. Requires the <em>can_manage_stories</em> business bot right. Returns <em>True</em> on success.
+     * @param DeleteStory|array $method
+     * @return true
+     */
+    function deleteStory(DeleteStory|array $method): true;
+
+
+    /**
      * Use this method to send static .WEBP, <a href="https://telegram.org/blog/animated-stickers">animated</a> .TGS, or <a href="https://telegram.org/blog/video-stickers-better-reactions">video</a> .WEBM stickers. On success, the sent <a href="#message">Message</a> is returned.
      * @param SendSticker|array $method
      * @return Message
@@ -1087,53 +1299,6 @@ interface TelegramBotInterface
      * @return true
      */
     function deleteStickerSet(DeleteStickerSet|array $method): true;
-
-
-    /**
-     * Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters. Returns a <a href="#gifts">Gifts</a> object.
-     * @return Gifts
-     */
-    function getAvailableGifts(): Gifts;
-
-
-    /**
-     * Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver. Returns <em>True</em> on success.
-     * @param SendGift|array $method
-     * @return true
-     */
-    function sendGift(SendGift|array $method): true;
-
-
-    /**
-     * Verifies a user <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
-     * @param VerifyUser|array $method
-     * @return true
-     */
-    function verifyUser(VerifyUser|array $method): true;
-
-
-    /**
-     * Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
-     * @param VerifyChat|array $method
-     * @return true
-     */
-    function verifyChat(VerifyChat|array $method): true;
-
-
-    /**
-     * Removes verification from a user who is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
-     * @param RemoveUserVerification|array $method
-     * @return true
-     */
-    function removeUserVerification(RemoveUserVerification|array $method): true;
-
-
-    /**
-     * Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
-     * @param RemoveChatVerification|array $method
-     * @return true
-     */
-    function removeChatVerification(RemoveChatVerification|array $method): true;
 
 
     /**

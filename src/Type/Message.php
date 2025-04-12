@@ -146,6 +146,12 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?string $author_signature,
         /**
+         * The number of Telegram Stars that were paid by the sender of the message to send
+         * it
+         * @var int
+         */
+        public ?int $paid_star_count,
+        /**
          * For text messages, the actual UTF-8 text of the message
          * @var string
          */
@@ -376,6 +382,16 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?ChatShared $chat_shared,
         /**
+         * Service message: a regular gift was sent or received
+         * @var GiftInfo
+         */
+        public ?GiftInfo $gift,
+        /**
+         * Service message: a unique gift was sent or received
+         * @var UniqueGiftInfo
+         */
+        public ?UniqueGiftInfo $unique_gift,
+        /**
          * The domain name of the website on which the user has logged in. More about
          * Telegram Login
          * @var string
@@ -459,6 +475,11 @@ final class Message extends Data implements TelegramTypeInterface
          * @var GiveawayCompleted
          */
         public ?GiveawayCompleted $giveaway_completed,
+        /**
+         * Service message: the price for paid messages has changed in the chat
+         * @var PaidMessagePriceChanged
+         */
+        public ?PaidMessagePriceChanged $paid_message_price_changed,
         /**
          * Service message: video chat scheduled
          * @var VideoChatScheduled
