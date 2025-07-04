@@ -18,9 +18,9 @@ final class RemoveBusinessAccountProfilePhoto extends Data implements TelegramMe
          */
         public string $business_connection_id,
         /**
-         * Pass True to remove the public photo, which is visible even if the main photo is
-         * hidden by the business account's privacy settings. After the main photo is
-         * removed, the previous profile photo (if present) becomes the main photo.
+         * Pass <em>True</em> to remove the public photo, which is visible even if the main
+         * photo is hidden by the business account's privacy settings. After the main photo
+         * is removed, the previous profile photo (if present) becomes the main photo.
          * @var bool
          */
         public ?bool $is_public,

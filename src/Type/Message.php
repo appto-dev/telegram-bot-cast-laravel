@@ -246,6 +246,11 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?true $has_media_spoiler,
         /**
+         * Message is a checklist
+         * @var Checklist
+         */
+        public ?Checklist $checklist,
+        /**
          * Message is a shared contact, information about the contact
          * @var Contact
          */
@@ -425,6 +430,22 @@ final class Message extends Data implements TelegramTypeInterface
          * @var ChatBackground
          */
         public ?ChatBackground $chat_background_set,
+        /**
+         * Service message: some tasks in a checklist were marked as done or not done
+         * @var ChecklistTasksDone
+         */
+        public ?ChecklistTasksDone $checklist_tasks_done,
+        /**
+         * Service message: tasks were added to a checklist
+         * @var ChecklistTasksAdded
+         */
+        public ?ChecklistTasksAdded $checklist_tasks_added,
+        /**
+         * Service message: the price for paid messages in the corresponding direct
+         * messages chat of a channel has changed
+         * @var DirectMessagePriceChanged
+         */
+        public ?DirectMessagePriceChanged $direct_message_price_changed,
         /**
          * Service message: forum topic created
          * @var ForumTopicCreated

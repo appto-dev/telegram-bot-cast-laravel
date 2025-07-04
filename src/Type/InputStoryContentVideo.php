@@ -11,11 +11,6 @@ final class InputStoryContentVideo extends Data implements TelegramTypeInterface
 {
     public function __construct(
         /**
-         * Type of the content, must be "video"
-         * @var string
-         */
-        public string $type,
-        /**
          * The video to post as a story. The video must be of the size 720x1280,
          * streamable, encoded with H.265 codec, with key frames added each second in the
          * MPEG4 format, and must not exceed 30 MB. The video can't be reused and can only
@@ -41,6 +36,11 @@ final class InputStoryContentVideo extends Data implements TelegramTypeInterface
          * @var bool
          */
         public ?bool $is_animation,
+        /**
+         * Type of the content, must be video
+         * @var string
+         */
+        public string $type = 'video',
     ) {
     }
 }

@@ -25,7 +25,7 @@ final class BusinessBotRights extends Data implements TelegramTypeInterface
          * True, if the bot can delete messages sent by the bot
          * @var true
          */
-        public ?true $can_delete_outgoing_messages,
+        public ?true $can_delete_sent_messages,
         /**
          * True, if the bot can delete all private messages in managed chats
          * @var true

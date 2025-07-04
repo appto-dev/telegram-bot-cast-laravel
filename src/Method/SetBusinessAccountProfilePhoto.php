@@ -24,9 +24,9 @@ final class SetBusinessAccountProfilePhoto extends Data implements TelegramMetho
          */
         public InputProfilePhoto $photo,
         /**
-         * Pass True to set the public photo, which will be visible even if the main photo
-         * is hidden by the business account's privacy settings. An account can have only
-         * one public photo.
+         * Pass <em>True</em> to set the public photo, which will be visible even if the
+         * main photo is hidden by the business account's privacy settings. An account can
+         * have only one public photo.
          * @var bool
          */
         public ?bool $is_public,

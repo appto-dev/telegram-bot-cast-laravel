@@ -19,8 +19,8 @@ final class SetBusinessAccountGiftSettings extends Data implements TelegramMetho
          */
         public string $business_connection_id,
         /**
-         * Pass True, if a button for sending a gift to the user or by the business account
-         * must always be shown in the input field
+         * Pass <em>True</em>, if a button for sending a gift to the user or by the
+         * business account must always be shown in the input field
          * @var bool
          */
         public bool $show_gift_button,

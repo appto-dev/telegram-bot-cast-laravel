@@ -55,7 +55,7 @@ final class SendPoll extends Data implements TelegramMethodInterface
          */
         public ?array $question_entities,
         /**
-         * A JSON-serialized list of 2-10 answer options
+         * A JSON-serialized list of 2-12 answer options
          * @var InputPollOption[]
          */
         public array $options,

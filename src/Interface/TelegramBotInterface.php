@@ -38,6 +38,7 @@ use Appto\TelegramBot\Method\EditChatSubscriptionInviteLink;
 use Appto\TelegramBot\Method\EditForumTopic;
 use Appto\TelegramBot\Method\EditGeneralForumTopic;
 use Appto\TelegramBot\Method\EditMessageCaption;
+use Appto\TelegramBot\Method\EditMessageChecklist;
 use Appto\TelegramBot\Method\EditMessageLiveLocation;
 use Appto\TelegramBot\Method\EditMessageMedia;
 use Appto\TelegramBot\Method\EditMessageReplyMarkup;
@@ -88,6 +89,7 @@ use Appto\TelegramBot\Method\SavePreparedInlineMessage;
 use Appto\TelegramBot\Method\SendAnimation;
 use Appto\TelegramBot\Method\SendAudio;
 use Appto\TelegramBot\Method\SendChatAction;
+use Appto\TelegramBot\Method\SendChecklist;
 use Appto\TelegramBot\Method\SendContact;
 use Appto\TelegramBot\Method\SendDice;
 use Appto\TelegramBot\Method\SendDocument;
@@ -386,6 +388,14 @@ interface TelegramBotInterface
      * @return Message
      */
     function sendPoll(SendPoll|array $method): Message;
+
+
+    /**
+     * Use this method to send a checklist on behalf of a connected business account. On success, the sent <a href="#message">Message</a> is returned.
+     * @param SendChecklist|array $method
+     * @return Message
+     */
+    function sendChecklist(SendChecklist|array $method): Message;
 
 
     /**
@@ -951,6 +961,14 @@ interface TelegramBotInterface
 
 
     /**
+     * Use this method to edit a checklist on behalf of a connected business account. On success, the edited <a href="#message">Message</a> is returned.
+     * @param EditMessageChecklist|array $method
+     * @return Message
+     */
+    function editMessageChecklist(EditMessageChecklist|array $method): Message;
+
+
+    /**
      * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <a href="#message">Message</a> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      * @param EditMessageReplyMarkup|array $method
      * @return true|Message
@@ -1046,7 +1064,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Delete messages on behalf of a business account. Requires the <em>can_delete_outgoing_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
+     * Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
      * @param DeleteBusinessMessages|array $method
      * @return true
      */
@@ -1355,6 +1373,13 @@ interface TelegramBotInterface
      * @return true
      */
     function answerPreCheckoutQuery(AnswerPreCheckoutQuery|array $method): true;
+
+
+    /**
+     * A method to get the current Telegram Stars balance of the bot. Requires no parameters. On success, returns a <a href="#staramount">StarAmount</a> object.
+     * @return StarAmount
+     */
+    function getMyStarBalance(): StarAmount;
 
 
     /**

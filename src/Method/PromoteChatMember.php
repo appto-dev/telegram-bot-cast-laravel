@@ -31,8 +31,9 @@ final class PromoteChatMember extends Data implements TelegramMethodInterface
         public ?bool $is_anonymous,
         /**
          * Pass <em>True</em> if the administrator can access the chat event log, get boost
-         * list, see hidden supergroup and channel members, report spam messages and ignore
-         * slow mode. Implied by any other administrator privilege.
+         * list, see hidden supergroup and channel members, report spam messages, ignore
+         * slow mode, and send messages to the chat without paying Telegram Stars. Implied
+         * by any other administrator privilege.
          * @var bool
          */
         public ?bool $can_manage_chat,
@@ -88,8 +89,8 @@ final class PromoteChatMember extends Data implements TelegramMethodInterface
          */
         public ?bool $can_delete_stories,
         /**
-         * Pass <em>True</em> if the administrator can post messages in the channel, or
-         * access channel statistics; for channels only
+         * Pass <em>True</em> if the administrator can post messages in the channel,
+         * approve suggested posts, or access channel statistics; for channels only
          * @var bool
          */
         public ?bool $can_post_messages,

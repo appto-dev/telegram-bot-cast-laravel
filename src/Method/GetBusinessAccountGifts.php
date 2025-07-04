@@ -18,33 +18,36 @@ final class GetBusinessAccountGifts extends Data implements TelegramMethodInterf
          */
         public string $business_connection_id,
         /**
-         * Pass True to exclude gifts that aren't saved to the account's profile page
+         * Pass <em>True</em> to exclude gifts that aren't saved to the account's profile
+         * page
          * @var bool
          */
         public ?bool $exclude_unsaved,
         /**
-         * Pass True to exclude gifts that are saved to the account's profile page
+         * Pass <em>True</em> to exclude gifts that are saved to the account's profile page
          * @var bool
          */
         public ?bool $exclude_saved,
         /**
-         * Pass True to exclude gifts that can be purchased an unlimited number of times
+         * Pass <em>True</em> to exclude gifts that can be purchased an unlimited number of
+         * times
          * @var bool
          */
         public ?bool $exclude_unlimited,
         /**
-         * Pass True to exclude gifts that can be purchased a limited number of times
+         * Pass <em>True</em> to exclude gifts that can be purchased a limited number of
+         * times
          * @var bool
          */
         public ?bool $exclude_limited,
         /**
-         * Pass True to exclude unique gifts
+         * Pass <em>True</em> to exclude unique gifts
          * @var bool
          */
         public ?bool $exclude_unique,
         /**
-         * Pass True to sort results by gift price instead of send date. Sorting is applied
-         * before pagination.
+         * Pass <em>True</em> to sort results by gift price instead of send date. Sorting
+         * is applied before pagination.
          * @var bool
          */
         public ?bool $sort_by_price,
