@@ -42,6 +42,11 @@ final class UniqueGift extends Data implements TelegramTypeInterface
          * @var UniqueGiftBackdrop
          */
         public UniqueGiftBackdrop $backdrop,
+        /**
+         * Information about the chat that published the gift
+         * @var Chat
+         */
+        public ?Chat $publisher_chat,
     ) {
     }
 }

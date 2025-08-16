@@ -31,6 +31,12 @@ final class CopyMessages extends Data implements TelegramMethodInterface
          */
         public ?int $message_thread_id,
         /**
+         * Identifier of the direct messages topic to which the messages will be sent;
+         * required if the messages are sent to a direct messages chat
+         * @var int
+         */
+        public ?int $direct_messages_topic_id,
+        /**
          * Unique identifier for the chat where the original messages were sent (or channel
          * username in the format <code>@channelusername</code>)
          * @var int|string

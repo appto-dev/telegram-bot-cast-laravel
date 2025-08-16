@@ -6,10 +6,10 @@ use Spatie\LaravelData\Data;
 
 /**
  * Use this method to remove a message from the list of pinned messages in a chat.
- * If the chat is not a private chat, the bot must be an administrator in the chat
- * for this to work and must have the 'can_pin_messages' administrator right in a
- * supergroup or 'can_edit_messages' administrator right in a channel. Returns
- * <em>True</em> on success.
+ * In private chats and channel direct messages chats, all messages can be
+ * unpinned. Conversely, the bot must be an administrator with the
+ * 'can_pin_messages' right or the 'can_edit_messages' right to unpin messages in
+ * groups and channels respectively. Returns <em>True</em> on success.
  */
 final class UnpinChatMessage extends Data implements TelegramMethodInterface
 {

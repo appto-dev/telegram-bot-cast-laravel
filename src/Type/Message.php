@@ -26,6 +26,11 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?int $message_thread_id,
         /**
+         * Information about the direct messages chat topic that contains the message
+         * @var DirectMessagesTopic
+         */
+        public ?DirectMessagesTopic $direct_messages_topic,
+        /**
          * Sender of the message; may be empty for messages sent to channels. For backward
          * compatibility, if the message was sent on behalf of a chat, the field contains a
          * fake sender user in non-channel chats
@@ -114,6 +119,11 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?Story $reply_to_story,
         /**
+         * Identifier of the specific checklist task that is being replied to
+         * @var int
+         */
+        public ?int $reply_to_checklist_task_id,
+        /**
          * Bot through which the message was sent
          * @var User
          */
@@ -134,6 +144,12 @@ final class Message extends Data implements TelegramTypeInterface
          * @var true
          */
         public ?true $is_from_offline,
+        /**
+         * True, if the message is a paid post. Note that such posts must not be deleted
+         * for 24 hours to receive the payment and can't be edited.
+         * @var true
+         */
+        public ?true $is_paid_post,
         /**
          * The unique identifier of a media message group this message belongs to
          * @var string
@@ -168,6 +184,13 @@ final class Message extends Data implements TelegramTypeInterface
          * @var LinkPreviewOptions
          */
         public ?LinkPreviewOptions $link_preview_options,
+        /**
+         * Information about suggested post parameters if the message is a suggested post
+         * in a channel direct messages chat. If the message is an approved or declined
+         * suggested post, then it can't be edited.
+         * @var SuggestedPostInfo
+         */
+        public ?SuggestedPostInfo $suggested_post_info,
         /**
          * Unique identifier of the message effect added to the message
          * @var string
@@ -501,6 +524,31 @@ final class Message extends Data implements TelegramTypeInterface
          * @var PaidMessagePriceChanged
          */
         public ?PaidMessagePriceChanged $paid_message_price_changed,
+        /**
+         * Service message: a suggested post was approved
+         * @var SuggestedPostApproved
+         */
+        public ?SuggestedPostApproved $suggested_post_approved,
+        /**
+         * Service message: approval of a suggested post has failed
+         * @var SuggestedPostApprovalFailed
+         */
+        public ?SuggestedPostApprovalFailed $suggested_post_approval_failed,
+        /**
+         * Service message: a suggested post was declined
+         * @var SuggestedPostDeclined
+         */
+        public ?SuggestedPostDeclined $suggested_post_declined,
+        /**
+         * Service message: payment for a suggested post was received
+         * @var SuggestedPostPaid
+         */
+        public ?SuggestedPostPaid $suggested_post_paid,
+        /**
+         * Service message: payment for a suggested post was refunded
+         * @var SuggestedPostRefunded
+         */
+        public ?SuggestedPostRefunded $suggested_post_refunded,
         /**
          * Service message: video chat scheduled
          * @var VideoChatScheduled

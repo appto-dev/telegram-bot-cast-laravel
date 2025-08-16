@@ -12,8 +12,8 @@ use Spatie\LaravelData\Data;
 /**
  * Use this method to send a group of photos, videos, documents or audios as an
  * album. Documents and audio files can be only grouped in an album with messages
- * of the same type. On success, an array of <a href="#message">Messages</a> that
- * were sent is returned.
+ * of the same type. On success, an array of <a href="#message">Message</a> objects
+ * that were sent is returned.
  */
 final class SendMediaGroup extends Data implements TelegramMethodInterface
 {
@@ -36,6 +36,12 @@ final class SendMediaGroup extends Data implements TelegramMethodInterface
          * @var int
          */
         public ?int $message_thread_id,
+        /**
+         * Identifier of the direct messages topic to which the messages will be sent;
+         * required if the messages are sent to a direct messages chat
+         * @var int
+         */
+        public ?int $direct_messages_topic_id,
         /**
          * A JSON-serialized array describing messages to be sent, must include 2-10 items
          * @var <InputMediaAudio|InputMediaDocument|InputMediaPhoto|InputMediaVideo>[]

@@ -111,6 +111,12 @@ final class PromoteChatMember extends Data implements TelegramMethodInterface
          * @var bool
          */
         public ?bool $can_manage_topics,
+        /**
+         * Pass <em>True</em> if the administrator can manage direct messages within the
+         * channel and decline suggested posts; for channels only
+         * @var bool
+         */
+        public ?bool $can_manage_direct_messages,
     ) {
     }
 }

@@ -39,9 +39,9 @@ final class InputChecklist extends Data implements TelegramTypeInterface
         public ?bool $others_can_add_tasks,
         /**
          * Pass True if other users can mark tasks as done or not done in the checklist
-         * @var true
+         * @var bool
          */
-        public ?true $others_can_mark_tasks_as_done,
+        public ?bool $others_can_mark_tasks_as_done,
     ) {
     }
 }

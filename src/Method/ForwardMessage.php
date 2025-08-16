@@ -2,6 +2,7 @@
 namespace Appto\TelegramBot\Method;
 
 use Appto\TelegramBot\Interface\TelegramMethodInterface;
+use Appto\TelegramBot\Type\SuggestedPostParameters;
 use Spatie\LaravelData\Data;
 
 /**
@@ -25,6 +26,12 @@ final class ForwardMessage extends Data implements TelegramMethodInterface
          */
         public ?int $message_thread_id,
         /**
+         * Identifier of the direct messages topic to which the message will be forwarded;
+         * required if the message is forwarded to a direct messages chat
+         * @var int
+         */
+        public ?int $direct_messages_topic_id,
+        /**
          * Unique identifier for the chat where the original message was sent (or channel
          * username in the format <code>@channelusername</code>)
          * @var int|string
@@ -47,6 +54,12 @@ final class ForwardMessage extends Data implements TelegramMethodInterface
          * @var bool
          */
         public ?bool $protect_content,
+        /**
+         * A JSON-serialized object containing the parameters of the suggested post to
+         * send; for direct messages chats only
+         * @var SuggestedPostParameters
+         */
+        public ?SuggestedPostParameters $suggested_post_parameters,
         /**
          * Message identifier in the chat specified in <em>from_chat_id</em>
          * @var int

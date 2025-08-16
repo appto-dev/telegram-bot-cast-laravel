@@ -9,6 +9,7 @@ use Appto\TelegramBot\Type\MessageEntity;
 use Appto\TelegramBot\Type\ReplyKeyboardMarkup;
 use Appto\TelegramBot\Type\ReplyKeyboardRemove;
 use Appto\TelegramBot\Type\ReplyParameters;
+use Appto\TelegramBot\Type\SuggestedPostParameters;
 use Spatie\LaravelData\Data;
 
 /**
@@ -38,6 +39,12 @@ final class SendAnimation extends Data implements TelegramMethodInterface
          * @var int
          */
         public ?int $message_thread_id,
+        /**
+         * Identifier of the direct messages topic to which the message will be sent;
+         * required if the message is sent to a direct messages chat
+         * @var int
+         */
+        public ?int $direct_messages_topic_id,
         /**
          * Animation to send. Pass a file_id as String to send an animation that exists on
          * the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to
@@ -128,6 +135,13 @@ final class SendAnimation extends Data implements TelegramMethodInterface
          * @var string
          */
         public ?string $message_effect_id,
+        /**
+         * A JSON-serialized object containing the parameters of the suggested post to
+         * send; for direct messages chats only. If the message is sent as a reply to
+         * another suggested post, then that suggested post is automatically declined.
+         * @var SuggestedPostParameters
+         */
+        public ?SuggestedPostParameters $suggested_post_parameters,
         /**
          * Description of the message to reply to
          * @var ReplyParameters

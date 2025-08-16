@@ -27,8 +27,9 @@ final class SendChatAction extends Data implements TelegramMethodInterface
          */
         public ?string $business_connection_id,
         /**
-         * Unique identifier for the target chat or username of the target channel (in the
-         * format <code>@channelusername</code>)
+         * Unique identifier for the target chat or username of the target supergroup (in
+         * the format <code>@supergroupusername</code>). Channel chats and channel direct
+         * messages chats aren't supported.
          * @var int|string
          */
         public int|string $chat_id,
