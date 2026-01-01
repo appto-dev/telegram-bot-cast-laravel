@@ -71,16 +71,28 @@ final class OwnedGiftRegular extends Data implements TelegramTypeInterface
         public ?true $was_refunded,
         /**
          * Number of Telegram Stars that can be claimed by the receiver instead of the
-         * gift; omitted if the gift cannot be converted to Telegram Stars
+         * gift; omitted if the gift cannot be converted to Telegram Stars; for gifts
+         * received on behalf of business accounts only
          * @var int
          */
         public ?int $convert_star_count,
         /**
-         * Number of Telegram Stars that were paid by the sender for the ability to upgrade
-         * the gift
+         * Number of Telegram Stars that were paid for the ability to upgrade the gift
          * @var int
          */
         public ?int $prepaid_upgrade_star_count,
+        /**
+         * True, if the gift's upgrade was purchased after the gift was sent; for gifts
+         * received on behalf of business accounts only
+         * @var true
+         */
+        public ?true $is_upgrade_separate,
+        /**
+         * Unique number reserved for this gift when upgraded. See the number field in
+         * UniqueGift
+         * @var int
+         */
+        public ?int $unique_gift_number,
     ) {
     }
 }

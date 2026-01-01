@@ -28,11 +28,15 @@ final class GiftInfo extends Data implements TelegramTypeInterface
          */
         public ?int $convert_star_count,
         /**
-         * Number of Telegram Stars that were prepaid by the sender for the ability to
-         * upgrade the gift
+         * Number of Telegram Stars that were prepaid for the ability to upgrade the gift
          * @var int
          */
         public ?int $prepaid_upgrade_star_count,
+        /**
+         * True, if the gift's upgrade was purchased after the gift was sent
+         * @var true
+         */
+        public ?true $is_upgrade_separate,
         /**
          * True, if the gift can be upgraded to a unique gift
          * @var true
@@ -54,6 +58,12 @@ final class GiftInfo extends Data implements TelegramTypeInterface
          * @var true
          */
         public ?true $is_private,
+        /**
+         * Unique number reserved for this gift when upgraded. See the number field in
+         * UniqueGift
+         * @var int
+         */
+        public ?int $unique_gift_number,
     ) {
     }
 }

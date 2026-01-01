@@ -5,26 +5,29 @@ use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * Returns the gifts received and owned by a managed business account. Requires the
- * <em>can_view_gifts_and_stars</em> business bot right. Returns <a
- * href="#ownedgifts">OwnedGifts</a> on success.
+ * Returns the gifts owned by a chat. Returns <a href="#ownedgifts">OwnedGifts</a>
+ * on success.
  */
-final class GetBusinessAccountGifts extends Data implements TelegramMethodInterface
+final class GetChatGifts extends Data implements TelegramMethodInterface
 {
     public function __construct(
         /**
-         * Unique identifier of the business connection
-         * @var string
+         * Unique identifier for the target chat or username of the target channel (in the
+         * format <code>@channelusername</code>)
+         * @var int|string
          */
-        public string $business_connection_id,
+        public int|string $chat_id,
         /**
-         * Pass <em>True</em> to exclude gifts that aren't saved to the account's profile
-         * page
+         * Pass <em>True</em> to exclude gifts that aren't saved to the chat's profile
+         * page. Always <em>True</em>, unless the bot has the <em>can_post_messages</em>
+         * administrator right in the channel.
          * @var bool
          */
         public ?bool $exclude_unsaved,
         /**
-         * Pass <em>True</em> to exclude gifts that are saved to the account's profile page
+         * Pass <em>True</em> to exclude gifts that are saved to the chat's profile page.
+         * Always <em>False</em>, unless the bot has the <em>can_post_messages</em>
+         * administrator right in the channel.
          * @var bool
          */
         public ?bool $exclude_saved,
@@ -47,16 +50,16 @@ final class GetBusinessAccountGifts extends Data implements TelegramMethodInterf
          */
         public ?bool $exclude_limited_non_upgradable,
         /**
-         * Pass <em>True</em> to exclude unique gifts
-         * @var bool
-         */
-        public ?bool $exclude_unique,
-        /**
          * Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain
          * and can't be resold or transferred in Telegram
          * @var bool
          */
         public ?bool $exclude_from_blockchain,
+        /**
+         * Pass <em>True</em> to exclude unique gifts
+         * @var bool
+         */
+        public ?bool $exclude_unique,
         /**
          * Pass <em>True</em> to sort results by gift price instead of send date. Sorting
          * is applied before pagination.
@@ -65,7 +68,7 @@ final class GetBusinessAccountGifts extends Data implements TelegramMethodInterf
         public ?bool $sort_by_price,
         /**
          * Offset of the first entry to return as received from the previous request; use
-         * empty string to get the first chunk of results
+         * an empty string to get the first chunk of results
          * @var string
          */
         public ?string $offset,

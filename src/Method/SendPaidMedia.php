@@ -34,8 +34,8 @@ final class SendPaidMedia extends Data implements TelegramMethodInterface
          */
         public int|string $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of the forum; for forum
-         * supergroups only
+         * Unique identifier for the target message thread (topic) of a forum; for forum
+         * supergroups and private chats of bots with forum topic mode enabled only
          * @var int
          */
         public ?int $message_thread_id,
@@ -47,7 +47,7 @@ final class SendPaidMedia extends Data implements TelegramMethodInterface
         public ?int $direct_messages_topic_id,
         /**
          * The number of Telegram Stars that must be paid to buy access to the media;
-         * 1-10000
+         * 1-25000
          * @var int
          */
         public int $star_count,

@@ -79,6 +79,12 @@ final class User extends Data implements TelegramTypeInterface
          * @var bool
          */
         public ?bool $has_main_web_app,
+        /**
+         * True, if the bot has forum topic mode enabled in private chats. Returned only in
+         * getMe.
+         * @var bool
+         */
+        public ?bool $has_topics_enabled,
     ) {
     }
 }

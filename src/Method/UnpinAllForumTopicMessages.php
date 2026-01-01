@@ -5,8 +5,9 @@ use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * Use this method to clear the list of pinned messages in a forum topic. The bot
- * must be an administrator in the chat for this to work and must have the
+ * Use this method to clear the list of pinned messages in a forum topic in a forum
+ * supergroup chat or a private chat with a user. In the case of a supergroup chat
+ * the bot must be an administrator in the chat for this to work and must have the
  * <em>can_pin_messages</em> administrator right in the supergroup. Returns
  * <em>True</em> on success.
  */

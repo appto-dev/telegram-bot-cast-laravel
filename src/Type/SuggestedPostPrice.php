@@ -5,7 +5,7 @@ use Appto\TelegramBot\Interface\TelegramTypeInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * Desribes price of a suggested post.
+ * Describes the price of a suggested post.
  */
 final class SuggestedPostPrice extends Data implements TelegramTypeInterface
 {

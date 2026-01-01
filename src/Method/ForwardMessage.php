@@ -20,8 +20,8 @@ final class ForwardMessage extends Data implements TelegramMethodInterface
          */
         public int|string $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of the forum; for forum
-         * supergroups only
+         * Unique identifier for the target message thread (topic) of a forum; for forum
+         * supergroups and private chats of bots with forum topic mode enabled only
          * @var int
          */
         public ?int $message_thread_id,
@@ -54,6 +54,12 @@ final class ForwardMessage extends Data implements TelegramMethodInterface
          * @var bool
          */
         public ?bool $protect_content,
+        /**
+         * Unique identifier of the message effect to be added to the message; only
+         * available when forwarding to private chats
+         * @var string
+         */
+        public ?string $message_effect_id,
         /**
          * A JSON-serialized object containing the parameters of the suggested post to
          * send; for direct messages chats only

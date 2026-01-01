@@ -20,8 +20,8 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public int $message_id,
         /**
-         * Unique identifier of a message thread to which the message belongs; for
-         * supergroups only
+         * Unique identifier of a message thread or forum topic to which the message
+         * belongs; for supergroups and private chats only
          * @var int
          */
         public ?int $message_thread_id,
@@ -84,7 +84,8 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?MessageOrigin $forward_origin,
         /**
-         * True, if the message is sent to a forum topic
+         * True, if the message is sent to a topic in a forum supergroup or a private chat
+         * with the bot
          * @var true
          */
         public ?true $is_topic_message,
@@ -419,6 +420,11 @@ final class Message extends Data implements TelegramTypeInterface
          * @var UniqueGiftInfo
          */
         public ?UniqueGiftInfo $unique_gift,
+        /**
+         * Service message: upgrade of a gift was purchased after the gift was sent
+         * @var GiftInfo
+         */
+        public ?GiftInfo $gift_upgrade_sent,
         /**
          * The domain name of the website on which the user has logged in. More about
          * Telegram Login

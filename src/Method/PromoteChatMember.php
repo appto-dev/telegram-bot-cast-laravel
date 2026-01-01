@@ -49,7 +49,8 @@ final class PromoteChatMember extends Data implements TelegramMethodInterface
         public ?bool $can_manage_video_chats,
         /**
          * Pass <em>True</em> if the administrator can restrict, ban or unban chat members,
-         * or access supergroup statistics
+         * or access supergroup statistics. For backward compatibility, defaults to
+         * <em>True</em> for promotions of channel administrators
          * @var bool
          */
         public ?bool $can_restrict_members,

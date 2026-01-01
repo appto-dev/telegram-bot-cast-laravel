@@ -30,6 +30,12 @@ final class ForumTopic extends Data implements TelegramTypeInterface
          * @var string
          */
         public ?string $icon_custom_emoji_id,
+        /**
+         * True, if the name of the topic wasn't specified explicitly by its creator and
+         * likely needs to be changed by the bot
+         * @var true
+         */
+        public ?true $is_name_implicit,
     ) {
     }
 }

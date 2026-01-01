@@ -55,6 +55,7 @@ use Appto\TelegramBot\Method\GetBusinessAccountStarBalance;
 use Appto\TelegramBot\Method\GetBusinessConnection;
 use Appto\TelegramBot\Method\GetChat;
 use Appto\TelegramBot\Method\GetChatAdministrators;
+use Appto\TelegramBot\Method\GetChatGifts;
 use Appto\TelegramBot\Method\GetChatMember;
 use Appto\TelegramBot\Method\GetChatMemberCount;
 use Appto\TelegramBot\Method\GetChatMenuButton;
@@ -70,6 +71,7 @@ use Appto\TelegramBot\Method\GetStarTransactions;
 use Appto\TelegramBot\Method\GetStickerSet;
 use Appto\TelegramBot\Method\GetUpdates;
 use Appto\TelegramBot\Method\GetUserChatBoosts;
+use Appto\TelegramBot\Method\GetUserGifts;
 use Appto\TelegramBot\Method\GetUserProfilePhotos;
 use Appto\TelegramBot\Method\GiftPremiumSubscription;
 use Appto\TelegramBot\Method\HideGeneralForumTopic;
@@ -85,6 +87,7 @@ use Appto\TelegramBot\Method\RemoveUserVerification;
 use Appto\TelegramBot\Method\ReopenForumTopic;
 use Appto\TelegramBot\Method\ReopenGeneralForumTopic;
 use Appto\TelegramBot\Method\ReplaceStickerInSet;
+use Appto\TelegramBot\Method\RepostStory;
 use Appto\TelegramBot\Method\RestrictChatMember;
 use Appto\TelegramBot\Method\RevokeChatInviteLink;
 use Appto\TelegramBot\Method\SavePreparedInlineMessage;
@@ -101,6 +104,7 @@ use Appto\TelegramBot\Method\SendInvoice;
 use Appto\TelegramBot\Method\SendLocation;
 use Appto\TelegramBot\Method\SendMediaGroup;
 use Appto\TelegramBot\Method\SendMessage;
+use Appto\TelegramBot\Method\SendMessageDraft;
 use Appto\TelegramBot\Method\SendPaidMedia;
 use Appto\TelegramBot\Method\SendPhoto;
 use Appto\TelegramBot\Method\SendPoll;
@@ -409,6 +413,14 @@ interface TelegramBotInterface
 
 
     /**
+     * Use this method to stream a partial message to a user while the message is being generated; supported only for bots with forum topic mode enabled. Returns <em>True</em> on success.
+     * @param SendMessageDraft|array $method
+     * @return true
+     */
+    function sendMessageDraft(SendMessageDraft|array $method): true;
+
+
+    /**
      * Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns <em>True</em> on success.
      * Example: The <a href="https://t.me/imagebot">ImageBot</a> needs some time to process a request and upload the image. Instead of sending a text message along the lines of "Retrieving image, please wait…", the bot may use <a href="#sendchataction">sendChatAction</a> with <em>action</em> = <em>upload_photo</em>. The user will see a "sending photo" status for the bot.
      * We only recommend using this method when a response from the bot will take a noticeable amount of time to arrive.
@@ -706,7 +718,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights, unless it is the creator of the topic. Returns <em>True</em> on success.
+     * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights, unless it is the creator of the topic. Returns <em>True</em> on success.
      * @param EditForumTopic|array $method
      * @return true
      */
@@ -730,7 +742,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Use this method to delete a forum topic along with all its messages in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_delete_messages</em> administrator rights. Returns <em>True</em> on success.
+     * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_delete_messages</em> administrator rights. Returns <em>True</em> on success.
      * @param DeleteForumTopic|array $method
      * @return true
      */
@@ -738,7 +750,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Use this method to clear the list of pinned messages in a forum topic. The bot must be an administrator in the chat for this to work and must have the <em>can_pin_messages</em> administrator right in the supergroup. Returns <em>True</em> on success.
+     * Use this method to clear the list of pinned messages in a forum topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_pin_messages</em> administrator right in the supergroup. Returns <em>True</em> on success.
      * @param UnpinAllForumTopicMessages|array $method
      * @return true
      */
@@ -1066,6 +1078,22 @@ interface TelegramBotInterface
 
 
     /**
+     * Returns the gifts owned and hosted by a user. Returns <a href="#ownedgifts">OwnedGifts</a> on success.
+     * @param GetUserGifts|array $method
+     * @return OwnedGifts
+     */
+    function getUserGifts(GetUserGifts|array $method): OwnedGifts;
+
+
+    /**
+     * Returns the gifts owned by a chat. Returns <a href="#ownedgifts">OwnedGifts</a> on success.
+     * @param GetChatGifts|array $method
+     * @return OwnedGifts
+     */
+    function getChatGifts(GetChatGifts|array $method): OwnedGifts;
+
+
+    /**
      * Converts a given regular gift to Telegram Stars. Requires the <em>can_convert_gifts_to_stars</em> business bot right. Returns <em>True</em> on success.
      * @param ConvertGiftToStars|array $method
      * @return true
@@ -1095,6 +1123,14 @@ interface TelegramBotInterface
      * @return Story
      */
     function postStory(PostStory|array $method): Story;
+
+
+    /**
+     * Reposts a story on behalf of a business account from another business account. Both business accounts must be managed by the same bot, and the story on the source account must have been posted (or reposted) by the bot. Requires the <em>can_manage_stories</em> business bot right for both business accounts. Returns <a href="#story">Story</a> on success.
+     * @param RepostStory|array $method
+     * @return Story
+     */
+    function repostStory(RepostStory|array $method): Story;
 
 
     /**

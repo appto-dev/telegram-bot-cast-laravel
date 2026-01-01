@@ -6,9 +6,10 @@ use Spatie\LaravelData\Data;
 
 /**
  * Use this method to delete a forum topic along with all its messages in a forum
- * supergroup chat. The bot must be an administrator in the chat for this to work
- * and must have the <em>can_delete_messages</em> administrator rights. Returns
- * <em>True</em> on success.
+ * supergroup chat or a private chat with a user. In the case of a supergroup chat
+ * the bot must be an administrator in the chat for this to work and must have the
+ * <em>can_delete_messages</em> administrator rights. Returns <em>True</em> on
+ * success.
  */
 final class DeleteForumTopic extends Data implements TelegramMethodInterface
 {

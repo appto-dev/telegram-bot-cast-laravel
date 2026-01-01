@@ -34,7 +34,8 @@ final class SendChatAction extends Data implements TelegramMethodInterface
          */
         public int|string $chat_id,
         /**
-         * Unique identifier for the target message thread; for supergroups only
+         * Unique identifier for the target message thread or topic of a forum; for
+         * supergroups and private chats of bots with forum topic mode enabled only
          * @var int
          */
         public ?int $message_thread_id,

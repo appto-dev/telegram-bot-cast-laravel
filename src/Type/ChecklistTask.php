@@ -26,10 +26,15 @@ final class ChecklistTask extends Data implements TelegramTypeInterface
          */
         public ?array $text_entities,
         /**
-         * User that completed the task; omitted if the task wasn't completed
+         * User that completed the task; omitted if the task wasn't completed by a user
          * @var User
          */
         public ?User $completed_by_user,
+        /**
+         * Chat that completed the task; omitted if the task wasn't completed by a chat
+         * @var Chat
+         */
+        public ?Chat $completed_by_chat,
         /**
          * Point in time (Unix timestamp) when the task was completed; 0 if the task wasn't
          * completed

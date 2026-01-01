@@ -26,8 +26,8 @@ final class SendGame extends Data implements TelegramMethodInterface
          */
         public int $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of the forum; for forum
-         * supergroups only
+         * Unique identifier for the target message thread (topic) of a forum; for forum
+         * supergroups and private chats of bots with forum topic mode enabled only
          * @var int
          */
         public ?int $message_thread_id,

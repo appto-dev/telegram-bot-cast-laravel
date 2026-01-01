@@ -273,6 +273,23 @@ final class ChatFullInfo extends Data implements TelegramTypeInterface
          * @var ChatLocation
          */
         public ?ChatLocation $location,
+        /**
+         * For private chats, the rating of the user if any
+         * @var UserRating
+         */
+        public ?UserRating $rating,
+        /**
+         * The color scheme based on a unique gift that must be used for the chat's name,
+         * message replies and link previews
+         * @var UniqueGiftColors
+         */
+        public ?UniqueGiftColors $unique_gift_colors,
+        /**
+         * The number of Telegram Stars a general user have to pay to send a message to the
+         * chat
+         * @var int
+         */
+        public ?int $paid_message_star_count,
     ) {
     }
 }
