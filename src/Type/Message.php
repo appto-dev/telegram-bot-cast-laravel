@@ -318,6 +318,16 @@ final class Message extends Data implements TelegramTypeInterface
          */
         public ?User $left_chat_member,
         /**
+         * Service message: chat owner has left
+         * @var ChatOwnerLeft
+         */
+        public ?ChatOwnerLeft $chat_owner_left,
+        /**
+         * Service message: chat owner has changed
+         * @var ChatOwnerChanged
+         */
+        public ?ChatOwnerChanged $chat_owner_changed,
+        /**
          * A chat title was changed to this value
          * @var string
          */

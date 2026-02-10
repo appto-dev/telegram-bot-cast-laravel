@@ -5,10 +5,11 @@ use Appto\TelegramBot\Interface\TelegramMethodInterface;
 use Spatie\LaravelData\Data;
 
 /**
- * Use this method to create a topic in a forum supergroup chat. The bot must be an
- * administrator in the chat for this to work and must have the
- * <em>can_manage_topics</em> administrator rights. Returns information about the
- * created topic as a <a href="#forumtopic">ForumTopic</a> object.
+ * Use this method to create a topic in a forum supergroup chat or a private chat
+ * with a user. In the case of a supergroup chat the bot must be an administrator
+ * in the chat for this to work and must have the <em>can_manage_topics</em>
+ * administrator right. Returns information about the created topic as a <a
+ * href="#forumtopic">ForumTopic</a> object.
  */
 final class CreateForumTopic extends Data implements TelegramMethodInterface
 {

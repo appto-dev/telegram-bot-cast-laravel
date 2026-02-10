@@ -72,6 +72,7 @@ use Appto\TelegramBot\Method\GetStickerSet;
 use Appto\TelegramBot\Method\GetUpdates;
 use Appto\TelegramBot\Method\GetUserChatBoosts;
 use Appto\TelegramBot\Method\GetUserGifts;
+use Appto\TelegramBot\Method\GetUserProfileAudios;
 use Appto\TelegramBot\Method\GetUserProfilePhotos;
 use Appto\TelegramBot\Method\GiftPremiumSubscription;
 use Appto\TelegramBot\Method\HideGeneralForumTopic;
@@ -132,6 +133,7 @@ use Appto\TelegramBot\Method\SetMyCommands;
 use Appto\TelegramBot\Method\SetMyDefaultAdministratorRights;
 use Appto\TelegramBot\Method\SetMyDescription;
 use Appto\TelegramBot\Method\SetMyName;
+use Appto\TelegramBot\Method\SetMyProfilePhoto;
 use Appto\TelegramBot\Method\SetMyShortDescription;
 use Appto\TelegramBot\Method\SetPassportDataErrors;
 use Appto\TelegramBot\Method\SetStickerEmojiList;
@@ -185,6 +187,7 @@ use Appto\TelegramBot\Type\Story;
 use Appto\TelegramBot\Type\Update;
 use Appto\TelegramBot\Type\User;
 use Appto\TelegramBot\Type\UserChatBoosts;
+use Appto\TelegramBot\Type\UserProfileAudios;
 use Appto\TelegramBot\Type\UserProfilePhotos;
 use Appto\TelegramBot\Type\WebhookInfo;
 
@@ -444,6 +447,14 @@ interface TelegramBotInterface
      * @return UserProfilePhotos
      */
     function getUserProfilePhotos(GetUserProfilePhotos|array $method): UserProfilePhotos;
+
+
+    /**
+     * Use this method to get a list of profile audios for a user. Returns a <a href="#userprofileaudios">UserProfileAudios</a> object.
+     * @param GetUserProfileAudios|array $method
+     * @return UserProfileAudios
+     */
+    function getUserProfileAudios(GetUserProfileAudios|array $method): UserProfileAudios;
 
 
     /**
@@ -710,7 +721,7 @@ interface TelegramBotInterface
 
 
     /**
-     * Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <a href="#forumtopic">ForumTopic</a> object.
+     * Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator right. Returns information about the created topic as a <a href="#forumtopic">ForumTopic</a> object.
      * @param CreateForumTopic|array $method
      * @return ForumTopic
      */
@@ -900,6 +911,21 @@ interface TelegramBotInterface
      * @return BotShortDescription
      */
     function getMyShortDescription(GetMyShortDescription|array $method): BotShortDescription;
+
+
+    /**
+     * Changes the profile photo of the bot. Returns <em>True</em> on success.
+     * @param SetMyProfilePhoto|array $method
+     * @return true
+     */
+    function setMyProfilePhoto(SetMyProfilePhoto|array $method): true;
+
+
+    /**
+     * Removes the profile photo of the bot. Requires no parameters. Returns <em>True</em> on success.
+     * @return true
+     */
+    function removeMyProfilePhoto(): true;
 
 
     /**

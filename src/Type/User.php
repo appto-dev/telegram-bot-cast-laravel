@@ -85,6 +85,12 @@ final class User extends Data implements TelegramTypeInterface
          * @var bool
          */
         public ?bool $has_topics_enabled,
+        /**
+         * True, if the bot allows users to create and delete topics in private chats.
+         * Returned only in getMe.
+         * @var bool
+         */
+        public ?bool $allows_users_to_create_topics,
     ) {
     }
 }

@@ -6,7 +6,8 @@ use Spatie\LaravelData\Data;
 
 /**
  * This object represents one button of an inline keyboard. Exactly one of the
- * optional fields must be used to specify type of the button.
+ * fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and
+ * <em>style</em> must be used to specify the type of the button.
  */
 final class InlineKeyboardButton extends Data implements TelegramTypeInterface
 {
@@ -16,6 +17,20 @@ final class InlineKeyboardButton extends Data implements TelegramTypeInterface
          * @var string
          */
         public string $text,
+        /**
+         * Unique identifier of the custom emoji shown before the text of the button. Can
+         * only be used by bots that purchased additional usernames on Fragment or in the
+         * messages directly sent by the bot to private, group and supergroup chats if the
+         * owner of the bot has a Telegram Premium subscription.
+         * @var string
+         */
+        public ?string $icon_custom_emoji_id,
+        /**
+         * Style of the button. Must be one of "danger" (red), "success" (green) or
+         * "primary" (blue). If omitted, then an app-specific style is used.
+         * @var string
+         */
+        public ?string $style,
         /**
          * HTTP or tg:// URL to be opened when the button is pressed. Links
          * tg://user?id=<user_id> can be used to mention a user by their identifier without

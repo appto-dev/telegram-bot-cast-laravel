@@ -54,6 +54,11 @@ final class UniqueGift extends Data implements TelegramTypeInterface
          */
         public ?true $is_premium,
         /**
+         * True, if the gift was used to craft another gift and isn't available anymore
+         * @var true
+         */
+        public ?true $is_burned,
+        /**
          * True, if the gift is assigned from the TON blockchain and can't be resold or
          * transferred in Telegram
          * @var true

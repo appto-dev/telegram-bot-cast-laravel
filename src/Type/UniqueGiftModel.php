@@ -21,10 +21,17 @@ final class UniqueGiftModel extends Data implements TelegramTypeInterface
          */
         public Sticker $sticker,
         /**
-         * The number of unique gifts that receive this model for every 1000 gifts upgraded
+         * The number of unique gifts that receive this model for every 1000 gift upgrades.
+         * Always 0 for crafted gifts.
          * @var int
          */
         public int $rarity_per_mille,
+        /**
+         * Rarity of the model if it is a crafted model. Currently, can be "uncommon",
+         * "rare", "epic", or "legendary".
+         * @var string
+         */
+        public ?string $rarity,
     ) {
     }
 }

@@ -279,6 +279,11 @@ final class ChatFullInfo extends Data implements TelegramTypeInterface
          */
         public ?UserRating $rating,
         /**
+         * For private chats, the first audio added to the profile of the user
+         * @var Audio
+         */
+        public ?Audio $first_profile_audio,
+        /**
          * The color scheme based on a unique gift that must be used for the chat's name,
          * message replies and link previews
          * @var UniqueGiftColors
