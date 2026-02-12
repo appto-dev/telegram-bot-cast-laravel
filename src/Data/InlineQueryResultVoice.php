@@ -1,0 +1,47 @@
+<?php
+
+namespace Appto\TelegramBot\Data;
+
+use Appto\TelegramBot\Interfaces\InlineQueryResult;
+use Appto\TelegramBot\Interfaces\InputMessageContent;
+use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Spatie\LaravelData\Data;
+
+/**
+ * Represents a link to a voice recording in an .OGG container encoded with OPUS.
+ * By default, this voice recording will be sent by the user. Alternatively, you
+ * can use <em>input_message_content</em> to send a message with the specified
+ * content instead of the the voice message.
+ */
+final class InlineQueryResultVoice extends Data implements TelegramBotData, InlineQueryResult
+{
+    public function __construct(
+        /** Type of the result, must be voice */
+        public string $type,
+        /** Unique identifier for this result, 1-64 bytes */
+        public string $id,
+        /** A valid URL for the voice recording */
+        public string $voice_url,
+        /** Recording title */
+        public string $title,
+        /** Caption, 0-1024 characters after entities parsing */
+        public ?string $caption,
+        /**
+         * Mode for parsing entities in the voice message caption. See formatting options
+         * for more details.
+         */
+        public ?string $parse_mode,
+        /**
+         * List of special entities that appear in the caption, which can be specified
+         * instead of parse_mode
+         */
+        public ?MessageEntity $caption_entities,
+        /** Recording duration in seconds */
+        public ?int $voice_duration,
+        /** Inline keyboard attached to the message */
+        public ?InlineKeyboardMarkup $reply_markup,
+        /** Content of the message to be sent instead of the voice recording */
+        public ?InputMessageContent $input_message_content,
+    ) {
+    }
+}

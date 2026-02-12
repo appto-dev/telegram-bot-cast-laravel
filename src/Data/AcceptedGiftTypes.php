@@ -1,0 +1,29 @@
+<?php
+
+namespace Appto\TelegramBot\Data;
+
+use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Spatie\LaravelData\Data;
+
+/**
+ * This object describes the types of gifts that can be gifted to a user or a chat.
+ */
+final class AcceptedGiftTypes extends Data implements TelegramBotData
+{
+    public function __construct(
+        /** True, if unlimited regular gifts are accepted */
+        public bool $unlimited_gifts,
+        /** True, if limited regular gifts are accepted */
+        public bool $limited_gifts,
+        /**
+         * True, if unique gifts or gifts that can be upgraded to unique for free are
+         * accepted
+         */
+        public bool $unique_gifts,
+        /** True, if a Telegram Premium subscription is accepted */
+        public bool $premium_subscription,
+        /** True, if transfers of unique gifts from channels are accepted */
+        public bool $gifts_from_channels,
+    ) {
+    }
+}
