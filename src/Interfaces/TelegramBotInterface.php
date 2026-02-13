@@ -244,7 +244,7 @@ interface TelegramBotInterface
      *
      * @param SetWebhook|array{
      *   url: string,
-     *   certificate?: InputFile|array,
+     *   certificate?: InputFile,
      *   ip_address?: string,
      *   max_connections?: int,
      *   allowed_updates?: array,
@@ -319,20 +319,20 @@ interface TelegramBotInterface
      *
      * @param SendMessage|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   text: string,
      *   parse_mode?: string,
-     *   entities?: MessageEntity[]|array,
-     *   link_preview_options?: LinkPreviewOptions|array,
+     *   entities?: MessageEntity[],
+     *   link_preview_options?: LinkPreviewOptions,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -345,15 +345,15 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param ForwardMessage|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   from_chat_id: int|string|array,
+     *   from_chat_id: int|string,
      *   video_start_timestamp?: int,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   suggested_post_parameters?: SuggestedPostParameters,
      *   message_id: int
      * } $dto
      *
@@ -370,10 +370,10 @@ interface TelegramBotInterface
      * messages is returned.
      *
      * @param ForwardMessages|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   from_chat_id: int|string|array,
+     *   from_chat_id: int|string,
      *   message_ids: array,
      *   disable_notification?: bool,
      *   protect_content?: bool
@@ -396,23 +396,23 @@ interface TelegramBotInterface
      * message on success.
      *
      * @param CopyMessage|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   from_chat_id: int|string|array,
+     *   from_chat_id: int|string,
      *   message_id: int,
      *   video_start_timestamp?: int,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   show_caption_above_media?: bool,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return MessageId
@@ -434,10 +434,10 @@ interface TelegramBotInterface
      * messages is returned.
      *
      * @param CopyMessages|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   from_chat_id: int|string|array,
+     *   from_chat_id: int|string,
      *   message_ids: array,
      *   disable_notification?: bool,
      *   protect_content?: bool,
@@ -454,22 +454,22 @@ interface TelegramBotInterface
      *
      * @param SendPhoto|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   photo: InputFile|array|string|array,
+     *   photo: InputFile|array|string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   show_caption_above_media?: bool,
      *   has_spoiler?: bool,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -489,24 +489,24 @@ interface TelegramBotInterface
      *
      * @param SendAudio|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   audio: InputFile|array|string|array,
+     *   audio: InputFile|array|string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   duration?: int,
      *   performer?: string,
      *   title?: string,
-     *   thumbnail?: InputFile|array|string|array,
+     *   thumbnail?: InputFile|array|string,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -521,22 +521,22 @@ interface TelegramBotInterface
      *
      * @param SendDocument|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   document: InputFile|array|string|array,
-     *   thumbnail?: InputFile|array|string|array,
+     *   document: InputFile|array|string,
+     *   thumbnail?: InputFile|array|string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   disable_content_type_detection?: bool,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -553,19 +553,19 @@ interface TelegramBotInterface
      *
      * @param SendVideo|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   video: InputFile|array|string|array,
+     *   video: InputFile|array|string,
      *   duration?: int,
      *   width?: int,
      *   height?: int,
-     *   thumbnail?: InputFile|array|string|array,
-     *   cover?: InputFile|array|string|array,
+     *   thumbnail?: InputFile|array|string,
+     *   cover?: InputFile|array|string,
      *   start_timestamp?: int,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   show_caption_above_media?: bool,
      *   has_spoiler?: bool,
      *   supports_streaming?: bool,
@@ -573,9 +573,9 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -591,26 +591,26 @@ interface TelegramBotInterface
      *
      * @param SendAnimation|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   animation: InputFile|array|string|array,
+     *   animation: InputFile|array|string,
      *   duration?: int,
      *   width?: int,
      *   height?: int,
-     *   thumbnail?: InputFile|array|string|array,
+     *   thumbnail?: InputFile|array|string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   show_caption_above_media?: bool,
      *   has_spoiler?: bool,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -629,21 +629,21 @@ interface TelegramBotInterface
      *
      * @param SendVoice|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   voice: InputFile|array|string|array,
+     *   voice: InputFile|array|string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   duration?: int,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -659,20 +659,20 @@ interface TelegramBotInterface
      *
      * @param SendVideoNote|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   video_note: InputFile|array|string|array,
+     *   video_note: InputFile|array|string,
      *   duration?: int,
      *   length?: int,
-     *   thumbnail?: InputFile|array|string|array,
+     *   thumbnail?: InputFile|array|string,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -685,22 +685,22 @@ interface TelegramBotInterface
      *
      * @param SendPaidMedia|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   star_count: int,
-     *   media: InputPaidMedia[]|array,
+     *   media: InputPaidMedia[],
      *   payload?: string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   show_caption_above_media?: bool,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -716,15 +716,15 @@ interface TelegramBotInterface
      *
      * @param SendMediaGroup|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   media: InputMediaAudio|array|InputMediaDocument|array|InputMediaPhoto|array|InputMediaVideo|array|array,
+     *   media: InputMediaAudio|array|InputMediaDocument|InputMediaPhoto|InputMediaVideo,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   reply_parameters?: ReplyParameters|array
+     *   reply_parameters?: ReplyParameters
      * } $dto
      *
      * @return Message[]
@@ -737,7 +737,7 @@ interface TelegramBotInterface
      *
      * @param SendLocation|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   latitude: float,
@@ -750,9 +750,9 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -765,7 +765,7 @@ interface TelegramBotInterface
      *
      * @param SendVenue|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   latitude: float,
@@ -780,9 +780,9 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -795,7 +795,7 @@ interface TelegramBotInterface
      *
      * @param SendContact|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   phone_number: string,
@@ -806,9 +806,9 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -821,19 +821,19 @@ interface TelegramBotInterface
      *
      * @param SendPoll|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   question: string,
      *   question_parse_mode?: string,
-     *   question_entities?: MessageEntity[]|array,
-     *   options: InputPollOption[]|array,
+     *   question_entities?: MessageEntity[],
+     *   options: InputPollOption[],
      *   is_anonymous?: bool,
      *   type?: string,
      *   allows_multiple_answers?: bool,
      *   correct_option_id?: int,
      *   explanation?: string,
      *   explanation_parse_mode?: string,
-     *   explanation_entities?: MessageEntity[]|array,
+     *   explanation_entities?: MessageEntity[],
      *   open_period?: int,
      *   close_date?: int,
      *   is_closed?: bool,
@@ -841,8 +841,8 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -857,12 +857,12 @@ interface TelegramBotInterface
      * @param SendChecklist|array{
      *   business_connection_id: string,
      *   chat_id: int,
-     *   checklist: InputChecklist|array,
+     *   checklist: InputChecklist,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   message_effect_id?: string,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return Message
@@ -876,7 +876,7 @@ interface TelegramBotInterface
      *
      * @param SendDice|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   emoji?: string,
@@ -884,9 +884,9 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -904,7 +904,7 @@ interface TelegramBotInterface
      *   draft_id: int,
      *   text: string,
      *   parse_mode?: string,
-     *   entities?: MessageEntity[]|array
+     *   entities?: MessageEntity[]
      * } $dto
      *
      * @return true
@@ -927,7 +927,7 @@ interface TelegramBotInterface
      *
      * @param SendChatAction|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   action: string
      * } $dto
@@ -943,9 +943,9 @@ interface TelegramBotInterface
      * channel. Bots can't use paid reactions. Returns <em>True</em> on success.
      *
      * @param SetMessageReaction|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_id: int,
-     *   reaction?: ReactionType[]|array,
+     *   reaction?: ReactionType[],
      *   is_big?: bool
      * } $dto
      *
@@ -1026,7 +1026,7 @@ interface TelegramBotInterface
      * appropriate administrator rights. Returns <em>True</em> on success.
      *
      * @param BanChatMember|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int,
      *   until_date?: int,
      *   revoke_messages?: bool
@@ -1046,7 +1046,7 @@ interface TelegramBotInterface
      * parameter <em>only_if_banned</em>. Returns <em>True</em> on success.
      *
      * @param UnbanChatMember|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int,
      *   only_if_banned?: bool
      * } $dto
@@ -1062,9 +1062,9 @@ interface TelegramBotInterface
      * restrictions from a user. Returns <em>True</em> on success.
      *
      * @param RestrictChatMember|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int,
-     *   permissions: ChatPermissions|array,
+     *   permissions: ChatPermissions,
      *   use_independent_chat_permissions?: bool,
      *   until_date?: int
      * } $dto
@@ -1080,7 +1080,7 @@ interface TelegramBotInterface
      * to demote a user. Returns <em>True</em> on success.
      *
      * @param PromoteChatMember|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int,
      *   is_anonymous?: bool,
      *   can_manage_chat?: bool,
@@ -1109,7 +1109,7 @@ interface TelegramBotInterface
      * promoted by the bot. Returns <em>True</em> on success.
      *
      * @param SetChatAdministratorCustomTitle|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int,
      *   custom_title: string
      * } $dto
@@ -1128,7 +1128,7 @@ interface TelegramBotInterface
      * <em>True</em> on success.
      *
      * @param BanChatSenderChat|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   sender_chat_id: int
      * } $dto
      *
@@ -1142,7 +1142,7 @@ interface TelegramBotInterface
      * appropriate administrator rights. Returns <em>True</em> on success.
      *
      * @param UnbanChatSenderChat|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   sender_chat_id: int
      * } $dto
      *
@@ -1157,8 +1157,8 @@ interface TelegramBotInterface
      * success.
      *
      * @param SetChatPermissions|array{
-     *   chat_id: int|string|array,
-     *   permissions: ChatPermissions|array,
+     *   chat_id: int|string,
+     *   permissions: ChatPermissions,
      *   use_independent_chat_permissions?: bool
      * } $dto
      *
@@ -1173,7 +1173,7 @@ interface TelegramBotInterface
      * new invite link as <em>String</em> on success.
      *
      * @param ExportChatInviteLink|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return string
@@ -1190,7 +1190,7 @@ interface TelegramBotInterface
      * object.
      *
      * @param CreateChatInviteLink|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   name?: string,
      *   expire_date?: int,
      *   member_limit?: int,
@@ -1209,7 +1209,7 @@ interface TelegramBotInterface
      * object.
      *
      * @param EditChatInviteLink|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   invite_link: string,
      *   name?: string,
      *   expire_date?: int,
@@ -1235,7 +1235,7 @@ interface TelegramBotInterface
      * object.
      *
      * @param CreateChatSubscriptionInviteLink|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   name?: string,
      *   subscription_period: int,
      *   subscription_price: int
@@ -1253,7 +1253,7 @@ interface TelegramBotInterface
      * object.
      *
      * @param EditChatSubscriptionInviteLink|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   invite_link: string,
      *   name?: string
      * } $dto
@@ -1271,7 +1271,7 @@ interface TelegramBotInterface
      * object.
      *
      * @param RevokeChatInviteLink|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   invite_link: string
      * } $dto
      *
@@ -1285,7 +1285,7 @@ interface TelegramBotInterface
      * administrator right. Returns <em>True</em> on success.
      *
      * @param ApproveChatJoinRequest|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int
      * } $dto
      *
@@ -1299,7 +1299,7 @@ interface TelegramBotInterface
      * administrator right. Returns <em>True</em> on success.
      *
      * @param DeclineChatJoinRequest|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int
      * } $dto
      *
@@ -1314,8 +1314,8 @@ interface TelegramBotInterface
      * success.
      *
      * @param SetChatPhoto|array{
-     *   chat_id: int|string|array,
-     *   photo: InputFile|array
+     *   chat_id: int|string,
+     *   photo: InputFile
      * } $dto
      *
      * @return true
@@ -1328,7 +1328,7 @@ interface TelegramBotInterface
      * have the appropriate administrator rights. Returns <em>True</em> on success.
      *
      * @param DeleteChatPhoto|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1342,7 +1342,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param SetChatTitle|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   title: string
      * } $dto
      *
@@ -1356,7 +1356,7 @@ interface TelegramBotInterface
      * appropriate administrator rights. Returns <em>True</em> on success.
      *
      * @param SetChatDescription|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   description?: string
      * } $dto
      *
@@ -1373,7 +1373,7 @@ interface TelegramBotInterface
      *
      * @param PinChatMessage|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_id: int,
      *   disable_notification?: bool
      * } $dto
@@ -1391,7 +1391,7 @@ interface TelegramBotInterface
      *
      * @param UnpinChatMessage|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_id?: int
      * } $dto
      *
@@ -1407,7 +1407,7 @@ interface TelegramBotInterface
      * messages in groups and channels respectively. Returns <em>True</em> on success.
      *
      * @param UnpinAllChatMessages|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1419,7 +1419,7 @@ interface TelegramBotInterface
      * <em>True</em> on success.
      *
      * @param LeaveChat|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1432,7 +1432,7 @@ interface TelegramBotInterface
      * on success.
      *
      * @param GetChat|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return ChatFullInfo
@@ -1445,7 +1445,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#chatmember">ChatMember</a> objects.
      *
      * @param GetChatAdministrators|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return ChatMember[]
@@ -1457,7 +1457,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param GetChatMemberCount|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return int
@@ -1471,7 +1471,7 @@ interface TelegramBotInterface
      * object on success.
      *
      * @param GetChatMember|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int
      * } $dto
      *
@@ -1488,7 +1488,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param SetChatStickerSet|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   sticker_set_name: string
      * } $dto
      *
@@ -1505,7 +1505,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param DeleteChatStickerSet|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1529,7 +1529,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#forumtopic">ForumTopic</a> object.
      *
      * @param CreateForumTopic|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   name: string,
      *   icon_color?: int,
      *   icon_custom_emoji_id?: string
@@ -1547,7 +1547,7 @@ interface TelegramBotInterface
      * topic. Returns <em>True</em> on success.
      *
      * @param EditForumTopic|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id: int,
      *   name?: string,
      *   icon_custom_emoji_id?: string
@@ -1564,7 +1564,7 @@ interface TelegramBotInterface
      * topic. Returns <em>True</em> on success.
      *
      * @param CloseForumTopic|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id: int
      * } $dto
      *
@@ -1579,7 +1579,7 @@ interface TelegramBotInterface
      * topic. Returns <em>True</em> on success.
      *
      * @param ReopenForumTopic|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id: int
      * } $dto
      *
@@ -1595,7 +1595,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param DeleteForumTopic|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id: int
      * } $dto
      *
@@ -1611,7 +1611,7 @@ interface TelegramBotInterface
      * <em>True</em> on success.
      *
      * @param UnpinAllForumTopicMessages|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id: int
      * } $dto
      *
@@ -1626,7 +1626,7 @@ interface TelegramBotInterface
      * on success.
      *
      * @param EditGeneralForumTopic|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   name: string
      * } $dto
      *
@@ -1641,7 +1641,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param CloseGeneralForumTopic|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1655,7 +1655,7 @@ interface TelegramBotInterface
      * unhidden if it was hidden. Returns <em>True</em> on success.
      *
      * @param ReopenGeneralForumTopic|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1669,7 +1669,7 @@ interface TelegramBotInterface
      * closed if it was open. Returns <em>True</em> on success.
      *
      * @param HideGeneralForumTopic|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1683,7 +1683,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param UnhideGeneralForumTopic|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1697,7 +1697,7 @@ interface TelegramBotInterface
      * <em>True</em> on success.
      *
      * @param UnpinAllGeneralForumTopicMessages|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -1734,7 +1734,7 @@ interface TelegramBotInterface
      * object.
      *
      * @param GetUserChatBoosts|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   user_id: int
      * } $dto
      *
@@ -1762,8 +1762,8 @@ interface TelegramBotInterface
      * details about bot commands. Returns <em>True</em> on success.
      *
      * @param SetMyCommands|array{
-     *   commands: BotCommand[]|array,
-     *   scope?: BotCommandScope|array,
+     *   commands: BotCommand[],
+     *   scope?: BotCommandScope,
      *   language_code?: string
      * } $dto
      *
@@ -1779,7 +1779,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param DeleteMyCommands|array{
-     *   scope?: BotCommandScope|array,
+     *   scope?: BotCommandScope,
      *   language_code?: string
      * } $dto
      *
@@ -1794,7 +1794,7 @@ interface TelegramBotInterface
      * commands aren't set, an empty list is returned.
      *
      * @param GetMyCommands|array{
-     *   scope?: BotCommandScope|array,
+     *   scope?: BotCommandScope,
      *   language_code?: string
      * } $dto
      *
@@ -1885,7 +1885,7 @@ interface TelegramBotInterface
      * Changes the profile photo of the bot. Returns <em>True</em> on success.
      *
      * @param SetMyProfilePhoto|array{
-     *   photo: InputProfilePhoto|array
+     *   photo: InputProfilePhoto
      * } $dto
      *
      * @return true
@@ -1906,7 +1906,7 @@ interface TelegramBotInterface
      *
      * @param SetChatMenuButton|array{
      *   chat_id?: int,
-     *   menu_button?: MenuButton|array
+     *   menu_button?: MenuButton
      * } $dto
      *
      * @return true
@@ -1933,7 +1933,7 @@ interface TelegramBotInterface
      * Returns <em>True</em> on success.
      *
      * @param SetMyDefaultAdministratorRights|array{
-     *   rights?: ChatAdministratorRights|array,
+     *   rights?: ChatAdministratorRights,
      *   for_channels?: bool
      * } $dto
      *
@@ -1972,12 +1972,12 @@ interface TelegramBotInterface
      *
      * @param SendGift|array{
      *   user_id?: int,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   gift_id: string,
      *   pay_for_upgrade?: bool,
      *   text?: string,
      *   text_parse_mode?: string,
-     *   text_entities?: MessageEntity[]|array
+     *   text_entities?: MessageEntity[]
      * } $dto
      *
      * @return true
@@ -1994,7 +1994,7 @@ interface TelegramBotInterface
      *   star_count: int,
      *   text?: string,
      *   text_parse_mode?: string,
-     *   text_entities?: MessageEntity[]|array
+     *   text_entities?: MessageEntity[]
      * } $dto
      *
      * @return true
@@ -2023,7 +2023,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param VerifyChat|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   custom_description?: string
      * } $dto
      *
@@ -2050,7 +2050,7 @@ interface TelegramBotInterface
      * organization</a> represented by the bot. Returns <em>True</em> on success.
      *
      * @param RemoveChatVerification|array{
-     *   chat_id: int|string|array
+     *   chat_id: int|string
      * } $dto
      *
      * @return true
@@ -2134,7 +2134,7 @@ interface TelegramBotInterface
      *
      * @param SetBusinessAccountProfilePhoto|array{
      *   business_connection_id: string,
-     *   photo: InputProfilePhoto|array,
+     *   photo: InputProfilePhoto,
      *   is_public?: bool
      * } $dto
      *
@@ -2164,7 +2164,7 @@ interface TelegramBotInterface
      * @param SetBusinessAccountGiftSettings|array{
      *   business_connection_id: string,
      *   show_gift_button: bool,
-     *   accepted_gift_types: AcceptedGiftTypes|array
+     *   accepted_gift_types: AcceptedGiftTypes
      * } $dto
      *
      * @return true
@@ -2246,7 +2246,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#ownedgifts">OwnedGifts</a> on success.
      *
      * @param GetChatGifts|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   exclude_unsaved?: bool,
      *   exclude_saved?: bool,
      *   exclude_unlimited?: bool,
@@ -2318,12 +2318,12 @@ interface TelegramBotInterface
      *
      * @param PostStory|array{
      *   business_connection_id: string,
-     *   content: InputStoryContent|array,
+     *   content: InputStoryContent,
      *   active_period: int,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
-     *   areas?: StoryArea[]|array,
+     *   caption_entities?: MessageEntity[],
+     *   areas?: StoryArea[],
      *   post_to_chat_page?: bool,
      *   protect_content?: bool
      * } $dto
@@ -2360,11 +2360,11 @@ interface TelegramBotInterface
      * @param EditStory|array{
      *   business_connection_id: string,
      *   story_id: int,
-     *   content: InputStoryContent|array,
+     *   content: InputStoryContent,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
-     *   areas?: StoryArea[]|array
+     *   caption_entities?: MessageEntity[],
+     *   areas?: StoryArea[]
      * } $dto
      *
      * @return Story
@@ -2396,14 +2396,14 @@ interface TelegramBotInterface
      *
      * @param EditMessageText|array{
      *   business_connection_id?: string,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   message_id?: int,
      *   inline_message_id?: string,
      *   text: string,
      *   parse_mode?: string,
-     *   entities?: MessageEntity[]|array,
-     *   link_preview_options?: LinkPreviewOptions|array,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   entities?: MessageEntity[],
+     *   link_preview_options?: LinkPreviewOptions,
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return true|Message
@@ -2420,14 +2420,14 @@ interface TelegramBotInterface
      *
      * @param EditMessageCaption|array{
      *   business_connection_id?: string,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   message_id?: int,
      *   inline_message_id?: string,
      *   caption?: string,
      *   parse_mode?: string,
-     *   caption_entities?: MessageEntity[]|array,
+     *   caption_entities?: MessageEntity[],
      *   show_caption_above_media?: bool,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return true|Message
@@ -2448,11 +2448,11 @@ interface TelegramBotInterface
      *
      * @param EditMessageMedia|array{
      *   business_connection_id?: string,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   message_id?: int,
      *   inline_message_id?: string,
-     *   media: InputMedia|array,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   media: InputMedia,
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return true|Message
@@ -2470,7 +2470,7 @@ interface TelegramBotInterface
      *
      * @param EditMessageLiveLocation|array{
      *   business_connection_id?: string,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   message_id?: int,
      *   inline_message_id?: string,
      *   latitude: float,
@@ -2479,7 +2479,7 @@ interface TelegramBotInterface
      *   horizontal_accuracy?: float,
      *   heading?: int,
      *   proximity_alert_radius?: int,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return true|Message
@@ -2495,10 +2495,10 @@ interface TelegramBotInterface
      *
      * @param StopMessageLiveLocation|array{
      *   business_connection_id?: string,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   message_id?: int,
      *   inline_message_id?: string,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return true|Message
@@ -2514,8 +2514,8 @@ interface TelegramBotInterface
      *   business_connection_id: string,
      *   chat_id: int,
      *   message_id: int,
-     *   checklist: InputChecklist|array,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   checklist: InputChecklist,
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return Message
@@ -2532,10 +2532,10 @@ interface TelegramBotInterface
      *
      * @param EditMessageReplyMarkup|array{
      *   business_connection_id?: string,
-     *   chat_id?: int|string|array,
+     *   chat_id?: int|string,
      *   message_id?: int,
      *   inline_message_id?: string,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return true|Message
@@ -2548,9 +2548,9 @@ interface TelegramBotInterface
      *
      * @param StopPoll|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_id: int,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return Poll
@@ -2603,7 +2603,7 @@ interface TelegramBotInterface
      * chat.Returns <em>True</em> on success.
      *
      * @param DeleteMessage|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_id: int
      * } $dto
      *
@@ -2617,7 +2617,7 @@ interface TelegramBotInterface
      * success.
      *
      * @param DeleteMessages|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_ids: array
      * } $dto
      *
@@ -2634,18 +2634,18 @@ interface TelegramBotInterface
      *
      * @param SendSticker|array{
      *   business_connection_id?: string,
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
-     *   sticker: InputFile|array|string|array,
+     *   sticker: InputFile|array|string,
      *   emoji?: string,
      *   disable_notification?: bool,
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: ReplyMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: ReplyMarkup
      * } $dto
      *
      * @return Message
@@ -2690,7 +2690,7 @@ interface TelegramBotInterface
      *
      * @param UploadStickerFile|array{
      *   user_id: int,
-     *   sticker: InputFile|array,
+     *   sticker: InputFile,
      *   sticker_format: string
      * } $dto
      *
@@ -2706,7 +2706,7 @@ interface TelegramBotInterface
      *   user_id: int,
      *   name: string,
      *   title: string,
-     *   stickers: InputSticker[]|array,
+     *   stickers: InputSticker[],
      *   sticker_type?: string,
      *   needs_repainting?: bool
      * } $dto
@@ -2723,7 +2723,7 @@ interface TelegramBotInterface
      * @param AddStickerToSet|array{
      *   user_id: int,
      *   name: string,
-     *   sticker: InputSticker|array
+     *   sticker: InputSticker
      * } $dto
      *
      * @return true
@@ -2769,7 +2769,7 @@ interface TelegramBotInterface
      *   user_id: int,
      *   name: string,
      *   old_sticker: string,
-     *   sticker: InputSticker|array
+     *   sticker: InputSticker
      * } $dto
      *
      * @return true
@@ -2812,7 +2812,7 @@ interface TelegramBotInterface
      *
      * @param SetStickerMaskPosition|array{
      *   sticker: string,
-     *   mask_position?: MaskPosition|array
+     *   mask_position?: MaskPosition
      * } $dto
      *
      * @return true
@@ -2840,7 +2840,7 @@ interface TelegramBotInterface
      * @param SetStickerSetThumbnail|array{
      *   name: string,
      *   user_id: int,
-     *   thumbnail?: InputFile|array|string|array,
+     *   thumbnail?: InputFile|array|string,
      *   format: string
      * } $dto
      *
@@ -2879,11 +2879,11 @@ interface TelegramBotInterface
      *
      * @param AnswerInlineQuery|array{
      *   inline_query_id: string,
-     *   results: InlineQueryResult[]|array,
+     *   results: InlineQueryResult[],
      *   cache_time?: int,
      *   is_personal?: bool,
      *   next_offset?: string,
-     *   button?: InlineQueryResultsButton|array
+     *   button?: InlineQueryResultsButton
      * } $dto
      *
      * @return true
@@ -2900,7 +2900,7 @@ interface TelegramBotInterface
      *
      * @param AnswerWebAppQuery|array{
      *   web_app_query_id: string,
-     *   result: InlineQueryResult|array
+     *   result: InlineQueryResult
      * } $dto
      *
      * @return SentWebAppMessage
@@ -2914,7 +2914,7 @@ interface TelegramBotInterface
      *
      * @param SavePreparedInlineMessage|array{
      *   user_id: int,
-     *   result: InlineQueryResult|array,
+     *   result: InlineQueryResult,
      *   allow_user_chats?: bool,
      *   allow_bot_chats?: bool,
      *   allow_group_chats?: bool,
@@ -2930,7 +2930,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param SendInvoice|array{
-     *   chat_id: int|string|array,
+     *   chat_id: int|string,
      *   message_thread_id?: int,
      *   direct_messages_topic_id?: int,
      *   title: string,
@@ -2938,7 +2938,7 @@ interface TelegramBotInterface
      *   payload: string,
      *   provider_token?: string,
      *   currency: string,
-     *   prices: LabeledPrice[]|array,
+     *   prices: LabeledPrice[],
      *   max_tip_amount?: int,
      *   suggested_tip_amounts?: array,
      *   start_parameter?: string,
@@ -2958,9 +2958,9 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   suggested_post_parameters?: SuggestedPostParameters|array,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   suggested_post_parameters?: SuggestedPostParameters,
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return Message
@@ -2978,7 +2978,7 @@ interface TelegramBotInterface
      *   payload: string,
      *   provider_token?: string,
      *   currency: string,
-     *   prices: LabeledPrice[]|array,
+     *   prices: LabeledPrice[],
      *   subscription_period?: int,
      *   max_tip_amount?: int,
      *   suggested_tip_amounts?: array,
@@ -3010,7 +3010,7 @@ interface TelegramBotInterface
      * @param AnswerShippingQuery|array{
      *   shipping_query_id: string,
      *   ok: bool,
-     *   shipping_options?: ShippingOption[]|array,
+     *   shipping_options?: ShippingOption[],
      *   error_message?: string
      * } $dto
      *
@@ -3100,7 +3100,7 @@ interface TelegramBotInterface
      *
      * @param SetPassportDataErrors|array{
      *   user_id: int,
-     *   errors: PassportElementError[]|array
+     *   errors: PassportElementError[]
      * } $dto
      *
      * @return true
@@ -3120,8 +3120,8 @@ interface TelegramBotInterface
      *   protect_content?: bool,
      *   allow_paid_broadcast?: bool,
      *   message_effect_id?: string,
-     *   reply_parameters?: ReplyParameters|array,
-     *   reply_markup?: InlineKeyboardMarkup|array
+     *   reply_parameters?: ReplyParameters,
+     *   reply_markup?: InlineKeyboardMarkup
      * } $dto
      *
      * @return Message
