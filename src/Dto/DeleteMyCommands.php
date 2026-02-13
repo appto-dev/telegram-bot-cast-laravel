@@ -19,7 +19,7 @@ final class DeleteMyCommands extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized object, describing scope of users for which the commands are
          * relevant. Defaults to <a
-         * href="https://core.telegram.org/bots/api#botcommandscopedefault">BotCommandScopeDefault</a>.
+         * href="#botcommandscopedefault">BotCommandScopeDefault</a>.
          */
         public ?BotCommandScope $scope,
         /**

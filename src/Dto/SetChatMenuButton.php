@@ -20,7 +20,7 @@ final class SetChatMenuButton extends Dto implements TelegramBotDto
         public ?int $chat_id,
         /**
          * A JSON-serialized object for the bot's new menu button. Defaults to <a
-         * href="https://core.telegram.org/bots/api#menubuttondefault">MenuButtonDefault</a>
+         * href="#menubuttondefault">MenuButtonDefault</a>
          */
         public ?MenuButton $menu_button,
     ) {

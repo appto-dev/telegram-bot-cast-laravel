@@ -4,16 +4,27 @@ namespace Appto\TelegramBot\Interfaces;
 
 use Appto\TelegramBot\Data\AcceptedGiftTypes;
 use Appto\TelegramBot\Data\BotCommand;
+use Appto\TelegramBot\Data\BotDescription;
+use Appto\TelegramBot\Data\BotName;
+use Appto\TelegramBot\Data\BotShortDescription;
+use Appto\TelegramBot\Data\BusinessConnection;
 use Appto\TelegramBot\Data\ChatAdministratorRights;
+use Appto\TelegramBot\Data\ChatFullInfo;
+use Appto\TelegramBot\Data\ChatInviteLink;
 use Appto\TelegramBot\Data\ChatPermissions;
+use Appto\TelegramBot\Data\File;
+use Appto\TelegramBot\Data\ForumTopic;
 use Appto\TelegramBot\Data\GameHighScore;
+use Appto\TelegramBot\Data\Gifts;
 use Appto\TelegramBot\Data\InlineKeyboardMarkup;
 use Appto\TelegramBot\Data\InlineQueryResultsButton;
+use Appto\TelegramBot\Data\InputChecklist;
 use Appto\TelegramBot\Data\InputFile;
 use Appto\TelegramBot\Data\InputMediaAudio;
 use Appto\TelegramBot\Data\InputMediaDocument;
 use Appto\TelegramBot\Data\InputMediaPhoto;
 use Appto\TelegramBot\Data\InputMediaVideo;
+use Appto\TelegramBot\Data\InputPollOption;
 use Appto\TelegramBot\Data\InputSticker;
 use Appto\TelegramBot\Data\LabeledPrice;
 use Appto\TelegramBot\Data\LinkPreviewOptions;
@@ -21,15 +32,31 @@ use Appto\TelegramBot\Data\MaskPosition;
 use Appto\TelegramBot\Data\Message;
 use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\MessageId;
+use Appto\TelegramBot\Data\OwnedGifts;
+use Appto\TelegramBot\Data\Poll;
+use Appto\TelegramBot\Data\PreparedInlineMessage;
 use Appto\TelegramBot\Data\ReplyParameters;
+use Appto\TelegramBot\Data\SentWebAppMessage;
 use Appto\TelegramBot\Data\ShippingOption;
+use Appto\TelegramBot\Data\StarAmount;
+use Appto\TelegramBot\Data\StarTransactions;
 use Appto\TelegramBot\Data\Sticker;
+use Appto\TelegramBot\Data\StickerSet;
+use Appto\TelegramBot\Data\Story;
+use Appto\TelegramBot\Data\StoryArea;
+use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Data\Update;
+use Appto\TelegramBot\Data\User;
+use Appto\TelegramBot\Data\UserChatBoosts;
+use Appto\TelegramBot\Data\UserProfileAudios;
+use Appto\TelegramBot\Data\UserProfilePhotos;
+use Appto\TelegramBot\Data\WebhookInfo;
 use Appto\TelegramBot\Dto\AddStickerToSet;
 use Appto\TelegramBot\Dto\AnswerCallbackQuery;
 use Appto\TelegramBot\Dto\AnswerInlineQuery;
 use Appto\TelegramBot\Dto\AnswerPreCheckoutQuery;
 use Appto\TelegramBot\Dto\AnswerShippingQuery;
+use Appto\TelegramBot\Dto\AnswerWebAppQuery;
 use Appto\TelegramBot\Dto\ApproveChatJoinRequest;
 use Appto\TelegramBot\Dto\ApproveSuggestedPost;
 use Appto\TelegramBot\Dto\BanChatMember;
@@ -37,7 +64,11 @@ use Appto\TelegramBot\Dto\BanChatSenderChat;
 use Appto\TelegramBot\Dto\CloseForumTopic;
 use Appto\TelegramBot\Dto\CloseGeneralForumTopic;
 use Appto\TelegramBot\Dto\ConvertGiftToStars;
+use Appto\TelegramBot\Dto\CopyMessage;
 use Appto\TelegramBot\Dto\CopyMessages;
+use Appto\TelegramBot\Dto\CreateChatInviteLink;
+use Appto\TelegramBot\Dto\CreateChatSubscriptionInviteLink;
+use Appto\TelegramBot\Dto\CreateForumTopic;
 use Appto\TelegramBot\Dto\CreateInvoiceLink;
 use Appto\TelegramBot\Dto\CreateNewStickerSet;
 use Appto\TelegramBot\Dto\DeclineChatJoinRequest;
@@ -53,26 +84,50 @@ use Appto\TelegramBot\Dto\DeleteStickerFromSet;
 use Appto\TelegramBot\Dto\DeleteStickerSet;
 use Appto\TelegramBot\Dto\DeleteStory;
 use Appto\TelegramBot\Dto\DeleteWebhook;
+use Appto\TelegramBot\Dto\EditChatInviteLink;
+use Appto\TelegramBot\Dto\EditChatSubscriptionInviteLink;
 use Appto\TelegramBot\Dto\EditForumTopic;
 use Appto\TelegramBot\Dto\EditGeneralForumTopic;
 use Appto\TelegramBot\Dto\EditMessageCaption;
+use Appto\TelegramBot\Dto\EditMessageChecklist;
 use Appto\TelegramBot\Dto\EditMessageLiveLocation;
 use Appto\TelegramBot\Dto\EditMessageMedia;
 use Appto\TelegramBot\Dto\EditMessageReplyMarkup;
 use Appto\TelegramBot\Dto\EditMessageText;
+use Appto\TelegramBot\Dto\EditStory;
 use Appto\TelegramBot\Dto\EditUserStarSubscription;
 use Appto\TelegramBot\Dto\ExportChatInviteLink;
+use Appto\TelegramBot\Dto\ForwardMessage;
 use Appto\TelegramBot\Dto\ForwardMessages;
+use Appto\TelegramBot\Dto\GetBusinessAccountGifts;
+use Appto\TelegramBot\Dto\GetBusinessAccountStarBalance;
+use Appto\TelegramBot\Dto\GetBusinessConnection;
+use Appto\TelegramBot\Dto\GetChat;
 use Appto\TelegramBot\Dto\GetChatAdministrators;
+use Appto\TelegramBot\Dto\GetChatGifts;
+use Appto\TelegramBot\Dto\GetChatMember;
 use Appto\TelegramBot\Dto\GetChatMemberCount;
+use Appto\TelegramBot\Dto\GetChatMenuButton;
 use Appto\TelegramBot\Dto\GetCustomEmojiStickers;
+use Appto\TelegramBot\Dto\GetFile;
 use Appto\TelegramBot\Dto\GetGameHighScores;
 use Appto\TelegramBot\Dto\GetMyCommands;
+use Appto\TelegramBot\Dto\GetMyDefaultAdministratorRights;
+use Appto\TelegramBot\Dto\GetMyDescription;
+use Appto\TelegramBot\Dto\GetMyName;
+use Appto\TelegramBot\Dto\GetMyShortDescription;
+use Appto\TelegramBot\Dto\GetStarTransactions;
+use Appto\TelegramBot\Dto\GetStickerSet;
 use Appto\TelegramBot\Dto\GetUpdates;
+use Appto\TelegramBot\Dto\GetUserChatBoosts;
+use Appto\TelegramBot\Dto\GetUserGifts;
+use Appto\TelegramBot\Dto\GetUserProfileAudios;
+use Appto\TelegramBot\Dto\GetUserProfilePhotos;
 use Appto\TelegramBot\Dto\GiftPremiumSubscription;
 use Appto\TelegramBot\Dto\HideGeneralForumTopic;
 use Appto\TelegramBot\Dto\LeaveChat;
 use Appto\TelegramBot\Dto\PinChatMessage;
+use Appto\TelegramBot\Dto\PostStory;
 use Appto\TelegramBot\Dto\PromoteChatMember;
 use Appto\TelegramBot\Dto\ReadBusinessMessage;
 use Appto\TelegramBot\Dto\RefundStarPayment;
@@ -82,11 +137,32 @@ use Appto\TelegramBot\Dto\RemoveUserVerification;
 use Appto\TelegramBot\Dto\ReopenForumTopic;
 use Appto\TelegramBot\Dto\ReopenGeneralForumTopic;
 use Appto\TelegramBot\Dto\ReplaceStickerInSet;
+use Appto\TelegramBot\Dto\RepostStory;
 use Appto\TelegramBot\Dto\RestrictChatMember;
+use Appto\TelegramBot\Dto\RevokeChatInviteLink;
+use Appto\TelegramBot\Dto\SavePreparedInlineMessage;
+use Appto\TelegramBot\Dto\SendAnimation;
+use Appto\TelegramBot\Dto\SendAudio;
 use Appto\TelegramBot\Dto\SendChatAction;
+use Appto\TelegramBot\Dto\SendChecklist;
+use Appto\TelegramBot\Dto\SendContact;
+use Appto\TelegramBot\Dto\SendDice;
+use Appto\TelegramBot\Dto\SendDocument;
+use Appto\TelegramBot\Dto\SendGame;
 use Appto\TelegramBot\Dto\SendGift;
+use Appto\TelegramBot\Dto\SendInvoice;
+use Appto\TelegramBot\Dto\SendLocation;
 use Appto\TelegramBot\Dto\SendMediaGroup;
+use Appto\TelegramBot\Dto\SendMessage;
 use Appto\TelegramBot\Dto\SendMessageDraft;
+use Appto\TelegramBot\Dto\SendPaidMedia;
+use Appto\TelegramBot\Dto\SendPhoto;
+use Appto\TelegramBot\Dto\SendPoll;
+use Appto\TelegramBot\Dto\SendSticker;
+use Appto\TelegramBot\Dto\SendVenue;
+use Appto\TelegramBot\Dto\SendVideo;
+use Appto\TelegramBot\Dto\SendVideoNote;
+use Appto\TelegramBot\Dto\SendVoice;
 use Appto\TelegramBot\Dto\SetBusinessAccountBio;
 use Appto\TelegramBot\Dto\SetBusinessAccountGiftSettings;
 use Appto\TelegramBot\Dto\SetBusinessAccountName;
@@ -118,6 +194,7 @@ use Appto\TelegramBot\Dto\SetStickerSetTitle;
 use Appto\TelegramBot\Dto\SetUserEmojiStatus;
 use Appto\TelegramBot\Dto\SetWebhook;
 use Appto\TelegramBot\Dto\StopMessageLiveLocation;
+use Appto\TelegramBot\Dto\StopPoll;
 use Appto\TelegramBot\Dto\TransferBusinessAccountStars;
 use Appto\TelegramBot\Dto\TransferGift;
 use Appto\TelegramBot\Dto\UnbanChatMember;
@@ -128,6 +205,7 @@ use Appto\TelegramBot\Dto\UnpinAllForumTopicMessages;
 use Appto\TelegramBot\Dto\UnpinAllGeneralForumTopicMessages;
 use Appto\TelegramBot\Dto\UnpinChatMessage;
 use Appto\TelegramBot\Dto\UpgradeGift;
+use Appto\TelegramBot\Dto\UploadStickerFile;
 use Appto\TelegramBot\Dto\VerifyChat;
 use Appto\TelegramBot\Dto\VerifyUser;
 
@@ -192,6 +270,27 @@ interface TelegramBotInterface
     public function deleteWebhook(DeleteWebhook|array $dto): true;
 
     /**
+     * Use this method to get current webhook status. Requires no parameters. On
+     * success, returns a <a
+     * href="https://core.telegram.org/bots/api#webhookinfo">WebhookInfo</a> object. If
+     * the bot is using <a
+     * href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>, will return
+     * an object with the <em>url</em> field empty.
+     *
+     * @return WebhookInfo
+     */
+    public function getWebhookInfo(): WebhookInfo;
+
+    /**
+     * A simple method for testing your bot's authentication token. Requires no
+     * parameters. Returns basic information about the bot in form of a <a
+     * href="https://core.telegram.org/bots/api#user">User</a> object.
+     *
+     * @return User
+     */
+    public function getMe(): User;
+
+    /**
      * Use this method to log out from the cloud Bot API server before launching the
      * bot locally. You must log out the bot before running it locally, otherwise there
      * is no guarantee that the bot will receive updates. After a successful call, you
@@ -215,6 +314,54 @@ interface TelegramBotInterface
     public function close(): true;
 
     /**
+     * Use this method to send text messages. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendMessage|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   text: string,
+     *   parse_mode?: string,
+     *   entities?: MessageEntity[]|array,
+     *   link_preview_options?: LinkPreviewOptions|array,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendMessage(SendMessage|array $dto): Message;
+
+    /**
+     * Use this method to forward messages of any kind. Service messages and messages
+     * with protected content can't be forwarded. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param ForwardMessage|array{
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   from_chat_id: int|string|array,
+     *   video_start_timestamp?: int,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   message_id: int
+     * } $dto
+     *
+     * @return Message
+     */
+    public function forwardMessage(ForwardMessage|array $dto): Message;
+
+    /**
      * Use this method to forward multiple messages of any kind. If some of the
      * specified messages can't be found or forwarded, they are skipped. Service
      * messages and messages with protected content can't be forwarded. Album grouping
@@ -235,6 +382,42 @@ interface TelegramBotInterface
      * @return MessageId[]
      */
     public function forwardMessages(ForwardMessages|array $dto): array;
+
+    /**
+     * Use this method to copy messages of any kind. Service messages, paid media
+     * messages, giveaway messages, giveaway winners messages, and invoice messages
+     * can't be copied. A quiz <a
+     * href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if
+     * the value of the field <em>correct_option_id</em> is known to the bot. The
+     * method is analogous to the method <a
+     * href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>, but
+     * the copied message doesn't have a link to the original message. Returns the <a
+     * href="https://core.telegram.org/bots/api#messageid">MessageId</a> of the sent
+     * message on success.
+     *
+     * @param CopyMessage|array{
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   from_chat_id: int|string|array,
+     *   message_id: int,
+     *   video_start_timestamp?: int,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   show_caption_above_media?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return MessageId
+     */
+    public function copyMessage(CopyMessage|array $dto): MessageId;
 
     /**
      * Use this method to copy messages of any kind. If some of the specified messages
@@ -266,6 +449,265 @@ interface TelegramBotInterface
     public function copyMessages(CopyMessages|array $dto): array;
 
     /**
+     * Use this method to send photos. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendPhoto|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   photo: InputFile|array|string|array,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   show_caption_above_media?: bool,
+     *   has_spoiler?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendPhoto(SendPhoto|array $dto): Message;
+
+    /**
+     * Use this method to send audio files, if you want Telegram clients to display
+     * them in the music player. Your audio must be in the .MP3 or .M4A format. On
+     * success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots
+     * can currently send audio files of up to 50 MB in size, this limit may be changed
+     * in the future.
+     * For sending voice messages, use the <a
+     * href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a> method
+     * instead.
+     *
+     * @param SendAudio|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   audio: InputFile|array|string|array,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   duration?: int,
+     *   performer?: string,
+     *   title?: string,
+     *   thumbnail?: InputFile|array|string|array,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendAudio(SendAudio|array $dto): Message;
+
+    /**
+     * Use this method to send general files. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots
+     * can currently send files of any type of up to 50 MB in size, this limit may be
+     * changed in the future.
+     *
+     * @param SendDocument|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   document: InputFile|array|string|array,
+     *   thumbnail?: InputFile|array|string|array,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   disable_content_type_detection?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendDocument(SendDocument|array $dto): Message;
+
+    /**
+     * Use this method to send video files, Telegram clients support MPEG4 videos
+     * (other formats may be sent as <a
+     * href="https://core.telegram.org/bots/api#document">Document</a>). On success,
+     * the sent <a href="https://core.telegram.org/bots/api#message">Message</a> is
+     * returned. Bots can currently send video files of up to 50 MB in size, this limit
+     * may be changed in the future.
+     *
+     * @param SendVideo|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   video: InputFile|array|string|array,
+     *   duration?: int,
+     *   width?: int,
+     *   height?: int,
+     *   thumbnail?: InputFile|array|string|array,
+     *   cover?: InputFile|array|string|array,
+     *   start_timestamp?: int,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   show_caption_above_media?: bool,
+     *   has_spoiler?: bool,
+     *   supports_streaming?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendVideo(SendVideo|array $dto): Message;
+
+    /**
+     * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without
+     * sound). On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots
+     * can currently send animation files of up to 50 MB in size, this limit may be
+     * changed in the future.
+     *
+     * @param SendAnimation|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   animation: InputFile|array|string|array,
+     *   duration?: int,
+     *   width?: int,
+     *   height?: int,
+     *   thumbnail?: InputFile|array|string|array,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   show_caption_above_media?: bool,
+     *   has_spoiler?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendAnimation(SendAnimation|array $dto): Message;
+
+    /**
+     * Use this method to send audio files, if you want Telegram clients to display the
+     * file as a playable voice message. For this to work, your audio must be in an
+     * .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats
+     * may be sent as <a href="https://core.telegram.org/bots/api#audio">Audio</a> or
+     * <a href="https://core.telegram.org/bots/api#document">Document</a>). On success,
+     * the sent <a href="https://core.telegram.org/bots/api#message">Message</a> is
+     * returned. Bots can currently send voice messages of up to 50 MB in size, this
+     * limit may be changed in the future.
+     *
+     * @param SendVoice|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   voice: InputFile|array|string|array,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   duration?: int,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendVoice(SendVoice|array $dto): Message;
+
+    /**
+     * As of <a
+     * href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>,
+     * Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use
+     * this method to send video messages. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendVideoNote|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   video_note: InputFile|array|string|array,
+     *   duration?: int,
+     *   length?: int,
+     *   thumbnail?: InputFile|array|string|array,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendVideoNote(SendVideoNote|array $dto): Message;
+
+    /**
+     * Use this method to send paid media. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendPaidMedia|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   star_count: int,
+     *   media: InputPaidMedia[]|array,
+     *   payload?: string,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   show_caption_above_media?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendPaidMedia(SendPaidMedia|array $dto): Message;
+
+    /**
      * Use this method to send a group of photos, videos, documents or audios as an
      * album. Documents and audio files can be only grouped in an album with messages
      * of the same type. On success, an array of <a
@@ -288,6 +730,168 @@ interface TelegramBotInterface
      * @return Message[]
      */
     public function sendMediaGroup(SendMediaGroup|array $dto): array;
+
+    /**
+     * Use this method to send point on the map. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendLocation|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   latitude: float,
+     *   longitude: float,
+     *   horizontal_accuracy?: float,
+     *   live_period?: int,
+     *   heading?: int,
+     *   proximity_alert_radius?: int,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendLocation(SendLocation|array $dto): Message;
+
+    /**
+     * Use this method to send information about a venue. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendVenue|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   latitude: float,
+     *   longitude: float,
+     *   title: string,
+     *   address: string,
+     *   foursquare_id?: string,
+     *   foursquare_type?: string,
+     *   google_place_id?: string,
+     *   google_place_type?: string,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendVenue(SendVenue|array $dto): Message;
+
+    /**
+     * Use this method to send phone contacts. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendContact|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   phone_number: string,
+     *   first_name: string,
+     *   last_name?: string,
+     *   vcard?: string,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendContact(SendContact|array $dto): Message;
+
+    /**
+     * Use this method to send a native poll. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendPoll|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   question: string,
+     *   question_parse_mode?: string,
+     *   question_entities?: MessageEntity[]|array,
+     *   options: InputPollOption[]|array,
+     *   is_anonymous?: bool,
+     *   type?: string,
+     *   allows_multiple_answers?: bool,
+     *   correct_option_id?: int,
+     *   explanation?: string,
+     *   explanation_parse_mode?: string,
+     *   explanation_entities?: MessageEntity[]|array,
+     *   open_period?: int,
+     *   close_date?: int,
+     *   is_closed?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendPoll(SendPoll|array $dto): Message;
+
+    /**
+     * Use this method to send a checklist on behalf of a connected business account.
+     * On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendChecklist|array{
+     *   business_connection_id: string,
+     *   chat_id: int,
+     *   checklist: InputChecklist|array,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   message_effect_id?: string,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: InlineKeyboardMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendChecklist(SendChecklist|array $dto): Message;
+
+    /**
+     * Use this method to send an animated emoji that will display a random value. On
+     * success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendDice|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   emoji?: string,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendDice(SendDice|array $dto): Message;
 
     /**
      * Use this method to stream a partial message to a user while the message is being
@@ -350,6 +954,36 @@ interface TelegramBotInterface
     public function setMessageReaction(SetMessageReaction|array $dto): true;
 
     /**
+     * Use this method to get a list of profile pictures for a user. Returns a <a
+     * href="https://core.telegram.org/bots/api#userprofilephotos">UserProfilePhotos</a>
+     * object.
+     *
+     * @param GetUserProfilePhotos|array{
+     *   user_id: int,
+     *   offset?: int,
+     *   limit?: int
+     * } $dto
+     *
+     * @return UserProfilePhotos
+     */
+    public function getUserProfilePhotos(GetUserProfilePhotos|array $dto): UserProfilePhotos;
+
+    /**
+     * Use this method to get a list of profile audios for a user. Returns a <a
+     * href="https://core.telegram.org/bots/api#userprofileaudios">UserProfileAudios</a>
+     * object.
+     *
+     * @param GetUserProfileAudios|array{
+     *   user_id: int,
+     *   offset?: int,
+     *   limit?: int
+     * } $dto
+     *
+     * @return UserProfileAudios
+     */
+    public function getUserProfileAudios(GetUserProfileAudios|array $dto): UserProfileAudios;
+
+    /**
      * Changes the emoji status for a given user that previously allowed the bot to
      * manage their emoji status via the Mini App method <a
      * href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestEmojiStatusAccess</a>.
@@ -364,6 +998,24 @@ interface TelegramBotInterface
      * @return true
      */
     public function setUserEmojiStatus(SetUserEmojiStatus|array $dto): true;
+
+    /**
+     * Use this method to get basic information about a file and prepare it for
+     * downloading. For the moment, bots can download files of up to 20MB in size. On
+     * success, a <a href="https://core.telegram.org/bots/api#file">File</a> object is
+     * returned. The file can then be downloaded via the link
+     * https://api.telegram.org/file/bot<token>/<file_path>, where <file_path> is taken
+     * from the response. It is guaranteed that the link will be valid for at least 1
+     * hour. When the link expires, a new one can be requested by calling <a
+     * href="https://core.telegram.org/bots/api#getfile">getFile</a> again.
+     *
+     * @param GetFile|array{
+     *   file_id: string
+     * } $dto
+     *
+     * @return File
+     */
+    public function getFile(GetFile|array $dto): File;
 
     /**
      * Use this method to ban a user in a group, a supergroup or a channel. In the case
@@ -529,6 +1181,105 @@ interface TelegramBotInterface
     public function exportChatInviteLink(ExportChatInviteLink|array $dto): string;
 
     /**
+     * Use this method to create an additional invite link for a chat. The bot must be
+     * an administrator in the chat for this to work and must have the appropriate
+     * administrator rights. The link can be revoked using the method <a
+     * href="https://core.telegram.org/bots/api#revokechatinvitelink">revokeChatInviteLink</a>.
+     * Returns the new invite link as <a
+     * href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a>
+     * object.
+     *
+     * @param CreateChatInviteLink|array{
+     *   chat_id: int|string|array,
+     *   name?: string,
+     *   expire_date?: int,
+     *   member_limit?: int,
+     *   creates_join_request?: bool
+     * } $dto
+     *
+     * @return ChatInviteLink
+     */
+    public function createChatInviteLink(CreateChatInviteLink|array $dto): ChatInviteLink;
+
+    /**
+     * Use this method to edit a non-primary invite link created by the bot. The bot
+     * must be an administrator in the chat for this to work and must have the
+     * appropriate administrator rights. Returns the edited invite link as a <a
+     * href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a>
+     * object.
+     *
+     * @param EditChatInviteLink|array{
+     *   chat_id: int|string|array,
+     *   invite_link: string,
+     *   name?: string,
+     *   expire_date?: int,
+     *   member_limit?: int,
+     *   creates_join_request?: bool
+     * } $dto
+     *
+     * @return ChatInviteLink
+     */
+    public function editChatInviteLink(EditChatInviteLink|array $dto): ChatInviteLink;
+
+    /**
+     * Use this method to create a <a
+     * href="https://telegram.org/blog/superchannels-star-reactions-subscriptions#star-subscriptions">subscription
+     * invite link</a> for a channel chat. The bot must have the
+     * <em>can_invite_users</em> administrator rights. The link can be edited using the
+     * method <a
+     * href="https://core.telegram.org/bots/api#editchatsubscriptioninvitelink">editChatSubscriptionInviteLink</a>
+     * or revoked using the method <a
+     * href="https://core.telegram.org/bots/api#revokechatinvitelink">revokeChatInviteLink</a>.
+     * Returns the new invite link as a <a
+     * href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a>
+     * object.
+     *
+     * @param CreateChatSubscriptionInviteLink|array{
+     *   chat_id: int|string|array,
+     *   name?: string,
+     *   subscription_period: int,
+     *   subscription_price: int
+     * } $dto
+     *
+     * @return ChatInviteLink
+     */
+    public function createChatSubscriptionInviteLink(CreateChatSubscriptionInviteLink|array $dto): ChatInviteLink;
+
+    /**
+     * Use this method to edit a subscription invite link created by the bot. The bot
+     * must have the <em>can_invite_users</em> administrator rights. Returns the edited
+     * invite link as a <a
+     * href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a>
+     * object.
+     *
+     * @param EditChatSubscriptionInviteLink|array{
+     *   chat_id: int|string|array,
+     *   invite_link: string,
+     *   name?: string
+     * } $dto
+     *
+     * @return ChatInviteLink
+     */
+    public function editChatSubscriptionInviteLink(EditChatSubscriptionInviteLink|array $dto): ChatInviteLink;
+
+    /**
+     * Use this method to revoke an invite link created by the bot. If the primary link
+     * is revoked, a new link is automatically generated. The bot must be an
+     * administrator in the chat for this to work and must have the appropriate
+     * administrator rights. Returns the revoked invite link as <a
+     * href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a>
+     * object.
+     *
+     * @param RevokeChatInviteLink|array{
+     *   chat_id: int|string|array,
+     *   invite_link: string
+     * } $dto
+     *
+     * @return ChatInviteLink
+     */
+    public function revokeChatInviteLink(RevokeChatInviteLink|array $dto): ChatInviteLink;
+
+    /**
      * Use this method to approve a chat join request. The bot must be an administrator
      * in the chat for this to work and must have the <em>can_invite_users</em>
      * administrator right. Returns <em>True</em> on success.
@@ -676,6 +1427,19 @@ interface TelegramBotInterface
     public function leaveChat(LeaveChat|array $dto): true;
 
     /**
+     * Use this method to get up-to-date information about the chat. Returns a <a
+     * href="https://core.telegram.org/bots/api#chatfullinfo">ChatFullInfo</a> object
+     * on success.
+     *
+     * @param GetChat|array{
+     *   chat_id: int|string|array
+     * } $dto
+     *
+     * @return ChatFullInfo
+     */
+    public function getChat(GetChat|array $dto): ChatFullInfo;
+
+    /**
      * Use this method to get a list of administrators in a chat, which aren't bots.
      * Returns an Array of <a
      * href="https://core.telegram.org/bots/api#chatmember">ChatMember</a> objects.
@@ -699,6 +1463,21 @@ interface TelegramBotInterface
      * @return int
      */
     public function getChatMemberCount(GetChatMemberCount|array $dto): int;
+
+    /**
+     * Use this method to get information about a member of a chat. The method is only
+     * guaranteed to work for other users if the bot is an administrator in the chat.
+     * Returns a <a href="https://core.telegram.org/bots/api#chatmember">ChatMember</a>
+     * object on success.
+     *
+     * @param GetChatMember|array{
+     *   chat_id: int|string|array,
+     *   user_id: int
+     * } $dto
+     *
+     * @return ChatMember
+     */
+    public function getChatMember(GetChatMember|array $dto): ChatMember;
 
     /**
      * Use this method to set a new group sticker set for a supergroup. The bot must be
@@ -741,6 +1520,24 @@ interface TelegramBotInterface
      * @return Sticker[]
      */
     public function getForumTopicIconStickers(): array;
+
+    /**
+     * Use this method to create a topic in a forum supergroup chat or a private chat
+     * with a user. In the case of a supergroup chat the bot must be an administrator
+     * in the chat for this to work and must have the <em>can_manage_topics</em>
+     * administrator right. Returns information about the created topic as a <a
+     * href="https://core.telegram.org/bots/api#forumtopic">ForumTopic</a> object.
+     *
+     * @param CreateForumTopic|array{
+     *   chat_id: int|string|array,
+     *   name: string,
+     *   icon_color?: int,
+     *   icon_custom_emoji_id?: string
+     * } $dto
+     *
+     * @return ForumTopic
+     */
+    public function createForumTopic(CreateForumTopic|array $dto): ForumTopic;
 
     /**
      * Use this method to edit name and icon of a topic in a forum supergroup chat or a
@@ -931,6 +1728,35 @@ interface TelegramBotInterface
     public function answerCallbackQuery(AnswerCallbackQuery|array $dto): true;
 
     /**
+     * Use this method to get the list of boosts added to a chat by a user. Requires
+     * administrator rights in the chat. Returns a <a
+     * href="https://core.telegram.org/bots/api#userchatboosts">UserChatBoosts</a>
+     * object.
+     *
+     * @param GetUserChatBoosts|array{
+     *   chat_id: int|string|array,
+     *   user_id: int
+     * } $dto
+     *
+     * @return UserChatBoosts
+     */
+    public function getUserChatBoosts(GetUserChatBoosts|array $dto): UserChatBoosts;
+
+    /**
+     * Use this method to get information about the connection of the bot with a
+     * business account. Returns a <a
+     * href="https://core.telegram.org/bots/api#businessconnection">BusinessConnection</a>
+     * object on success.
+     *
+     * @param GetBusinessConnection|array{
+     *   business_connection_id: string
+     * } $dto
+     *
+     * @return BusinessConnection
+     */
+    public function getBusinessConnection(GetBusinessConnection|array $dto): BusinessConnection;
+
+    /**
      * Use this method to change the list of the bot's commands. See <a
      * href="https://core.telegram.org/bots/features#commands">this manual</a> for more
      * details about bot commands. Returns <em>True</em> on success.
@@ -989,6 +1815,18 @@ interface TelegramBotInterface
     public function setMyName(SetMyName|array $dto): true;
 
     /**
+     * Use this method to get the current bot name for the given user language. Returns
+     * <a href="https://core.telegram.org/bots/api#botname">BotName</a> on success.
+     *
+     * @param GetMyName|array{
+     *   language_code?: string
+     * } $dto
+     *
+     * @return BotName
+     */
+    public function getMyName(GetMyName|array $dto): BotName;
+
+    /**
      * Use this method to change the bot's description, which is shown in the chat with
      * the bot if the chat is empty. Returns <em>True</em> on success.
      *
@@ -1000,6 +1838,20 @@ interface TelegramBotInterface
      * @return true
      */
     public function setMyDescription(SetMyDescription|array $dto): true;
+
+    /**
+     * Use this method to get the current bot description for the given user language.
+     * Returns <a
+     * href="https://core.telegram.org/bots/api#botdescription">BotDescription</a> on
+     * success.
+     *
+     * @param GetMyDescription|array{
+     *   language_code?: string
+     * } $dto
+     *
+     * @return BotDescription
+     */
+    public function getMyDescription(GetMyDescription|array $dto): BotDescription;
 
     /**
      * Use this method to change the bot's short description, which is shown on the
@@ -1014,6 +1866,20 @@ interface TelegramBotInterface
      * @return true
      */
     public function setMyShortDescription(SetMyShortDescription|array $dto): true;
+
+    /**
+     * Use this method to get the current bot short description for the given user
+     * language. Returns <a
+     * href="https://core.telegram.org/bots/api#botshortdescription">BotShortDescription</a>
+     * on success.
+     *
+     * @param GetMyShortDescription|array{
+     *   language_code?: string
+     * } $dto
+     *
+     * @return BotShortDescription
+     */
+    public function getMyShortDescription(GetMyShortDescription|array $dto): BotShortDescription;
 
     /**
      * Changes the profile photo of the bot. Returns <em>True</em> on success.
@@ -1048,6 +1914,19 @@ interface TelegramBotInterface
     public function setChatMenuButton(SetChatMenuButton|array $dto): true;
 
     /**
+     * Use this method to get the current value of the bot's menu button in a private
+     * chat, or the default menu button. Returns <a
+     * href="https://core.telegram.org/bots/api#menubutton">MenuButton</a> on success.
+     *
+     * @param GetChatMenuButton|array{
+     *   chat_id?: int
+     * } $dto
+     *
+     * @return MenuButton
+     */
+    public function getChatMenuButton(GetChatMenuButton|array $dto): MenuButton;
+
+    /**
      * Use this method to change the default administrator rights requested by the bot
      * when it's added as an administrator to groups or channels. These rights will be
      * suggested to users, but they are free to modify the list before adding the bot.
@@ -1061,6 +1940,31 @@ interface TelegramBotInterface
      * @return true
      */
     public function setMyDefaultAdministratorRights(SetMyDefaultAdministratorRights|array $dto): true;
+
+    /**
+     * Use this method to get the current default administrator rights of the bot.
+     * Returns <a
+     * href="https://core.telegram.org/bots/api#chatadministratorrights">ChatAdministratorRights</a>
+     * on success.
+     *
+     * @param GetMyDefaultAdministratorRights|array{
+     *   for_channels?: bool
+     * } $dto
+     *
+     * @return ChatAdministratorRights
+     */
+    public function getMyDefaultAdministratorRights(
+        GetMyDefaultAdministratorRights|array $dto,
+    ): ChatAdministratorRights;
+
+    /**
+     * Returns the list of gifts that can be sent by the bot to users and channel
+     * chats. Requires no parameters. Returns a <a
+     * href="https://core.telegram.org/bots/api#gifts">Gifts</a> object.
+     *
+     * @return Gifts
+     */
+    public function getAvailableGifts(): Gifts;
 
     /**
      * Sends a gift to the given user or channel chat. The gift can't be converted to
@@ -1268,6 +2172,19 @@ interface TelegramBotInterface
     public function setBusinessAccountGiftSettings(SetBusinessAccountGiftSettings|array $dto): true;
 
     /**
+     * Returns the amount of Telegram Stars owned by a managed business account.
+     * Requires the <em>can_view_gifts_and_stars</em> business bot right. Returns <a
+     * href="https://core.telegram.org/bots/api#staramount">StarAmount</a> on success.
+     *
+     * @param GetBusinessAccountStarBalance|array{
+     *   business_connection_id: string
+     * } $dto
+     *
+     * @return StarAmount
+     */
+    public function getBusinessAccountStarBalance(GetBusinessAccountStarBalance|array $dto): StarAmount;
+
+    /**
      * Transfers Telegram Stars from the business account balance to the bot's balance.
      * Requires the <em>can_transfer_stars</em> business bot right. Returns
      * <em>True</em> on success.
@@ -1280,6 +2197,71 @@ interface TelegramBotInterface
      * @return true
      */
     public function transferBusinessAccountStars(TransferBusinessAccountStars|array $dto): true;
+
+    /**
+     * Returns the gifts received and owned by a managed business account. Requires the
+     * <em>can_view_gifts_and_stars</em> business bot right. Returns <a
+     * href="https://core.telegram.org/bots/api#ownedgifts">OwnedGifts</a> on success.
+     *
+     * @param GetBusinessAccountGifts|array{
+     *   business_connection_id: string,
+     *   exclude_unsaved?: bool,
+     *   exclude_saved?: bool,
+     *   exclude_unlimited?: bool,
+     *   exclude_limited_upgradable?: bool,
+     *   exclude_limited_non_upgradable?: bool,
+     *   exclude_unique?: bool,
+     *   exclude_from_blockchain?: bool,
+     *   sort_by_price?: bool,
+     *   offset?: string,
+     *   limit?: int
+     * } $dto
+     *
+     * @return OwnedGifts
+     */
+    public function getBusinessAccountGifts(GetBusinessAccountGifts|array $dto): OwnedGifts;
+
+    /**
+     * Returns the gifts owned and hosted by a user. Returns <a
+     * href="https://core.telegram.org/bots/api#ownedgifts">OwnedGifts</a> on success.
+     *
+     * @param GetUserGifts|array{
+     *   user_id: int,
+     *   exclude_unlimited?: bool,
+     *   exclude_limited_upgradable?: bool,
+     *   exclude_limited_non_upgradable?: bool,
+     *   exclude_from_blockchain?: bool,
+     *   exclude_unique?: bool,
+     *   sort_by_price?: bool,
+     *   offset?: string,
+     *   limit?: int
+     * } $dto
+     *
+     * @return OwnedGifts
+     */
+    public function getUserGifts(GetUserGifts|array $dto): OwnedGifts;
+
+    /**
+     * Returns the gifts owned by a chat. Returns <a
+     * href="https://core.telegram.org/bots/api#ownedgifts">OwnedGifts</a> on success.
+     *
+     * @param GetChatGifts|array{
+     *   chat_id: int|string|array,
+     *   exclude_unsaved?: bool,
+     *   exclude_saved?: bool,
+     *   exclude_unlimited?: bool,
+     *   exclude_limited_upgradable?: bool,
+     *   exclude_limited_non_upgradable?: bool,
+     *   exclude_from_blockchain?: bool,
+     *   exclude_unique?: bool,
+     *   sort_by_price?: bool,
+     *   offset?: string,
+     *   limit?: int
+     * } $dto
+     *
+     * @return OwnedGifts
+     */
+    public function getChatGifts(GetChatGifts|array $dto): OwnedGifts;
 
     /**
      * Converts a given regular gift to Telegram Stars. Requires the
@@ -1330,6 +2312,66 @@ interface TelegramBotInterface
     public function transferGift(TransferGift|array $dto): true;
 
     /**
+     * Posts a story on behalf of a managed business account. Requires the
+     * <em>can_manage_stories</em> business bot right. Returns <a
+     * href="https://core.telegram.org/bots/api#story">Story</a> on success.
+     *
+     * @param PostStory|array{
+     *   business_connection_id: string,
+     *   content: InputStoryContent|array,
+     *   active_period: int,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   areas?: StoryArea[]|array,
+     *   post_to_chat_page?: bool,
+     *   protect_content?: bool
+     * } $dto
+     *
+     * @return Story
+     */
+    public function postStory(PostStory|array $dto): Story;
+
+    /**
+     * Reposts a story on behalf of a business account from another business account.
+     * Both business accounts must be managed by the same bot, and the story on the
+     * source account must have been posted (or reposted) by the bot. Requires the
+     * <em>can_manage_stories</em> business bot right for both business accounts.
+     * Returns <a href="https://core.telegram.org/bots/api#story">Story</a> on success.
+     *
+     * @param RepostStory|array{
+     *   business_connection_id: string,
+     *   from_chat_id: int,
+     *   from_story_id: int,
+     *   active_period: int,
+     *   post_to_chat_page?: bool,
+     *   protect_content?: bool
+     * } $dto
+     *
+     * @return Story
+     */
+    public function repostStory(RepostStory|array $dto): Story;
+
+    /**
+     * Edits a story previously posted by the bot on behalf of a managed business
+     * account. Requires the <em>can_manage_stories</em> business bot right. Returns <a
+     * href="https://core.telegram.org/bots/api#story">Story</a> on success.
+     *
+     * @param EditStory|array{
+     *   business_connection_id: string,
+     *   story_id: int,
+     *   content: InputStoryContent|array,
+     *   caption?: string,
+     *   parse_mode?: string,
+     *   caption_entities?: MessageEntity[]|array,
+     *   areas?: StoryArea[]|array
+     * } $dto
+     *
+     * @return Story
+     */
+    public function editStory(EditStory|array $dto): Story;
+
+    /**
      * Deletes a story previously posted by the bot on behalf of a managed business
      * account. Requires the <em>can_manage_stories</em> business bot right. Returns
      * <em>True</em> on success.
@@ -1364,9 +2406,9 @@ interface TelegramBotInterface
      *   reply_markup?: InlineKeyboardMarkup|array
      * } $dto
      *
-     * @return true
+     * @return true|Message
      */
-    public function editMessageText(EditMessageText|array $dto): true;
+    public function editMessageText(EditMessageText|array $dto): true|Message;
 
     /**
      * Use this method to edit captions of messages. On success, if the edited message
@@ -1388,9 +2430,9 @@ interface TelegramBotInterface
      *   reply_markup?: InlineKeyboardMarkup|array
      * } $dto
      *
-     * @return true
+     * @return true|Message
      */
-    public function editMessageCaption(EditMessageCaption|array $dto): true;
+    public function editMessageCaption(EditMessageCaption|array $dto): true|Message;
 
     /**
      * Use this method to edit animation, audio, document, photo, or video messages, or
@@ -1413,9 +2455,9 @@ interface TelegramBotInterface
      *   reply_markup?: InlineKeyboardMarkup|array
      * } $dto
      *
-     * @return true
+     * @return true|Message
      */
-    public function editMessageMedia(EditMessageMedia|array $dto): true;
+    public function editMessageMedia(EditMessageMedia|array $dto): true|Message;
 
     /**
      * Use this method to edit live location messages. A location can be edited until
@@ -1440,9 +2482,9 @@ interface TelegramBotInterface
      *   reply_markup?: InlineKeyboardMarkup|array
      * } $dto
      *
-     * @return true
+     * @return true|Message
      */
-    public function editMessageLiveLocation(EditMessageLiveLocation|array $dto): true;
+    public function editMessageLiveLocation(EditMessageLiveLocation|array $dto): true|Message;
 
     /**
      * Use this method to stop updating a live location message before
@@ -1459,9 +2501,26 @@ interface TelegramBotInterface
      *   reply_markup?: InlineKeyboardMarkup|array
      * } $dto
      *
-     * @return true
+     * @return true|Message
      */
-    public function stopMessageLiveLocation(StopMessageLiveLocation|array $dto): true;
+    public function stopMessageLiveLocation(StopMessageLiveLocation|array $dto): true|Message;
+
+    /**
+     * Use this method to edit a checklist on behalf of a connected business account.
+     * On success, the edited <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param EditMessageChecklist|array{
+     *   business_connection_id: string,
+     *   chat_id: int,
+     *   message_id: int,
+     *   checklist: InputChecklist|array,
+     *   reply_markup?: InlineKeyboardMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function editMessageChecklist(EditMessageChecklist|array $dto): Message;
 
     /**
      * Use this method to edit only the reply markup of messages. On success, if the
@@ -1479,9 +2538,24 @@ interface TelegramBotInterface
      *   reply_markup?: InlineKeyboardMarkup|array
      * } $dto
      *
-     * @return true
+     * @return true|Message
      */
-    public function editMessageReplyMarkup(EditMessageReplyMarkup|array $dto): true;
+    public function editMessageReplyMarkup(EditMessageReplyMarkup|array $dto): true|Message;
+
+    /**
+     * Use this method to stop a poll which was sent by the bot. On success, the
+     * stopped <a href="https://core.telegram.org/bots/api#poll">Poll</a> is returned.
+     *
+     * @param StopPoll|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_id: int,
+     *   reply_markup?: InlineKeyboardMarkup|array
+     * } $dto
+     *
+     * @return Poll
+     */
+    public function stopPoll(StopPoll|array $dto): Poll;
 
     /**
      * Use this method to approve a suggested post in a direct messages chat. The bot
@@ -1552,6 +2626,46 @@ interface TelegramBotInterface
     public function deleteMessages(DeleteMessages|array $dto): true;
 
     /**
+     * Use this method to send static .WEBP, <a
+     * href="https://telegram.org/blog/animated-stickers">animated</a> .TGS, or <a
+     * href="https://telegram.org/blog/video-stickers-better-reactions">video</a> .WEBM
+     * stickers. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendSticker|array{
+     *   business_connection_id?: string,
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   sticker: InputFile|array|string|array,
+     *   emoji?: string,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: ReplyMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendSticker(SendSticker|array $dto): Message;
+
+    /**
+     * Use this method to get a sticker set. On success, a <a
+     * href="https://core.telegram.org/bots/api#stickerset">StickerSet</a> object is
+     * returned.
+     *
+     * @param GetStickerSet|array{
+     *   name: string
+     * } $dto
+     *
+     * @return StickerSet
+     */
+    public function getStickerSet(GetStickerSet|array $dto): StickerSet;
+
+    /**
      * Use this method to get information about custom emoji stickers by their
      * identifiers. Returns an Array of <a
      * href="https://core.telegram.org/bots/api#sticker">Sticker</a> objects.
@@ -1563,6 +2677,26 @@ interface TelegramBotInterface
      * @return Sticker[]
      */
     public function getCustomEmojiStickers(GetCustomEmojiStickers|array $dto): array;
+
+    /**
+     * Use this method to upload a file with a sticker for later use in the <a
+     * href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>,
+     * <a
+     * href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>,
+     * or <a
+     * href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a>
+     * methods (the file can be used multiple times). Returns the uploaded <a
+     * href="https://core.telegram.org/bots/api#file">File</a> on success.
+     *
+     * @param UploadStickerFile|array{
+     *   user_id: int,
+     *   sticker: InputFile|array,
+     *   sticker_format: string
+     * } $dto
+     *
+     * @return File
+     */
+    public function uploadStickerFile(UploadStickerFile|array $dto): File;
 
     /**
      * Use this method to create a new sticker set owned by a user. The bot will be
@@ -1757,6 +2891,83 @@ interface TelegramBotInterface
     public function answerInlineQuery(AnswerInlineQuery|array $dto): true;
 
     /**
+     * Use this method to set the result of an interaction with a <a
+     * href="https://core.telegram.org/bots/webapps">Web App</a> and send a
+     * corresponding message on behalf of the user to the chat from which the query
+     * originated. On success, a <a
+     * href="https://core.telegram.org/bots/api#sentwebappmessage">SentWebAppMessage</a>
+     * object is returned.
+     *
+     * @param AnswerWebAppQuery|array{
+     *   web_app_query_id: string,
+     *   result: InlineQueryResult|array
+     * } $dto
+     *
+     * @return SentWebAppMessage
+     */
+    public function answerWebAppQuery(AnswerWebAppQuery|array $dto): SentWebAppMessage;
+
+    /**
+     * Stores a message that can be sent by a user of a Mini App. Returns a <a
+     * href="https://core.telegram.org/bots/api#preparedinlinemessage">PreparedInlineMessage</a>
+     * object.
+     *
+     * @param SavePreparedInlineMessage|array{
+     *   user_id: int,
+     *   result: InlineQueryResult|array,
+     *   allow_user_chats?: bool,
+     *   allow_bot_chats?: bool,
+     *   allow_group_chats?: bool,
+     *   allow_channel_chats?: bool
+     * } $dto
+     *
+     * @return PreparedInlineMessage
+     */
+    public function savePreparedInlineMessage(SavePreparedInlineMessage|array $dto): PreparedInlineMessage;
+
+    /**
+     * Use this method to send invoices. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendInvoice|array{
+     *   chat_id: int|string|array,
+     *   message_thread_id?: int,
+     *   direct_messages_topic_id?: int,
+     *   title: string,
+     *   description: string,
+     *   payload: string,
+     *   provider_token?: string,
+     *   currency: string,
+     *   prices: LabeledPrice[]|array,
+     *   max_tip_amount?: int,
+     *   suggested_tip_amounts?: array,
+     *   start_parameter?: string,
+     *   provider_data?: string,
+     *   photo_url?: string,
+     *   photo_size?: int,
+     *   photo_width?: int,
+     *   photo_height?: int,
+     *   need_name?: bool,
+     *   need_phone_number?: bool,
+     *   need_email?: bool,
+     *   need_shipping_address?: bool,
+     *   send_phone_number_to_provider?: bool,
+     *   send_email_to_provider?: bool,
+     *   is_flexible?: bool,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   suggested_post_parameters?: SuggestedPostParameters|array,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: InlineKeyboardMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendInvoice(SendInvoice|array $dto): Message;
+
+    /**
      * Use this method to create a link for an invoice. Returns the created invoice
      * link as <em>String</em> on success.
      *
@@ -1826,6 +3037,30 @@ interface TelegramBotInterface
     public function answerPreCheckoutQuery(AnswerPreCheckoutQuery|array $dto): true;
 
     /**
+     * A method to get the current Telegram Stars balance of the bot. Requires no
+     * parameters. On success, returns a <a
+     * href="https://core.telegram.org/bots/api#staramount">StarAmount</a> object.
+     *
+     * @return StarAmount
+     */
+    public function getMyStarBalance(): StarAmount;
+
+    /**
+     * Returns the bot's Telegram Star transactions in chronological order. On success,
+     * returns a <a
+     * href="https://core.telegram.org/bots/api#startransactions">StarTransactions</a>
+     * object.
+     *
+     * @param GetStarTransactions|array{
+     *   offset?: int,
+     *   limit?: int
+     * } $dto
+     *
+     * @return StarTransactions
+     */
+    public function getStarTransactions(GetStarTransactions|array $dto): StarTransactions;
+
+    /**
      * Refunds a successful payment in <a href="https://t.me/BotNews/90">Telegram
      * Stars</a>. Returns <em>True</em> on success.
      *
@@ -1873,6 +3108,27 @@ interface TelegramBotInterface
     public function setPassportDataErrors(SetPassportDataErrors|array $dto): true;
 
     /**
+     * Use this method to send a game. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendGame|array{
+     *   business_connection_id?: string,
+     *   chat_id: int,
+     *   message_thread_id?: int,
+     *   game_short_name: string,
+     *   disable_notification?: bool,
+     *   protect_content?: bool,
+     *   allow_paid_broadcast?: bool,
+     *   message_effect_id?: string,
+     *   reply_parameters?: ReplyParameters|array,
+     *   reply_markup?: InlineKeyboardMarkup|array
+     * } $dto
+     *
+     * @return Message
+     */
+    public function sendGame(SendGame|array $dto): Message;
+
+    /**
      * Use this method to set the score of the specified user in a game message. On
      * success, if the message is not an inline message, the <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned,
@@ -1890,9 +3146,9 @@ interface TelegramBotInterface
      *   inline_message_id?: string
      * } $dto
      *
-     * @return bool
+     * @return Message|bool
      */
-    public function setGameScore(SetGameScore|array $dto): bool;
+    public function setGameScore(SetGameScore|array $dto): Message|bool;
 
     /**
      * Use this method to get data for high score tables. Will return the score of the

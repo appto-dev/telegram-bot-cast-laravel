@@ -29,9 +29,9 @@ final class EditForumTopic extends Dto implements TelegramBotDto
         public ?string $name,
         /**
          * New unique identifier of the custom emoji shown as the topic icon. Use <a
-         * href="https://core.telegram.org/bots/api#getforumtopiciconstickers">getForumTopicIconStickers</a>
-         * to get all allowed custom emoji identifiers. Pass an empty string to remove the
-         * icon. If not specified, the current icon will be kept
+         * href="#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all
+         * allowed custom emoji identifiers. Pass an empty string to remove the icon. If
+         * not specified, the current icon will be kept
          */
         public ?string $icon_custom_emoji_id,
     ) {

@@ -27,8 +27,7 @@ final class SendMessageDraft extends Dto implements TelegramBotDto
         public string $text,
         /**
          * Mode for parsing entities in the message text. See <a
-         * href="https://core.telegram.org/bots/api#formatting-options">formatting
-         * options</a> for more details.
+         * href="#formatting-options">formatting options</a> for more details.
          */
         public ?string $parse_mode,
         /**

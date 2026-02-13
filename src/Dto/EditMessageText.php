@@ -45,8 +45,7 @@ final class EditMessageText extends Dto implements TelegramBotDto
         public string $text,
         /**
          * Mode for parsing entities in the message text. See <a
-         * href="https://core.telegram.org/bots/api#formatting-options">formatting
-         * options</a> for more details.
+         * href="#formatting-options">formatting options</a> for more details.
          */
         public ?string $parse_mode,
         /**
@@ -57,8 +56,7 @@ final class EditMessageText extends Dto implements TelegramBotDto
         /** Link preview generation options for the message */
         public ?LinkPreviewOptions $link_preview_options,
         /**
-         * A JSON-serialized object for an <a
-         * href="https://core.telegram.org/bots/features#inline-keyboards">inline
+         * A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
          * keyboard</a>.
          */
         public ?InlineKeyboardMarkup $reply_markup,

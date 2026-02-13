@@ -39,8 +39,7 @@ final class EditMessageReplyMarkup extends Dto implements TelegramBotDto
          */
         public ?string $inline_message_id,
         /**
-         * A JSON-serialized object for an <a
-         * href="https://core.telegram.org/bots/features#inline-keyboards">inline
+         * A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
          * keyboard</a>.
          */
         public ?InlineKeyboardMarkup $reply_markup,

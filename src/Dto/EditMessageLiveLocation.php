@@ -66,8 +66,7 @@ final class EditMessageLiveLocation extends Dto implements TelegramBotDto
         public ?int $proximity_alert_radius,
         /**
          * A JSON-serialized object for a new <a
-         * href="https://core.telegram.org/bots/features#inline-keyboards">inline
-         * keyboard</a>.
+         * href="/bots/features#inline-keyboards">inline keyboard</a>.
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

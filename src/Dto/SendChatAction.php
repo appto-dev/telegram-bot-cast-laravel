@@ -40,22 +40,15 @@ final class SendChatAction extends Dto implements TelegramBotDto
         public ?int $message_thread_id,
         /**
          * Type of action to broadcast. Choose one, depending on what the user is about to
-         * receive: <em>typing</em> for <a
-         * href="https://core.telegram.org/bots/api#sendmessage">text messages</a>,
-         * <em>upload_photo</em> for <a
-         * href="https://core.telegram.org/bots/api#sendphoto">photos</a>,
-         * <em>record_video</em> or <em>upload_video</em> for <a
-         * href="https://core.telegram.org/bots/api#sendvideo">videos</a>,
-         * <em>record_voice</em> or <em>upload_voice</em> for <a
-         * href="https://core.telegram.org/bots/api#sendvoice">voice notes</a>,
-         * <em>upload_document</em> for <a
-         * href="https://core.telegram.org/bots/api#senddocument">general files</a>,
-         * <em>choose_sticker</em> for <a
-         * href="https://core.telegram.org/bots/api#sendsticker">stickers</a>,
-         * <em>find_location</em> for <a
-         * href="https://core.telegram.org/bots/api#sendlocation">location data</a>,
+         * receive: <em>typing</em> for <a href="#sendmessage">text messages</a>,
+         * <em>upload_photo</em> for <a href="#sendphoto">photos</a>, <em>record_video</em>
+         * or <em>upload_video</em> for <a href="#sendvideo">videos</a>,
+         * <em>record_voice</em> or <em>upload_voice</em> for <a href="#sendvoice">voice
+         * notes</a>, <em>upload_document</em> for <a href="#senddocument">general
+         * files</a>, <em>choose_sticker</em> for <a href="#sendsticker">stickers</a>,
+         * <em>find_location</em> for <a href="#sendlocation">location data</a>,
          * <em>record_video_note</em> or <em>upload_video_note</em> for <a
-         * href="https://core.telegram.org/bots/api#sendvideonote">video notes</a>.
+         * href="#sendvideonote">video notes</a>.
          */
         public string $action,
     ) {

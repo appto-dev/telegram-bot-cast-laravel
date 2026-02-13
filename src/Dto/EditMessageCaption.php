@@ -43,8 +43,7 @@ final class EditMessageCaption extends Dto implements TelegramBotDto
         public ?string $caption,
         /**
          * Mode for parsing entities in the message caption. See <a
-         * href="https://core.telegram.org/bots/api#formatting-options">formatting
-         * options</a> for more details.
+         * href="#formatting-options">formatting options</a> for more details.
          */
         public ?string $parse_mode,
         /**
@@ -58,8 +57,7 @@ final class EditMessageCaption extends Dto implements TelegramBotDto
          */
         public ?bool $show_caption_above_media,
         /**
-         * A JSON-serialized object for an <a
-         * href="https://core.telegram.org/bots/features#inline-keyboards">inline
+         * A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
          * keyboard</a>.
          */
         public ?InlineKeyboardMarkup $reply_markup,

@@ -39,8 +39,7 @@ final class StopMessageLiveLocation extends Dto implements TelegramBotDto
         public ?string $inline_message_id,
         /**
          * A JSON-serialized object for a new <a
-         * href="https://core.telegram.org/bots/features#inline-keyboards">inline
-         * keyboard</a>.
+         * href="/bots/features#inline-keyboards">inline keyboard</a>.
          */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {

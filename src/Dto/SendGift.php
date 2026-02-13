@@ -35,9 +35,9 @@ final class SendGift extends Dto implements TelegramBotDto
         public ?string $text,
         /**
          * Mode for parsing entities in the text. See <a
-         * href="https://core.telegram.org/bots/api#formatting-options">formatting
-         * options</a> for more details. Entities other than "bold", "italic", "underline",
-         * "strikethrough", "spoiler", and "custom_emoji" are ignored.
+         * href="#formatting-options">formatting options</a> for more details. Entities
+         * other than "bold", "italic", "underline", "strikethrough", "spoiler", and
+         * "custom_emoji" are ignored.
          */
         public ?string $text_parse_mode,
         /**

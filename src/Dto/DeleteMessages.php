@@ -20,8 +20,8 @@ final class DeleteMessages extends Dto implements TelegramBotDto
         public int|string $chat_id,
         /**
          * A JSON-serialized list of 1-100 identifiers of messages to delete. See <a
-         * href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for
-         * limitations on which messages can be deleted
+         * href="#deletemessage">deleteMessage</a> for limitations on which messages can be
+         * deleted
          */
         public array $message_ids,
     ) {

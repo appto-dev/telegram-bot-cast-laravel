@@ -36,9 +36,8 @@ final class CreateInvoiceLink extends Dto implements TelegramBotDto
         public ?string $provider_token,
         /**
          * Three-letter ISO 4217 currency code, see <a
-         * href="https://core.telegram.org/bots/payments#supported-currencies">more on
-         * currencies</a>. Pass "XTR" for payments in <a
-         * href="https://t.me/BotNews/90">Telegram Stars</a>.
+         * href="/bots/payments#supported-currencies">more on currencies</a>. Pass "XTR"
+         * for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
          */
         public string $currency,
         /**
@@ -61,9 +60,9 @@ final class CreateInvoiceLink extends Dto implements TelegramBotDto
          * currency (integer, <strong>not</strong> float/double). For example, for a
          * maximum tip of <code>US$ 1.45</code> pass <code>max_tip_amount = 145</code>. See
          * the <em>exp</em> parameter in <a
-         * href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>,
-         * it shows the number of digits past the decimal point for each currency (2 for
-         * the majority of currencies). Defaults to 0. Not supported for payments in <a
+         * href="/bots/payments/currencies.json">currencies.json</a>, it shows the number
+         * of digits past the decimal point for each currency (2 for the majority of
+         * currencies). Defaults to 0. Not supported for payments in <a
          * href="https://t.me/BotNews/90">Telegram Stars</a>.
          */
         public ?int $max_tip_amount,

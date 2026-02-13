@@ -33,11 +33,10 @@ final class AnswerCallbackQuery extends Dto implements TelegramBotDto
         public ?bool $show_alert,
         /**
          * URL that will be opened by the user's client. If you have created a <a
-         * href="https://core.telegram.org/bots/api#game">Game</a> and accepted the
-         * conditions via <a href="https://t.me/botfather">@BotFather</a>, specify the URL
-         * that opens your game - note that this will only work if the query comes from a
-         * <a
-         * href="https://core.telegram.org/bots/api#inlinekeyboardbutton"><em>callback_game</em></a>
+         * href="#game">Game</a> and accepted the conditions via <a
+         * href="https://t.me/botfather">@BotFather</a>, specify the URL that opens your
+         * game - note that this will only work if the query comes from a <a
+         * href="#inlinekeyboardbutton"><em>callback_game</em></a>
          * button.<br><br>Otherwise, you may use links like
          * <code>t.me/your_bot?start=XXXX</code> that open your bot with a parameter.
          */
