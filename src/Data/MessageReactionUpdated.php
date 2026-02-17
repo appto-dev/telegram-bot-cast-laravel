@@ -26,12 +26,12 @@ final class MessageReactionUpdated extends Data implements TelegramBotData
          * Previous list of reaction types that were set by the user
          * @var ReactionType[]
          */
-        public ReactionType $old_reaction,
+        public array $old_reaction,
         /**
          * New list of reaction types that have been set by the user
          * @var ReactionType[]
          */
-        public ReactionType $new_reaction,
+        public array $new_reaction,
     ) {
     }
 }

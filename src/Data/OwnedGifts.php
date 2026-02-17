@@ -18,7 +18,7 @@ final class OwnedGifts extends Data implements TelegramBotData
          * The list of gifts
          * @var OwnedGift[]
          */
-        public OwnedGift $gifts,
+        public array $gifts,
         /** Offset for the next request. If empty, then there are no more results */
         public ?string $next_offset,
     ) {

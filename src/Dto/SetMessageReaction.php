@@ -30,7 +30,7 @@ final class SetMessageReaction extends Dto implements TelegramBotDto
          * message or explicitly allowed by chat administrators. Paid reactions can't be used by bots.
          * @var ReactionType[]
          */
-        public ?ReactionType $reaction,
+        public ?array $reaction,
         /** Pass <em>True</em> to set the reaction with a big animation */
         public ?bool $is_big,
     ) {

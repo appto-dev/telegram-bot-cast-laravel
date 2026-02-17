@@ -3,6 +3,7 @@
 namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\LinkPreviewOptions;
+use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\ReplyMarkup;

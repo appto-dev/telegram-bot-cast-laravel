@@ -2,6 +2,7 @@
 
 namespace Appto\TelegramBot\Dto;
 
+use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\InputPaidMedia;
@@ -40,7 +41,7 @@ final class SendPaidMedia extends Dto implements TelegramBotDto
          * A JSON-serialized array describing the media to be sent; up to 10 items
          * @var InputPaidMedia[]
          */
-        public InputPaidMedia $media,
+        public array $media,
         /**
          * Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal
          * processes.

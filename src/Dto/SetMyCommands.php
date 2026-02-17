@@ -2,6 +2,7 @@
 
 namespace Appto\TelegramBot\Dto;
 
+use Appto\TelegramBot\Data\BotCommand;
 use Appto\TelegramBot\Interfaces\BotCommandScope;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;

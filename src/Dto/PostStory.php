@@ -2,6 +2,8 @@
 
 namespace Appto\TelegramBot\Dto;
 
+use Appto\TelegramBot\Data\MessageEntity;
+use Appto\TelegramBot\Data\StoryArea;
 use Appto\TelegramBot\Interfaces\InputStoryContent;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;

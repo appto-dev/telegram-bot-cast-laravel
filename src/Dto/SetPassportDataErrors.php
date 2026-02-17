@@ -24,7 +24,7 @@ final class SetPassportDataErrors extends Dto implements TelegramBotDto
          * A JSON-serialized array describing the errors
          * @var PassportElementError[]
          */
-        public PassportElementError $errors,
+        public array $errors,
     ) {
     }
 }

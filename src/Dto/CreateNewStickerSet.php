@@ -2,6 +2,7 @@
 
 namespace Appto\TelegramBot\Dto;
 
+use Appto\TelegramBot\Data\InputSticker;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 

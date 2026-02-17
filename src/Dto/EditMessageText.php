@@ -4,6 +4,7 @@ namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\InlineKeyboardMarkup;
 use Appto\TelegramBot\Data\LinkPreviewOptions;
+use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 

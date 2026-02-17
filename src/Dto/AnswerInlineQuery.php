@@ -20,7 +20,7 @@ final class AnswerInlineQuery extends Dto implements TelegramBotDto
          * A JSON-serialized array of results for the inline query
          * @var InlineQueryResult[]
          */
-        public InlineQueryResult $results,
+        public array $results,
         /**
          * The maximum amount of time in seconds that the result of the inline query may be cached on the server.
          * Defaults to 300.

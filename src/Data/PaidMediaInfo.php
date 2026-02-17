@@ -18,7 +18,7 @@ final class PaidMediaInfo extends Data implements TelegramBotData
          * Information about the paid media
          * @var PaidMedia[]
          */
-        public PaidMedia $paid_media,
+        public array $paid_media,
     ) {
     }
 }

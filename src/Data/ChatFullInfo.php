@@ -62,7 +62,7 @@ final class ChatFullInfo extends Data implements TelegramBotData
          * List of available reactions allowed in the chat. If omitted, then all emoji reactions are allowed.
          * @var ReactionType[]
          */
-        public ?ReactionType $available_reactions,
+        public ?array $available_reactions,
         /** Custom emoji identifier of the emoji chosen by the chat for the reply header and link preview background */
         public ?string $background_custom_emoji_id,
         /** Identifier of the accent color for the chat's profile background. See profile accent colors for more details. */

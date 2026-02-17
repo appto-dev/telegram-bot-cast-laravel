@@ -2,6 +2,8 @@
 
 namespace Appto\TelegramBot\Dto;
 
+use Appto\TelegramBot\Data\InputPollOption;
+use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Interfaces\ReplyMarkup;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;

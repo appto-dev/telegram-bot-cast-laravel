@@ -3,6 +3,7 @@
 namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\InlineKeyboardMarkup;
+use Appto\TelegramBot\Data\LabeledPrice;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
