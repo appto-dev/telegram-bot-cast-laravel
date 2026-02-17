@@ -1,5 +1,11 @@
 {
     "name": "appto-team/telegram-bot-cast-laravel",
+    "description": "Telegram Bot Cast Laravel",
+    "type": "library",
+    "keywords": ["laravel", "telegram", "telegram-bot", "laravel-package"],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "php": "^8.2",
         "spatie/laravel-data": "^4.10"
@@ -12,7 +18,8 @@
     "authors": [
         {
             "name": "Makhlenko Sergey",
-            "email": "mahlenko-weblive@yandex.ru"
+            "email": "sergey@appto.team"
+            "homepage": "https://appto.team"
         }
     ],
     "require-dev": {
