@@ -14,8 +14,11 @@ final class UsersShared extends Data implements TelegramBotData
     public function __construct(
         /** Identifier of the request */
         public int $request_id,
-        /** Information about users shared with the bot. */
-        public SharedUser $users,
+        /**
+         * Information about users shared with the bot.
+         * @var SharedUser[]
+         */
+        public array $users,
     ) {
     }
 }

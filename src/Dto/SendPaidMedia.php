@@ -2,7 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\InputPaidMedia;
@@ -37,7 +36,10 @@ final class SendPaidMedia extends Dto implements TelegramBotDto
         public ?int $direct_messages_topic_id,
         /** The number of Telegram Stars that must be paid to buy access to the media; 1-25000 */
         public int $star_count,
-        /** A JSON-serialized array describing the media to be sent; up to 10 items */
+        /**
+         * A JSON-serialized array describing the media to be sent; up to 10 items
+         * @var InputPaidMedia[]
+         */
         public InputPaidMedia $media,
         /**
          * Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal
@@ -54,8 +56,9 @@ final class SendPaidMedia extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can be specified instead of
          * <em>parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /** Pass <em>True</em>, if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /**

@@ -20,7 +20,10 @@ final class PassportElementErrorFiles extends Data implements TelegramBotData, P
          * "rental_agreement", "passport_registration", "temporary_registration"
          */
         public string $type,
-        /** List of base64-encoded file hashes */
+        /**
+         * List of base64-encoded file hashes
+         * @var string[]
+         */
         public array $file_hashes,
         /** Error message */
         public string $message,

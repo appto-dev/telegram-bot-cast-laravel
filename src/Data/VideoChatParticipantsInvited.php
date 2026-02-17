@@ -11,8 +11,11 @@ use Spatie\LaravelData\Data;
 final class VideoChatParticipantsInvited extends Data implements TelegramBotData
 {
     public function __construct(
-        /** New members that were invited to the video chat */
-        public User $users,
+        /**
+         * New members that were invited to the video chat
+         * @var User[]
+         */
+        public array $users,
     ) {
     }
 }

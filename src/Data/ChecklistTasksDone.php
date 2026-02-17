@@ -16,9 +16,15 @@ final class ChecklistTasksDone extends Data implements TelegramBotData
          * this field will not contain the reply_to_message field even if it itself is a reply.
          */
         public ?Message $checklist_message,
-        /** Identifiers of the tasks that were marked as done */
+        /**
+         * Identifiers of the tasks that were marked as done
+         * @var int[]
+         */
         public ?array $marked_as_done_task_ids,
-        /** Identifiers of the tasks that were marked as not done */
+        /**
+         * Identifiers of the tasks that were marked as not done
+         * @var int[]
+         */
         public ?array $marked_as_not_done_task_ids,
     ) {
     }

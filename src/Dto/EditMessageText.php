@@ -4,7 +4,6 @@ namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\InlineKeyboardMarkup;
 use Appto\TelegramBot\Data\LinkPreviewOptions;
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
@@ -39,8 +38,9 @@ final class EditMessageText extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in message text, which can be specified instead of
          * <em>parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $entities,
+        public ?array $entities,
         /** Link preview generation options for the message */
         public ?LinkPreviewOptions $link_preview_options,
         /** A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline keyboard</a>. */

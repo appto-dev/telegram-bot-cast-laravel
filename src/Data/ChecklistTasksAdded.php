@@ -16,8 +16,11 @@ final class ChecklistTasksAdded extends Data implements TelegramBotData
          * will not contain the reply_to_message field even if it itself is a reply.
          */
         public ?Message $checklist_message,
-        /** List of tasks added to the checklist */
-        public ChecklistTask $tasks,
+        /**
+         * List of tasks added to the checklist
+         * @var ChecklistTask[]
+         */
+        public array $tasks,
     ) {
     }
 }

@@ -2,8 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\MessageEntity;
-use Appto\TelegramBot\Data\StoryArea;
 use Appto\TelegramBot\Interfaces\InputStoryContent;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
@@ -34,10 +32,14 @@ final class PostStory extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can be specified instead of
          * <em>parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
-        /** A JSON-serialized list of clickable areas to be shown on the story */
-        public ?StoryArea $areas,
+        public ?array $caption_entities,
+        /**
+         * A JSON-serialized list of clickable areas to be shown on the story
+         * @var StoryArea[]
+         */
+        public ?array $areas,
         /** Pass <em>True</em> to keep the story accessible after it expires */
         public ?bool $post_to_chat_page,
         /** Pass <em>True</em> if the content of the story must be protected from forwarding and screenshotting */

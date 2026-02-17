@@ -13,8 +13,11 @@ use Spatie\LaravelData\Data;
 final class InlineKeyboardMarkup extends Data implements TelegramBotData, ReplyMarkup
 {
     public function __construct(
-        /** Array of button rows, each represented by an Array of InlineKeyboardButton objects */
-        public InlineKeyboardButton $inline_keyboard,
+        /**
+         * Array of button rows, each represented by an Array of InlineKeyboardButton objects
+         * @var InlineKeyboardButton[][]
+         */
+        public array $inline_keyboard,
     ) {
     }
 }

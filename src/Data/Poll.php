@@ -18,10 +18,14 @@ final class Poll extends Data implements TelegramBotData
         /**
          * Special entities that appear in the question. Currently, only custom emoji entities are allowed in poll
          * questions
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $question_entities,
-        /** List of poll options */
-        public PollOption $options,
+        public ?array $question_entities,
+        /**
+         * List of poll options
+         * @var PollOption[]
+         */
+        public array $options,
         /** Total number of users that voted in the poll */
         public int $total_voter_count,
         /** True, if the poll is closed */
@@ -42,8 +46,11 @@ final class Poll extends Data implements TelegramBotData
          * 0-200 characters
          */
         public ?string $explanation,
-        /** Special entities like usernames, URLs, bot commands, etc. that appear in the explanation */
-        public ?MessageEntity $explanation_entities,
+        /**
+         * Special entities like usernames, URLs, bot commands, etc. that appear in the explanation
+         * @var MessageEntity[]
+         */
+        public ?array $explanation_entities,
         /** Amount of time in seconds the poll will be active after creation */
         public ?int $open_period,
         /** Point in time (Unix timestamp) when the poll will be automatically closed */

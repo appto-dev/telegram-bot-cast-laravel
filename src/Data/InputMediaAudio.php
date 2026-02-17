@@ -32,8 +32,11 @@ final class InputMediaAudio extends Data implements TelegramBotData, InputMedia
         public ?string $caption,
         /** Mode for parsing entities in the audio caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
-        public ?MessageEntity $caption_entities,
+        /**
+         * List of special entities that appear in the caption, which can be specified instead of parse_mode
+         * @var MessageEntity[]
+         */
+        public ?array $caption_entities,
         /** Duration of the audio in seconds */
         public ?int $duration,
         /** Performer of the audio */

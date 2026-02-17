@@ -2,7 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\ShippingOption;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
@@ -22,8 +21,11 @@ final class AnswerShippingQuery extends Dto implements TelegramBotDto
          * problems (for example, if delivery to the specified address is not possible)
          */
         public bool $ok,
-        /** Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options. */
-        public ?ShippingOption $shipping_options,
+        /**
+         * Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options.
+         * @var ShippingOption[]
+         */
+        public ?array $shipping_options,
         /**
          * Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is
          * impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable"). Telegram

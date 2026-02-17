@@ -46,6 +46,7 @@ final class SetWebhook extends Dto implements TelegramBotDto
          * (default). If not specified, the previous setting will be used.<br>Please note that this parameter doesn't
          * affect updates created before the call to the setWebhook, so unwanted updates may be received for a short
          * period of time.
+         * @var string[]
          */
         public ?array $allowed_updates,
         /** Pass <em>True</em> to drop all pending updates */

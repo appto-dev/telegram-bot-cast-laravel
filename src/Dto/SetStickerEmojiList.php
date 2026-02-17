@@ -14,7 +14,10 @@ final class SetStickerEmojiList extends Dto implements TelegramBotDto
     public function __construct(
         /** File identifier of the sticker */
         public string $sticker,
-        /** A JSON-serialized list of 1-20 emoji associated with the sticker */
+        /**
+         * A JSON-serialized list of 1-20 emoji associated with the sticker
+         * @var string[]
+         */
         public array $emoji_list,
     ) {
     }

@@ -14,7 +14,10 @@ final class OwnedGifts extends Data implements TelegramBotData
     public function __construct(
         /** The total number of gifts owned by the user or the chat */
         public int $total_count,
-        /** The list of gifts */
+        /**
+         * The list of gifts
+         * @var OwnedGift[]
+         */
         public OwnedGift $gifts,
         /** Offset for the next request. If empty, then there are no more results */
         public ?string $next_offset,

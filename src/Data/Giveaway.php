@@ -11,8 +11,11 @@ use Spatie\LaravelData\Data;
 final class Giveaway extends Data implements TelegramBotData
 {
     public function __construct(
-        /** The list of chats which the user must join to participate in the giveaway */
-        public Chat $chats,
+        /**
+         * The list of chats which the user must join to participate in the giveaway
+         * @var Chat[]
+         */
+        public array $chats,
         /** Point in time (Unix timestamp) when winners of the giveaway will be selected */
         public int $winners_selection_date,
         /** The number of users which are supposed to be selected as winners of the giveaway */
@@ -27,6 +30,7 @@ final class Giveaway extends Data implements TelegramBotData
          * A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which eligible users for
          * the giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number
          * that was bought on Fragment can always participate in giveaways.
+         * @var string[]
          */
         public ?array $country_codes,
         /** The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only */

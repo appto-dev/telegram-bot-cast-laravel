@@ -26,8 +26,11 @@ final class InlineQueryResultAudio extends Data implements TelegramBotData, Inli
         public ?string $caption,
         /** Mode for parsing entities in the audio caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
-        public ?MessageEntity $caption_entities,
+        /**
+         * List of special entities that appear in the caption, which can be specified instead of parse_mode
+         * @var MessageEntity[]
+         */
+        public ?array $caption_entities,
         /** Performer */
         public ?string $performer,
         /** Audio duration in seconds */

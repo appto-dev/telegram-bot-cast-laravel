@@ -14,8 +14,11 @@ final class PaidMediaPhoto extends Data implements TelegramBotData, PaidMedia
     public function __construct(
         /** Type of the paid media, always "photo" */
         public string $type,
-        /** The photo */
-        public PhotoSize $photo,
+        /**
+         * The photo
+         * @var PhotoSize[]
+         */
+        public array $photo,
     ) {
     }
 }

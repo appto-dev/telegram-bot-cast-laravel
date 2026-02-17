@@ -2,7 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\InputSticker;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
@@ -24,8 +23,11 @@ final class CreateNewStickerSet extends Dto implements TelegramBotDto
         public string $name,
         /** Sticker set title, 1-64 characters */
         public string $title,
-        /** A JSON-serialized list of 1-50 initial stickers to be added to the sticker set */
-        public InputSticker $stickers,
+        /**
+         * A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
+         * @var InputSticker[]
+         */
+        public array $stickers,
         /**
          * Type of stickers in the set, pass "regular", "mask", or "custom_emoji". By default, a regular sticker set is
          * created.

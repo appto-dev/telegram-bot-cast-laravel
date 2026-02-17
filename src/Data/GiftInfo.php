@@ -31,8 +31,11 @@ final class GiftInfo extends Data implements TelegramBotData
         public ?true $can_be_upgraded,
         /** Text of the message that was added to the gift */
         public ?string $text,
-        /** Special entities that appear in the text */
-        public ?MessageEntity $entities,
+        /**
+         * Special entities that appear in the text
+         * @var MessageEntity[]
+         */
+        public ?array $entities,
         /**
          * True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see
          * them

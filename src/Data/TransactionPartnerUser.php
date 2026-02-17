@@ -33,7 +33,10 @@ final class TransactionPartnerUser extends Data implements TelegramBotData, Tran
         public ?string $invoice_payload,
         /** The duration of the paid subscription. Can be available only for "invoice_payment" transactions. */
         public ?int $subscription_period,
-        /** Information about the paid media bought by the user; for "paid_media_payment" transactions only */
+        /**
+         * Information about the paid media bought by the user; for "paid_media_payment" transactions only
+         * @var PaidMedia[]
+         */
         public ?PaidMedia $paid_media,
         /** Bot-specified paid media payload. Can be available only for "paid_media_payment" transactions. */
         public ?string $paid_media_payload,

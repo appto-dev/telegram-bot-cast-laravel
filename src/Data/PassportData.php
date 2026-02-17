@@ -11,8 +11,11 @@ use Spatie\LaravelData\Data;
 final class PassportData extends Data implements TelegramBotData
 {
     public function __construct(
-        /** Array with information about documents and other Telegram Passport elements that was shared with the bot */
-        public EncryptedPassportElement $data,
+        /**
+         * Array with information about documents and other Telegram Passport elements that was shared with the bot
+         * @var EncryptedPassportElement[]
+         */
+        public array $data,
         /** Encrypted credentials required to decrypt the data */
         public EncryptedCredentials $credentials,
     ) {

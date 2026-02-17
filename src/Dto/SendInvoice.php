@@ -3,7 +3,6 @@
 namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\InlineKeyboardMarkup;
-use Appto\TelegramBot\Data\LabeledPrice;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
@@ -54,8 +53,9 @@ final class SendInvoice extends Dto implements TelegramBotDto
          * Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost,
          * delivery tax, bonus, etc.). Must contain exactly one item for payments in <a
          * href="https://t.me/BotNews/90">Telegram Stars</a>.
+         * @var LabeledPrice[]
          */
-        public LabeledPrice $prices,
+        public array $prices,
         /**
          * The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer,
          * <strong>not</strong> float/double). For example, for a maximum tip of <code>US$ 1.45</code> pass
@@ -69,6 +69,7 @@ final class SendInvoice extends Dto implements TelegramBotDto
          * A JSON-serialized array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer,
          * <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip
          * amounts must be positive, passed in a strictly increased order and must not exceed <em>max_tip_amount</em>.
+         * @var int[]
          */
         public ?array $suggested_tip_amounts,
         /**

@@ -29,8 +29,9 @@ final class InputInvoiceMessageContent extends Data implements TelegramBotData, 
         /**
          * Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost,
          * delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars.
+         * @var LabeledPrice[]
          */
-        public LabeledPrice $prices,
+        public array $prices,
         /**
          * The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For
          * example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it
@@ -42,6 +43,7 @@ final class InputInvoiceMessageContent extends Data implements TelegramBotData, 
          * A JSON-serialized array of suggested amounts of tip in the smallest units of the currency (integer, not
          * float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive,
          * passed in a strictly increased order and must not exceed max_tip_amount.
+         * @var int[]
          */
         public ?array $suggested_tip_amounts,
         /**

@@ -33,7 +33,10 @@ final class WebhookInfo extends Data implements TelegramBotData
         public ?int $last_synchronization_error_date,
         /** The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery */
         public ?int $max_connections,
-        /** A list of update types the bot is subscribed to. Defaults to all update types except chat_member */
+        /**
+         * A list of update types the bot is subscribed to. Defaults to all update types except chat_member
+         * @var string[]
+         */
         public ?array $allowed_updates,
     ) {
     }

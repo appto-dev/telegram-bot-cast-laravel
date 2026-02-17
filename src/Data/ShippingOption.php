@@ -15,8 +15,11 @@ final class ShippingOption extends Data implements TelegramBotData
         public string $id,
         /** Option title */
         public string $title,
-        /** List of price portions */
-        public LabeledPrice $prices,
+        /**
+         * List of price portions
+         * @var LabeledPrice[]
+         */
+        public array $prices,
     ) {
     }
 }

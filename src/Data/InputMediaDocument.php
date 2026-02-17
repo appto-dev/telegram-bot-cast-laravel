@@ -32,8 +32,11 @@ final class InputMediaDocument extends Data implements TelegramBotData, InputMed
         public ?string $caption,
         /** Mode for parsing entities in the document caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
-        public ?MessageEntity $caption_entities,
+        /**
+         * List of special entities that appear in the caption, which can be specified instead of parse_mode
+         * @var MessageEntity[]
+         */
+        public ?array $caption_entities,
         /**
          * Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always
          * True, if the document is sent as part of an album.

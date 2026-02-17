@@ -3,7 +3,6 @@
 namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\InputFile;
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\ReplyMarkup;
@@ -54,8 +53,9 @@ final class SendVoice extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can be specified instead of
          * <em>parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /** Duration of the voice message in seconds */
         public ?int $duration,
         /**

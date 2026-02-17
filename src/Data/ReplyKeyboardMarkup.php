@@ -15,8 +15,11 @@ use Spatie\LaravelData\Data;
 final class ReplyKeyboardMarkup extends Data implements TelegramBotData, ReplyMarkup
 {
     public function __construct(
-        /** Array of button rows, each represented by an Array of KeyboardButton objects */
-        public KeyboardButton $keyboard,
+        /**
+         * Array of button rows, each represented by an Array of KeyboardButton objects
+         * @var KeyboardButton[][]
+         */
+        public array $keyboard,
         /**
          * Requests clients to always show the keyboard when the regular keyboard is hidden. Defaults to false, in which
          * case the custom keyboard can be hidden and opened with a keyboard icon.

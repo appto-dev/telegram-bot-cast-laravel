@@ -11,8 +11,11 @@ use Spatie\LaravelData\Data;
 final class UserChatBoosts extends Data implements TelegramBotData
 {
     public function __construct(
-        /** The list of boosts added to the chat by the user */
-        public ChatBoost $boosts,
+        /**
+         * The list of boosts added to the chat by the user
+         * @var ChatBoost[]
+         */
+        public array $boosts,
     ) {
     }
 }

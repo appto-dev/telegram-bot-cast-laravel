@@ -32,8 +32,11 @@ final class InputMediaAnimation extends Data implements TelegramBotData, InputMe
         public ?string $caption,
         /** Mode for parsing entities in the animation caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
-        public ?MessageEntity $caption_entities,
+        /**
+         * List of special entities that appear in the caption, which can be specified instead of parse_mode
+         * @var MessageEntity[]
+         */
+        public ?array $caption_entities,
         /** Pass True, if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /** Animation width */

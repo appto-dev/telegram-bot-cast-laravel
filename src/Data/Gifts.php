@@ -11,8 +11,11 @@ use Spatie\LaravelData\Data;
 final class Gifts extends Data implements TelegramBotData
 {
     public function __construct(
-        /** The list of gifts */
-        public Gift $gifts,
+        /**
+         * The list of gifts
+         * @var Gift[]
+         */
+        public array $gifts,
     ) {
     }
 }

@@ -93,8 +93,11 @@ final class Message extends Data implements TelegramBotData
         public ?int $paid_star_count,
         /** For text messages, the actual UTF-8 text of the message */
         public ?string $text,
-        /** For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text */
-        public ?MessageEntity $entities,
+        /**
+         * For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text
+         * @var MessageEntity[]
+         */
+        public ?array $entities,
         /**
          * Options used for link preview generation for the message, if it is a text message and link preview options
          * were changed
@@ -118,8 +121,11 @@ final class Message extends Data implements TelegramBotData
         public ?Document $document,
         /** Message contains paid media; information about the paid media */
         public ?PaidMediaInfo $paid_media,
-        /** Message is a photo, available sizes of the photo */
-        public ?PhotoSize $photo,
+        /**
+         * Message is a photo, available sizes of the photo
+         * @var PhotoSize[]
+         */
+        public ?array $photo,
         /** Message is a sticker, information about the sticker */
         public ?Sticker $sticker,
         /** Message is a forwarded story */
@@ -135,8 +141,9 @@ final class Message extends Data implements TelegramBotData
         /**
          * For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the
          * caption
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /** True, if the caption must be shown above the message media */
         public ?true $show_caption_above_media,
         /** True, if the message media is covered by a spoiler animation */
@@ -161,8 +168,9 @@ final class Message extends Data implements TelegramBotData
         /**
          * New members that were added to the group or supergroup and information about them (the bot itself may be one
          * of these members)
+         * @var User[]
          */
-        public ?User $new_chat_members,
+        public ?array $new_chat_members,
         /** A member was removed from the group, information about them (this member may be the bot itself) */
         public ?User $left_chat_member,
         /** Service message: chat owner has left */
@@ -171,8 +179,11 @@ final class Message extends Data implements TelegramBotData
         public ?ChatOwnerChanged $chat_owner_changed,
         /** A chat title was changed to this value */
         public ?string $new_chat_title,
-        /** A chat photo was change to this value */
-        public ?PhotoSize $new_chat_photo,
+        /**
+         * A chat photo was change to this value
+         * @var PhotoSize[]
+         */
+        public ?array $new_chat_photo,
         /** Service message: the chat photo was deleted */
         public ?true $delete_chat_photo,
         /** Service message: the group has been created */

@@ -21,8 +21,9 @@ final class InputPollOption extends Data implements TelegramBotData
         /**
          * A JSON-serialized list of special entities that appear in the poll option text. It can be specified instead of
          * text_parse_mode
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $text_entities,
+        public ?array $text_entities,
     ) {
     }
 }

@@ -19,8 +19,11 @@ final class GiveawayWinners extends Data implements TelegramBotData
         public int $winners_selection_date,
         /** Total number of winners in the giveaway */
         public int $winner_count,
-        /** List of up to 100 winners of the giveaway */
-        public User $winners,
+        /**
+         * List of up to 100 winners of the giveaway
+         * @var User[]
+         */
+        public array $winners,
         /** The number of other chats the user had to join in order to be eligible for the giveaway */
         public ?int $additional_chat_count,
         /** The number of Telegram Stars that were split between giveaway winners; for Telegram Star giveaways only */

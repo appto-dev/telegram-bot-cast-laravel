@@ -18,7 +18,10 @@ final class BusinessMessagesDeleted extends Data implements TelegramBotData
          * user.
          */
         public Chat $chat,
-        /** The list of identifiers of deleted messages in the chat of the business account */
+        /**
+         * The list of identifiers of deleted messages in the chat of the business account
+         * @var int[]
+         */
         public array $message_ids,
     ) {
     }

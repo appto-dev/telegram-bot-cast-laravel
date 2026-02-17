@@ -15,8 +15,11 @@ final class ChecklistTask extends Data implements TelegramBotData
         public int $id,
         /** Text of the task */
         public string $text,
-        /** Special entities that appear in the task text */
-        public ?MessageEntity $text_entities,
+        /**
+         * Special entities that appear in the task text
+         * @var MessageEntity[]
+         */
+        public ?array $text_entities,
         /** User that completed the task; omitted if the task wasn't completed by a user */
         public ?User $completed_by_user,
         /** Chat that completed the task; omitted if the task wasn't completed by a chat */

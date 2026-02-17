@@ -12,7 +12,10 @@ use Spatie\LaravelData\Dto;
 final class GetCustomEmojiStickers extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /** A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified. */
+        /**
+         * A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+         * @var string[]
+         */
         public array $custom_emoji_ids,
     ) {
     }

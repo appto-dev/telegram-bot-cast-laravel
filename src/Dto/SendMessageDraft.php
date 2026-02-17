@@ -2,7 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
@@ -32,8 +31,9 @@ final class SendMessageDraft extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in message text, which can be specified instead of
          * <em>parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $entities,
+        public ?array $entities,
     ) {
     }
 }

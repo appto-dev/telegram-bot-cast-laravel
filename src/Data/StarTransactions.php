@@ -11,8 +11,11 @@ use Spatie\LaravelData\Data;
 final class StarTransactions extends Data implements TelegramBotData
 {
     public function __construct(
-        /** The list of transactions */
-        public StarTransaction $transactions,
+        /**
+         * The list of transactions
+         * @var StarTransaction[]
+         */
+        public array $transactions,
     ) {
     }
 }

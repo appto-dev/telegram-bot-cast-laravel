@@ -18,10 +18,14 @@ final class InputChecklist extends Data implements TelegramBotData
         /**
          * List of special entities that appear in the title, which can be specified instead of parse_mode. Currently,
          * only bold, italic, underline, strikethrough, spoiler, and custom_emoji entities are allowed.
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $title_entities,
-        /** List of 1-30 tasks in the checklist */
-        public InputChecklistTask $tasks,
+        public ?array $title_entities,
+        /**
+         * List of 1-30 tasks in the checklist
+         * @var InputChecklistTask[]
+         */
+        public array $tasks,
         /** Pass True if other users can add tasks to the checklist */
         public ?bool $others_can_add_tasks,
         /** Pass True if other users can mark tasks as done or not done in the checklist */

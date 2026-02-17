@@ -2,8 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\InputPollOption;
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Interfaces\ReplyMarkup;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
@@ -38,10 +36,14 @@ final class SendPoll extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of
          * <em>question_parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $question_entities,
-        /** A JSON-serialized list of 2-12 answer options */
-        public InputPollOption $options,
+        public ?array $question_entities,
+        /**
+         * A JSON-serialized list of 2-12 answer options
+         * @var InputPollOption[]
+         */
+        public array $options,
         /** <em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em> */
         public ?bool $is_anonymous,
         /** Poll type, "quiz" or "regular", defaults to "regular" */
@@ -63,8 +65,9 @@ final class SendPoll extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of
          * <em>explanation_parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $explanation_entities,
+        public ?array $explanation_entities,
         /**
          * Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with
          * <em>close_date</em>.

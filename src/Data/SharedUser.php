@@ -26,8 +26,11 @@ final class SharedUser extends Data implements TelegramBotData
         public ?string $last_name,
         /** Username of the user, if the username was requested by the bot */
         public ?string $username,
-        /** Available sizes of the chat photo, if the photo was requested by the bot */
-        public ?PhotoSize $photo,
+        /**
+         * Available sizes of the chat photo, if the photo was requested by the bot
+         * @var PhotoSize[]
+         */
+        public ?array $photo,
     ) {
     }
 }

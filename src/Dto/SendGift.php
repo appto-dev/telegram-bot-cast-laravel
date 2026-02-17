@@ -2,7 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
@@ -39,8 +38,9 @@ final class SendGift extends Dto implements TelegramBotDto
          * A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of
          * <em>text_parse_mode</em>. Entities other than "bold", "italic", "underline", "strikethrough", "spoiler", and
          * "custom_emoji" are ignored.
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $text_entities,
+        public ?array $text_entities,
     ) {
     }
 }

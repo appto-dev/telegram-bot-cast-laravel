@@ -27,8 +27,11 @@ final class InlineQueryResultCachedVoice extends Data implements TelegramBotData
         public ?string $caption,
         /** Mode for parsing entities in the voice message caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
-        public ?MessageEntity $caption_entities,
+        /**
+         * List of special entities that appear in the caption, which can be specified instead of parse_mode
+         * @var MessageEntity[]
+         */
+        public ?array $caption_entities,
         /** Inline keyboard attached to the message */
         public ?InlineKeyboardMarkup $reply_markup,
         /** Content of the message to be sent instead of the voice message */

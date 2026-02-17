@@ -3,7 +3,6 @@
 namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Data\InputFile;
-use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
 use Appto\TelegramBot\Data\SuggestedPostParameters;
 use Appto\TelegramBot\Interfaces\ReplyMarkup;
@@ -63,8 +62,9 @@ final class SendDocument extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can be specified instead of
          * <em>parse_mode</em>
+         * @var MessageEntity[]
          */
-        public ?MessageEntity $caption_entities,
+        public ?array $caption_entities,
         /** Disables automatic server-side content type detection for files uploaded using multipart/form-data */
         public ?bool $disable_content_type_detection,
         /**

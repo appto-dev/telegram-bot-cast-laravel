@@ -26,12 +26,18 @@ final class Video extends Data implements TelegramBotData
         public int $duration,
         /** Video thumbnail */
         public ?PhotoSize $thumbnail,
-        /** Available sizes of the cover of the video in the message */
-        public ?PhotoSize $cover,
+        /**
+         * Available sizes of the cover of the video in the message
+         * @var PhotoSize[]
+         */
+        public ?array $cover,
         /** Timestamp in seconds from which the video will play in the message */
         public ?int $start_timestamp,
-        /** List of available qualities of the video */
-        public ?VideoQuality $qualities,
+        /**
+         * List of available qualities of the video
+         * @var VideoQuality[]
+         */
+        public ?array $qualities,
         /** Original filename as defined by the sender */
         public ?string $file_name,
         /** MIME type of the file as defined by the sender */

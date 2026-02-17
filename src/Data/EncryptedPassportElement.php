@@ -31,8 +31,9 @@ final class EncryptedPassportElement extends Data implements TelegramBotData
          * Array of encrypted files with documents provided by the user; available only for "utility_bill",
          * "bank_statement", "rental_agreement", "passport_registration" and "temporary_registration" types. Files can be
          * decrypted and verified using the accompanying EncryptedCredentials.
+         * @var PassportFile[]
          */
-        public ?PassportFile $files,
+        public ?array $files,
         /**
          * Encrypted file with the front side of the document, provided by the user; available only for "passport",
          * "driver_license", "identity_card" and "internal_passport". The file can be decrypted and verified using the
@@ -56,8 +57,9 @@ final class EncryptedPassportElement extends Data implements TelegramBotData
          * for "passport", "driver_license", "identity_card", "internal_passport", "utility_bill", "bank_statement",
          * "rental_agreement", "passport_registration" and "temporary_registration" types. Files can be decrypted and
          * verified using the accompanying EncryptedCredentials.
+         * @var PassportFile[]
          */
-        public ?PassportFile $translation,
+        public ?array $translation,
         /** Base64-encoded element hash for using in PassportElementErrorUnspecified */
         public string $hash,
     ) {

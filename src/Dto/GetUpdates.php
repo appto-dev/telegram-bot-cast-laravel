@@ -37,6 +37,7 @@ final class GetUpdates extends Dto implements TelegramBotDto
          * (default). If not specified, the previous setting will be used.<br><br>Please note that this parameter doesn't
          * affect updates created before the call to getUpdates, so unwanted updates may be received for a short period
          * of time.
+         * @var string[]
          */
         public ?array $allowed_updates,
     ) {

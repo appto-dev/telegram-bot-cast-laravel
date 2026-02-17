@@ -2,7 +2,6 @@
 
 namespace Appto\TelegramBot\Dto;
 
-use Appto\TelegramBot\Data\BotCommand;
 use Appto\TelegramBot\Interfaces\BotCommandScope;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
@@ -18,8 +17,9 @@ final class SetMyCommands extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can
          * be specified.
+         * @var BotCommand[]
          */
-        public BotCommand $commands,
+        public array $commands,
         /**
          * A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to <a
          * href="#botcommandscopedefault">BotCommandScopeDefault</a>.
