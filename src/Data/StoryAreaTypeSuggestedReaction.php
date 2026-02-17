@@ -8,8 +8,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Describes a story area pointing to a suggested reaction. Currently, a story can
- * have up to 5 suggested reaction areas.
+ * Describes a story area pointing to a suggested reaction. Currently, a story can have up to 5 suggested
+ * reaction areas.
  */
 final class StoryAreaTypeSuggestedReaction extends Data implements TelegramBotData, StoryAreaType
 {

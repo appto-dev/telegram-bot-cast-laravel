@@ -6,8 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object represents an inline keyboard button that copies specified text to
- * the clipboard.
+ * This object represents an inline keyboard button that copies specified text to the clipboard.
  */
 final class CopyTextButton extends Data implements TelegramBotData
 {

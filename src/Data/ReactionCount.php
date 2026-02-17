@@ -7,8 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a reaction added to a message along with the number of times it was
- * added.
+ * Represents a reaction added to a message along with the number of times it was added.
  */
 final class ReactionCount extends Data implements TelegramBotData
 {

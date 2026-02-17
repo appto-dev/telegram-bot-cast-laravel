@@ -9,17 +9,13 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to send a checklist on behalf of a connected business account.
- * On success, the sent <a
+ * Use this method to send a checklist on behalf of a connected business account. On success, the sent <a
  * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
  */
 final class SendChecklist extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /**
-         * Unique identifier of the business connection on behalf of which the message will
-         * be sent
-         */
+        /** Unique identifier of the business connection on behalf of which the message will be sent */
         public string $business_connection_id,
         /** Unique identifier for the target chat */
         public int $chat_id,

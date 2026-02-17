@@ -15,10 +15,7 @@ final class UniqueGiftBackdrop extends Data implements TelegramBotData
         public string $name,
         /** Colors of the backdrop */
         public UniqueGiftBackdropColors $colors,
-        /**
-         * The number of unique gifts that receive this backdrop for every 1000 gifts
-         * upgraded
-         */
+        /** The number of unique gifts that receive this backdrop for every 1000 gifts upgraded */
         public int $rarity_per_mille,
     ) {
     }

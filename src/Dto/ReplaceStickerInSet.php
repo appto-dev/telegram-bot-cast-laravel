@@ -7,14 +7,11 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to replace an existing sticker in a sticker set with a new one.
- * The method is equivalent to calling <a
- * href="https://core.telegram.org/bots/api#deletestickerfromset">deleteStickerFromSet</a>,
- * then <a
- * href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>,
- * then <a
- * href="https://core.telegram.org/bots/api#setstickerpositioninset">setStickerPositionInSet</a>.
- * Returns <em>True</em> on success.
+ * Use this method to replace an existing sticker in a sticker set with a new one. The method is equivalent to
+ * calling <a href="https://core.telegram.org/bots/api#deletestickerfromset">deleteStickerFromSet</a>, then <a
+ * href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, then <a
+ * href="https://core.telegram.org/bots/api#setstickerpositioninset">setStickerPositionInSet</a>. Returns
+ * <em>True</em> on success.
  */
 final class ReplaceStickerInSet extends Dto implements TelegramBotDto
 {
@@ -26,9 +23,8 @@ final class ReplaceStickerInSet extends Dto implements TelegramBotDto
         /** File identifier of the replaced sticker */
         public string $old_sticker,
         /**
-         * A JSON-serialized object with information about the added sticker. If exactly
-         * the same sticker had already been added to the set, then the set remains
-         * unchanged.
+         * A JSON-serialized object with information about the added sticker. If exactly the same sticker had already
+         * been added to the set, then the set remains unchanged.
          */
         public InputSticker $sticker,
     ) {

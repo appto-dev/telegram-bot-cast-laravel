@@ -19,10 +19,7 @@ final class Checklist extends Data implements TelegramBotData
         public ChecklistTask $tasks,
         /** True, if users other than the creator of the list can add tasks to the list */
         public ?true $others_can_add_tasks,
-        /**
-         * True, if users other than the creator of the list can mark tasks as done or not
-         * done
-         */
+        /** True, if users other than the creator of the list can mark tasks as done or not done */
         public ?true $others_can_mark_tasks_as_done,
     ) {
     }

@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object contains information about the color scheme for a user's name,
- * message replies and link previews based on a unique gift.
+ * This object contains information about the color scheme for a user's name, message replies and link previews
+ * based on a unique gift.
  */
 final class UniqueGiftColors extends Data implements TelegramBotData
 {

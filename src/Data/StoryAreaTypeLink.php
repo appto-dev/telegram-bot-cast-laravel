@@ -7,8 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Describes a story area pointing to an HTTP or tg:// link. Currently, a story can
- * have up to 3 link areas.
+ * Describes a story area pointing to an HTTP or tg:// link. Currently, a story can have up to 3 link areas.
  */
 final class StoryAreaTypeLink extends Data implements TelegramBotData, StoryAreaType
 {

@@ -8,8 +8,7 @@ use Spatie\LaravelData\Dto;
 
 /**
  * Stores a message that can be sent by a user of a Mini App. Returns a <a
- * href="https://core.telegram.org/bots/api#preparedinlinemessage">PreparedInlineMessage</a>
- * object.
+ * href="https://core.telegram.org/bots/api#preparedinlinemessage">PreparedInlineMessage</a> object.
  */
 final class SavePreparedInlineMessage extends Dto implements TelegramBotDto
 {

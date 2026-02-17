@@ -7,23 +7,16 @@ use Spatie\LaravelData\Dto;
 
 /**
  * Use this method to get a list of profile audios for a user. Returns a <a
- * href="https://core.telegram.org/bots/api#userprofileaudios">UserProfileAudios</a>
- * object.
+ * href="https://core.telegram.org/bots/api#userprofileaudios">UserProfileAudios</a> object.
  */
 final class GetUserProfileAudios extends Dto implements TelegramBotDto
 {
     public function __construct(
         /** Unique identifier of the target user */
         public int $user_id,
-        /**
-         * Sequential number of the first audio to be returned. By default, all audios are
-         * returned.
-         */
+        /** Sequential number of the first audio to be returned. By default, all audios are returned. */
         public ?int $offset,
-        /**
-         * Limits the number of audios to be retrieved. Values between 1-100 are accepted.
-         * Defaults to 100.
-         */
+        /** Limits the number of audios to be retrieved. Values between 1-100 are accepted. Defaults to 100. */
         public ?int $limit,
     ) {
     }

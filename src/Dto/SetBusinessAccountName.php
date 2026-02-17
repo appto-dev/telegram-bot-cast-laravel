@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Changes the first and last name of a managed business account. Requires the
- * <em>can_change_name</em> business bot right. Returns <em>True</em> on success.
+ * Changes the first and last name of a managed business account. Requires the <em>can_change_name</em> business
+ * bot right. Returns <em>True</em> on success.
  */
 final class SetBusinessAccountName extends Dto implements TelegramBotDto
 {

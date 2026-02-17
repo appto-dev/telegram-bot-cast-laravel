@@ -11,10 +11,7 @@ use Spatie\LaravelData\Data;
 final class ChatOwnerLeft extends Data implements TelegramBotData
 {
     public function __construct(
-        /**
-         * The user which will be the new owner of the chat if the previous owner does not
-         * return to the chat
-         */
+        /** The user which will be the new owner of the chat if the previous owner does not return to the chat */
         public ?User $new_owner,
     ) {
     }

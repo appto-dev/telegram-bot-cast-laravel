@@ -7,9 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents the <a
- * href="https://core.telegram.org/bots/api#inputmessagecontent">content</a> of a
- * contact message to be sent as the result of an inline query.
+ * Represents the <a href="https://core.telegram.org/bots/api#inputmessagecontent">content</a> of a contact
+ * message to be sent as the result of an inline query.
  */
 final class InputContactMessageContent extends Data implements TelegramBotData, InputMessageContent
 {

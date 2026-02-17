@@ -6,17 +6,16 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to close an open topic in a forum supergroup chat. The bot must
- * be an administrator in the chat for this to work and must have the
- * <em>can_manage_topics</em> administrator rights, unless it is the creator of the
- * topic. Returns <em>True</em> on success.
+ * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the
+ * chat for this to work and must have the <em>can_manage_topics</em> administrator rights, unless it is the
+ * creator of the topic. Returns <em>True</em> on success.
  */
 final class CloseForumTopic extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target supergroup (in
-         * the format <code>@supergroupusername</code>)
+         * Unique identifier for the target chat or username of the target supergroup (in the format
+         * <code>@supergroupusername</code>)
          */
         public int|string $chat_id,
         /** Unique identifier for the target message thread of the forum topic */

@@ -7,8 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents an issue in an unspecified place. The error is considered resolved
- * when new data is added.
+ * Represents an issue in an unspecified place. The error is considered resolved when new data is added.
  */
 final class PassportElementErrorUnspecified extends Data implements TelegramBotData, PassportElementError
 {

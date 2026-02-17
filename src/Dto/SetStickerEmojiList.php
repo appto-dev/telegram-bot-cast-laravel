@@ -6,9 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to change the list of emoji assigned to a regular or custom
- * emoji sticker. The sticker must belong to a sticker set created by the bot.
- * Returns <em>True</em> on success.
+ * Use this method to change the list of emoji assigned to a regular or custom emoji sticker. The sticker must
+ * belong to a sticker set created by the bot. Returns <em>True</em> on success.
  */
 final class SetStickerEmojiList extends Dto implements TelegramBotDto
 {

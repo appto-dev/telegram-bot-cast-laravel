@@ -6,8 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Contains information about the start page settings of a Telegram Business
- * account.
+ * Contains information about the start page settings of a Telegram Business account.
  */
 final class BusinessIntro extends Data implements TelegramBotData
 {

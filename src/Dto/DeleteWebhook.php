@@ -7,8 +7,7 @@ use Spatie\LaravelData\Dto;
 
 /**
  * Use this method to remove webhook integration if you decide to switch back to <a
- * href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>. Returns
- * <em>True</em> on success.
+ * href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>. Returns <em>True</em> on success.
  */
 final class DeleteWebhook extends Dto implements TelegramBotDto
 {

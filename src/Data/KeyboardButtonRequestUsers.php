@@ -6,28 +6,26 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object defines the criteria used to request suitable users. Information
- * about the selected users will be shared with the bot when the corresponding
- * button is pressed. <a
- * href="https://core.telegram.org/bots/features#chat-and-user-selection">More
- * about requesting users </a>
+ * This object defines the criteria used to request suitable users. Information about the selected users will be
+ * shared with the bot when the corresponding button is pressed. <a
+ * href="https://core.telegram.org/bots/features#chat-and-user-selection">More about requesting users </a>
  */
 final class KeyboardButtonRequestUsers extends Data implements TelegramBotData
 {
     public function __construct(
         /**
-         * Signed 32-bit identifier of the request that will be received back in the
-         * UsersShared object. Must be unique within the message
+         * Signed 32-bit identifier of the request that will be received back in the UsersShared object. Must be unique
+         * within the message
          */
         public int $request_id,
         /**
-         * Pass True to request bots, pass False to request regular users. If not
-         * specified, no additional restrictions are applied.
+         * Pass True to request bots, pass False to request regular users. If not specified, no additional restrictions
+         * are applied.
          */
         public ?bool $user_is_bot,
         /**
-         * Pass True to request premium users, pass False to request non-premium users. If
-         * not specified, no additional restrictions are applied.
+         * Pass True to request premium users, pass False to request non-premium users. If not specified, no additional
+         * restrictions are applied.
          */
         public ?bool $user_is_premium,
         /** The maximum number of users to be selected; 1-10. Defaults to 1. */

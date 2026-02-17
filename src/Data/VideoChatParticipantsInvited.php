@@ -6,8 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object represents a service message about new members invited to a video
- * chat.
+ * This object represents a service message about new members invited to a video chat.
  */
 final class VideoChatParticipantsInvited extends Data implements TelegramBotData
 {

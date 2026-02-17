@@ -8,10 +8,9 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a link to a voice message stored on the Telegram servers. By default,
- * this voice message will be sent by the user. Alternatively, you can use
- * <em>input_message_content</em> to send a message with the specified content
- * instead of the voice message.
+ * Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be
+ * sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the
+ * specified content instead of the voice message.
  */
 final class InlineQueryResultCachedVoice extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -26,15 +25,9 @@ final class InlineQueryResultCachedVoice extends Data implements TelegramBotData
         public string $title,
         /** Caption, 0-1024 characters after entities parsing */
         public ?string $caption,
-        /**
-         * Mode for parsing entities in the voice message caption. See formatting options
-         * for more details.
-         */
+        /** Mode for parsing entities in the voice message caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /**
-         * List of special entities that appear in the caption, which can be specified
-         * instead of parse_mode
-         */
+        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
         public ?MessageEntity $caption_entities,
         /** Inline keyboard attached to the message */
         public ?InlineKeyboardMarkup $reply_markup,

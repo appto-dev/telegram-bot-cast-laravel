@@ -8,10 +8,9 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a link to a file. By default, this file will be sent by the user with
- * an optional caption. Alternatively, you can use <em>input_message_content</em>
- * to send a message with the specified content instead of the file. Currently,
- * only .PDF and .ZIP files can be sent using this method.
+ * Represents a link to a file. By default, this file will be sent by the user with an optional caption.
+ * Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead
+ * of the file. Currently, only .PDF and .ZIP files can be sent using this method.
  */
 final class InlineQueryResultDocument extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -24,22 +23,13 @@ final class InlineQueryResultDocument extends Data implements TelegramBotData, I
         public string $title,
         /** Caption of the document to be sent, 0-1024 characters after entities parsing */
         public ?string $caption,
-        /**
-         * Mode for parsing entities in the document caption. See formatting options for
-         * more details.
-         */
+        /** Mode for parsing entities in the document caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /**
-         * List of special entities that appear in the caption, which can be specified
-         * instead of parse_mode
-         */
+        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
         public ?MessageEntity $caption_entities,
         /** A valid URL for the file */
         public string $document_url,
-        /**
-         * MIME type of the content of the file, either "application/pdf" or
-         * "application/zip"
-         */
+        /** MIME type of the content of the file, either "application/pdf" or "application/zip" */
         public string $mime_type,
         /** Short description of the result */
         public ?string $description,

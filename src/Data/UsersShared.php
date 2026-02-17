@@ -6,10 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object contains information about the users whose identifiers were shared
- * with the bot using a <a
- * href="https://core.telegram.org/bots/api#keyboardbuttonrequestusers">KeyboardButtonRequestUsers</a>
- * button.
+ * This object contains information about the users whose identifiers were shared with the bot using a <a
+ * href="https://core.telegram.org/bots/api#keyboardbuttonrequestusers">KeyboardButtonRequestUsers</a> button.
  */
 final class UsersShared extends Data implements TelegramBotData
 {

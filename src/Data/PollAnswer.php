@@ -17,10 +17,7 @@ final class PollAnswer extends Data implements TelegramBotData
         public ?Chat $voter_chat,
         /** The user that changed the answer to the poll, if the voter isn't anonymous */
         public ?User $user,
-        /**
-         * 0-based identifiers of chosen answer options. May be empty if the vote was
-         * retracted.
-         */
+        /** 0-based identifiers of chosen answer options. May be empty if the vote was retracted. */
         public array $option_ids,
     ) {
     }

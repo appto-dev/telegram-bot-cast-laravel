@@ -7,9 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents the <a
- * href="https://core.telegram.org/bots/api#botcommandscope">scope</a> of bot
- * commands, covering all group and supergroup chats.
+ * Represents the <a href="https://core.telegram.org/bots/api#botcommandscope">scope</a> of bot commands,
+ * covering all group and supergroup chats.
  */
 final class BotCommandScopeAllGroupChats extends Data implements TelegramBotData, BotCommandScope
 {

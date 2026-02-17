@@ -7,9 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat
- * member</a> that isn't currently a member of the chat, but may join it
- * themselves.
+ * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that isn't currently a
+ * member of the chat, but may join it themselves.
  */
 final class ChatMemberLeft extends Data implements TelegramBotData, ChatMember
 {

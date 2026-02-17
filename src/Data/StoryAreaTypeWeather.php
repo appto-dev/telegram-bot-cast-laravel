@@ -7,8 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Describes a story area containing weather information. Currently, a story can
- * have up to 3 weather areas.
+ * Describes a story area containing weather information. Currently, a story can have up to 3 weather areas.
  */
 final class StoryAreaTypeWeather extends Data implements TelegramBotData, StoryAreaType
 {

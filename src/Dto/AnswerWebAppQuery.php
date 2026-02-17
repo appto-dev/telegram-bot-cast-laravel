@@ -8,11 +8,9 @@ use Spatie\LaravelData\Dto;
 
 /**
  * Use this method to set the result of an interaction with a <a
- * href="https://core.telegram.org/bots/webapps">Web App</a> and send a
- * corresponding message on behalf of the user to the chat from which the query
- * originated. On success, a <a
- * href="https://core.telegram.org/bots/api#sentwebappmessage">SentWebAppMessage</a>
- * object is returned.
+ * href="https://core.telegram.org/bots/webapps">Web App</a> and send a corresponding message on behalf of the
+ * user to the chat from which the query originated. On success, a <a
+ * href="https://core.telegram.org/bots/api#sentwebappmessage">SentWebAppMessage</a> object is returned.
  */
 final class AnswerWebAppQuery extends Dto implements TelegramBotDto
 {

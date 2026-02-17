@@ -6,9 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Converts a given regular gift to Telegram Stars. Requires the
- * <em>can_convert_gifts_to_stars</em> business bot right. Returns <em>True</em> on
- * success.
+ * Converts a given regular gift to Telegram Stars. Requires the <em>can_convert_gifts_to_stars</em> business bot
+ * right. Returns <em>True</em> on success.
  */
 final class ConvertGiftToStars extends Dto implements TelegramBotDto
 {

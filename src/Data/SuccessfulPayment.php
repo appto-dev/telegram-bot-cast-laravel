@@ -6,10 +6,9 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object contains basic information about a successful payment. Note that if
- * the buyer initiates a chargeback with the relevant payment provider following
- * this transaction, the funds may be debited from your balance. This is outside of
- * Telegram's control.
+ * This object contains basic information about a successful payment. Note that if the buyer initiates a
+ * chargeback with the relevant payment provider following this transaction, the funds may be debited from your
+ * balance. This is outside of Telegram's control.
  */
 final class SuccessfulPayment extends Data implements TelegramBotData
 {
@@ -17,10 +16,9 @@ final class SuccessfulPayment extends Data implements TelegramBotData
         /** Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars */
         public string $currency,
         /**
-         * Total price in the smallest units of the currency (integer, not float/double).
-         * For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in
-         * currencies.json, it shows the number of digits past the decimal point for each
-         * currency (2 for the majority of currencies).
+         * Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$
+         * 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the
+         * decimal point for each currency (2 for the majority of currencies).
          */
         public int $total_amount,
         /** Bot-specified invoice payload */

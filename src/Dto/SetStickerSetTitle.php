@@ -6,8 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to set the title of a created sticker set. Returns <em>True</em>
- * on success.
+ * Use this method to set the title of a created sticker set. Returns <em>True</em> on success.
  */
 final class SetStickerSetTitle extends Dto implements TelegramBotDto
 {

@@ -8,9 +8,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a link to an MP3 audio file. By default, this audio file will be sent
- * by the user. Alternatively, you can use <em>input_message_content</em> to send a
- * message with the specified content instead of the audio.
+ * Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively,
+ * you can use <em>input_message_content</em> to send a message with the specified content instead of the audio.
  */
 final class InlineQueryResultAudio extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -25,15 +24,9 @@ final class InlineQueryResultAudio extends Data implements TelegramBotData, Inli
         public string $title,
         /** Caption, 0-1024 characters after entities parsing */
         public ?string $caption,
-        /**
-         * Mode for parsing entities in the audio caption. See formatting options for more
-         * details.
-         */
+        /** Mode for parsing entities in the audio caption. See formatting options for more details. */
         public ?string $parse_mode,
-        /**
-         * List of special entities that appear in the caption, which can be specified
-         * instead of parse_mode
-         */
+        /** List of special entities that appear in the caption, which can be specified instead of parse_mode */
         public ?MessageEntity $caption_entities,
         /** Performer */
         public ?string $performer,

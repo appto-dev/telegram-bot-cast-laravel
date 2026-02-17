@@ -7,8 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Describes a story area pointing to a location. Currently, a story can have up to
- * 10 location areas.
+ * Describes a story area pointing to a location. Currently, a story can have up to 10 location areas.
  */
 final class StoryAreaTypeLocation extends Data implements TelegramBotData, StoryAreaType
 {

@@ -20,8 +20,8 @@ final class ForumTopic extends Data implements TelegramBotData
         /** Unique identifier of the custom emoji shown as the topic icon */
         public ?string $icon_custom_emoji_id,
         /**
-         * True, if the name of the topic wasn't specified explicitly by its creator and
-         * likely needs to be changed by the bot
+         * True, if the name of the topic wasn't specified explicitly by its creator and likely needs to be changed by
+         * the bot
          */
         public ?true $is_name_implicit,
     ) {

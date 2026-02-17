@@ -7,8 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat
- * member</a> that is under certain restrictions in the chat. Supergroups only.
+ * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that is under certain
+ * restrictions in the chat. Supergroups only.
  */
 final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMember
 {
@@ -20,8 +20,8 @@ final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMe
         /** True, if the user is a member of the chat at the moment of the request */
         public bool $is_member,
         /**
-         * True, if the user is allowed to send text messages, contacts, giveaways,
-         * giveaway winners, invoices, locations and venues
+         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations
+         * and venues
          */
         public bool $can_send_messages,
         /** True, if the user is allowed to send audios */
@@ -38,10 +38,7 @@ final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMe
         public bool $can_send_voice_notes,
         /** True, if the user is allowed to send polls and checklists */
         public bool $can_send_polls,
-        /**
-         * True, if the user is allowed to send animations, games, stickers and use inline
-         * bots
-         */
+        /** True, if the user is allowed to send animations, games, stickers and use inline bots */
         public bool $can_send_other_messages,
         /** True, if the user is allowed to add web page previews to their messages */
         public bool $can_add_web_page_previews,
@@ -53,10 +50,7 @@ final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMe
         public bool $can_pin_messages,
         /** True, if the user is allowed to create forum topics */
         public bool $can_manage_topics,
-        /**
-         * Date when restrictions will be lifted for this user; Unix time. If 0, then the
-         * user is restricted forever
-         */
+        /** Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever */
         public int $until_date,
     ) {
     }
