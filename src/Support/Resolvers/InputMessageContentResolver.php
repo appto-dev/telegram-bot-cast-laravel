@@ -8,6 +8,8 @@ use Appto\TelegramBot\Data\InputLocationMessageContent;
 use Appto\TelegramBot\Data\InputTextMessageContent;
 use Appto\TelegramBot\Data\InputVenueMessageContent;
 use Appto\TelegramBot\Interfaces\InputMessageContent;
+use InvalidArgumentException;
+use Spatie\LaravelData\Data;
 
 class InputMessageContentResolver extends GenericResolver
 {
@@ -16,8 +18,16 @@ class InputMessageContentResolver extends GenericResolver
         parent::__construct([]);
     }
 
-    public function resolve(array $payload): InputMessageContent
+    public function resolve($payload): InputMessageContent
     {
+        if (!is_array($payload)) {
+            if ($payload instanceof Data) {
+                $payload = $payload->toArray();
+            } else {
+                throw new InvalidArgumentException('Expected array or Data object.');
+            }
+        }
+
         return match (true) {
             !empty($payload['message_text']) => InputTextMessageContent::from($payload),
             isset($payload['latitude']) && isset($payload['longitude']) && !isset($payload['title']) => InputLocationMessageContent::from($payload),

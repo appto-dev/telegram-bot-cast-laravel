@@ -23,6 +23,8 @@ use Appto\TelegramBot\Data\InlineQueryResultVenue;
 use Appto\TelegramBot\Data\InlineQueryResultVideo;
 use Appto\TelegramBot\Data\InlineQueryResultVoice;
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
+use InvalidArgumentException;
+use Spatie\LaravelData\Data;
 
 class InlineQueryResultResolver extends GenericResolver
 {
@@ -31,8 +33,16 @@ class InlineQueryResultResolver extends GenericResolver
         parent::__construct([]);
     }
 
-    public function resolve(array $payload): InlineQueryResult
+    public function resolve($payload): InlineQueryResult
     {
+        if (!is_array($payload)) {
+            if ($payload instanceof Data) {
+                $payload = $payload->toArray();
+            } else {
+                throw new InvalidArgumentException('Expected array or Data object.');
+            }
+        }
+
         return match (true) {
             $payload['type'] == 'audio' => isset($payload['audio_file_id']) ? InlineQueryResultCachedAudio::from($payload) : InlineQueryResultAudio::from($payload),
             $payload['type'] == 'document' => isset($payload['document_file_id']) ? InlineQueryResultCachedDocument::from($payload) : InlineQueryResultDocument::from($payload),

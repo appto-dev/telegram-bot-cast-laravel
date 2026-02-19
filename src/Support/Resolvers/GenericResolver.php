@@ -3,6 +3,7 @@
 namespace Appto\TelegramBot\Support\Resolvers;
 
 use InvalidArgumentException;
+use Spatie\LaravelData\Data;
 
 class GenericResolver
 {
@@ -12,8 +13,16 @@ class GenericResolver
     ) {
     }
 
-    public function resolve(array $payload): mixed
+    public function resolve($payload): mixed
     {
+        if (!is_array($payload)) {
+            if ($payload instanceof Data) {
+                $payload = $payload->toArray();
+            } else {
+                throw new InvalidArgumentException('Expected array or Data object.');
+            }
+        }
+
         $type = $payload[$this->discriminatorField] ?? null;
 
         if (! $type || ! isset($this->map[$type])) {
