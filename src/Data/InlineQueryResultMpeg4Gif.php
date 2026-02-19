@@ -39,7 +39,7 @@ final class InlineQueryResultMpeg4Gif extends Data implements TelegramBotData, I
         public ?string $parse_mode,
         /**
          * List of special entities that appear in the caption, which can be specified instead of parse_mode
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $caption_entities,
         /** Pass True, if the caption must be shown above the message media */

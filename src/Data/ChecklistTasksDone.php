@@ -18,12 +18,12 @@ final class ChecklistTasksDone extends Data implements TelegramBotData
         public ?Message $checklist_message,
         /**
          * Identifiers of the tasks that were marked as done
-         * @var int[]
+         * @var array<int>
          */
         public ?array $marked_as_done_task_ids,
         /**
          * Identifiers of the tasks that were marked as not done
-         * @var int[]
+         * @var array<int>
          */
         public ?array $marked_as_not_done_task_ids,
     ) {

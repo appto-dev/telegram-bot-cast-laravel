@@ -38,12 +38,12 @@ final class SendPoll extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of
          * <em>question_parse_mode</em>
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $question_entities,
         /**
          * A JSON-serialized list of 2-12 answer options
-         * @var InputPollOption[]
+         * @var array<InputPollOption>
          */
         public array $options,
         /** <em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em> */
@@ -67,7 +67,7 @@ final class SendPoll extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of
          * <em>explanation_parse_mode</em>
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $explanation_entities,
         /**

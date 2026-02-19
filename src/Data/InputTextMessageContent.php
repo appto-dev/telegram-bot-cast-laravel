@@ -19,7 +19,7 @@ final class InputTextMessageContent extends Data implements TelegramBotData, Inp
         public ?string $parse_mode,
         /**
          * List of special entities that appear in message text, which can be specified instead of parse_mode
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $entities,
         /** Link preview generation options for the message */

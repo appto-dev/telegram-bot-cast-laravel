@@ -37,7 +37,7 @@ final class ForwardMessages extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The
          * identifiers must be specified in a strictly increasing order.
-         * @var int[]
+         * @var array<int>
          */
         public array $message_ids,
         /**

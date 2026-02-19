@@ -33,7 +33,7 @@ final class GiftInfo extends Data implements TelegramBotData
         public ?string $text,
         /**
          * Special entities that appear in the text
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $entities,
         /**

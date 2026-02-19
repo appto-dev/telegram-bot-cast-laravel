@@ -26,7 +26,7 @@ final class CreateNewStickerSet extends Dto implements TelegramBotDto
         public string $title,
         /**
          * A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
-         * @var InputSticker[]
+         * @var array<InputSticker>
          */
         public array $stickers,
         /**

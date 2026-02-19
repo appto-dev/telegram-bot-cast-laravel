@@ -32,7 +32,7 @@ final class SendMessageDraft extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in message text, which can be specified instead of
          * <em>parse_mode</em>
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $entities,
     ) {

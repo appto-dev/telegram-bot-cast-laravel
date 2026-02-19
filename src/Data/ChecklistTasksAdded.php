@@ -18,7 +18,7 @@ final class ChecklistTasksAdded extends Data implements TelegramBotData
         public ?Message $checklist_message,
         /**
          * List of tasks added to the checklist
-         * @var ChecklistTask[]
+         * @var array<ChecklistTask>
          */
         public array $tasks,
     ) {

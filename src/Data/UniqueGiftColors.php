@@ -20,14 +20,14 @@ final class UniqueGiftColors extends Data implements TelegramBotData
         public int $light_theme_main_color,
         /**
          * List of 1-3 additional colors used in light themes; RGB format
-         * @var int[]
+         * @var array<int>
          */
         public array $light_theme_other_colors,
         /** Main color used in dark themes; RGB format */
         public int $dark_theme_main_color,
         /**
          * List of 1-3 additional colors used in dark themes; RGB format
-         * @var int[]
+         * @var array<int>
          */
         public array $dark_theme_other_colors,
     ) {

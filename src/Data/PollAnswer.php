@@ -19,7 +19,7 @@ final class PollAnswer extends Data implements TelegramBotData
         public ?User $user,
         /**
          * 0-based identifiers of chosen answer options. May be empty if the vote was retracted.
-         * @var int[]
+         * @var array<int>
          */
         public array $option_ids,
     ) {

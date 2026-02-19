@@ -18,7 +18,7 @@ final class AnswerInlineQuery extends Dto implements TelegramBotDto
         public string $inline_query_id,
         /**
          * A JSON-serialized array of results for the inline query
-         * @var InlineQueryResult[]
+         * @var array<InlineQueryResult>
          */
         public array $results,
         /**

@@ -18,7 +18,7 @@ final class DeleteBusinessMessages extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of 1-100 identifiers of messages to delete. All messages must be from the same chat.
          * See <a href="#deletemessage">deleteMessage</a> for limitations on which messages can be deleted
-         * @var int[]
+         * @var array<int>
          */
         public array $message_ids,
     ) {

@@ -23,7 +23,7 @@ final class PassportElementErrorTranslationFiles extends Data implements Telegra
         public string $type,
         /**
          * List of base64-encoded file hashes
-         * @var string[]
+         * @var array<string>
          */
         public array $file_hashes,
         /** Error message */

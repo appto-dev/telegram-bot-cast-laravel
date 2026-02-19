@@ -25,7 +25,7 @@ final class InputSticker extends Data implements TelegramBotData
         public string $format,
         /**
          * List of 1-20 emoji associated with the sticker
-         * @var string[]
+         * @var array<string>
          */
         public array $emoji_list,
         /** Position where the mask should be placed on faces. For "mask" stickers only. */
@@ -33,7 +33,7 @@ final class InputSticker extends Data implements TelegramBotData
         /**
          * List of 0-20 search keywords for the sticker with total length of up to 64 characters. For "regular" and
          * "custom_emoji" stickers only.
-         * @var string[]
+         * @var array<string>
          */
         public ?array $keywords,
     ) {

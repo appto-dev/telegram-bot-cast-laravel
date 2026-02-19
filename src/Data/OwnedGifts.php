@@ -16,7 +16,7 @@ final class OwnedGifts extends Data implements TelegramBotData
         public int $total_count,
         /**
          * The list of gifts
-         * @var OwnedGift[]
+         * @var array<OwnedGift>
          */
         public array $gifts,
         /** Offset for the next request. If empty, then there are no more results */

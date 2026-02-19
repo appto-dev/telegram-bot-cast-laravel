@@ -15,12 +15,12 @@ final class Checklist extends Data implements TelegramBotData
         public string $title,
         /**
          * Special entities that appear in the checklist title
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $title_entities,
         /**
          * List of tasks in the checklist
-         * @var ChecklistTask[]
+         * @var array<ChecklistTask>
          */
         public array $tasks,
         /** True, if users other than the creator of the list can add tasks to the list */

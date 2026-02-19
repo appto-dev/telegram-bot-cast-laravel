@@ -43,7 +43,7 @@ final class ChatFullInfo extends Data implements TelegramBotData
         public ?ChatPhoto $photo,
         /**
          * If non-empty, the list of all active chat usernames; for private chats, supergroups and channels
-         * @var string[]
+         * @var array<string>
          */
         public ?array $active_usernames,
         /** For private chats, the date of birth of the user */
@@ -60,7 +60,7 @@ final class ChatFullInfo extends Data implements TelegramBotData
         public ?Chat $parent_chat,
         /**
          * List of available reactions allowed in the chat. If omitted, then all emoji reactions are allowed.
-         * @var ReactionType[]
+         * @var array<ReactionType>
          */
         public ?array $available_reactions,
         /** Custom emoji identifier of the emoji chosen by the chat for the reply header and link preview background */

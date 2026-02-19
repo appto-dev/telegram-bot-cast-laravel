@@ -19,7 +19,7 @@ final class StickerSet extends Data implements TelegramBotData
         public string $sticker_type,
         /**
          * List of all set stickers
-         * @var Sticker[]
+         * @var array<Sticker>
          */
         public array $stickers,
         /** Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format */

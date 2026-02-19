@@ -17,7 +17,7 @@ final class ReplyKeyboardMarkup extends Data implements TelegramBotData, ReplyMa
     public function __construct(
         /**
          * Array of button rows, each represented by an Array of KeyboardButton objects
-         * @var KeyboardButton[][]
+         * @var array<KeyboardButton[]>
          */
         public array $keyboard,
         /**

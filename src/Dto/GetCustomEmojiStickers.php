@@ -14,7 +14,7 @@ final class GetCustomEmojiStickers extends Dto implements TelegramBotDto
     public function __construct(
         /**
          * A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
-         * @var string[]
+         * @var array<string>
          */
         public array $custom_emoji_ids,
     ) {

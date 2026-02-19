@@ -26,7 +26,7 @@ final class OwnedGiftRegular extends Data implements TelegramBotData, OwnedGift
         public ?string $text,
         /**
          * Special entities that appear in the text
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $entities,
         /**

@@ -15,7 +15,7 @@ final class InlineKeyboardMarkup extends Data implements TelegramBotData, ReplyM
     public function __construct(
         /**
          * Array of button rows, each represented by an Array of InlineKeyboardButton objects
-         * @var InlineKeyboardButton[][]
+         * @var array<InlineKeyboardButton[]>
          */
         public array $inline_keyboard,
     ) {

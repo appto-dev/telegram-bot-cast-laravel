@@ -58,7 +58,7 @@ final class CopyMessage extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of
          * <em>parse_mode</em>
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $caption_entities,
         /**

@@ -13,7 +13,7 @@ final class StarTransactions extends Data implements TelegramBotData
     public function __construct(
         /**
          * The list of transactions
-         * @var StarTransaction[]
+         * @var array<StarTransaction>
          */
         public array $transactions,
     ) {

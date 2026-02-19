@@ -16,7 +16,7 @@ final class SetStickerKeywords extends Dto implements TelegramBotDto
         public string $sticker,
         /**
          * A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters
-         * @var string[]
+         * @var array<string>
          */
         public ?array $keywords,
     ) {

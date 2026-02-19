@@ -13,7 +13,7 @@ final class Gifts extends Data implements TelegramBotData
     public function __construct(
         /**
          * The list of gifts
-         * @var Gift[]
+         * @var array<Gift>
          */
         public array $gifts,
     ) {

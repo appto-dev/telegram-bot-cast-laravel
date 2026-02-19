@@ -18,7 +18,7 @@ final class Game extends Data implements TelegramBotData
         public string $description,
         /**
          * Photo that will be displayed in the game message in chats.
-         * @var PhotoSize[]
+         * @var array<PhotoSize>
          */
         public array $photo,
         /**
@@ -29,7 +29,7 @@ final class Game extends Data implements TelegramBotData
         public ?string $text,
         /**
          * Special entities that appear in text, such as usernames, URLs, bot commands, etc.
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $text_entities,
         /** Animation that will be displayed in the game message in chats. Upload via BotFather */

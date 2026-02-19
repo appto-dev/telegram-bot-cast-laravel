@@ -16,7 +16,7 @@ final class PollOption extends Data implements TelegramBotData
         /**
          * Special entities that appear in the option text. Currently, only custom emoji entities are allowed in poll
          * option texts
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $text_entities,
         /** Number of users that voted for this option */

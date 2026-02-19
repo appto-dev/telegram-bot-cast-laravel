@@ -35,7 +35,7 @@ final class TransactionPartnerUser extends Data implements TelegramBotData, Tran
         public ?int $subscription_period,
         /**
          * Information about the paid media bought by the user; for "paid_media_payment" transactions only
-         * @var PaidMedia[]
+         * @var array<PaidMedia>
          */
         public ?array $paid_media,
         /** Bot-specified paid media payload. Can be available only for "paid_media_payment" transactions. */

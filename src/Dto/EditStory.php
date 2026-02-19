@@ -32,12 +32,12 @@ final class EditStory extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can be specified instead of
          * <em>parse_mode</em>
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $caption_entities,
         /**
          * A JSON-serialized list of clickable areas to be shown on the story
-         * @var StoryArea[]
+         * @var array<StoryArea>
          */
         public ?array $areas,
     ) {

@@ -15,7 +15,7 @@ final class BusinessOpeningHours extends Data implements TelegramBotData
         public string $time_zone_name,
         /**
          * List of time intervals describing business opening hours
-         * @var BusinessOpeningHoursInterval[]
+         * @var array<BusinessOpeningHoursInterval>
          */
         public array $opening_hours,
     ) {

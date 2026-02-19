@@ -21,7 +21,7 @@ final class GiveawayWinners extends Data implements TelegramBotData
         public int $winner_count,
         /**
          * List of up to 100 winners of the giveaway
-         * @var User[]
+         * @var array<User>
          */
         public array $winners,
         /** The number of other chats the user had to join in order to be eligible for the giveaway */

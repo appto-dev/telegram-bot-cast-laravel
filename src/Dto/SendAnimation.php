@@ -69,7 +69,7 @@ final class SendAnimation extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of special entities that appear in the caption, which can be specified instead of
          * <em>parse_mode</em>
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $caption_entities,
         /** Pass <em>True</em>, if the caption must be shown above the message media */

@@ -19,7 +19,7 @@ final class MessageReactionCountUpdated extends Data implements TelegramBotData
         public int $date,
         /**
          * List of reactions that are present on the message
-         * @var ReactionCount[]
+         * @var array<ReactionCount>
          */
         public array $reactions,
     ) {

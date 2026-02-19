@@ -34,7 +34,7 @@ final class ExternalReplyInfo extends Data implements TelegramBotData
         public ?PaidMediaInfo $paid_media,
         /**
          * Message is a photo, available sizes of the photo
-         * @var PhotoSize[]
+         * @var array<PhotoSize>
          */
         public ?array $photo,
         /** Message is a sticker, information about the sticker */

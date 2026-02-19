@@ -95,7 +95,7 @@ final class Message extends Data implements TelegramBotData
         public ?string $text,
         /**
          * For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $entities,
         /**
@@ -123,7 +123,7 @@ final class Message extends Data implements TelegramBotData
         public ?PaidMediaInfo $paid_media,
         /**
          * Message is a photo, available sizes of the photo
-         * @var PhotoSize[]
+         * @var array<PhotoSize>
          */
         public ?array $photo,
         /** Message is a sticker, information about the sticker */
@@ -141,7 +141,7 @@ final class Message extends Data implements TelegramBotData
         /**
          * For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the
          * caption
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $caption_entities,
         /** True, if the caption must be shown above the message media */
@@ -168,7 +168,7 @@ final class Message extends Data implements TelegramBotData
         /**
          * New members that were added to the group or supergroup and information about them (the bot itself may be one
          * of these members)
-         * @var User[]
+         * @var array<User>
          */
         public ?array $new_chat_members,
         /** A member was removed from the group, information about them (this member may be the bot itself) */
@@ -181,7 +181,7 @@ final class Message extends Data implements TelegramBotData
         public ?string $new_chat_title,
         /**
          * A chat photo was change to this value
-         * @var PhotoSize[]
+         * @var array<PhotoSize>
          */
         public ?array $new_chat_photo,
         /** Service message: the chat photo was deleted */

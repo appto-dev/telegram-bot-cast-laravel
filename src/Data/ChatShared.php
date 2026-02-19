@@ -28,7 +28,7 @@ final class ChatShared extends Data implements TelegramBotData
         public ?string $username,
         /**
          * Available sizes of the chat photo, if the photo was requested by the bot
-         * @var PhotoSize[]
+         * @var array<PhotoSize>
          */
         public ?array $photo,
     ) {

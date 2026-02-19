@@ -16,7 +16,7 @@ final class SetStickerEmojiList extends Dto implements TelegramBotDto
         public string $sticker,
         /**
          * A JSON-serialized list of 1-20 emoji associated with the sticker
-         * @var string[]
+         * @var array<string>
          */
         public array $emoji_list,
     ) {

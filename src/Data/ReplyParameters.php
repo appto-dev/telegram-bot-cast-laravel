@@ -39,7 +39,7 @@ final class ReplyParameters extends Data implements TelegramBotData
         /**
          * A JSON-serialized list of special entities that appear in the quote. It can be specified instead of
          * quote_parse_mode.
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $quote_entities,
         /** Position of the quote in the original message in UTF-16 code units */

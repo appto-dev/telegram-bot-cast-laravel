@@ -15,7 +15,7 @@ final class UserProfileAudios extends Data implements TelegramBotData
         public int $total_count,
         /**
          * Requested profile audios
-         * @var Audio[]
+         * @var array<Audio>
          */
         public array $audios,
     ) {

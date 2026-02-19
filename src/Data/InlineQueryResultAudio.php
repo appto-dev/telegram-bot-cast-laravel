@@ -28,7 +28,7 @@ final class InlineQueryResultAudio extends Data implements TelegramBotData, Inli
         public ?string $parse_mode,
         /**
          * List of special entities that appear in the caption, which can be specified instead of parse_mode
-         * @var MessageEntity[]
+         * @var array<MessageEntity>
          */
         public ?array $caption_entities,
         /** Performer */

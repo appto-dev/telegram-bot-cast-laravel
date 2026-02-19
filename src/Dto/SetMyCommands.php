@@ -18,7 +18,7 @@ final class SetMyCommands extends Dto implements TelegramBotDto
         /**
          * A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can
          * be specified.
-         * @var BotCommand[]
+         * @var array<BotCommand>
          */
         public array $commands,
         /**
