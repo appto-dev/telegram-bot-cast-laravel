@@ -5,6 +5,7 @@ namespace Appto\TelegramBot\Data;
 use Appto\TelegramBot\Interfaces\BackgroundFill;
 use Appto\TelegramBot\Interfaces\BackgroundType;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\BackgroundFillResolve;
 use Spatie\LaravelData\Data;
 
 /**
@@ -20,5 +21,16 @@ final class BackgroundTypeFill extends Data implements TelegramBotData, Backgrou
         /** Dimming of the background in dark themes, as a percentage; 0-100 */
         public int $dark_theme_dimming,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['fill']) || !$properties['fill']) {
+            return $properties;
+        }
+
+        $properties['fill'] = (new BackgroundFillResolve())->resolve($properties['fill']);
+
+        return $properties;
     }
 }

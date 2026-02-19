@@ -6,12 +6,13 @@ use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\StoryArea;
 use Appto\TelegramBot\Interfaces\InputStoryContent;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
+use Appto\TelegramBot\Support\Resolvers\InputStoryContentResolver;
 use Spatie\LaravelData\Dto;
 
 /**
  * Edits a story previously posted by the bot on behalf of a managed business account. Requires the
- * <em>can_manage_stories</em> business bot right. Returns <a
- * href="https://core.telegram.org/bots/api#story">Story</a> on success.
+ * <em>can_manage_stories</em> business bot right. Returns <a href="https://core.telegram.org/bots/api#story">Story</a> on
+ * success.
  */
 final class EditStory extends Dto implements TelegramBotDto
 {
@@ -25,8 +26,8 @@ final class EditStory extends Dto implements TelegramBotDto
         /** Caption of the story, 0-2048 characters after entities parsing */
         public ?string $caption,
         /**
-         * Mode for parsing entities in the story caption. See <a href="#formatting-options">formatting options</a> for
-         * more details.
+         * Mode for parsing entities in the story caption. See <a href="#formatting-options">formatting options</a> for more
+         * details.
          */
         public ?string $parse_mode,
         /**
@@ -41,5 +42,17 @@ final class EditStory extends Dto implements TelegramBotDto
          */
         public ?array $areas,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['content']) || !$properties['content']) {
+            return $properties;
+        }
+
+        $properties['content'] = (new InputStoryContentResolver())
+            ->resolve($properties['content']);
+
+        return $properties;
     }
 }

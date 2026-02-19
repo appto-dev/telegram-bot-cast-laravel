@@ -4,6 +4,7 @@ namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\StoryAreaType;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\StoryAreaTypeResolver;
 use Spatie\LaravelData\Data;
 
 /**
@@ -17,5 +18,16 @@ final class StoryArea extends Data implements TelegramBotData
         /** Type of the area */
         public StoryAreaType $type,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['type']) || !$properties['type']) {
+            return $properties;
+        }
+
+        $properties['type'] = (new StoryAreaTypeResolver())->resolve($properties['type']);
+
+        return $properties;
     }
 }

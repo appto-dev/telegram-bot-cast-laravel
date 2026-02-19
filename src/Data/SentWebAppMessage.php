@@ -6,8 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Describes an inline message sent by a <a href="https://core.telegram.org/bots/webapps">Web App</a> on behalf
- * of a user.
+ * Describes an inline message sent by a <a href="https://core.telegram.org/bots/webapps">Web App</a> on behalf of a user.
  */
 final class SentWebAppMessage extends Data implements TelegramBotData
 {

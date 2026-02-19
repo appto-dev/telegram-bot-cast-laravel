@@ -6,9 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the
- * Mini App method <a
- * href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestEmojiStatusAccess</a>. Returns
+ * Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the Mini App
+ * method <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestEmojiStatusAccess</a>. Returns
  * <em>True</em> on success.
  */
 final class SetUserEmojiStatus extends Dto implements TelegramBotDto

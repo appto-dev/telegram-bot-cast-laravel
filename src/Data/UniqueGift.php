@@ -32,8 +32,8 @@ final class UniqueGift extends Data implements TelegramBotData
         /** True, if the gift is assigned from the TON blockchain and can't be resold or transferred in Telegram */
         public ?true $is_from_blockchain,
         /**
-         * The color scheme that can be used by the gift's owner for the chat's name, replies to messages and link
-         * previews; for business account gifts and gifts that are currently on sale only
+         * The color scheme that can be used by the gift's owner for the chat's name, replies to messages and link previews; for
+         * business account gifts and gifts that are currently on sale only
          */
         public ?UniqueGiftColors $colors,
         /** Information about the chat that published the gift */

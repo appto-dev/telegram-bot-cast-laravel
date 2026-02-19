@@ -7,8 +7,7 @@ use Spatie\LaravelData\Dto;
 
 /**
  * Use this method to decline a suggested post in a direct messages chat. The bot must have the
- * 'can_manage_direct_messages' administrator right in the corresponding channel chat. Returns <em>True</em> on
- * success.
+ * 'can_manage_direct_messages' administrator right in the corresponding channel chat. Returns <em>True</em> on success.
  */
 final class DeclineSuggestedPost extends Dto implements TelegramBotDto
 {

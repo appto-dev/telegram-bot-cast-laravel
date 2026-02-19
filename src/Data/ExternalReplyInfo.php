@@ -4,11 +4,12 @@ namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\MessageOrigin;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\MessageOriginResolver;
 use Spatie\LaravelData\Data;
 
 /**
- * This object contains information about a message that is being replied to, which may come from another chat or
- * forum topic.
+ * This object contains information about a message that is being replied to, which may come from another chat or forum
+ * topic.
  */
 final class ExternalReplyInfo extends Data implements TelegramBotData
 {
@@ -17,10 +18,7 @@ final class ExternalReplyInfo extends Data implements TelegramBotData
         public MessageOrigin $origin,
         /** Chat the original message belongs to. Available only if the chat is a supergroup or a channel. */
         public ?Chat $chat,
-        /**
-         * Unique message identifier inside the original chat. Available only if the original chat is a supergroup or a
-         * channel.
-         */
+        /** Unique message identifier inside the original chat. Available only if the original chat is a supergroup or a channel. */
         public ?int $message_id,
         /** Options used for link preview generation for the original message, if it is a text message */
         public ?LinkPreviewOptions $link_preview_options,
@@ -70,5 +68,16 @@ final class ExternalReplyInfo extends Data implements TelegramBotData
         /** Message is a venue, information about the venue */
         public ?Venue $venue,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['origin']) || !$properties['origin']) {
+            return $properties;
+        }
+
+        $properties['origin'] = (new MessageOriginResolver())->resolve($properties['origin']);
+
+        return $properties;
     }
 }

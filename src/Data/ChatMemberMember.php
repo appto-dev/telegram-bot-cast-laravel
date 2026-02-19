@@ -7,8 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that has no additional
- * privileges or restrictions.
+ * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that has no additional privileges
+ * or restrictions.
  */
 final class ChatMemberMember extends Data implements TelegramBotData, ChatMember
 {

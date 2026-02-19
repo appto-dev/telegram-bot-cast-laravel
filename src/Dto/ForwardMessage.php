@@ -13,19 +13,16 @@ use Spatie\LaravelData\Dto;
 final class ForwardMessage extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>) */
         public int|string $chat_id,
         /**
-         * Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of
-         * bots with forum topic mode enabled only
+         * Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with
+         * forum topic mode enabled only
          */
         public ?int $message_thread_id,
         /**
-         * Identifier of the direct messages topic to which the message will be forwarded; required if the message is
-         * forwarded to a direct messages chat
+         * Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to
+         * a direct messages chat
          */
         public ?int $direct_messages_topic_id,
         /**
@@ -36,21 +33,15 @@ final class ForwardMessage extends Dto implements TelegramBotDto
         /** New start timestamp for the forwarded video in the message */
         public ?int $video_start_timestamp,
         /**
-         * Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will
-         * receive a notification with no sound.
+         * Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a
+         * notification with no sound.
          */
         public ?bool $disable_notification,
         /** Protects the contents of the forwarded message from forwarding and saving */
         public ?bool $protect_content,
-        /**
-         * Unique identifier of the message effect to be added to the message; only available when forwarding to private
-         * chats
-         */
+        /** Unique identifier of the message effect to be added to the message; only available when forwarding to private chats */
         public ?string $message_effect_id,
-        /**
-         * A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats
-         * only
-         */
+        /** A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only */
         public ?SuggestedPostParameters $suggested_post_parameters,
         /** Message identifier in the chat specified in <em>from_chat_id</em> */
         public int $message_id,

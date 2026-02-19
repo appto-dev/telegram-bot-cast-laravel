@@ -12,8 +12,8 @@ final class ChatInviteLink extends Data implements TelegramBotData
 {
     public function __construct(
         /**
-         * The invite link. If the link was created by another chat administrator, then the second part of the link will
-         * be replaced with "…".
+         * The invite link. If the link was created by another chat administrator, then the second part of the link will be
+         * replaced with "…".
          */
         public string $invite_link,
         /** Creator of the link */
@@ -29,8 +29,8 @@ final class ChatInviteLink extends Data implements TelegramBotData
         /** Point in time (Unix timestamp) when the link will expire or has been expired */
         public ?int $expire_date,
         /**
-         * The maximum number of users that can be members of the chat simultaneously after joining the chat via this
-         * invite link; 1-99999
+         * The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link;
+         * 1-99999
          */
         public ?int $member_limit,
         /** Number of pending join requests created using this link */
@@ -38,8 +38,8 @@ final class ChatInviteLink extends Data implements TelegramBotData
         /** The number of seconds the subscription will be active for before the next payment */
         public ?int $subscription_period,
         /**
-         * The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a
-         * member of the chat using the link
+         * The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of
+         * the chat using the link
          */
         public ?int $subscription_price,
     ) {

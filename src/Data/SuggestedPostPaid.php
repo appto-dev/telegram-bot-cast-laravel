@@ -12,8 +12,8 @@ final class SuggestedPostPaid extends Data implements TelegramBotData
 {
     public function __construct(
         /**
-         * Message containing the suggested post. Note that the Message object in this field will not contain the
-         * reply_to_message field even if it itself is a reply.
+         * Message containing the suggested post. Note that the Message object in this field will not contain the reply_to_message
+         * field even if it itself is a reply.
          */
         public ?Message $suggested_post_message,
         /** Currency in which the payment was made. Currently, one of "XTR" for Telegram Stars or "TON" for toncoins */

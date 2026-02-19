@@ -8,10 +8,10 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the
- * edited <a href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise <em>True</em>
- * is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard
- * can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <a
+ * href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise <em>True</em> is returned. Note
+ * that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48
+ * hours from the time they were sent.
  */
 final class EditMessageCaption extends Dto implements TelegramBotDto
 {
@@ -19,8 +19,8 @@ final class EditMessageCaption extends Dto implements TelegramBotDto
         /** Unique identifier of the business connection on behalf of which the message to be edited was sent */
         public ?string $business_connection_id,
         /**
-         * Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of
-         * the target channel (in the format <code>@channelusername</code>)
+         * Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target
+         * channel (in the format <code>@channelusername</code>)
          */
         public int|string|null $chat_id,
         /** Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit */
@@ -30,8 +30,8 @@ final class EditMessageCaption extends Dto implements TelegramBotDto
         /** New caption of the message, 0-1024 characters after entities parsing */
         public ?string $caption,
         /**
-         * Mode for parsing entities in the message caption. See <a href="#formatting-options">formatting options</a> for
-         * more details.
+         * Mode for parsing entities in the message caption. See <a href="#formatting-options">formatting options</a> for more
+         * details.
          */
         public ?string $parse_mode,
         /**
@@ -41,8 +41,8 @@ final class EditMessageCaption extends Dto implements TelegramBotDto
          */
         public ?array $caption_entities,
         /**
-         * Pass <em>True</em>, if the caption must be shown above the message media. Supported only for animation, photo
-         * and video messages.
+         * Pass <em>True</em>, if the caption must be shown above the message media. Supported only for animation, photo and video
+         * messages.
          */
         public ?bool $show_caption_above_media,
         /** A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline keyboard</a>. */

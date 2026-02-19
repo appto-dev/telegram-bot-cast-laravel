@@ -5,6 +5,7 @@ namespace Appto\TelegramBot\Data;
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\InputMessageContent;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\InputMessageContentResolver;
 use Spatie\LaravelData\Data;
 
 /**
@@ -29,8 +30,8 @@ final class InlineQueryResultVenue extends Data implements TelegramBotData, Inli
         /** Foursquare identifier of the venue if known */
         public ?string $foursquare_id,
         /**
-         * Foursquare type of the venue, if known. (For example, "arts_entertainment/default",
-         * "arts_entertainment/aquarium" or "food/icecream".)
+         * Foursquare type of the venue, if known. (For example, "arts_entertainment/default", "arts_entertainment/aquarium" or
+         * "food/icecream".)
          */
         public ?string $foursquare_type,
         /** Google Places identifier of the venue */
@@ -48,5 +49,17 @@ final class InlineQueryResultVenue extends Data implements TelegramBotData, Inli
         /** Thumbnail height */
         public ?int $thumbnail_height,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['input_message_content']) || !$properties['input_message_content']) {
+            return $properties;
+        }
+
+        $properties['input_message_content'] = (new InputMessageContentResolver())
+            ->resolve($properties['input_message_content']);
+
+        return $properties;
     }
 }

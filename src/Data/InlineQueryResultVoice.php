@@ -5,12 +5,13 @@ namespace Appto\TelegramBot\Data;
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\InputMessageContent;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\InputMessageContentResolver;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice
- * recording will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a
- * message with the specified content instead of the the voice message.
+ * Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be
+ * sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content
+ * instead of the the voice message.
  */
 final class InlineQueryResultVoice extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -39,5 +40,17 @@ final class InlineQueryResultVoice extends Data implements TelegramBotData, Inli
         /** Content of the message to be sent instead of the voice recording */
         public ?InputMessageContent $input_message_content,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['input_message_content']) || !$properties['input_message_content']) {
+            return $properties;
+        }
+
+        $properties['input_message_content'] = (new InputMessageContentResolver())
+            ->resolve($properties['input_message_content']);
+
+        return $properties;
     }
 }

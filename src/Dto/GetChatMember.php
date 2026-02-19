@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to get information about a member of a chat. The method is only guaranteed to work for other
- * users if the bot is an administrator in the chat. Returns a <a
+ * Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if
+ * the bot is an administrator in the chat. Returns a <a
  * href="https://core.telegram.org/bots/api#chatmember">ChatMember</a> object on success.
  */
 final class GetChatMember extends Dto implements TelegramBotDto

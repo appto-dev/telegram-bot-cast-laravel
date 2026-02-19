@@ -5,14 +5,15 @@ namespace Appto\TelegramBot\Data;
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\InputMessageContent;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\InputMessageContentResolver;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a link to a page containing an embedded video player or a video file. By default, this video file
- * will be sent by the user with an optional caption. Alternatively, you can use <em>input_message_content</em>
- * to send a message with the specified content instead of the video.
- * If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube), you must replace its content
- * using <em>input_message_content</em>.
+ * Represents a link to a page containing an embedded video player or a video file. By default, this video file will be
+ * sent by the user with an optional caption. Alternatively, you can use <em>input_message_content</em> to send a message
+ * with the specified content instead of the video.
+ * If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube), you must replace its content using
+ * <em>input_message_content</em>.
  */
 final class InlineQueryResultVideo extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -51,10 +52,22 @@ final class InlineQueryResultVideo extends Data implements TelegramBotData, Inli
         /** Inline keyboard attached to the message */
         public ?InlineKeyboardMarkup $reply_markup,
         /**
-         * Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is
-         * used to send an HTML-page as a result (e.g., a YouTube video).
+         * Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send
+         * an HTML-page as a result (e.g., a YouTube video).
          */
         public ?InputMessageContent $input_message_content,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['input_message_content']) || !$properties['input_message_content']) {
+            return $properties;
+        }
+
+        $properties['input_message_content'] = (new InputMessageContentResolver())
+            ->resolve($properties['input_message_content']);
+
+        return $properties;
     }
 }

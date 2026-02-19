@@ -2,13 +2,14 @@
 
 namespace Appto\TelegramBot\Data;
 
+use Appto\TelegramBot\Interfaces\MaybeInaccessibleMessage;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
  * This object describes a message that was deleted or is otherwise inaccessible to the bot.
  */
-final class InaccessibleMessage extends Data implements TelegramBotData
+final class InaccessibleMessage extends Data implements TelegramBotData, MaybeInaccessibleMessage
 {
     public function __construct(
         /** Chat the message belonged to */

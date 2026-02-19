@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object represents a <a href="https://telegram.org/blog/video-messages-and-telescope">video message</a>
- * (available in Telegram apps as of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>).
+ * This object represents a <a href="https://telegram.org/blog/video-messages-and-telescope">video message</a> (available
+ * in Telegram apps as of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>).
  */
 final class VideoNote extends Data implements TelegramBotData
 {
@@ -15,8 +15,8 @@ final class VideoNote extends Data implements TelegramBotData
         /** Identifier for this file, which can be used to download or reuse the file */
         public string $file_id,
         /**
-         * Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be
-         * used to download or reuse the file.
+         * Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to
+         * download or reuse the file.
          */
         public string $file_unique_id,
         /** Video width and height (diameter of the video message) as defined by the sender */

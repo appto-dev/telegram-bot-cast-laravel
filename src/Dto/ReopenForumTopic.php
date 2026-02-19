@@ -6,9 +6,9 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the
- * chat for this to work and must have the <em>can_manage_topics</em> administrator rights, unless it is the
- * creator of the topic. Returns <em>True</em> on success.
+ * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for
+ * this to work and must have the <em>can_manage_topics</em> administrator rights, unless it is the creator of the topic.
+ * Returns <em>True</em> on success.
  */
 final class ReopenForumTopic extends Dto implements TelegramBotDto
 {

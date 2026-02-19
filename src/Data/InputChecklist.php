@@ -16,8 +16,8 @@ final class InputChecklist extends Data implements TelegramBotData
         /** Mode for parsing entities in the title. See formatting options for more details. */
         public ?string $parse_mode,
         /**
-         * List of special entities that appear in the title, which can be specified instead of parse_mode. Currently,
-         * only bold, italic, underline, strikethrough, spoiler, and custom_emoji entities are allowed.
+         * List of special entities that appear in the title, which can be specified instead of parse_mode. Currently, only bold,
+         * italic, underline, strikethrough, spoiler, and custom_emoji entities are allowed.
          * @var array<MessageEntity>
          */
         public ?array $title_entities,

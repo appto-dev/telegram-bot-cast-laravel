@@ -5,12 +5,13 @@ namespace Appto\TelegramBot\Data;
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\InputMessageContent;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\InputMessageContentResolver;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user
- * with an optional caption. Alternatively, you can use <em>input_message_content</em> to send a message with the
- * specified content instead of the file.
+ * Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user with an
+ * optional caption. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content
+ * instead of the file.
  */
 final class InlineQueryResultCachedDocument extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -39,5 +40,17 @@ final class InlineQueryResultCachedDocument extends Data implements TelegramBotD
         /** Content of the message to be sent instead of the file */
         public ?InputMessageContent $input_message_content,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['input_message_content']) || !$properties['input_message_content']) {
+            return $properties;
+        }
+
+        $properties['input_message_content'] = (new InputMessageContentResolver())
+            ->resolve($properties['input_message_content']);
+
+        return $properties;
     }
 }

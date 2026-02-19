@@ -4,6 +4,7 @@ namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
+use Appto\TelegramBot\Support\Resolvers\InlineQueryResultResolver;
 use Spatie\LaravelData\Dto;
 
 /**
@@ -26,5 +27,16 @@ final class SavePreparedInlineMessage extends Dto implements TelegramBotDto
         /** Pass <em>True</em> if the message can be sent to channel chats */
         public ?bool $allow_channel_chats,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['result']) || !$properties['result']) {
+            return $properties;
+        }
+
+        $properties['result'] = (new InlineQueryResultResolver())->resolve($properties['result']);
+
+        return $properties;
     }
 }

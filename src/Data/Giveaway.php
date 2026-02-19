@@ -27,17 +27,17 @@ final class Giveaway extends Data implements TelegramBotData
         /** Description of additional giveaway prize */
         public ?string $prize_description,
         /**
-         * A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which eligible users for
-         * the giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number
-         * that was bought on Fragment can always participate in giveaways.
+         * A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which eligible users for the
+         * giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number that was bought
+         * on Fragment can always participate in giveaways.
          * @var array<string>
          */
         public ?array $country_codes,
         /** The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only */
         public ?int $prize_star_count,
         /**
-         * The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram
-         * Premium giveaways only
+         * The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium
+         * giveaways only
          */
         public ?int $premium_subscription_month_count,
     ) {

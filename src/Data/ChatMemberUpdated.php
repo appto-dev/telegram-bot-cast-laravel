@@ -4,6 +4,7 @@ namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\ChatMember;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\ChatMemberResolve;
 use Spatie\LaravelData\Data;
 
 /**
@@ -25,12 +26,28 @@ final class ChatMemberUpdated extends Data implements TelegramBotData
         /** Chat invite link, which was used by the user to join the chat; for joining by invite link events only. */
         public ?ChatInviteLink $invite_link,
         /**
-         * True, if the user joined the chat after sending a direct join request without using an invite link and being
-         * approved by an administrator
+         * True, if the user joined the chat after sending a direct join request without using an invite link and being approved by
+         * an administrator
          */
         public ?bool $via_join_request,
         /** True, if the user joined the chat via a chat folder invite link */
         public ?bool $via_chat_folder_invite_link,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        $resolver = new ChatMemberResolve();
+
+        if (isset($properties['old_chat_member']) || $properties['old_chat_member']) {
+            $properties['old_chat_member'] = $resolver->resolve($properties['old_chat_member']);
+        }
+
+        if (isset($properties['new_chat_member']) || $properties['new_chat_member']) {
+            $properties['new_chat_member'] = $resolver->resolve($properties['new_chat_member']);
+        }
+
+
+        return $properties;
     }
 }

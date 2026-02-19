@@ -15,7 +15,7 @@ final class UserProfilePhotos extends Data implements TelegramBotData
         public int $total_count,
         /**
          * Requested profile pictures (in up to 4 sizes each)
-         * @var array<PhotoSize[]>
+         * @var array<array<PhotoSize>>
          */
         public array $photos,
     ) {

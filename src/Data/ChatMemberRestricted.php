@@ -7,8 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that is under certain
- * restrictions in the chat. Supergroups only.
+ * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that is under certain restrictions
+ * in the chat. Supergroups only.
  */
 final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMember
 {
@@ -20,8 +20,8 @@ final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMe
         /** True, if the user is a member of the chat at the moment of the request */
         public bool $is_member,
         /**
-         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations
-         * and venues
+         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and
+         * venues
          */
         public bool $can_send_messages,
         /** True, if the user is allowed to send audios */

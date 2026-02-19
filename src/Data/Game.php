@@ -6,8 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object represents a game. Use BotFather to create and edit games, their short names will act as unique
- * identifiers.
+ * This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.
  */
 final class Game extends Data implements TelegramBotData
 {
@@ -22,9 +21,9 @@ final class Game extends Data implements TelegramBotData
          */
         public array $photo,
         /**
-         * Brief description of the game or high scores included in the game message. Can be automatically edited to
-         * include current high scores for the game when the bot calls setGameScore, or manually edited using
-         * editMessageText. 0-4096 characters.
+         * Brief description of the game or high scores included in the game message. Can be automatically edited to include
+         * current high scores for the game when the bot calls setGameScore, or manually edited using editMessageText. 0-4096
+         * characters.
          */
         public ?string $text,
         /**

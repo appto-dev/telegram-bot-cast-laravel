@@ -7,8 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents an issue with a document scan. The error is considered resolved when the file with the document
- * scan changes.
+ * Represents an issue with a document scan. The error is considered resolved when the file with the document scan changes.
  */
 final class PassportElementErrorFile extends Data implements TelegramBotData, PassportElementError
 {

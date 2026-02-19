@@ -4,6 +4,7 @@ namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\ChatBoostSource;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\ChatBoostSourceResolve;
 use Spatie\LaravelData\Data;
 
 /**
@@ -24,5 +25,16 @@ final class ChatBoost extends Data implements TelegramBotData
         /** Source of the added boost */
         public ChatBoostSource $source,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['source']) || !$properties['source']) {
+            return $properties;
+        }
+
+        $properties['source'] = (new ChatBoostSourceResolve())->resolve($properties['source']);
+
+        return $properties;
     }
 }

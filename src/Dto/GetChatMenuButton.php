@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to get the current value of the bot's menu button in a private chat, or the default menu
- * button. Returns <a href="https://core.telegram.org/bots/api#menubutton">MenuButton</a> on success.
+ * Use this method to get the current value of the bot's menu button in a private chat, or the default menu button. Returns
+ * <a href="https://core.telegram.org/bots/api#menubutton">MenuButton</a> on success.
  */
 final class GetChatMenuButton extends Dto implements TelegramBotDto
 {

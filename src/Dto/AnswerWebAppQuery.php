@@ -4,12 +4,12 @@ namespace Appto\TelegramBot\Dto;
 
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
+use Appto\TelegramBot\Support\Resolvers\InlineQueryResultResolver;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to set the result of an interaction with a <a
- * href="https://core.telegram.org/bots/webapps">Web App</a> and send a corresponding message on behalf of the
- * user to the chat from which the query originated. On success, a <a
+ * Use this method to set the result of an interaction with a <a href="https://core.telegram.org/bots/webapps">Web App</a>
+ * and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a <a
  * href="https://core.telegram.org/bots/api#sentwebappmessage">SentWebAppMessage</a> object is returned.
  */
 final class AnswerWebAppQuery extends Dto implements TelegramBotDto
@@ -20,5 +20,16 @@ final class AnswerWebAppQuery extends Dto implements TelegramBotDto
         /** A JSON-serialized object describing the message to be sent */
         public InlineQueryResult $result,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['result']) || !$properties['result']) {
+            return $properties;
+        }
+
+        $properties['result'] = (new InlineQueryResultResolver())->resolve($properties['result']);
+
+        return $properties;
     }
 }

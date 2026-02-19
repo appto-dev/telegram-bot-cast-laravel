@@ -11,10 +11,7 @@ use Spatie\LaravelData\Data;
 final class BusinessBotRights extends Data implements TelegramBotData
 {
     public function __construct(
-        /**
-         * True, if the bot can send and edit messages in the private chats that had incoming messages in the last 24
-         * hours
-         */
+        /** True, if the bot can send and edit messages in the private chats that had incoming messages in the last 24 hours */
         public ?true $can_reply,
         /** True, if the bot can mark incoming private messages as read */
         public ?true $can_read_messages,
@@ -39,8 +36,8 @@ final class BusinessBotRights extends Data implements TelegramBotData
         /** True, if the bot can transfer and upgrade gifts owned by the business account */
         public ?true $can_transfer_and_upgrade_gifts,
         /**
-         * True, if the bot can transfer Telegram Stars received by the business account to its own account, or use them
-         * to upgrade and transfer gifts
+         * True, if the bot can transfer Telegram Stars received by the business account to its own account, or use them to upgrade
+         * and transfer gifts
          */
         public ?true $can_transfer_stars,
         /** True, if the bot can post, edit and delete stories on behalf of the business account */

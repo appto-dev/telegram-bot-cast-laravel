@@ -6,9 +6,9 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to clear the list of pinned messages in a General forum topic. The bot must be an
- * administrator in the chat for this to work and must have the <em>can_pin_messages</em> administrator right in
- * the supergroup. Returns <em>True</em> on success.
+ * Use this method to clear the list of pinned messages in a General forum topic. The bot must be an administrator in the
+ * chat for this to work and must have the <em>can_pin_messages</em> administrator right in the supergroup. Returns
+ * <em>True</em> on success.
  */
 final class UnpinAllGeneralForumTopicMessages extends Dto implements TelegramBotDto
 {

@@ -7,8 +7,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents an issue with the reverse side of a document. The error is considered resolved when the file with
- * reverse side of the document changes.
+ * Represents an issue with the reverse side of a document. The error is considered resolved when the file with reverse
+ * side of the document changes.
  */
 final class PassportElementErrorReverseSide extends Data implements TelegramBotData, PassportElementError
 {

@@ -15,10 +15,7 @@ final class StopPoll extends Dto implements TelegramBotDto
     public function __construct(
         /** Unique identifier of the business connection on behalf of which the message to be edited was sent */
         public ?string $business_connection_id,
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>) */
         public int|string $chat_id,
         /** Identifier of the original message with the poll */
         public int $message_id,

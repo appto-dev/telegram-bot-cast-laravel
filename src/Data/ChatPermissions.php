@@ -12,8 +12,8 @@ final class ChatPermissions extends Data implements TelegramBotData
 {
     public function __construct(
         /**
-         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations
-         * and venues
+         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and
+         * venues
          */
         public ?bool $can_send_messages,
         /** True, if the user is allowed to send audios */

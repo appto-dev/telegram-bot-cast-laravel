@@ -16,8 +16,8 @@ final class SetBusinessAccountGiftSettings extends Dto implements TelegramBotDto
         /** Unique identifier of the business connection */
         public string $business_connection_id,
         /**
-         * Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown
-         * in the input field
+         * Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown in the
+         * input field
          */
         public bool $show_gift_button,
         /** Types of gifts accepted by the business account */

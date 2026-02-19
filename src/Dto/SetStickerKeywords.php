@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to change search keywords assigned to a regular or custom emoji sticker. The sticker must
- * belong to a sticker set created by the bot. Returns <em>True</em> on success.
+ * Use this method to change search keywords assigned to a regular or custom emoji sticker. The sticker must belong to a
+ * sticker set created by the bot. Returns <em>True</em> on success.
  */
 final class SetStickerKeywords extends Dto implements TelegramBotDto
 {

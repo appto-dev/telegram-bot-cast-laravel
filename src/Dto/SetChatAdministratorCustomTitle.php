@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns
- * <em>True</em> on success.
+ * Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns <em>True</em> on
+ * success.
  */
 final class SetChatAdministratorCustomTitle extends Dto implements TelegramBotDto
 {

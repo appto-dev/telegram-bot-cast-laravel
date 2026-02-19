@@ -8,8 +8,8 @@ use Spatie\LaravelData\Data;
 /**
  * Describes data required for decrypting and authenticating <a
  * href="https://core.telegram.org/bots/api#encryptedpassportelement">EncryptedPassportElement</a>. See the <a
- * href="https://core.telegram.org/passport#receiving-information">Telegram Passport Documentation</a> for a
- * complete description of the data decryption and authentication processes.
+ * href="https://core.telegram.org/passport#receiving-information">Telegram Passport Documentation</a> for a complete
+ * description of the data decryption and authentication processes.
  */
 final class EncryptedCredentials extends Data implements TelegramBotData
 {

@@ -29,8 +29,8 @@ final class GiveawayWinners extends Data implements TelegramBotData
         /** The number of Telegram Stars that were split between giveaway winners; for Telegram Star giveaways only */
         public ?int $prize_star_count,
         /**
-         * The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram
-         * Premium giveaways only
+         * The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium
+         * giveaways only
          */
         public ?int $premium_subscription_month_count,
         /** Number of undistributed prizes */

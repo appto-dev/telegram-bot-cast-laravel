@@ -12,8 +12,8 @@ final class ChecklistTasksDone extends Data implements TelegramBotData
 {
     public function __construct(
         /**
-         * Message containing the checklist whose tasks were marked as done or not done. Note that the Message object in
-         * this field will not contain the reply_to_message field even if it itself is a reply.
+         * Message containing the checklist whose tasks were marked as done or not done. Note that the Message object in this field
+         * will not contain the reply_to_message field even if it itself is a reply.
          */
         public ?Message $checklist_message,
         /**

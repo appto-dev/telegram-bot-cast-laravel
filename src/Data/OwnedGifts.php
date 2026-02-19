@@ -4,6 +4,7 @@ namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\OwnedGift;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\OwnedGiftResolver;
 use Spatie\LaravelData\Data;
 
 /**
@@ -22,5 +23,16 @@ final class OwnedGifts extends Data implements TelegramBotData
         /** Offset for the next request. If empty, then there are no more results */
         public ?string $next_offset,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['gifts']) || !$properties['gifts']) {
+            return $properties;
+        }
+
+        $properties['gifts'] = (new OwnedGiftResolver())->resolveCollection($properties['gifts']);
+
+        return $properties;
     }
 }

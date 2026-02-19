@@ -5,12 +5,12 @@ namespace Appto\TelegramBot\Data;
 use Appto\TelegramBot\Interfaces\InlineQueryResult;
 use Appto\TelegramBot\Interfaces\InputMessageContent;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
+use Appto\TelegramBot\Support\Resolvers\InputMessageContentResolver;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively,
- * you can use <em>input_message_content</em> to send a message with the specified content instead of the
- * contact.
+ * Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively, you can use
+ * <em>input_message_content</em> to send a message with the specified content instead of the contact.
  */
 final class InlineQueryResultContact extends Data implements TelegramBotData, InlineQueryResult
 {
@@ -38,5 +38,17 @@ final class InlineQueryResultContact extends Data implements TelegramBotData, In
         /** Thumbnail height */
         public ?int $thumbnail_height,
     ) {
+    }
+
+    public static function prepareForPipeline(array $properties): array
+    {
+        if (!isset($properties['input_message_content']) || !$properties['input_message_content']) {
+            return $properties;
+        }
+
+        $properties['input_message_content'] = (new InputMessageContentResolver())
+            ->resolve($properties['input_message_content']);
+
+        return $properties;
     }
 }

@@ -6,10 +6,10 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a user. In
- * the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the
- * <em>can_manage_topics</em> administrator rights, unless it is the creator of the topic. Returns <em>True</em>
- * on success.
+ * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case
+ * of a supergroup chat the bot must be an administrator in the chat for this to work and must have the
+ * <em>can_manage_topics</em> administrator rights, unless it is the creator of the topic. Returns <em>True</em> on
+ * success.
  */
 final class EditForumTopic extends Dto implements TelegramBotDto
 {
@@ -25,8 +25,8 @@ final class EditForumTopic extends Dto implements TelegramBotDto
         public ?string $name,
         /**
          * New unique identifier of the custom emoji shown as the topic icon. Use <a
-         * href="#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers.
-         * Pass an empty string to remove the icon. If not specified, the current icon will be kept
+         * href="#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers. Pass an
+         * empty string to remove the icon. If not specified, the current icon will be kept
          */
         public ?string $icon_custom_emoji_id,
     ) {

@@ -13,14 +13,11 @@ final class GiftInfo extends Data implements TelegramBotData
     public function __construct(
         /** Information about the gift */
         public Gift $gift,
-        /**
-         * Unique identifier of the received gift for the bot; only present for gifts received on behalf of business
-         * accounts
-         */
+        /** Unique identifier of the received gift for the bot; only present for gifts received on behalf of business accounts */
         public ?string $owned_gift_id,
         /**
-         * Number of Telegram Stars that can be claimed by the receiver by converting the gift; omitted if conversion to
-         * Telegram Stars is impossible
+         * Number of Telegram Stars that can be claimed by the receiver by converting the gift; omitted if conversion to Telegram
+         * Stars is impossible
          */
         public ?int $convert_star_count,
         /** Number of Telegram Stars that were prepaid for the ability to upgrade the gift */
@@ -36,10 +33,7 @@ final class GiftInfo extends Data implements TelegramBotData
          * @var array<MessageEntity>
          */
         public ?array $entities,
-        /**
-         * True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see
-         * them
-         */
+        /** True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them */
         public ?true $is_private,
         /** Unique number reserved for this gift when upgraded. See the number field in UniqueGift */
         public ?int $unique_gift_number,

@@ -22,14 +22,11 @@ final class WebhookInfo extends Data implements TelegramBotData
         /** Unix time for the most recent error that happened when trying to deliver an update via webhook */
         public ?int $last_error_date,
         /**
-         * Error message in human-readable format for the most recent error that happened when trying to deliver an
-         * update via webhook
+         * Error message in human-readable format for the most recent error that happened when trying to deliver an update via
+         * webhook
          */
         public ?string $last_error_message,
-        /**
-         * Unix time of the most recent error that happened when trying to synchronize available updates with Telegram
-         * datacenters
-         */
+        /** Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters */
         public ?int $last_synchronization_error_date,
         /** The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery */
         public ?int $max_connections,
