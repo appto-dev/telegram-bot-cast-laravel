@@ -38,9 +38,6 @@ class GenericResolver
 
     public function resolveCollection(array $items): array
     {
-        return array_map(
-            fn (array $item) => $this->resolve($item),
-            $items
-        );
+        return array_map(fn ($item) => $this->resolve($item), $items);
     }
 }
