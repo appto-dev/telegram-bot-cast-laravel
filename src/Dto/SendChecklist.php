@@ -29,7 +29,7 @@ final class SendChecklist extends Dto implements TelegramBotDto
         public ?string $message_effect_id,
         /** A JSON-serialized object for description of the message to reply to */
         public ?ReplyParameters $reply_parameters,
-        /** A JSON-serialized object for an inline keyboard */
+        /** A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline keyboard</a> */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {
     }

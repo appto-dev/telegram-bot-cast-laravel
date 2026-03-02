@@ -22,7 +22,10 @@ final class EditMessageChecklist extends Dto implements TelegramBotDto
         public int $message_id,
         /** A JSON-serialized object for the new checklist */
         public InputChecklist $checklist,
-        /** A JSON-serialized object for the new inline keyboard for the message */
+        /**
+         * A JSON-serialized object for the new <a href="/bots/features#inline-keyboards">inline keyboard</a> for the
+         * message
+         */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {
     }

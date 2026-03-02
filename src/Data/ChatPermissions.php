@@ -12,8 +12,8 @@ final class ChatPermissions extends Data implements TelegramBotData
 {
     public function __construct(
         /**
-         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and
-         * venues
+         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations
+         * and venues
          */
         public ?bool $can_send_messages,
         /** True, if the user is allowed to send audios */
@@ -34,6 +34,8 @@ final class ChatPermissions extends Data implements TelegramBotData
         public ?bool $can_send_other_messages,
         /** True, if the user is allowed to add web page previews to their messages */
         public ?bool $can_add_web_page_previews,
+        /** True, if the user is allowed to edit their own tag */
+        public ?bool $can_edit_tag,
         /** True, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups */
         public ?bool $can_change_info,
         /** True, if the user is allowed to invite new users to the chat */

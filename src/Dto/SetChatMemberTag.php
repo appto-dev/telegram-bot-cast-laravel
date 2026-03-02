@@ -6,10 +6,11 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns
+ * Use this method to set a tag for a regular member in a group or a supergroup. The bot must be an administrator
+ * in the chat for this to work and must have the <em>can_manage_tags</em> administrator right. Returns
  * <em>True</em> on success.
  */
-final class SetChatAdministratorCustomTitle extends Dto implements TelegramBotDto
+final class SetChatMemberTag extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
@@ -19,8 +20,8 @@ final class SetChatAdministratorCustomTitle extends Dto implements TelegramBotDt
         public int|string $chat_id,
         /** Unique identifier of the target user */
         public int $user_id,
-        /** New custom title for the administrator; 0-16 characters, emoji are not allowed */
-        public string $custom_title,
+        /** New tag for the member; 0-16 characters, emoji are not allowed */
+        public ?string $tag,
     ) {
     }
 }

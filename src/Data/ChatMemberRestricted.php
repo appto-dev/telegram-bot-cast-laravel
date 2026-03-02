@@ -7,21 +7,23 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that is under certain restrictions
- * in the chat. Supergroups only.
+ * Represents a <a href="https://core.telegram.org/bots/api#chatmember">chat member</a> that is under certain
+ * restrictions in the chat. Supergroups only.
  */
 final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMember
 {
     public function __construct(
         /** The member's status in the chat, always "restricted" */
         public string $status,
+        /** Tag of the member */
+        public ?string $tag,
         /** Information about the user */
         public User $user,
         /** True, if the user is a member of the chat at the moment of the request */
         public bool $is_member,
         /**
-         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and
-         * venues
+         * True, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations
+         * and venues
          */
         public bool $can_send_messages,
         /** True, if the user is allowed to send audios */
@@ -42,6 +44,8 @@ final class ChatMemberRestricted extends Data implements TelegramBotData, ChatMe
         public bool $can_send_other_messages,
         /** True, if the user is allowed to add web page previews to their messages */
         public bool $can_add_web_page_previews,
+        /** True, if the user is allowed to edit their own tag */
+        public bool $can_edit_tag,
         /** True, if the user is allowed to change the chat title, photo and other settings */
         public bool $can_change_info,
         /** True, if the user is allowed to invite new users to the chat */

@@ -4,7 +4,6 @@ namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\PaidMedia;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
-use Appto\TelegramBot\Support\Resolvers\PaidMediaResolver;
 use Spatie\LaravelData\Data;
 
 /**
@@ -21,16 +20,5 @@ final class PaidMediaInfo extends Data implements TelegramBotData
          */
         public array $paid_media,
     ) {
-    }
-
-    public static function prepareForPipeline(array $properties): array
-    {
-        if (!isset($properties['paid_media']) || !$properties['paid_media']) {
-            return $properties;
-        }
-
-        $properties['paid_media'] = (new PaidMediaResolver())->resolveCollection($properties['paid_media']);
-
-        return $properties;
     }
 }
