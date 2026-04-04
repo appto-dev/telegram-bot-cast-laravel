@@ -50,10 +50,28 @@ final class SendPoll extends Dto implements TelegramBotDto
         public ?bool $is_anonymous,
         /** Poll type, "quiz" or "regular", defaults to "regular" */
         public ?string $type,
-        /** <em>True</em>, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to <em>False</em> */
+        /** Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em> */
         public ?bool $allows_multiple_answers,
-        /** 0-based identifier of the correct answer option, required for polls in quiz mode */
-        public ?int $correct_option_id,
+        /**
+         * Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes
+         * and to <em>True</em> for regular polls
+         */
+        public ?bool $allows_revoting,
+        /** Pass <em>True</em>, if the poll options must be shown in random order */
+        public ?bool $shuffle_options,
+        /**
+         * Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous
+         * polls and quizzes
+         */
+        public ?bool $allow_adding_options,
+        /** Pass <em>True</em>, if poll results must be shown only after the poll closes */
+        public ?bool $hide_results_until_closes,
+        /**
+         * A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required
+         * for polls in quiz mode
+         * @var array<int>
+         */
+        public ?array $correct_option_ids,
         /**
          * Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll,
          * 0-200 characters with at most 2 line feeds after entities parsing
@@ -71,17 +89,30 @@ final class SendPoll extends Dto implements TelegramBotDto
          */
         public ?array $explanation_entities,
         /**
-         * Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with
+         * Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with
          * <em>close_date</em>.
          */
         public ?int $open_period,
         /**
          * Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than
-         * 600 seconds in the future. Can't be used together with <em>open_period</em>.
+         * 2628000 seconds in the future. Can't be used together with <em>open_period</em>.
          */
         public ?int $close_date,
         /** Pass <em>True</em> if the poll needs to be immediately closed. This can be useful for poll preview. */
         public ?bool $is_closed,
+        /** Description of the poll to be sent, 0-1024 characters after entities parsing */
+        public ?string $description,
+        /**
+         * Mode for parsing entities in the poll description. See <a href="#formatting-options">formatting options</a>
+         * for more details.
+         */
+        public ?string $description_parse_mode,
+        /**
+         * A JSON-serialized list of special entities that appear in the poll description, which can be specified instead
+         * of <em>description_parse_mode</em>
+         * @var array<MessageEntity>
+         */
+        public ?array $description_entities,
         /**
          * Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will
          * receive a notification with no sound.

@@ -71,6 +71,8 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?Story $reply_to_story,
         /** Identifier of the specific checklist task that is being replied to */
         public ?int $reply_to_checklist_task_id,
+        /** Persistent identifier of the specific poll option that is being replied to */
+        public ?string $reply_to_poll_option_id,
         /** Bot through which the message was sent */
         public ?User $via_bot,
         /** Date the message was last edited in Unix time */
@@ -284,8 +286,14 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?GiveawayWinners $giveaway_winners,
         /** Service message: a giveaway without public winners was completed */
         public ?GiveawayCompleted $giveaway_completed,
+        /** Service message: user created a bot that will be managed by the current bot */
+        public ?ManagedBotCreated $managed_bot_created,
         /** Service message: the price for paid messages has changed in the chat */
         public ?PaidMessagePriceChanged $paid_message_price_changed,
+        /** Service message: answer option was added to a poll */
+        public ?PollOptionAdded $poll_option_added,
+        /** Service message: answer option was deleted from a poll */
+        public ?PollOptionDeleted $poll_option_deleted,
         /** Service message: a suggested post was approved */
         public ?SuggestedPostApproved $suggested_post_approved,
         /** Service message: approval of a suggested post has failed */

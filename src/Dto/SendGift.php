@@ -31,14 +31,14 @@ final class SendGift extends Dto implements TelegramBotDto
         public ?string $text,
         /**
          * Mode for parsing entities in the text. See <a href="#formatting-options">formatting options</a> for more
-         * details. Entities other than "bold", "italic", "underline", "strikethrough", "spoiler", and "custom_emoji" are
-         * ignored.
+         * details. Entities other than "bold", "italic", "underline", "strikethrough", "spoiler", "custom_emoji", and
+         * "date_time" are ignored.
          */
         public ?string $text_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of
-         * <em>text_parse_mode</em>. Entities other than "bold", "italic", "underline", "strikethrough", "spoiler", and
-         * "custom_emoji" are ignored.
+         * <em>text_parse_mode</em>. Entities other than "bold", "italic", "underline", "strikethrough", "spoiler",
+         * "custom_emoji", and "date_time" are ignored.
          * @var array<MessageEntity>
          */
         public ?array $text_entities,

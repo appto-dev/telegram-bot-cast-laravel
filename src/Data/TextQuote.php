@@ -15,7 +15,7 @@ final class TextQuote extends Data implements TelegramBotData
         public string $text,
         /**
          * Special entities that appear in the quote. Currently, only bold, italic, underline, strikethrough, spoiler,
-         * and custom_emoji entities are kept in quotes.
+         * custom_emoji, and date_time entities are kept in quotes.
          * @var array<MessageEntity>
          */
         public ?array $entities,

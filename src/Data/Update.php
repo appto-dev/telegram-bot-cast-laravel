@@ -98,6 +98,8 @@ final class Update extends Data implements TelegramBotData
         public ?ChatBoostUpdated $chat_boost,
         /** A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates. */
         public ?ChatBoostRemoved $removed_chat_boost,
+        /** A new bot was created to be managed by the bot or token of a bot was changed */
+        public ?ManagedBotUpdated $managed_bot,
     ) {
     }
 }

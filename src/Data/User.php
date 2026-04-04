@@ -48,6 +48,8 @@ final class User extends Data implements TelegramBotData
         public ?bool $has_topics_enabled,
         /** True, if the bot allows users to create and delete topics in private chats. Returned only in getMe. */
         public ?bool $allows_users_to_create_topics,
+        /** True, if other bots can be created to be controlled by the bot. Returned only in getMe. */
+        public ?bool $can_manage_bots,
     ) {
     }
 }

@@ -31,7 +31,8 @@ final class ReplyParameters extends Data implements TelegramBotData
         /**
          * Quoted part of the message to be replied to; 0-1024 characters after entities parsing. The quote must be an
          * exact substring of the message to be replied to, including bold, italic, underline, strikethrough, spoiler,
-         * and custom_emoji entities. The message will fail to send if the quote isn't found in the original message.
+         * custom_emoji, and date_time entities. The message will fail to send if the quote isn't found in the original
+         * message.
          */
         public ?string $quote,
         /** Mode for parsing entities in the quote. See formatting options for more details. */
@@ -46,6 +47,8 @@ final class ReplyParameters extends Data implements TelegramBotData
         public ?int $quote_position,
         /** Identifier of the specific checklist task to be replied to */
         public ?int $checklist_task_id,
+        /** Persistent identifier of the specific poll option to be replied to */
+        public ?string $poll_option_id,
     ) {
     }
 }
