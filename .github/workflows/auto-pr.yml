@@ -1,0 +1,66 @@
+name: Auto PR and Release for bot branches
+on:
+  push:
+    branches:
+      - 'bot/api-*'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create PR
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${{ github.ref_name }}"
+
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "[BOT] Update from $BRANCH" \
+            --body "Автоматическое обновление сгенерированных классов." \
+            2>/dev/null) || PR_URL=$(gh pr list --head "$BRANCH" --json url --jq '.[0].url')
+
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+
+      - name: Merge PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          gh pr merge "$BRANCH" --merge --admin
+
+      - name: Compute release tag
+        id: tag
+        run: |
+          VERSION="${BRANCH_NAME#bot/api-}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "release_tag=${{ vars.RELEASE_MAJOR }}.${{ vars.RELEASE_MINOR }}.${VERSION}" >> $GITHUB_OUTPUT
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull origin main
+
+          TAG="${{ steps.tag.outputs.release_tag }}"
+          git tag -d "$TAG" 2>/dev/null || true
+          git push origin ":refs/tags/$TAG" 2>/dev/null || true
+          git tag "$TAG" -m "Version $TAG (Telegram API ${{ steps.tag.outputs.version }})"
+          git push origin "$TAG"
+
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes "Telegram Bot API version ${{ steps.tag.outputs.version }}" \
+            --target main
