@@ -16,7 +16,7 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         /**
          * Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a
          * big chat), the server might automatically schedule a message instead of sending it immediately. In such cases,
-         * this field will be 0 and the relevant message will be unusable until it is actually sent
+         * this field will be 0 and the relevant message will be unusable until it is actually sent.
          */
         public int $message_id,
         /**
@@ -28,7 +28,7 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?DirectMessagesTopic $direct_messages_topic,
         /**
          * Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message
-         * was sent on behalf of a chat, the field contains a fake sender user in non-channel chats
+         * was sent on behalf of a chat, the field contains a fake sender user in non-channel chats.
          */
         public ?User $from,
         /**
@@ -49,6 +49,12 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?string $sender_tag,
         /** Date the message was sent in Unix time. It is always a positive number, representing a valid date. */
         public int $date,
+        /**
+         * The unique identifier for the guest query. Use this identifier with the method answerGuestQuery to send a
+         * response message. If non-empty, the message belongs to the chat where the guest bot was summoned, which may
+         * not coincide with other existing bot chats sharing the same identifier.
+         */
+        public ?string $guest_query_id,
         /**
          * Unique identifier of the business connection from which the message was received. If non-empty, the message
          * belongs to a chat of the corresponding business account that is independent from any potential bot chat which
@@ -75,6 +81,10 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?string $reply_to_poll_option_id,
         /** Bot through which the message was sent */
         public ?User $via_bot,
+        /** For a message sent by a guest bot, this is the user whose original message triggered the bot's response */
+        public ?User $guest_bot_caller_user,
+        /** For a message sent by a guest bot, this is the chat whose original message triggered the bot's response */
+        public ?Chat $guest_bot_caller_chat,
         /** Date the message was last edited in Unix time */
         public ?int $edit_date,
         /** True, if the message can't be forwarded */
@@ -114,15 +124,22 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?SuggestedPostInfo $suggested_post_info,
         /** Unique identifier of the message effect added to the message */
         public ?string $effect_id,
+        /** Message is a rich formatted message */
+        public ?RichMessage $rich_message,
         /**
          * Message is an animation, information about the animation. For backward compatibility, when this field is set,
-         * the document field will also be set
+         * the document field will also be set.
          */
         public ?Animation $animation,
         /** Message is an audio file, information about the file */
         public ?Audio $audio,
         /** Message is a general file, information about the file */
         public ?Document $document,
+        /**
+         * Message is a live photo, information about the live photo. For backward compatibility, when this field is set,
+         * the photo field will also be set.
+         */
+        public ?LivePhoto $live_photo,
         /** Message contains paid media; information about the paid media */
         public ?PaidMediaInfo $paid_media,
         /**
@@ -164,7 +181,7 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?Poll $poll,
         /**
          * Message is a venue, information about the venue. For backward compatibility, when this field is set, the
-         * location field will also be set
+         * location field will also be set.
          */
         public ?Venue $venue,
         /** Message is a shared location, information about the location */

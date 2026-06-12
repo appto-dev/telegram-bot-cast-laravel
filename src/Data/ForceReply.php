@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to
  * create user-friendly step-by-step interfaces without having to sacrifice <a
  * href="https://core.telegram.org/bots/features#privacy-mode">privacy mode</a>. Not supported in channels and
- * for messages sent on behalf of a Telegram Business account.
+ * for messages sent on behalf of a user account.
  */
 final class ForceReply extends Data implements TelegramBotData, ReplyMarkup
 {

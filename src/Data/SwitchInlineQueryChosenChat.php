@@ -14,7 +14,7 @@ final class SwitchInlineQueryChosenChat extends Data implements TelegramBotData
     public function __construct(
         /**
          * The default inline query to be inserted in the input field. If left empty, only the bot's username will be
-         * inserted
+         * inserted.
          */
         public ?string $query,
         /** True, if private chats with users can be chosen */

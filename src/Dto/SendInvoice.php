@@ -17,8 +17,8 @@ final class SendInvoice extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the target chat or username of the target bot, supergroup or channel in the format
+         * <code>@username</code>
          */
         public int|string $chat_id,
         /**
@@ -77,7 +77,7 @@ final class SendInvoice extends Dto implements TelegramBotDto
          * Unique deep-linking parameter. If left empty, <strong>forwarded copies</strong> of the sent message will have
          * a <em>Pay</em> button, allowing multiple users to pay directly from the forwarded message, using the same
          * invoice. If non-empty, forwarded copies of the sent message will have a <em>URL</em> button with a deep link
-         * to the bot (instead of a <em>Pay</em> button), with the value used as the start parameter
+         * to the bot (instead of a <em>Pay</em> button), with the value used as the start parameter.
          */
         public ?string $start_parameter,
         /**
@@ -142,7 +142,7 @@ final class SendInvoice extends Dto implements TelegramBotDto
          * Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a
          * href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting
          * limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's
-         * balance
+         * balance.
          */
         public ?bool $allow_paid_broadcast,
         /** Unique identifier of the message effect to be added to the message; for private chats only */

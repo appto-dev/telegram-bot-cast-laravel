@@ -16,10 +16,10 @@ final class KeyboardButtonRequestChat extends Data implements TelegramBotData
     public function __construct(
         /**
          * Signed 32-bit identifier of the request, which will be received back in the ChatShared object. Must be unique
-         * within the message
+         * within the message.
          */
         public int $request_id,
-        /** Pass True to request a channel chat, pass False to request a group or a supergroup chat. */
+        /** Pass True to request a channel chat, pass False to request a group or a supergroup chat */
         public bool $chat_is_channel,
         /**
          * Pass True to request a forum supergroup, pass False to request a non-forum chat. If not specified, no

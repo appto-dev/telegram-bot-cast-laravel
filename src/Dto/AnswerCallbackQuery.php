@@ -19,7 +19,7 @@ final class AnswerCallbackQuery extends Dto implements TelegramBotDto
     public function __construct(
         /** Unique identifier for the query to be answered */
         public string $callback_query_id,
-        /** Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters */
+        /** Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters. */
         public ?string $text,
         /**
          * If <em>True</em>, an alert will be shown by the client instead of a notification at the top of the chat

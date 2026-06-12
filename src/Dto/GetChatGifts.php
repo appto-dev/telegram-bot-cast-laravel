@@ -12,10 +12,7 @@ use Spatie\LaravelData\Dto;
 final class GetChatGifts extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel in the format <code>@username</code> */
         public int|string $chat_id,
         /**
          * Pass <em>True</em> to exclude gifts that aren't saved to the chat's profile page. Always <em>True</em>, unless
@@ -53,7 +50,7 @@ final class GetChatGifts extends Dto implements TelegramBotDto
          * first chunk of results
          */
         public ?string $offset,
-        /** The maximum number of gifts to be returned; 1-100. Defaults to 100 */
+        /** The maximum number of gifts to be returned; 1-100. Defaults to 100. */
         public ?int $limit,
     ) {
     }

@@ -25,10 +25,15 @@ final class ChatJoinRequest extends Data implements TelegramBotData
         public int $user_chat_id,
         /** Date the request was sent in Unix time */
         public int $date,
-        /** Bio of the user. */
+        /** Bio of the user */
         public ?string $bio,
         /** Chat invite link that was used by the user to send the join request */
         public ?ChatInviteLink $invite_link,
+        /**
+         * Identifier of the join request query. If present, then the bot must call sendChatJoinRequestWebApp or directly
+         * call answerChatJoinRequestQuery within 10 seconds.
+         */
+        public ?string $query_id,
     ) {
     }
 }

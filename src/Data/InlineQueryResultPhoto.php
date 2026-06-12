@@ -19,7 +19,7 @@ final class InlineQueryResultPhoto extends Data implements TelegramBotData, Inli
         public string $type,
         /** Unique identifier for this result, 1-64 bytes */
         public string $id,
-        /** A valid URL of the photo. Photo must be in JPEG format. Photo size must not exceed 5MB */
+        /** A valid URL of the photo. Photo must be in JPEG format. Photo size must not exceed 5MB. */
         public string $photo_url,
         /** URL of the thumbnail for the photo */
         public string $thumbnail_url,

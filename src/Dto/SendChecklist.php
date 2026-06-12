@@ -17,8 +17,8 @@ final class SendChecklist extends Dto implements TelegramBotDto
     public function __construct(
         /** Unique identifier of the business connection on behalf of which the message will be sent */
         public string $business_connection_id,
-        /** Unique identifier for the target chat */
-        public int $chat_id,
+        /** Unique identifier for the target chat or username of the target bot in the format <code>@username</code> */
+        public int|string $chat_id,
         /** A JSON-serialized object for the checklist to send */
         public InputChecklist $checklist,
         /** Sends the message silently. Users will receive a notification with no sound. */

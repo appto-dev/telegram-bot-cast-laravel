@@ -13,7 +13,7 @@ final class SuggestedPostPrice extends Data implements TelegramBotData
     public function __construct(
         /**
          * Currency in which the post will be paid. Currently, must be one of "XTR" for Telegram Stars or "TON" for
-         * toncoins
+         * toncoins.
          */
         public string $currency,
         /**

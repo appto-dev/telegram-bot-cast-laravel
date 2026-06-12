@@ -14,8 +14,8 @@ final class ForwardMessage extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the target chat or username of the target bot, supergroup or channel in the format
+         * <code>@username</code>
          */
         public int|string $chat_id,
         /**
@@ -29,8 +29,8 @@ final class ForwardMessage extends Dto implements TelegramBotDto
          */
         public ?int $direct_messages_topic_id,
         /**
-         * Unique identifier for the chat where the original message was sent (or channel username in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup
+         * or channel in the format <code>@username</code>)
          */
         public int|string $from_chat_id,
         /** New start timestamp for the forwarded video in the message */

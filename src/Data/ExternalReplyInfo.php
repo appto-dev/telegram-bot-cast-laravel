@@ -30,6 +30,8 @@ final class ExternalReplyInfo extends Data implements TelegramBotData
         public ?Audio $audio,
         /** Message is a general file, information about the file */
         public ?Document $document,
+        /** Message is a live photo, information about the live photo */
+        public ?LivePhoto $live_photo,
         /** Message contains paid media; information about the paid media */
         public ?PaidMediaInfo $paid_media,
         /**

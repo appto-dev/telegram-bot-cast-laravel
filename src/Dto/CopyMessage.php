@@ -22,8 +22,8 @@ final class CopyMessage extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the target chat or username of the target bot, supergroup or channel in the format
+         * <code>@username</code>
          */
         public int|string $chat_id,
         /**
@@ -37,8 +37,8 @@ final class CopyMessage extends Dto implements TelegramBotDto
          */
         public ?int $direct_messages_topic_id,
         /**
-         * Unique identifier for the chat where the original message was sent (or channel username in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup
+         * or channel in the format <code>@username</code>)
          */
         public int|string $from_chat_id,
         /** Message identifier in the chat specified in <em>from_chat_id</em> */
@@ -47,7 +47,7 @@ final class CopyMessage extends Dto implements TelegramBotDto
         public ?int $video_start_timestamp,
         /**
          * New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is
-         * kept
+         * kept.
          */
         public ?string $caption,
         /**
@@ -77,7 +77,7 @@ final class CopyMessage extends Dto implements TelegramBotDto
          * Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a
          * href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting
          * limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's
-         * balance
+         * balance.
          */
         public ?bool $allow_paid_broadcast,
         /**
@@ -96,7 +96,7 @@ final class CopyMessage extends Dto implements TelegramBotDto
         /**
          * Additional interface options. A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
          * keyboard</a>, <a href="/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply
-         * keyboard or to force a reply from the user
+         * keyboard or to force a reply from the user.
          */
         public ?ReplyMarkup $reply_markup,
     ) {

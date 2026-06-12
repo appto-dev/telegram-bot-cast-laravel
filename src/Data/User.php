@@ -35,12 +35,11 @@ final class User extends Data implements TelegramBotData
         public ?bool $can_join_groups,
         /** True, if privacy mode is disabled for the bot. Returned only in getMe. */
         public ?bool $can_read_all_group_messages,
+        /** True, if the bot supports guest queries from chats it is not a member of. Returned only in getMe. */
+        public ?bool $supports_guest_queries,
         /** True, if the bot supports inline queries. Returned only in getMe. */
         public ?bool $supports_inline_queries,
-        /**
-         * True, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in
-         * getMe.
-         */
+        /** True, if the bot can be connected to a user account to manage it. Returned only in getMe. */
         public ?bool $can_connect_to_business,
         /** True, if the bot has a main Web App. Returned only in getMe. */
         public ?bool $has_main_web_app,
@@ -50,6 +49,8 @@ final class User extends Data implements TelegramBotData
         public ?bool $allows_users_to_create_topics,
         /** True, if other bots can be created to be controlled by the bot. Returned only in getMe. */
         public ?bool $can_manage_bots,
+        /** True, if the bot supports join request queries and can be assigned to process them. Returned only in getMe. */
+        public ?bool $supports_join_request_queries,
     ) {
     }
 }

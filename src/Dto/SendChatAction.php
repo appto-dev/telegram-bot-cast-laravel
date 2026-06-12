@@ -22,8 +22,8 @@ final class SendChatAction extends Dto implements TelegramBotDto
         /** Unique identifier of the business connection on behalf of which the action will be sent */
         public ?string $business_connection_id,
         /**
-         * Unique identifier for the target chat or username of the target supergroup (in the format
-         * <code>@supergroupusername</code>). Channel chats and channel direct messages chats aren't supported.
+         * Unique identifier for the target chat or username of the target bot or supergroup in the format
+         * <code>@username</code>. Channel chats and channel direct messages chats aren't supported.
          */
         public int|string $chat_id,
         /**

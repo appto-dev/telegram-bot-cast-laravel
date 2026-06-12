@@ -16,10 +16,7 @@ final class PinChatMessage extends Dto implements TelegramBotDto
     public function __construct(
         /** Unique identifier of the business connection on behalf of which the message will be pinned */
         public ?string $business_connection_id,
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel in the format <code>@username</code> */
         public int|string $chat_id,
         /** Identifier of a message to pin */
         public int $message_id,

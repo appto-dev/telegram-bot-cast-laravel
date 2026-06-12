@@ -18,8 +18,8 @@ final class ReplyParameters extends Data implements TelegramBotData
         public int $message_id,
         /**
          * If the message to be replied to is from a different chat, unique identifier for the chat or username of the
-         * channel (in the format @channelusername). Not supported for messages sent on behalf of a business account and
-         * messages from channel direct messages chats.
+         * bot, supergroup or channel in the format @username. Not supported for messages sent on behalf of a business
+         * account and messages from channel direct messages chats.
          */
         public int|string|null $chat_id,
         /**

@@ -157,8 +157,10 @@ final class ChatFullInfo extends Data implements TelegramBotData
          * previews
          */
         public ?UniqueGiftColors $unique_gift_colors,
-        /** The number of Telegram Stars a general user have to pay to send a message to the chat */
+        /** The number of Telegram Stars a general user has to pay to send a message to the chat */
         public ?int $paid_message_star_count,
+        /** The bot that processes join request queries in the chat. The field is only available to chat administrators. */
+        public ?User $guard_bot,
     ) {
     }
 }

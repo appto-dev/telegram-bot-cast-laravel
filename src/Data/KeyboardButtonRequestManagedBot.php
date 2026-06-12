@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
 final class KeyboardButtonRequestManagedBot extends Data implements TelegramBotData
 {
     public function __construct(
-        /** Signed 32-bit identifier of the request. Must be unique within the message */
+        /** Signed 32-bit identifier of the request. Must be unique within the message. */
         public int $request_id,
         /** Suggested name for the bot */
         public ?string $suggested_name,

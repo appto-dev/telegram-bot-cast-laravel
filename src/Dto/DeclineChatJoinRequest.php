@@ -12,10 +12,7 @@ use Spatie\LaravelData\Dto;
 final class DeclineChatJoinRequest extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel in the format <code>@username</code> */
         public int|string $chat_id,
         /** Unique identifier of the target user */
         public int $user_id,

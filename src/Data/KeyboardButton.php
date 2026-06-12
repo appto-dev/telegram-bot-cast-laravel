@@ -15,7 +15,7 @@ final class KeyboardButton extends Data implements TelegramBotData
     public function __construct(
         /**
          * Text of the button. If none of the fields other than text, icon_custom_emoji_id, and style are used, it will
-         * be sent as a message when the button is pressed
+         * be sent as a message when the button is pressed.
          */
         public string $text,
         /**

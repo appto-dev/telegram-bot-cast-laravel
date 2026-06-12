@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
 final class Venue extends Data implements TelegramBotData
 {
     public function __construct(
-        /** Venue location. Can't be a live location */
+        /** Venue location. Can't be a live location. */
         public Location $location,
         /** Name of the venue */
         public string $title,

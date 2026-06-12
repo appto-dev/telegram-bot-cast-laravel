@@ -16,10 +16,7 @@ final class UnpinChatMessage extends Dto implements TelegramBotDto
     public function __construct(
         /** Unique identifier of the business connection on behalf of which the message will be unpinned */
         public ?string $business_connection_id,
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel in the format <code>@username</code> */
         public int|string $chat_id,
         /**
          * Identifier of the message to unpin. Required if <em>business_connection_id</em> is specified. If not

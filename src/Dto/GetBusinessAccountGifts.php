@@ -45,7 +45,7 @@ final class GetBusinessAccountGifts extends Dto implements TelegramBotDto
          * chunk of results
          */
         public ?string $offset,
-        /** The maximum number of gifts to be returned; 1-100. Defaults to 100 */
+        /** The maximum number of gifts to be returned; 1-100. Defaults to 100. */
         public ?int $limit,
     ) {
     }

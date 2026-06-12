@@ -17,7 +17,7 @@ final class SavePreparedKeyboardButton extends Dto implements TelegramBotDto
         public int $user_id,
         /**
          * A JSON-serialized object describing the button to be saved. The button must be of the type
-         * <em>request_users</em>, <em>request_chat</em>, or <em>request_managed_bot</em>
+         * <em>request_users</em>, <em>request_chat</em>, or <em>request_managed_bot</em>.
          */
         public KeyboardButton $button,
     ) {

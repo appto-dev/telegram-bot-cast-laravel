@@ -15,7 +15,7 @@ final class UniqueGift extends Data implements TelegramBotData
         public string $gift_id,
         /** Human-readable name of the regular gift from which this unique gift was upgraded */
         public string $base_name,
-        /** Unique name of the gift. This name can be used in https://t.me/nft/... links and story areas */
+        /** Unique name of the gift. This name can be used in https://t.me/nft/... links and story areas. */
         public string $name,
         /** Unique number of the upgraded gift among gifts upgraded from the same regular gift */
         public int $number,

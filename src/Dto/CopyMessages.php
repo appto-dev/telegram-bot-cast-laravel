@@ -19,8 +19,8 @@ final class CopyMessages extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the target chat or username of the target bot, supergroup or channel in the format
+         * <code>@username</code>
          */
         public int|string $chat_id,
         /**
@@ -34,8 +34,8 @@ final class CopyMessages extends Dto implements TelegramBotDto
          */
         public ?int $direct_messages_topic_id,
         /**
-         * Unique identifier for the chat where the original messages were sent (or channel username in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the chat where the original messages were sent (or username of the target bot,
+         * supergroup or channel in the format <code>@username</code>)
          */
         public int|string $from_chat_id,
         /**

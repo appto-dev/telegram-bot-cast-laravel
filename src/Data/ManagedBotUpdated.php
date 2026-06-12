@@ -6,8 +6,8 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * This object contains information about the creation or token update of a bot that is managed by the current
- * bot.
+ * This object contains information about the creation, token update, or owner update of a bot that is managed by
+ * the current bot.
  */
 final class ManagedBotUpdated extends Data implements TelegramBotData
 {

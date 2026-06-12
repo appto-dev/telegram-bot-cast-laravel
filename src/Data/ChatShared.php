@@ -22,9 +22,9 @@ final class ChatShared extends Data implements TelegramBotData
          * some other means.
          */
         public int $chat_id,
-        /** Title of the chat, if the title was requested by the bot. */
+        /** Title of the chat, if the title was requested by the bot */
         public ?string $title,
-        /** Username of the chat, if the username was requested by the bot and available. */
+        /** Username of the chat, if the username was requested by the bot and available */
         public ?string $username,
         /**
          * Available sizes of the chat photo, if the photo was requested by the bot
