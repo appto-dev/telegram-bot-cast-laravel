@@ -41,7 +41,7 @@ final class GiftInfo extends Data implements TelegramBotData
          * them
          */
         public ?true $is_private,
-        /** Unique number reserved for this gift when upgraded. See the number field in UniqueGift */
+        /** Unique number reserved for this gift when upgraded. See the number field in UniqueGift. */
         public ?int $unique_gift_number,
     ) {
     }

@@ -14,10 +14,7 @@ use Spatie\LaravelData\Dto;
 final class RevokeChatInviteLink extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /**
-         * Unique identifier of the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier of the target chat or username of the target channel in the format <code>@username</code> */
         public int|string $chat_id,
         /** The invite link to revoke */
         public string $invite_link,

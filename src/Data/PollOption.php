@@ -21,6 +21,8 @@ final class PollOption extends Data implements TelegramBotData
          * @var array<MessageEntity>
          */
         public ?array $text_entities,
+        /** Media added to the poll option */
+        public ?PollMedia $media,
         /** Number of users who voted for this option; may be 0 if unknown */
         public int $voter_count,
         /** User who added the option; omitted if the option wasn't added by a user after poll creation */

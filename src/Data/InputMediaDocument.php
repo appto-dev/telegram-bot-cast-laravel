@@ -3,13 +3,14 @@
 namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\InputMedia;
+use Appto\TelegramBot\Interfaces\InputPollMedia;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
  * Represents a general file to be sent.
  */
-final class InputMediaDocument extends Data implements TelegramBotData, InputMedia
+final class InputMediaDocument extends Data implements TelegramBotData, InputPollMedia, InputMedia
 {
     public function __construct(
         /** Type of the result, must be document */

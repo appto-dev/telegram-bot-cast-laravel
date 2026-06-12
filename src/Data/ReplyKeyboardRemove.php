@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * display the default letter-keyboard. By default, custom keyboards are displayed until a new keyboard is sent
  * by a bot. An exception is made for one-time keyboards that are hidden immediately after the user presses a
  * button (see <a href="https://core.telegram.org/bots/api#replykeyboardmarkup">ReplyKeyboardMarkup</a>). Not
- * supported in channels and for messages sent on behalf of a Telegram Business account.
+ * supported in channels and for messages sent on behalf of a business account.
  */
 final class ReplyKeyboardRemove extends Data implements TelegramBotData, ReplyMarkup
 {

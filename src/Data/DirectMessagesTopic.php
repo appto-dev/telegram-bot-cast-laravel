@@ -17,7 +17,7 @@ final class DirectMessagesTopic extends Data implements TelegramBotData
          * 64-bit integer or double-precision float type are safe for storing this identifier.
          */
         public int $topic_id,
-        /** Information about the user that created the topic. Currently, it is always present */
+        /** Information about the user that created the topic. Currently, it is always present. */
         public ?User $user,
     ) {
     }

@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 
 /**
  * This <a href="https://core.telegram.org/bots/api#available-types">object</a> represents an incoming update.At
- * most one of the optional parameters can be present in any given update.
+ * most one of the optional fields can be present in any given update.
  */
 final class Update extends Data implements TelegramBotData
 {
@@ -46,6 +46,11 @@ final class Update extends Data implements TelegramBotData
         /** Messages were deleted from a connected business account */
         public ?BusinessMessagesDeleted $deleted_business_messages,
         /**
+         * New guest message. The bot can use the field Message.guest_query_id and the method answerGuestQuery to send a
+         * message in response.
+         */
+        public ?Message $guest_message,
+        /**
          * A reaction to a message was changed by a user. The bot must be an administrator in the chat and must
          * explicitly specify "message_reaction" in the list of allowed_updates to receive these updates. The update
          * isn't received for reactions set by bots.
@@ -66,13 +71,13 @@ final class Update extends Data implements TelegramBotData
         public ?ChosenInlineResult $chosen_inline_result,
         /** New incoming callback query */
         public ?CallbackQuery $callback_query,
-        /** New incoming shipping query. Only for invoices with flexible price */
+        /** New incoming shipping query. Only for invoices with flexible price. */
         public ?ShippingQuery $shipping_query,
-        /** New incoming pre-checkout query. Contains full information about checkout */
+        /** New incoming pre-checkout query. Contains full information about checkout. */
         public ?PreCheckoutQuery $pre_checkout_query,
         /** A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat */
         public ?PaidMediaPurchased $purchased_paid_media,
-        /** New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot */
+        /** New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot. */
         public ?Poll $poll,
         /**
          * A user changed their answer in a non-anonymous poll. Bots receive new votes only in polls that were sent by
@@ -98,7 +103,7 @@ final class Update extends Data implements TelegramBotData
         public ?ChatBoostUpdated $chat_boost,
         /** A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates. */
         public ?ChatBoostRemoved $removed_chat_boost,
-        /** A new bot was created to be managed by the bot or token of a bot was changed */
+        /** A new bot was created to be managed by the bot, or token or owner of a managed bot was changed */
         public ?ManagedBotUpdated $managed_bot,
     ) {
     }

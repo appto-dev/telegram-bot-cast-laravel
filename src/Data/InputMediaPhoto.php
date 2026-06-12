@@ -3,13 +3,15 @@
 namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\InputMedia;
+use Appto\TelegramBot\Interfaces\InputPollMedia;
+use Appto\TelegramBot\Interfaces\InputPollOptionMedia;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
  * Represents a photo to be sent.
  */
-final class InputMediaPhoto extends Data implements TelegramBotData, InputMedia
+final class InputMediaPhoto extends Data implements TelegramBotData, InputPollMedia, InputPollOptionMedia, InputMedia
 {
     public function __construct(
         /** Type of the result, must be photo */

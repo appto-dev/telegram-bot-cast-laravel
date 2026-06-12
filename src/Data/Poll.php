@@ -39,6 +39,18 @@ final class Poll extends Data implements TelegramBotData
         /** True, if the poll allows to change the chosen answer options */
         public bool $allows_revoting,
         /**
+         * True if voting is limited to users who have been members of the chat where the poll was originally sent for
+         * more than 24 hours
+         */
+        public bool $members_only,
+        /**
+         * A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which users can vote in
+         * the poll. The country code "FT" is used for users with anonymous numbers. If omitted, then users from any
+         * country can participate in the poll.
+         * @var array<string>
+         */
+        public ?array $country_codes,
+        /**
          * Array of 0-based identifiers of the correct answer options. Available only for polls in quiz mode which are
          * closed or were sent (not forwarded) by the bot or to the private chat with the bot.
          * @var array<int>
@@ -54,6 +66,8 @@ final class Poll extends Data implements TelegramBotData
          * @var array<MessageEntity>
          */
         public ?array $explanation_entities,
+        /** Media added to the quiz explanation */
+        public ?PollMedia $explanation_media,
         /** Amount of time in seconds the poll will be active after creation */
         public ?int $open_period,
         /** Point in time (Unix timestamp) when the poll will be automatically closed */
@@ -65,6 +79,8 @@ final class Poll extends Data implements TelegramBotData
          * @var array<MessageEntity>
          */
         public ?array $description_entities,
+        /** Media added to the poll description; for polls inside the Message object only */
+        public ?PollMedia $media,
     ) {
     }
 }

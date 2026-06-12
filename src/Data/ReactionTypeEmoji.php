@@ -18,7 +18,7 @@ final class ReactionTypeEmoji extends Data implements TelegramBotData, ReactionT
          * Reaction emoji. Currently, it can be one of "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
          * "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
          * "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-         * "", "", ""
+         * "", "", "".
          */
         public string $emoji,
     ) {

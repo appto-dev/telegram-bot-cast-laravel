@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
 final class RefundedPayment extends Data implements TelegramBotData
 {
     public function __construct(
-        /** Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars. Currently, always "XTR" */
+        /** Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars. Currently, always "XTR". */
         public string $currency,
         /**
          * Total refunded price in the smallest units of the currency (integer, not float/double). For example, for a

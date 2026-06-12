@@ -19,8 +19,8 @@ final class CreateChatSubscriptionInviteLink extends Dto implements TelegramBotD
 {
     public function __construct(
         /**
-         * Unique identifier for the target channel chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
+         * Unique identifier for the target channel chat or username of the target channel in the format
+         * <code>@username</code>
          */
         public int|string $chat_id,
         /** Invite link name; 0-32 characters */

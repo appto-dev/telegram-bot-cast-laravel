@@ -23,7 +23,7 @@ final class CallbackQuery extends Data implements TelegramBotData
         public User $from,
         /** Message sent by the bot with the callback button that originated the query */
         public ?MaybeInaccessibleMessage $message,
-        /** Identifier of the message sent via the bot in inline mode, that originated the query. */
+        /** Identifier of the message sent via the bot in inline mode, that originated the query */
         public ?string $inline_message_id,
         /**
          * Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent.

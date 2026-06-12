@@ -29,7 +29,10 @@ final class InlineQueryResultMpeg4Gif extends Data implements TelegramBotData, I
         public ?int $mpeg4_duration,
         /** URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result */
         public string $thumbnail_url,
-        /** MIME type of the thumbnail, must be one of "image/jpeg", "image/gif", or "video/mp4". Defaults to "image/jpeg" */
+        /**
+         * MIME type of the thumbnail, must be one of "image/jpeg", "image/gif", or "video/mp4". Defaults to
+         * "image/jpeg".
+         */
         public ?string $thumbnail_mime_type,
         /** Title for the result */
         public ?string $title,

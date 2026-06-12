@@ -5,6 +5,7 @@ namespace Appto\TelegramBot\Dto;
 use Appto\TelegramBot\Data\InputPollOption;
 use Appto\TelegramBot\Data\MessageEntity;
 use Appto\TelegramBot\Data\ReplyParameters;
+use Appto\TelegramBot\Interfaces\InputPollMedia;
 use Appto\TelegramBot\Interfaces\ReplyMarkup;
 use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
@@ -19,8 +20,8 @@ final class SendPoll extends Dto implements TelegramBotDto
         /** Unique identifier of the business connection on behalf of which the message will be sent */
         public ?string $business_connection_id,
         /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>). Polls can't be sent to channel direct messages chats.
+         * Unique identifier for the target chat or username of the target bot, supergroup or channel in the format
+         * <code>@username</code>. Polls can't be sent to channel direct messages chats.
          */
         public int|string $chat_id,
         /**
@@ -32,17 +33,17 @@ final class SendPoll extends Dto implements TelegramBotDto
         public string $question,
         /**
          * Mode for parsing entities in the question. See <a href="#formatting-options">formatting options</a> for more
-         * details. Currently, only custom emoji entities are allowed
+         * details. Currently, only custom emoji entities are allowed.
          */
         public ?string $question_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of
-         * <em>question_parse_mode</em>
+         * <em>question_parse_mode</em>.
          * @var array<MessageEntity>
          */
         public ?array $question_entities,
         /**
-         * A JSON-serialized list of 2-12 answer options
+         * A JSON-serialized list of 1-12 answer options
          * @var array<InputPollOption>
          */
         public array $options,
@@ -67,6 +68,19 @@ final class SendPoll extends Dto implements TelegramBotDto
         /** Pass <em>True</em>, if poll results must be shown only after the poll closes */
         public ?bool $hide_results_until_closes,
         /**
+         * Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being
+         * sent for more than 24 hours; for channel chats only
+         */
+        public ?bool $members_only,
+        /**
+         * A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+         * 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel
+         * chats only. Use "FT" as a country code to allow users with anonymous numbers to vote. If omitted or empty,
+         * then users from any country can participate in the poll.
+         * @var array<string>
+         */
+        public ?array $country_codes,
+        /**
          * A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required
          * for polls in quiz mode
          * @var array<int>
@@ -84,10 +98,12 @@ final class SendPoll extends Dto implements TelegramBotDto
         public ?string $explanation_parse_mode,
         /**
          * A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of
-         * <em>explanation_parse_mode</em>
+         * <em>explanation_parse_mode</em>.
          * @var array<MessageEntity>
          */
         public ?array $explanation_entities,
+        /** Media added to the quiz explanation */
+        public ?InputPollMedia $explanation_media,
         /**
          * Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with
          * <em>close_date</em>.
@@ -113,6 +129,8 @@ final class SendPoll extends Dto implements TelegramBotDto
          * @var array<MessageEntity>
          */
         public ?array $description_entities,
+        /** Media added to the poll description */
+        public ?InputPollMedia $media,
         /**
          * Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will
          * receive a notification with no sound.
@@ -124,7 +142,7 @@ final class SendPoll extends Dto implements TelegramBotDto
          * Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a
          * href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting
          * limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's
-         * balance
+         * balance.
          */
         public ?bool $allow_paid_broadcast,
         /** Unique identifier of the message effect to be added to the message; for private chats only */
@@ -134,7 +152,7 @@ final class SendPoll extends Dto implements TelegramBotDto
         /**
          * Additional interface options. A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline
          * keyboard</a>, <a href="/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply
-         * keyboard or to force a reply from the user
+         * keyboard or to force a reply from the user.
          */
         public ?ReplyMarkup $reply_markup,
     ) {

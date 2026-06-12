@@ -19,14 +19,14 @@ final class EditMessageReplyMarkup extends Dto implements TelegramBotDto
         public ?string $business_connection_id,
         /**
          * Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of
-         * the target channel (in the format <code>@channelusername</code>)
+         * the target bot, supergroup or channel in the format <code>@username</code>.
          */
         public int|string|null $chat_id,
-        /** Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit */
+        /** Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit. */
         public ?int $message_id,
-        /** Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message */
+        /** Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message. */
         public ?string $inline_message_id,
-        /** A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline keyboard</a>. */
+        /** A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline keyboard</a> */
         public ?InlineKeyboardMarkup $reply_markup,
     ) {
     }

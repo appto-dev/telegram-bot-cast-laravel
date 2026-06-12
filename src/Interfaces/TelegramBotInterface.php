@@ -3,6 +3,7 @@
 namespace Appto\TelegramBot\Interfaces;
 
 use Appto\TelegramBot\Data\AcceptedGiftTypes;
+use Appto\TelegramBot\Data\BotAccessSettings;
 use Appto\TelegramBot\Data\BotCommand;
 use Appto\TelegramBot\Data\BotDescription;
 use Appto\TelegramBot\Data\BotName;
@@ -22,9 +23,11 @@ use Appto\TelegramBot\Data\InputChecklist;
 use Appto\TelegramBot\Data\InputFile;
 use Appto\TelegramBot\Data\InputMediaAudio;
 use Appto\TelegramBot\Data\InputMediaDocument;
+use Appto\TelegramBot\Data\InputMediaLivePhoto;
 use Appto\TelegramBot\Data\InputMediaPhoto;
 use Appto\TelegramBot\Data\InputMediaVideo;
 use Appto\TelegramBot\Data\InputPollOption;
+use Appto\TelegramBot\Data\InputRichMessage;
 use Appto\TelegramBot\Data\InputSticker;
 use Appto\TelegramBot\Data\KeyboardButton;
 use Appto\TelegramBot\Data\KeyboardButtonPollType;
@@ -42,6 +45,7 @@ use Appto\TelegramBot\Data\Poll;
 use Appto\TelegramBot\Data\PreparedInlineMessage;
 use Appto\TelegramBot\Data\PreparedKeyboardButton;
 use Appto\TelegramBot\Data\ReplyParameters;
+use Appto\TelegramBot\Data\SentGuestMessage;
 use Appto\TelegramBot\Data\SentWebAppMessage;
 use Appto\TelegramBot\Data\ShippingOption;
 use Appto\TelegramBot\Data\StarAmount;
@@ -62,6 +66,8 @@ use Appto\TelegramBot\Data\WebAppInfo;
 use Appto\TelegramBot\Data\WebhookInfo;
 use Appto\TelegramBot\Dto\AddStickerToSet;
 use Appto\TelegramBot\Dto\AnswerCallbackQuery;
+use Appto\TelegramBot\Dto\AnswerChatJoinRequestQuery;
+use Appto\TelegramBot\Dto\AnswerGuestQuery;
 use Appto\TelegramBot\Dto\AnswerInlineQuery;
 use Appto\TelegramBot\Dto\AnswerPreCheckoutQuery;
 use Appto\TelegramBot\Dto\AnswerShippingQuery;
@@ -82,11 +88,13 @@ use Appto\TelegramBot\Dto\CreateInvoiceLink;
 use Appto\TelegramBot\Dto\CreateNewStickerSet;
 use Appto\TelegramBot\Dto\DeclineChatJoinRequest;
 use Appto\TelegramBot\Dto\DeclineSuggestedPost;
+use Appto\TelegramBot\Dto\DeleteAllMessageReactions;
 use Appto\TelegramBot\Dto\DeleteBusinessMessages;
 use Appto\TelegramBot\Dto\DeleteChatPhoto;
 use Appto\TelegramBot\Dto\DeleteChatStickerSet;
 use Appto\TelegramBot\Dto\DeleteForumTopic;
 use Appto\TelegramBot\Dto\DeleteMessage;
+use Appto\TelegramBot\Dto\DeleteMessageReaction;
 use Appto\TelegramBot\Dto\DeleteMessages;
 use Appto\TelegramBot\Dto\DeleteMyCommands;
 use Appto\TelegramBot\Dto\DeleteStickerFromSet;
@@ -120,6 +128,7 @@ use Appto\TelegramBot\Dto\GetChatMenuButton;
 use Appto\TelegramBot\Dto\GetCustomEmojiStickers;
 use Appto\TelegramBot\Dto\GetFile;
 use Appto\TelegramBot\Dto\GetGameHighScores;
+use Appto\TelegramBot\Dto\GetManagedBotAccessSettings;
 use Appto\TelegramBot\Dto\GetManagedBotToken;
 use Appto\TelegramBot\Dto\GetMyCommands;
 use Appto\TelegramBot\Dto\GetMyDefaultAdministratorRights;
@@ -131,6 +140,7 @@ use Appto\TelegramBot\Dto\GetStickerSet;
 use Appto\TelegramBot\Dto\GetUpdates;
 use Appto\TelegramBot\Dto\GetUserChatBoosts;
 use Appto\TelegramBot\Dto\GetUserGifts;
+use Appto\TelegramBot\Dto\GetUserPersonalChatMessages;
 use Appto\TelegramBot\Dto\GetUserProfileAudios;
 use Appto\TelegramBot\Dto\GetUserProfilePhotos;
 use Appto\TelegramBot\Dto\GiftPremiumSubscription;
@@ -156,6 +166,7 @@ use Appto\TelegramBot\Dto\SavePreparedKeyboardButton;
 use Appto\TelegramBot\Dto\SendAnimation;
 use Appto\TelegramBot\Dto\SendAudio;
 use Appto\TelegramBot\Dto\SendChatAction;
+use Appto\TelegramBot\Dto\SendChatJoinRequestWebApp;
 use Appto\TelegramBot\Dto\SendChecklist;
 use Appto\TelegramBot\Dto\SendContact;
 use Appto\TelegramBot\Dto\SendDice;
@@ -163,6 +174,7 @@ use Appto\TelegramBot\Dto\SendDocument;
 use Appto\TelegramBot\Dto\SendGame;
 use Appto\TelegramBot\Dto\SendGift;
 use Appto\TelegramBot\Dto\SendInvoice;
+use Appto\TelegramBot\Dto\SendLivePhoto;
 use Appto\TelegramBot\Dto\SendLocation;
 use Appto\TelegramBot\Dto\SendMediaGroup;
 use Appto\TelegramBot\Dto\SendMessage;
@@ -170,6 +182,8 @@ use Appto\TelegramBot\Dto\SendMessageDraft;
 use Appto\TelegramBot\Dto\SendPaidMedia;
 use Appto\TelegramBot\Dto\SendPhoto;
 use Appto\TelegramBot\Dto\SendPoll;
+use Appto\TelegramBot\Dto\SendRichMessage;
+use Appto\TelegramBot\Dto\SendRichMessageDraft;
 use Appto\TelegramBot\Dto\SendSticker;
 use Appto\TelegramBot\Dto\SendVenue;
 use Appto\TelegramBot\Dto\SendVideo;
@@ -190,6 +204,7 @@ use Appto\TelegramBot\Dto\SetChatStickerSet;
 use Appto\TelegramBot\Dto\SetChatTitle;
 use Appto\TelegramBot\Dto\SetCustomEmojiStickerSetThumbnail;
 use Appto\TelegramBot\Dto\SetGameScore;
+use Appto\TelegramBot\Dto\SetManagedBotAccessSettings;
 use Appto\TelegramBot\Dto\SetMessageReaction;
 use Appto\TelegramBot\Dto\SetMyCommands;
 use Appto\TelegramBot\Dto\SetMyDefaultAdministratorRights;
@@ -305,7 +320,7 @@ interface TelegramBotInterface
      * Use this method to send text messages. On success, the sent <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param SendMessage|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, text: string, parse_mode?: string, entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, link_preview_options?: LinkPreviewOptions|array{is_disabled?: bool, url?: string, prefer_small_media?: bool, prefer_large_media?: bool, show_above_text?: bool}, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendMessage|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, text: string, parse_mode?: string, entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, link_preview_options?: LinkPreviewOptions|array{is_disabled?: bool, url?: string, prefer_small_media?: bool, prefer_large_media?: bool, show_above_text?: bool}, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendMessage(SendMessage|array $dto): Message;
@@ -339,7 +354,7 @@ interface TelegramBotInterface
      * have a link to the original message. Returns the <a
      * href="https://core.telegram.org/bots/api#messageid">MessageId</a> of the sent message on success.
      *
-     * @param CopyMessage|array{chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, from_chat_id: int|string, message_id: int, video_start_timestamp?: int, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param CopyMessage|array{chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, from_chat_id: int|string, message_id: int, video_start_timestamp?: int, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return MessageId
      */
     public function copyMessage(CopyMessage|array $dto): MessageId;
@@ -363,10 +378,19 @@ interface TelegramBotInterface
      * Use this method to send photos. On success, the sent <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param SendPhoto|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, photo: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendPhoto|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, photo: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendPhoto(SendPhoto|array $dto): Message;
+
+    /**
+     * Use this method to send live photos. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendLivePhoto|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, live_photo: InputFile|array{attach: string}|string, photo: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @return Message
+     */
+    public function sendLivePhoto(SendLivePhoto|array $dto): Message;
 
     /**
      * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your
@@ -376,7 +400,7 @@ interface TelegramBotInterface
      * For sending voice messages, use the <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a>
      * method instead.
      *
-     * @param SendAudio|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, audio: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, duration?: int, performer?: string, title?: string, thumbnail?: InputFile|array{attach: string}|string, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendAudio|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, audio: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, duration?: int, performer?: string, title?: string, thumbnail?: InputFile|array{attach: string}|string, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendAudio(SendAudio|array $dto): Message;
@@ -386,7 +410,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently send files of
      * any type of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param SendDocument|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, document: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, disable_content_type_detection?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendDocument|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, document: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, disable_content_type_detection?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendDocument(SendDocument|array $dto): Message;
@@ -397,7 +421,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently send video files
      * of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param SendVideo|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, video: InputFile|array{attach: string}|string, duration?: int, width?: int, height?: int, thumbnail?: InputFile|array{attach: string}|string, cover?: InputFile|array{attach: string}|string, start_timestamp?: int, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, supports_streaming?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendVideo|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, video: InputFile|array{attach: string}|string, duration?: int, width?: int, height?: int, thumbnail?: InputFile|array{attach: string}|string, cover?: InputFile|array{attach: string}|string, start_timestamp?: int, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, supports_streaming?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendVideo(SendVideo|array $dto): Message;
@@ -407,7 +431,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently send animation
      * files of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param SendAnimation|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, animation: InputFile|array{attach: string}|string, duration?: int, width?: int, height?: int, thumbnail?: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendAnimation|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, animation: InputFile|array{attach: string}|string, duration?: int, width?: int, height?: int, thumbnail?: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, has_spoiler?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendAnimation(SendAnimation|array $dto): Message;
@@ -420,7 +444,7 @@ interface TelegramBotInterface
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently send voice
      * messages of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param SendVoice|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, voice: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, duration?: int, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendVoice|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, voice: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, duration?: int, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendVoice(SendVoice|array $dto): Message;
@@ -439,17 +463,17 @@ interface TelegramBotInterface
      * Use this method to send paid media. On success, the sent <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param SendPaidMedia|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, star_count: int, media: InputPaidMedia, payload?: string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendPaidMedia|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, star_count: int, media: InputPaidMedia, payload?: string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendPaidMedia(SendPaidMedia|array $dto): Message;
 
     /**
-     * Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files
-     * can be only grouped in an album with messages of the same type. On success, an array of <a
+     * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and
+     * audio files can be only grouped in an album with messages of the same type. On success, an array of <a
      * href="https://core.telegram.org/bots/api#message">Message</a> objects that were sent is returned.
      *
-     * @param SendMediaGroup|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, media: InputMediaAudio|array{type: string, media: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string|null, caption?: string, parse_mode?: string, caption_entities?: array, duration?: int, performer?: string, title?: string}|InputMediaDocument|array{type: string, media: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string|null, caption?: string, parse_mode?: string, caption_entities?: array, disable_content_type_detection?: bool}|InputMediaPhoto|array{type: string, media: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: array, show_caption_above_media?: bool, has_spoiler?: bool}|InputMediaVideo|array{type: string, media: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string|null, cover?: InputFile|array{attach: string}|string|null, start_timestamp?: int, caption?: string, parse_mode?: string, caption_entities?: array, show_caption_above_media?: bool, width?: int, height?: int, duration?: int, supports_streaming?: bool, has_spoiler?: bool}, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}} $dto
+     * @param SendMediaGroup|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, media: InputMediaAudio|array{type: string, media: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string|null, caption?: string, parse_mode?: string, caption_entities?: array, duration?: int, performer?: string, title?: string}|InputMediaDocument|array{type: string, media: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string|null, caption?: string, parse_mode?: string, caption_entities?: array, disable_content_type_detection?: bool}|InputMediaLivePhoto|array{type: string, media: InputFile|array{attach: string}|string, photo: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: array, show_caption_above_media?: bool, has_spoiler?: bool}|InputMediaPhoto|array{type: string, media: InputFile|array{attach: string}|string, caption?: string, parse_mode?: string, caption_entities?: array, show_caption_above_media?: bool, has_spoiler?: bool}|InputMediaVideo|array{type: string, media: InputFile|array{attach: string}|string, thumbnail?: InputFile|array{attach: string}|string|null, cover?: InputFile|array{attach: string}|string|null, start_timestamp?: int, caption?: string, parse_mode?: string, caption_entities?: array, show_caption_above_media?: bool, width?: int, height?: int, duration?: int, supports_streaming?: bool, has_spoiler?: bool}, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}} $dto
      * @return Message[]
      */
     public function sendMediaGroup(SendMediaGroup|array $dto): array;
@@ -485,7 +509,7 @@ interface TelegramBotInterface
      * Use this method to send a native poll. On success, the sent <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param SendPoll|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, question: string, question_parse_mode?: string, question_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, options: InputPollOption[]|array<array{text: string, text_parse_mode?: string, text_entities?: array}>, is_anonymous?: bool, type?: string, allows_multiple_answers?: bool, allows_revoting?: bool, shuffle_options?: bool, allow_adding_options?: bool, hide_results_until_closes?: bool, correct_option_ids?: array<int>, explanation?: string, explanation_parse_mode?: string, explanation_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, open_period?: int, close_date?: int, is_closed?: bool, description?: string, description_parse_mode?: string, description_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @param SendPoll|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, question: string, question_parse_mode?: string, question_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, options: InputPollOption[]|array<array{text: string, text_parse_mode?: string, text_entities?: array, media?: InputPollOptionMedia|array}>, is_anonymous?: bool, type?: string, allows_multiple_answers?: bool, allows_revoting?: bool, shuffle_options?: bool, allow_adding_options?: bool, hide_results_until_closes?: bool, members_only?: bool, country_codes?: array<string>, correct_option_ids?: array<int>, explanation?: string, explanation_parse_mode?: string, explanation_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, explanation_media?: InputPollMedia|array, open_period?: int, close_date?: int, is_closed?: bool, description?: string, description_parse_mode?: string, description_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, media?: InputPollMedia|array, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
      * @return Message
      */
     public function sendPoll(SendPoll|array $dto): Message;
@@ -494,7 +518,7 @@ interface TelegramBotInterface
      * Use this method to send a checklist on behalf of a connected business account. On success, the sent <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param SendChecklist|array{business_connection_id: string, chat_id: int, checklist: InputChecklist|array{title: string, parse_mode?: string, title_entities?: array, tasks: array, others_can_add_tasks?: bool, others_can_mark_tasks_as_done?: bool}, disable_notification?: bool, protect_content?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
+     * @param SendChecklist|array{business_connection_id: string, chat_id: int|string, checklist: InputChecklist|array{title: string, parse_mode?: string, title_entities?: array, tasks: array, others_can_add_tasks?: bool, others_can_mark_tasks_as_done?: bool}, disable_notification?: bool, protect_content?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
      * @return Message
      */
     public function sendChecklist(SendChecklist|array $dto): Message;
@@ -509,10 +533,12 @@ interface TelegramBotInterface
     public function sendDice(SendDice|array $dto): Message;
 
     /**
-     * Use this method to stream a partial message to a user while the message is being generated. Returns
-     * <em>True</em> on success.
+     * Use this method to stream a partial message to a user while the message is being generated. Note that the
+     * streamed draft is ephemeral and acts as a temporary 30-second preview - once the output is finalized, you must
+     * call <a href="https://core.telegram.org/bots/api#sendmessage">sendMessage</a> with the complete message to
+     * persist it in the user's chat. Returns <em>True</em> on success.
      *
-     * @param SendMessageDraft|array{chat_id: int, message_thread_id?: int, draft_id: int, text: string, parse_mode?: string, entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>} $dto
+     * @param SendMessageDraft|array{chat_id: int, message_thread_id?: int, draft_id: int, text?: string, parse_mode?: string, entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>} $dto
      * @return true
      */
     public function sendMessageDraft(SendMessageDraft|array $dto): true;
@@ -614,7 +640,7 @@ interface TelegramBotInterface
      * this to work and must have the appropriate administrator rights. Pass <em>True</em> for all permissions to
      * lift restrictions from a user. Returns <em>True</em> on success.
      *
-     * @param RestrictChatMember|array{chat_id: int|string, user_id: int, permissions: ChatPermissions|array{can_send_messages?: bool, can_send_audios?: bool, can_send_documents?: bool, can_send_photos?: bool, can_send_videos?: bool, can_send_video_notes?: bool, can_send_voice_notes?: bool, can_send_polls?: bool, can_send_other_messages?: bool, can_add_web_page_previews?: bool, can_edit_tag?: bool, can_change_info?: bool, can_invite_users?: bool, can_pin_messages?: bool, can_manage_topics?: bool}, use_independent_chat_permissions?: bool, until_date?: int} $dto
+     * @param RestrictChatMember|array{chat_id: int|string, user_id: int, permissions: ChatPermissions|array{can_send_messages?: bool, can_send_audios?: bool, can_send_documents?: bool, can_send_photos?: bool, can_send_videos?: bool, can_send_video_notes?: bool, can_send_voice_notes?: bool, can_send_polls?: bool, can_send_other_messages?: bool, can_add_web_page_previews?: bool, can_react_to_messages?: bool, can_edit_tag?: bool, can_change_info?: bool, can_invite_users?: bool, can_pin_messages?: bool, can_manage_topics?: bool}, use_independent_chat_permissions?: bool, until_date?: int} $dto
      * @return true
      */
     public function restrictChatMember(RestrictChatMember|array $dto): true;
@@ -675,7 +701,7 @@ interface TelegramBotInterface
      * or a supergroup for this to work and must have the <em>can_restrict_members</em> administrator rights. Returns
      * <em>True</em> on success.
      *
-     * @param SetChatPermissions|array{chat_id: int|string, permissions: ChatPermissions|array{can_send_messages?: bool, can_send_audios?: bool, can_send_documents?: bool, can_send_photos?: bool, can_send_videos?: bool, can_send_video_notes?: bool, can_send_voice_notes?: bool, can_send_polls?: bool, can_send_other_messages?: bool, can_add_web_page_previews?: bool, can_edit_tag?: bool, can_change_info?: bool, can_invite_users?: bool, can_pin_messages?: bool, can_manage_topics?: bool}, use_independent_chat_permissions?: bool} $dto
+     * @param SetChatPermissions|array{chat_id: int|string, permissions: ChatPermissions|array{can_send_messages?: bool, can_send_audios?: bool, can_send_documents?: bool, can_send_photos?: bool, can_send_videos?: bool, can_send_video_notes?: bool, can_send_voice_notes?: bool, can_send_polls?: bool, can_send_other_messages?: bool, can_add_web_page_previews?: bool, can_react_to_messages?: bool, can_edit_tag?: bool, can_change_info?: bool, can_invite_users?: bool, can_pin_messages?: bool, can_manage_topics?: bool}, use_independent_chat_permissions?: bool} $dto
      * @return true
      */
     public function setChatPermissions(SetChatPermissions|array $dto): true;
@@ -764,6 +790,23 @@ interface TelegramBotInterface
      * @return true
      */
     public function declineChatJoinRequest(DeclineChatJoinRequest|array $dto): true;
+
+    /**
+     * Use this method to process a received chat join request query. Returns <em>True</em> on success.
+     *
+     * @param AnswerChatJoinRequestQuery|array{chat_join_request_query_id: string, result: string} $dto
+     * @return true
+     */
+    public function answerChatJoinRequestQuery(AnswerChatJoinRequestQuery|array $dto): true;
+
+    /**
+     * Use this method to process a received chat join request query by showing a Mini App to the user before
+     * deciding the outcome. Returns <em>True</em> on success.
+     *
+     * @param SendChatJoinRequestWebApp|array{chat_join_request_query_id: string, web_app_url: string} $dto
+     * @return true
+     */
+    public function sendChatJoinRequestWebApp(SendChatJoinRequestWebApp|array $dto): true;
 
     /**
      * Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot
@@ -856,10 +899,10 @@ interface TelegramBotInterface
     public function getChat(GetChat|array $dto): ChatFullInfo;
 
     /**
-     * Use this method to get a list of administrators in a chat, which aren't bots. Returns an Array of <a
+     * Use this method to get a list of administrators in a chat. Returns an Array of <a
      * href="https://core.telegram.org/bots/api#chatmember">ChatMember</a> objects.
      *
-     * @param GetChatAdministrators|array{chat_id: int|string} $dto
+     * @param GetChatAdministrators|array{chat_id: int|string, return_bots?: bool} $dto
      * @return ChatMember[]
      */
     public function getChatAdministrators(GetChatAdministrators|array $dto): array;
@@ -881,6 +924,16 @@ interface TelegramBotInterface
      * @return ChatMember
      */
     public function getChatMember(GetChatMember|array $dto): ChatMember;
+
+    /**
+     * Use this method to get the last messages from the personal chat (i.e., the chat currently added to their
+     * profile) of a given user. On success, an array of <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> objects is returned.
+     *
+     * @param GetUserPersonalChatMessages|array{user_id: int, limit: int} $dto
+     * @return Message[]
+     */
+    public function getUserPersonalChatMessages(GetUserPersonalChatMessages|array $dto): array;
 
     /**
      * Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat
@@ -1052,6 +1105,15 @@ interface TelegramBotInterface
     public function answerCallbackQuery(AnswerCallbackQuery|array $dto): true;
 
     /**
+     * Use this method to reply to a received guest message. On success, a <a
+     * href="https://core.telegram.org/bots/api#sentguestmessage">SentGuestMessage</a> object is returned.
+     *
+     * @param AnswerGuestQuery|array{guest_query_id: string, result: InlineQueryResult|array} $dto
+     * @return SentGuestMessage
+     */
+    public function answerGuestQuery(AnswerGuestQuery|array $dto): SentGuestMessage;
+
+    /**
      * Use this method to get the list of boosts added to a chat by a user. Requires administrator rights in the
      * chat. Returns a <a href="https://core.telegram.org/bots/api#userchatboosts">UserChatBoosts</a> object.
      *
@@ -1085,6 +1147,23 @@ interface TelegramBotInterface
      * @return string
      */
     public function replaceManagedBotToken(ReplaceManagedBotToken|array $dto): string;
+
+    /**
+     * Use this method to get the access settings of a managed bot. Returns a <a
+     * href="https://core.telegram.org/bots/api#botaccesssettings">BotAccessSettings</a> object on success.
+     *
+     * @param GetManagedBotAccessSettings|array{user_id: int} $dto
+     * @return BotAccessSettings
+     */
+    public function getManagedBotAccessSettings(GetManagedBotAccessSettings|array $dto): BotAccessSettings;
+
+    /**
+     * Use this method to change the access settings of a managed bot. Returns <em>True</em> on success.
+     *
+     * @param SetManagedBotAccessSettings|array{user_id: int, is_access_restricted: bool, added_user_ids?: array<int>} $dto
+     * @return true
+     */
+    public function setManagedBotAccessSettings(SetManagedBotAccessSettings|array $dto): true;
 
     /**
      * Use this method to change the list of the bot's commands. See <a
@@ -1235,7 +1314,7 @@ interface TelegramBotInterface
      * Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver.
      * Returns <em>True</em> on success.
      *
-     * @param SendGift|array{user_id?: int, chat_id?: int|string, gift_id: string, pay_for_upgrade?: bool, text?: string, text_parse_mode?: string, text_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>} $dto
+     * @param SendGift|array{user_id?: int, chat_id?: int|string, gift_id: string, pay_for_upgrade?: bool, text?: string, text_parse_mode?: string, text_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>} $dto
      * @return true
      */
     public function sendGift(SendGift|array $dto): true;
@@ -1243,7 +1322,7 @@ interface TelegramBotInterface
     /**
      * Gifts a Telegram Premium subscription to the given user. Returns <em>True</em> on success.
      *
-     * @param GiftPremiumSubscription|array{user_id: int, month_count: int, star_count: int, text?: string, text_parse_mode?: string, text_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>} $dto
+     * @param GiftPremiumSubscription|array{user_id: int, month_count: int, star_count: int, text?: string, text_parse_mode?: string, text_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>} $dto
      * @return true
      */
     public function giftPremiumSubscription(GiftPremiumSubscription|array $dto): true;
@@ -1439,7 +1518,7 @@ interface TelegramBotInterface
      * Posts a story on behalf of a managed business account. Requires the <em>can_manage_stories</em> business bot
      * right. Returns <a href="https://core.telegram.org/bots/api#story">Story</a> on success.
      *
-     * @param PostStory|array{business_connection_id: string, content: InputStoryContent|array, active_period: int, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, areas?: StoryArea[]|array<array{position: StoryAreaPosition|array{x_percentage: float, y_percentage: float, width_percentage: float, height_percentage: float, rotation_angle: float, corner_radius_percentage: float}, type: StoryAreaType|array}>, post_to_chat_page?: bool, protect_content?: bool} $dto
+     * @param PostStory|array{business_connection_id: string, content: InputStoryContent|array, active_period: int, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, areas?: StoryArea[]|array<array{position: StoryAreaPosition|array{x_percentage: float, y_percentage: float, width_percentage: float, height_percentage: float, rotation_angle: float, corner_radius_percentage: float}, type: StoryAreaType|array}>, post_to_chat_page?: bool, protect_content?: bool} $dto
      * @return Story
      */
     public function postStory(PostStory|array $dto): Story;
@@ -1460,7 +1539,7 @@ interface TelegramBotInterface
      * <em>can_manage_stories</em> business bot right. Returns <a
      * href="https://core.telegram.org/bots/api#story">Story</a> on success.
      *
-     * @param EditStory|array{business_connection_id: string, story_id: int, content: InputStoryContent|array, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, areas?: StoryArea[]|array<array{position: StoryAreaPosition|array{x_percentage: float, y_percentage: float, width_percentage: float, height_percentage: float, rotation_angle: float, corner_radius_percentage: float}, type: StoryAreaType|array}>} $dto
+     * @param EditStory|array{business_connection_id: string, story_id: int, content: InputStoryContent|array, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, areas?: StoryArea[]|array<array{position: StoryAreaPosition|array{x_percentage: float, y_percentage: float, width_percentage: float, height_percentage: float, rotation_angle: float, corner_radius_percentage: float}, type: StoryAreaType|array}>} $dto
      * @return Story
      */
     public function editStory(EditStory|array $dto): Story;
@@ -1504,13 +1583,13 @@ interface TelegramBotInterface
     public function savePreparedKeyboardButton(SavePreparedKeyboardButton|array $dto): PreparedKeyboardButton;
 
     /**
-     * Use this method to edit text and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On
-     * success, if the edited message is not an inline message, the edited <a
+     * Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages.
+     * On success, if the edited message is not an inline message, the edited <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise <em>True</em> is
      * returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can
      * only be edited within 48 hours from the time they were sent.
      *
-     * @param EditMessageText|array{business_connection_id?: string, chat_id?: int|string, message_id?: int, inline_message_id?: string, text: string, parse_mode?: string, entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, link_preview_options?: LinkPreviewOptions|array{is_disabled?: bool, url?: string, prefer_small_media?: bool, prefer_large_media?: bool, show_above_text?: bool}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
+     * @param EditMessageText|array{business_connection_id?: string, chat_id?: int|string, message_id?: int, inline_message_id?: string, text?: string, parse_mode?: string, entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, link_preview_options?: LinkPreviewOptions|array{is_disabled?: bool, url?: string, prefer_small_media?: bool, prefer_large_media?: bool, show_above_text?: bool}, rich_message?: InputRichMessage|array{html?: string, markdown?: string, is_rtl?: bool, skip_entity_detection?: bool}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
      * @return true|Message
      */
     public function editMessageText(EditMessageText|array $dto): true|Message;
@@ -1521,17 +1600,17 @@ interface TelegramBotInterface
      * is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard
      * can only be edited within 48 hours from the time they were sent.
      *
-     * @param EditMessageCaption|array{business_connection_id?: string, chat_id?: int|string, message_id?: int, inline_message_id?: string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
+     * @param EditMessageCaption|array{business_connection_id?: string, chat_id?: int|string, message_id?: int, inline_message_id?: string, caption?: string, parse_mode?: string, caption_entities?: MessageEntity[]|array<array{type: string, offset: int, length: int, url?: string, user?: User|array{id: int, is_bot: bool, first_name: string, last_name?: string, username?: string, language_code?: string, is_premium?: true, added_to_attachment_menu?: true, can_join_groups?: bool, can_read_all_group_messages?: bool, supports_guest_queries?: bool, supports_inline_queries?: bool, can_connect_to_business?: bool, has_main_web_app?: bool, has_topics_enabled?: bool, allows_users_to_create_topics?: bool, can_manage_bots?: bool, supports_join_request_queries?: bool}, language?: string, custom_emoji_id?: string, unix_time?: int, date_time_format?: string}>, show_caption_above_media?: bool, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
      * @return true|Message
      */
     public function editMessageCaption(EditMessageCaption|array $dto): true|Message;
 
     /**
-     * Use this method to edit animation, audio, document, photo, or video messages, or to add media to text
-     * messages. If a message is part of a message album, then it can be edited only to an audio for audio albums,
-     * only to a document for document albums and to a photo or a video otherwise. When an inline message is edited,
-     * a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if
-     * the edited message is not an inline message, the edited <a
+     * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text
+     * or a rich message with a media. If a message is part of a message album, then it can be edited only to an
+     * audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video
+     * otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via
+     * its file_id or specify a URL. On success, if the edited message is not an inline message, the edited <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise <em>True</em> is
      * returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can
      * only be edited within 48 hours from the time they were sent.
@@ -1569,7 +1648,7 @@ interface TelegramBotInterface
      * Use this method to edit a checklist on behalf of a connected business account. On success, the edited <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param EditMessageChecklist|array{business_connection_id: string, chat_id: int, message_id: int, checklist: InputChecklist|array{title: string, parse_mode?: string, title_entities?: array, tasks: array, others_can_add_tasks?: bool, others_can_mark_tasks_as_done?: bool}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
+     * @param EditMessageChecklist|array{business_connection_id: string, chat_id: int|string, message_id: int, checklist: InputChecklist|array{title: string, parse_mode?: string, title_entities?: array, tasks: array, others_can_add_tasks?: bool, others_can_mark_tasks_as_done?: bool}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
      * @return Message
      */
     public function editMessageChecklist(EditMessageChecklist|array $dto): Message;
@@ -1637,6 +1716,25 @@ interface TelegramBotInterface
      * @return true
      */
     public function deleteMessages(DeleteMessages|array $dto): true;
+
+    /**
+     * Use this method to remove a reaction from a message in a group or a supergroup chat. The bot must have the
+     * 'can_delete_messages' administrator right in the chat. Returns <em>True</em> on success.
+     *
+     * @param DeleteMessageReaction|array{chat_id: int|string, message_id: int, user_id?: int, actor_chat_id?: int} $dto
+     * @return true
+     */
+    public function deleteMessageReaction(DeleteMessageReaction|array $dto): true;
+
+    /**
+     * Use this method to remove up to 10000 recent reactions in a group or a supergroup chat added by a given user
+     * or chat. The bot must have the 'can_delete_messages' administrator right in the chat. Returns <em>True</em> on
+     * success.
+     *
+     * @param DeleteAllMessageReactions|array{chat_id: int|string, user_id?: int, actor_chat_id?: int} $dto
+     * @return true
+     */
+    public function deleteAllMessageReactions(DeleteAllMessageReactions|array $dto): true;
 
     /**
      * Use this method to send static .WEBP, <a href="https://telegram.org/blog/animated-stickers">animated</a> .TGS,
@@ -1788,6 +1886,27 @@ interface TelegramBotInterface
     public function deleteStickerSet(DeleteStickerSet|array $dto): true;
 
     /**
+     * Use this method to send rich messages. If the message contains a block with a media element, then the bot must
+     * have the right to send the media to the chat. On success, the sent <a
+     * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param SendRichMessage|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, direct_messages_topic_id?: int, rich_message: InputRichMessage|array{html?: string, markdown?: string, is_rtl?: bool, skip_entity_detection?: bool}, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, suggested_post_parameters?: SuggestedPostParameters|array{price?: SuggestedPostPrice|array{currency: string, amount: int}, send_date?: int}, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: ReplyMarkup|array} $dto
+     * @return Message
+     */
+    public function sendRichMessage(SendRichMessage|array $dto): Message;
+
+    /**
+     * Use this method to stream a partial rich message to a user while the message is being generated. Note that the
+     * streamed draft is ephemeral and acts as a temporary 30-second preview - once the output is finalized, you must
+     * call <a href="https://core.telegram.org/bots/api#sendrichmessage">sendRichMessage</a> with the complete
+     * message to persist it in the user's chat. Returns <em>True</em> on success.
+     *
+     * @param SendRichMessageDraft|array{chat_id: int, message_thread_id?: int, draft_id: int, rich_message: InputRichMessage|array{html?: string, markdown?: string, is_rtl?: bool, skip_entity_detection?: bool}} $dto
+     * @return true
+     */
+    public function sendRichMessageDraft(SendRichMessageDraft|array $dto): true;
+
+    /**
      * Use this method to send answers to an inline query. On success, <em>True</em> is returned.No more than 50
      * results per query are allowed.
      *
@@ -1890,7 +2009,7 @@ interface TelegramBotInterface
      * Use this method to send a game. On success, the sent <a
      * href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param SendGame|array{business_connection_id?: string, chat_id: int, message_thread_id?: int, game_short_name: string, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
+     * @param SendGame|array{business_connection_id?: string, chat_id: int|string, message_thread_id?: int, game_short_name: string, disable_notification?: bool, protect_content?: bool, allow_paid_broadcast?: bool, message_effect_id?: string, reply_parameters?: ReplyParameters|array{message_id: int, chat_id?: string|int|null, allow_sending_without_reply?: bool, quote?: string, quote_parse_mode?: string, quote_entities?: array, quote_position?: int, checklist_task_id?: int, poll_option_id?: string}, reply_markup?: InlineKeyboardMarkup|array{inline_keyboard: array}} $dto
      * @return Message
      */
     public function sendGame(SendGame|array $dto): Message;

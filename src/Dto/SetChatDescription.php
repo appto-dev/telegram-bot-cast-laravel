@@ -13,10 +13,7 @@ use Spatie\LaravelData\Dto;
 final class SetChatDescription extends Dto implements TelegramBotDto
 {
     public function __construct(
-        /**
-         * Unique identifier for the target chat or username of the target channel (in the format
-         * <code>@channelusername</code>)
-         */
+        /** Unique identifier for the target chat or username of the target channel in the format <code>@username</code> */
         public int|string $chat_id,
         /** New chat description, 0-255 characters */
         public ?string $description,

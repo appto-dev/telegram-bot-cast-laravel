@@ -17,7 +17,7 @@ final class SendGift extends Dto implements TelegramBotDto
         public ?int $user_id,
         /**
          * Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in
-         * the format <code>@channelusername</code>) that will receive the gift.
+         * the format <code>@username</code>) that will receive the gift.
          */
         public int|string|null $chat_id,
         /** Identifier of the gift; limited gifts can't be sent to channel chats */

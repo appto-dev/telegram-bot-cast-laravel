@@ -15,8 +15,8 @@ final class UnpinAllForumTopicMessages extends Dto implements TelegramBotDto
 {
     public function __construct(
         /**
-         * Unique identifier for the target chat or username of the target supergroup (in the format
-         * <code>@supergroupusername</code>)
+         * Unique identifier for the target chat or username of the target supergroup in the format
+         * <code>@username</code>
          */
         public int|string $chat_id,
         /** Unique identifier for the target message thread of the forum topic */

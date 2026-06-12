@@ -3,13 +3,14 @@
 namespace Appto\TelegramBot\Data;
 
 use Appto\TelegramBot\Interfaces\InputMedia;
+use Appto\TelegramBot\Interfaces\InputPollMedia;
 use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
  * Represents an audio file to be treated as music to be sent.
  */
-final class InputMediaAudio extends Data implements TelegramBotData, InputMedia
+final class InputMediaAudio extends Data implements TelegramBotData, InputPollMedia, InputMedia
 {
     public function __construct(
         /** Type of the result, must be audio */
