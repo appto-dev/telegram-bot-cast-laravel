@@ -801,7 +801,9 @@ interface TelegramBotInterface
 
     /**
      * Use this method to process a received chat join request query by showing a Mini App to the user before
-     * deciding the outcome. Returns <em>True</em> on success.
+     * deciding the outcome. Call <a
+     * href="https://core.telegram.org/bots/api#answerchatjoinrequestquery">answerChatJoinRequestQuery</a> to resolve
+     * the join request query based on the user interaction with the Mini App. Returns <em>True</em> on success.
      *
      * @param SendChatJoinRequestWebApp|array{chat_join_request_query_id: string, web_app_url: string} $dto
      * @return true

@@ -31,7 +31,7 @@ final class EditMessageMedia extends Dto implements TelegramBotDto
         public ?int $message_id,
         /** Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message. */
         public ?string $inline_message_id,
-        /** A JSON-serialized object for a new media content of the message */
+        /** A JSON-serialized object for the new media content of the message */
         public InputMedia $media,
         /** A JSON-serialized object for a new <a href="/bots/features#inline-keyboards">inline keyboard</a> */
         public ?InlineKeyboardMarkup $reply_markup,

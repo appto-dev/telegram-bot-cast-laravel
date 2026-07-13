@@ -21,10 +21,10 @@ final class UniqueGiftInfo extends Data implements TelegramBotData
         public string $origin,
         /**
          * For gifts bought from other users, the currency in which the payment for the gift was done. Currently, one of
-         * "XTR" for Telegram Stars or "TON" for toncoins.
+         * "XTR" for Telegram Stars or "TON" for TON grams.
          */
         public ?string $last_resale_currency,
-        /** For gifts bought from other users, the price paid for the gift in either Telegram Stars or nanotoncoins */
+        /** For gifts bought from other users, the price paid for the gift in either Telegram Stars or nanograms */
         public ?int $last_resale_amount,
         /**
          * Unique identifier of the received gift for the bot; only present for gifts received on behalf of business
