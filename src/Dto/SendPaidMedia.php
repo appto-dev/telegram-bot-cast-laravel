@@ -38,7 +38,7 @@ final class SendPaidMedia extends Dto implements TelegramBotDto
         /** The number of Telegram Stars that must be paid to buy access to the media; 1-25000 */
         public int $star_count,
         /**
-         * A JSON-serialized array describing the media to be sent; up to 10 items
+         * A JSON-serialized Array describing the media to be sent; up to 10 items
          * @var array<InputPaidMedia>
          */
         public array $media,
@@ -60,7 +60,7 @@ final class SendPaidMedia extends Dto implements TelegramBotDto
          * @var array<MessageEntity>
          */
         public ?array $caption_entities,
-        /** Pass <em>True</em>, if the caption must be shown above the message media */
+        /** Pass <em>True</em> if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /**
          * Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will

@@ -30,8 +30,8 @@ final class ChatJoinRequest extends Data implements TelegramBotData
         /** Chat invite link that was used by the user to send the join request */
         public ?ChatInviteLink $invite_link,
         /**
-         * Identifier of the join request query. If present, then the bot must call sendChatJoinRequestWebApp or directly
-         * call answerChatJoinRequestQuery within 10 seconds.
+         * Identifier of the join request query; for bots assigned to process join requests only. If present, then the
+         * bot must call sendChatJoinRequestWebApp or directly call answerChatJoinRequestQuery within 10 seconds.
          */
         public ?string $query_id,
     ) {

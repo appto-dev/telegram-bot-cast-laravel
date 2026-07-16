@@ -23,7 +23,7 @@ final class AnswerCallbackQuery extends Dto implements TelegramBotDto
         public ?string $text,
         /**
          * If <em>True</em>, an alert will be shown by the client instead of a notification at the top of the chat
-         * screen. Defaults to <em>false</em>.
+         * screen. Defaults to <em>False</em>.
          */
         public ?bool $show_alert,
         /**

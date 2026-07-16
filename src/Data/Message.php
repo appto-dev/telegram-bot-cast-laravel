@@ -14,9 +14,10 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
 {
     public function __construct(
         /**
-         * Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a
-         * big chat), the server might automatically schedule a message instead of sending it immediately. In such cases,
-         * this field will be 0 and the relevant message will be unusable until it is actually sent.
+         * Unique message identifier inside this chat; 0 for ephemeral messages. In specific instances (e.g., a message
+         * containing a video sent to a big chat), the server might automatically schedule a message instead of sending
+         * it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is
+         * actually sent.
          */
         public int $message_id,
         /**
@@ -47,6 +48,13 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?User $sender_business_bot,
         /** Tag or custom title of the sender of the message; for supergroups only */
         public ?string $sender_tag,
+        /** For ephemeral messages, the user who received the message */
+        public ?User $receiver_user,
+        /**
+         * For ephemeral messages, identifier of the ephemeral message inside this chat. The identifier may be reused for
+         * another ephemeral message after the message is deleted or expires.
+         */
+        public ?int $ephemeral_message_id,
         /** Date the message was sent in Unix time. It is always a positive number, representing a valid date. */
         public int $date,
         /**
@@ -268,7 +276,7 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?WriteAccessAllowed $write_access_allowed,
         /** Telegram Passport data */
         public ?PassportData $passport_data,
-        /** Service message. A user in the chat triggered another user's proximity alert while sharing Live Location. */
+        /** Service message: a user in the chat triggered another user's proximity alert while sharing Live Location */
         public ?ProximityAlertTriggered $proximity_alert_triggered,
         /** Service message: user boosted the chat */
         public ?ChatBoostAdded $boost_added,
@@ -278,6 +286,10 @@ final class Message extends Data implements TelegramBotData, MaybeInaccessibleMe
         public ?ChecklistTasksDone $checklist_tasks_done,
         /** Service message: tasks were added to a checklist */
         public ?ChecklistTasksAdded $checklist_tasks_added,
+        /** Service message: chat added to a Community */
+        public ?CommunityChatAdded $community_chat_added,
+        /** Service message: chat removed from a Community */
+        public ?CommunityChatRemoved $community_chat_removed,
         /**
          * Service message: the price for paid messages in the corresponding direct messages chat of a channel has
          * changed

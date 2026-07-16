@@ -14,7 +14,7 @@ use Spatie\LaravelData\Data;
 final class InputMediaAnimation extends Data implements TelegramBotData, InputPollMedia, InputPollOptionMedia, InputMedia
 {
     public function __construct(
-        /** Type of the result, must be animation */
+        /** Type of the media, must be animation */
         public string $type,
         /**
          * File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP
@@ -39,7 +39,7 @@ final class InputMediaAnimation extends Data implements TelegramBotData, InputPo
          * @var array<MessageEntity>
          */
         public ?array $caption_entities,
-        /** Pass True, if the caption must be shown above the message media */
+        /** Pass True if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /** Animation width */
         public ?int $width,

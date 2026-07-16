@@ -51,24 +51,24 @@ final class SendPoll extends Dto implements TelegramBotDto
         public ?bool $is_anonymous,
         /** Poll type, "quiz" or "regular", defaults to "regular" */
         public ?string $type,
-        /** Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em> */
+        /** Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em> */
         public ?bool $allows_multiple_answers,
         /**
-         * Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes
+         * Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes
          * and to <em>True</em> for regular polls
          */
         public ?bool $allows_revoting,
-        /** Pass <em>True</em>, if the poll options must be shown in random order */
+        /** Pass <em>True</em> if the poll options must be shown in random order */
         public ?bool $shuffle_options,
         /**
-         * Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous
+         * Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous
          * polls and quizzes
          */
         public ?bool $allow_adding_options,
-        /** Pass <em>True</em>, if poll results must be shown only after the poll closes */
+        /** Pass <em>True</em> if poll results must be shown only after the poll closes */
         public ?bool $hide_results_until_closes,
         /**
-         * Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being
+         * Pass <em>True</em> if voting is limited to users who have been members of the chat where the poll is being
          * sent for more than 24 hours; for channel chats only
          */
         public ?bool $members_only,

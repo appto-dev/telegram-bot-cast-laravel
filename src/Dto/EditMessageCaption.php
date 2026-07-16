@@ -41,7 +41,7 @@ final class EditMessageCaption extends Dto implements TelegramBotDto
          */
         public ?array $caption_entities,
         /**
-         * Pass <em>True</em>, if the caption must be shown above the message media. Supported only for animation, photo
+         * Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo
          * and video messages.
          */
         public ?bool $show_caption_above_media,

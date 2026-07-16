@@ -35,6 +35,14 @@ final class SendLivePhoto extends Dto implements TelegramBotDto
          */
         public ?int $direct_messages_topic_id,
         /**
+         * For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and
+         * supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are
+         * offline. See <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+         */
+        public ?int $receiver_user_id,
+        /** For outgoing ephemeral messages, identifier of the callback query which triggered the message if any */
+        public ?string $callback_query_id,
+        /**
          * Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass
          * a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video
          * using multipart/form-data. <a href="#sending-files">More information on Sending Files </a>. Sending live
@@ -63,7 +71,7 @@ final class SendLivePhoto extends Dto implements TelegramBotDto
          * @var array<MessageEntity>
          */
         public ?array $caption_entities,
-        /** Pass <em>True</em>, if the caption must be shown above the message media */
+        /** Pass <em>True</em> if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /** Pass <em>True</em> if the video needs to be covered with a spoiler animation */
         public ?bool $has_spoiler,

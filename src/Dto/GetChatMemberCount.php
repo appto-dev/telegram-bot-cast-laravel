@@ -6,7 +6,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotDto;
 use Spatie\LaravelData\Dto;
 
 /**
- * Use this method to get the number of members in a chat. Returns <em>Int</em> on success.
+ * Use this method to get the number of members in a chat. Returns <em>Integer</em> on success.
  */
 final class GetChatMemberCount extends Dto implements TelegramBotDto
 {

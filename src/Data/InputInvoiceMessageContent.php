@@ -40,7 +40,7 @@ final class InputInvoiceMessageContent extends Data implements TelegramBotData, 
          */
         public ?int $max_tip_amount,
         /**
-         * A JSON-serialized array of suggested amounts of tip in the smallest units of the currency (integer, not
+         * A JSON-serialized Array of suggested amounts of tip in the smallest units of the currency (integer, not
          * float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive,
          * passed in a strictly increased order and must not exceed max_tip_amount.
          * @var array<int>

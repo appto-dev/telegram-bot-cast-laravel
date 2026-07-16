@@ -48,7 +48,10 @@ final class EditMessageText extends Dto implements TelegramBotDto
         public ?array $entities,
         /** Link preview generation options for the message */
         public ?LinkPreviewOptions $link_preview_options,
-        /** New rich content of the message; required if <em>text</em> isn't specified */
+        /**
+         * New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't
+         * supported when an inline message is edited.
+         */
         public ?InputRichMessage $rich_message,
         /** A JSON-serialized object for an <a href="/bots/features#inline-keyboards">inline keyboard</a> */
         public ?InlineKeyboardMarkup $reply_markup,

@@ -15,6 +15,11 @@ final class BotCommand extends Data implements TelegramBotData
         public string $command,
         /** Description of the command; 1-256 characters */
         public string $description,
+        /**
+         * True, if the command sends an ephemeral message, which can be seen only by the sender of the message and the
+         * bot
+         */
+        public ?bool $is_ephemeral,
     ) {
     }
 }

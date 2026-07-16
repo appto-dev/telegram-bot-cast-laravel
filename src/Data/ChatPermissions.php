@@ -47,7 +47,7 @@ final class ChatPermissions extends Data implements TelegramBotData
         public ?bool $can_invite_users,
         /** True, if the user is allowed to pin messages. Ignored in public supergroups. */
         public ?bool $can_pin_messages,
-        /** True, if the user is allowed to create forum topics. If omitted defaults to the value of can_pin_messages. */
+        /** True, if the user is allowed to create forum topics. If omitted, defaults to the value of can_pin_messages. */
         public ?bool $can_manage_topics,
     ) {
     }

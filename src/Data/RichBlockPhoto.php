@@ -7,7 +7,7 @@ use Appto\TelegramBot\Interfaces\TelegramBotData;
 use Spatie\LaravelData\Data;
 
 /**
- * A block with a photo, corresponding to the HTML tag <photo>.
+ * A block with a photo, corresponding to the HTML tag <img>.
  */
 final class RichBlockPhoto extends Data implements TelegramBotData, RichBlock
 {

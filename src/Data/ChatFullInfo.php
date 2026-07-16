@@ -161,6 +161,8 @@ final class ChatFullInfo extends Data implements TelegramBotData
         public ?int $paid_message_star_count,
         /** The bot that processes join request queries in the chat. The field is only available to chat administrators. */
         public ?User $guard_bot,
+        /** The Community to which the chat belongs */
+        public ?Community $community,
     ) {
     }
 }

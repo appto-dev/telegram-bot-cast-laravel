@@ -12,7 +12,7 @@ use Spatie\LaravelData\Data;
 final class InputMediaSticker extends Data implements TelegramBotData, InputPollOptionMedia
 {
     public function __construct(
-        /** Type of the result, must be sticker */
+        /** Type of the media, must be sticker */
         public string $type,
         /**
          * File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP
