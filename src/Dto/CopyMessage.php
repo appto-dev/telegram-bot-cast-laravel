@@ -62,7 +62,7 @@ final class CopyMessage extends Dto implements TelegramBotDto
          */
         public ?array $caption_entities,
         /**
-         * Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't
+         * Pass <em>True</em> if the caption must be shown above the message media. Ignored if a new caption isn't
          * specified.
          */
         public ?bool $show_caption_above_media,

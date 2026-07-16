@@ -105,6 +105,8 @@ final class Update extends Data implements TelegramBotData
         public ?ChatBoostRemoved $removed_chat_boost,
         /** A new bot was created to be managed by the bot, or token or owner of a managed bot was changed */
         public ?ManagedBotUpdated $managed_bot,
+        /** User payment subscription has changed */
+        public ?BotSubscriptionUpdated $subscription,
     ) {
     }
 }

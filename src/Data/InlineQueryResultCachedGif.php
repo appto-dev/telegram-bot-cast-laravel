@@ -32,7 +32,7 @@ final class InlineQueryResultCachedGif extends Data implements TelegramBotData, 
          * @var array<MessageEntity>
          */
         public ?array $caption_entities,
-        /** Pass True, if the caption must be shown above the message media */
+        /** Pass True if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /** Inline keyboard attached to the message */
         public ?InlineKeyboardMarkup $reply_markup,

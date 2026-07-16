@@ -34,6 +34,14 @@ final class SendMessage extends Dto implements TelegramBotDto
          * a direct messages chat
          */
         public ?int $direct_messages_topic_id,
+        /**
+         * For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and
+         * supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are
+         * offline. See <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+         */
+        public ?int $receiver_user_id,
+        /** For outgoing ephemeral messages, identifier of the callback query which triggered the message if any */
+        public ?string $callback_query_id,
         /** Text of the message to be sent, 1-4096 characters after entities parsing */
         public string $text,
         /**

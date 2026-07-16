@@ -20,7 +20,7 @@ final class SendMessageDraft extends Dto implements TelegramBotDto
         /** Unique identifier for the target message thread */
         public ?int $message_thread_id,
         /**
-         * Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are
+         * Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are
          * animated.
          */
         public int $draft_id,

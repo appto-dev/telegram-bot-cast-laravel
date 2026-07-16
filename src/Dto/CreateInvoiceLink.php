@@ -61,7 +61,7 @@ final class CreateInvoiceLink extends Dto implements TelegramBotDto
          */
         public ?int $max_tip_amount,
         /**
-         * A JSON-serialized array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer,
+         * A JSON-serialized Array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer,
          * <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip
          * amounts must be positive, passed in a strictly increased order and must not exceed <em>max_tip_amount</em>.
          * @var array<int>

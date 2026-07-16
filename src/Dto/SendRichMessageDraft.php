@@ -24,7 +24,7 @@ final class SendRichMessageDraft extends Dto implements TelegramBotDto
          * animated.
          */
         public int $draft_id,
-        /** The partial message to be streamed */
+        /** The partial message to be streamed. Direct upload of new files isn't supported. */
         public InputRichMessage $rich_message,
     ) {
     }

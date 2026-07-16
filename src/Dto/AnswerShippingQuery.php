@@ -23,7 +23,7 @@ final class AnswerShippingQuery extends Dto implements TelegramBotDto
          */
         public bool $ok,
         /**
-         * Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options.
+         * Required if <em>ok</em> is <em>True</em>. A JSON-serialized Array of available shipping options.
          * @var array<ShippingOption>
          */
         public ?array $shipping_options,

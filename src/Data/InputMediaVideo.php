@@ -14,7 +14,7 @@ use Spatie\LaravelData\Data;
 final class InputMediaVideo extends Data implements TelegramBotData, InputPollMedia, InputPollOptionMedia, InputMedia
 {
     public function __construct(
-        /** Type of the result, must be video */
+        /** Type of the media, must be video */
         public string $type,
         /**
          * File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP
@@ -48,7 +48,7 @@ final class InputMediaVideo extends Data implements TelegramBotData, InputPollMe
          * @var array<MessageEntity>
          */
         public ?array $caption_entities,
-        /** Pass True, if the caption must be shown above the message media */
+        /** Pass True if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
         /** Video width */
         public ?int $width,

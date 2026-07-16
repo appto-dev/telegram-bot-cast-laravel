@@ -32,6 +32,14 @@ final class SendLocation extends Dto implements TelegramBotDto
          * a direct messages chat
          */
         public ?int $direct_messages_topic_id,
+        /**
+         * For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and
+         * supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are
+         * offline. See <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+         */
+        public ?int $receiver_user_id,
+        /** For outgoing ephemeral messages, identifier of the callback query which triggered the message if any */
+        public ?string $callback_query_id,
         /** Latitude of the location */
         public float $latitude,
         /** Longitude of the location */
@@ -40,8 +48,8 @@ final class SendLocation extends Dto implements TelegramBotDto
         public ?float $horizontal_accuracy,
         /**
          * Period in seconds during which the location will be updated (see <a
-         * href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or
-         * 0x7FFFFFFF for live locations that can be edited indefinitely
+         * href="https://telegram.org/blog/live-locations">Live Locations</a>), must be between 60 and 86400, or
+         * 0x7FFFFFFF for live locations that can be edited indefinitely. Must be 0 for ephemeral messages.
          */
         public ?int $live_period,
         /**

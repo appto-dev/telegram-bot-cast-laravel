@@ -69,7 +69,7 @@ final class ChatMemberAdministrator extends Data implements TelegramBotData, Cha
          */
         public ?bool $can_manage_direct_messages,
         /**
-         * True, if the administrator can edit the tags of regular members; for groups and supergroups only. If omitted
+         * True, if the administrator can edit the tags of regular members; for groups and supergroups only. If omitted,
          * defaults to the value of can_pin_messages.
          */
         public ?bool $can_manage_tags,

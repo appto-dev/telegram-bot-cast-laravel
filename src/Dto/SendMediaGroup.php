@@ -13,7 +13,7 @@ use Spatie\LaravelData\Dto;
 
 /**
  * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and
- * audio files can be only grouped in an album with messages of the same type. On success, an array of <a
+ * audio files can be only grouped in an album with messages of the same type. On success, an Array of <a
  * href="https://core.telegram.org/bots/api#message">Message</a> objects that were sent is returned.
  */
 final class SendMediaGroup extends Dto implements TelegramBotDto
@@ -36,7 +36,7 @@ final class SendMediaGroup extends Dto implements TelegramBotDto
          * to a direct messages chat
          */
         public ?int $direct_messages_topic_id,
-        /** A JSON-serialized array describing messages to be sent, must include 2-10 items */
+        /** A JSON-serialized Array describing messages to be sent, must include 2-10 items */
         public InputMediaAudio|InputMediaDocument|InputMediaLivePhoto|InputMediaPhoto|InputMediaVideo $media,
         /**
          * Sends messages <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will

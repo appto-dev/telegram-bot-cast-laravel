@@ -39,6 +39,14 @@ final class SendAudio extends Dto implements TelegramBotDto
          */
         public ?int $direct_messages_topic_id,
         /**
+         * For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and
+         * supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are
+         * offline. See <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+         */
+        public ?int $receiver_user_id,
+        /** For outgoing ephemeral messages, identifier of the callback query which triggered the message if any */
+        public ?string $callback_query_id,
+        /**
          * Audio file to send. Pass a file_id as String to send an audio file that exists on the Telegram servers
          * (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a
          * new one using multipart/form-data. <a href="#sending-files">More information on Sending Files </a>

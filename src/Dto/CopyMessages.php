@@ -12,7 +12,7 @@ use Spatie\LaravelData\Dto;
  * if the value of the field <em>correct_option_id</em> is known to the bot. The method is analogous to the
  * method <a href="https://core.telegram.org/bots/api#forwardmessages">forwardMessages</a>, but the copied
  * messages don't have a link to the original message. Album grouping is kept for copied messages. On success, an
- * array of <a href="https://core.telegram.org/bots/api#messageid">MessageId</a> of the sent messages is
+ * Array of <a href="https://core.telegram.org/bots/api#messageid">MessageId</a> of the sent messages is
  * returned.
  */
 final class CopyMessages extends Dto implements TelegramBotDto
