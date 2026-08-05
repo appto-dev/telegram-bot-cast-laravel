@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Appto\TelegramBot\Type;
+
+use Spatie\LaravelData\Data;
+
+/**
+ * All types used in the Bot API responses are represented as JSON-objects.
+ * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
+ * Optional fields may be not returned when irrelevant.
+ */
+class ChatMemberOwner extends Data implements TelegramType, ChatMember
+{
+    public function __construct(
+        /** @var  string  The member's status in the chat, always "creator" */
+        public string $status,
+        /** @var  User  Information about the user */
+        public User $user,
+        /** @var  bool  True, if the user's presence in the chat is hidden */
+        public bool $is_anonymous,
+        /** @var  string|null  Custom title for this user */
+        public ?string $custom_title,
+    ) {
+    }
+}

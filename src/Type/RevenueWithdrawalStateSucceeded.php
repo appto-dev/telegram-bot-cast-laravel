@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Appto\TelegramBot\Type;
+
+use Spatie\LaravelData\Data;
+
+/**
+ * Your bot can accept payments from Telegram users. Please see the
+ * <a href="/bots/payments">introduction to payments</a> for more details on the process and how to set
+ * up payments for your bot.
+ */
+class RevenueWithdrawalStateSucceeded extends Data implements TelegramType, RevenueWithdrawalState
+{
+    public function __construct(
+        /** @var  string  Type of the state, always "succeeded" */
+        public string $type,
+        /** @var  int  Date the withdrawal was completed in Unix time */
+        public int $date,
+        /** @var  string  An HTTPS URL that can be used to see transaction details */
+        public string $url,
+    ) {
+    }
+}

@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Appto\TelegramBot\Type;
+
+/**
+ * This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support
+ * the following types:
+ *  - <a href="https://core.telegram.org/bots/api#inputtextmessagecontent">InputTextMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputrichmessagecontent">InputRichMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputlocationmessagecontent">InputLocationMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputvenuemessagecontent">InputVenueMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputcontactmessagecontent">InputContactMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputinvoicemessagecontent">InputInvoiceMessageContent</a>
+ */
+interface InputMessageContent
+{
+}
