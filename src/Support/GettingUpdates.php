@@ -44,7 +44,12 @@ interface GettingUpdates
      *
      * @return Update[]
      */
-    public function getUpdates(?int $offset, ?int $limit, ?int $timeout, ?array $allowed_updates): array;
+    public function getUpdates(
+        ?int $offset = null,
+        ?int $limit = null,
+        ?int $timeout = null,
+        ?array $allowed_updates = null,
+    ): array;
 
     /**
      * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever
@@ -84,12 +89,12 @@ interface GettingUpdates
      */
     public function setWebhook(
         string $url,
-        ?InputFile $certificate,
-        ?string $ip_address,
-        ?int $max_connections,
-        ?array $allowed_updates,
-        ?bool $drop_pending_updates,
-        ?string $secret_token,
+        ?InputFile $certificate = null,
+        ?string $ip_address = null,
+        ?int $max_connections = null,
+        ?array $allowed_updates = null,
+        ?bool $drop_pending_updates = null,
+        ?string $secret_token = null,
     ): true;
 
     /**
@@ -101,7 +106,7 @@ interface GettingUpdates
      *
      * @return true
      */
-    public function deleteWebhook(?bool $drop_pending_updates): true;
+    public function deleteWebhook(?bool $drop_pending_updates = null): true;
 
     /**
      * Use this method to get current webhook status. Requires no parameters. On success, returns a

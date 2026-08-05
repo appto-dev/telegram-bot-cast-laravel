@@ -80,14 +80,14 @@ interface Games
     public function sendGame(
         int|string $chat_id,
         string $game_short_name,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?ReplyParameters $reply_parameters,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?ReplyParameters $reply_parameters = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): Message;
 
     /**
@@ -114,11 +114,11 @@ interface Games
     public function setGameScore(
         int $user_id,
         int $score,
-        ?bool $force,
-        ?bool $disable_edit_message,
-        ?int $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
+        ?bool $force = null,
+        ?bool $disable_edit_message = null,
+        ?int $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
     ): Message|bool;
 
     /**
@@ -141,8 +141,8 @@ interface Games
      */
     public function getGameHighScores(
         int $user_id,
-        ?int $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
+        ?int $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
     ): array;
 }

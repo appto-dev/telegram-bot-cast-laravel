@@ -76,19 +76,19 @@ interface Stickers
     public function sendSticker(
         int|string $chat_id,
         InputFile|string $sticker,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $emoji,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $emoji = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -156,8 +156,8 @@ interface Stickers
         string $name,
         string $title,
         array $stickers,
-        ?string $sticker_type,
-        ?bool $needs_repainting,
+        ?string $sticker_type = null,
+        ?bool $needs_repainting = null,
     ): true;
 
     /**
@@ -237,7 +237,7 @@ interface Stickers
      *
      * @return true
      */
-    public function setStickerKeywords(string $sticker, ?array $keywords): true;
+    public function setStickerKeywords(string $sticker, ?array $keywords = null): true;
 
     /**
      * Use this method to change the
@@ -250,7 +250,7 @@ interface Stickers
      *
      * @return true
      */
-    public function setStickerMaskPosition(string $sticker, ?MaskPosition $mask_position): true;
+    public function setStickerMaskPosition(string $sticker, ?MaskPosition $mask_position = null): true;
 
     /**
      * Use this method to set the title of a created sticker set. Returns <em>True</em> on success.
@@ -291,7 +291,7 @@ interface Stickers
         string $name,
         int $user_id,
         string $format,
-        InputFile|string|null $thumbnail,
+        InputFile|string|null $thumbnail = null,
     ): true;
 
     /**
@@ -304,7 +304,10 @@ interface Stickers
      *
      * @return true
      */
-    public function setCustomEmojiStickerSetThumbnail(string $name, ?string $custom_emoji_id): true;
+    public function setCustomEmojiStickerSetThumbnail(
+        string $name,
+        ?string $custom_emoji_id = null,
+    ): true;
 
     /**
      * Use this method to delete a sticker set that was created by the bot. Returns <em>True</em> on

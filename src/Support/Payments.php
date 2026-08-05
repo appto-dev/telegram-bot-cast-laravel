@@ -111,31 +111,31 @@ interface Payments
         string $payload,
         string $currency,
         array $prices,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?string $provider_token,
-        ?int $max_tip_amount,
-        ?array $suggested_tip_amounts,
-        ?string $start_parameter,
-        ?string $provider_data,
-        ?string $photo_url,
-        ?int $photo_size,
-        ?int $photo_width,
-        ?int $photo_height,
-        ?bool $need_name,
-        ?bool $need_phone_number,
-        ?bool $need_email,
-        ?bool $need_shipping_address,
-        ?bool $send_phone_number_to_provider,
-        ?bool $send_email_to_provider,
-        ?bool $is_flexible,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?string $provider_token = null,
+        ?int $max_tip_amount = null,
+        ?array $suggested_tip_amounts = null,
+        ?string $start_parameter = null,
+        ?string $provider_data = null,
+        ?string $photo_url = null,
+        ?int $photo_size = null,
+        ?int $photo_width = null,
+        ?int $photo_height = null,
+        ?bool $need_name = null,
+        ?bool $need_phone_number = null,
+        ?bool $need_email = null,
+        ?bool $need_shipping_address = null,
+        ?bool $send_phone_number_to_provider = null,
+        ?bool $send_email_to_provider = null,
+        ?bool $is_flexible = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): Message;
 
     /**
@@ -206,23 +206,23 @@ interface Payments
         string $payload,
         string $currency,
         array $prices,
-        ?string $business_connection_id,
-        ?string $provider_token,
-        ?int $subscription_period,
-        ?int $max_tip_amount,
-        ?array $suggested_tip_amounts,
-        ?string $provider_data,
-        ?string $photo_url,
-        ?int $photo_size,
-        ?int $photo_width,
-        ?int $photo_height,
-        ?bool $need_name,
-        ?bool $need_phone_number,
-        ?bool $need_email,
-        ?bool $need_shipping_address,
-        ?bool $send_phone_number_to_provider,
-        ?bool $send_email_to_provider,
-        ?bool $is_flexible,
+        ?string $business_connection_id = null,
+        ?string $provider_token = null,
+        ?int $subscription_period = null,
+        ?int $max_tip_amount = null,
+        ?array $suggested_tip_amounts = null,
+        ?string $provider_data = null,
+        ?string $photo_url = null,
+        ?int $photo_size = null,
+        ?int $photo_width = null,
+        ?int $photo_height = null,
+        ?bool $need_name = null,
+        ?bool $need_phone_number = null,
+        ?bool $need_email = null,
+        ?bool $need_shipping_address = null,
+        ?bool $send_phone_number_to_provider = null,
+        ?bool $send_email_to_provider = null,
+        ?bool $is_flexible = null,
     ): string;
 
     /**
@@ -246,8 +246,8 @@ interface Payments
     public function answerShippingQuery(
         string $shipping_query_id,
         bool $ok,
-        ?array $shipping_options,
-        ?string $error_message,
+        ?array $shipping_options = null,
+        ?string $error_message = null,
     ): true;
 
     /**
@@ -271,7 +271,7 @@ interface Payments
     public function answerPreCheckoutQuery(
         string $pre_checkout_query_id,
         bool $ok,
-        ?string $error_message,
+        ?string $error_message = null,
     ): true;
 
     /**
@@ -293,7 +293,7 @@ interface Payments
      *
      * @return StarTransactions
      */
-    public function getStarTransactions(?int $offset, ?int $limit): StarTransactions;
+    public function getStarTransactions(?int $offset = null, ?int $limit = null): StarTransactions;
 
     /**
      * Refunds a successful payment in <a href="https://t.me/BotNews/90">Telegram Stars</a>. Returns

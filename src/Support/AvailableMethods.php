@@ -154,21 +154,21 @@ interface AvailableMethods
     public function sendMessage(
         int|string $chat_id,
         string $text,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $parse_mode,
-        ?array $entities,
-        ?LinkPreviewOptions $link_preview_options,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $parse_mode = null,
+        ?array $entities = null,
+        ?LinkPreviewOptions $link_preview_options = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -202,13 +202,13 @@ interface AvailableMethods
         int|string $chat_id,
         int|string $from_chat_id,
         int $message_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $video_start_timestamp,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $video_start_timestamp = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
     ): Message;
 
     /**
@@ -240,10 +240,10 @@ interface AvailableMethods
         int|string $chat_id,
         int|string $from_chat_id,
         array $message_ids,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?bool $disable_notification,
-        ?bool $protect_content,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
     ): array;
 
     /**
@@ -301,20 +301,20 @@ interface AvailableMethods
         int|string $chat_id,
         int|string $from_chat_id,
         int $message_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $video_start_timestamp,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $video_start_timestamp = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): MessageId;
 
     /**
@@ -351,11 +351,11 @@ interface AvailableMethods
         int|string $chat_id,
         int|string $from_chat_id,
         array $message_ids,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $remove_caption,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $remove_caption = null,
     ): array;
 
     /**
@@ -418,23 +418,23 @@ interface AvailableMethods
     public function sendPhoto(
         int|string $chat_id,
         InputFile|string $photo,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?bool $has_spoiler,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $has_spoiler = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -502,23 +502,23 @@ interface AvailableMethods
         int|string $chat_id,
         InputFile|string $live_photo,
         InputFile|string $photo,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?bool $has_spoiler,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $has_spoiler = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -589,25 +589,25 @@ interface AvailableMethods
     public function sendAudio(
         int|string $chat_id,
         InputFile|string $audio,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?int $duration,
-        ?string $performer,
-        ?string $title,
-        InputFile|string|null $thumbnail,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?int $duration = null,
+        ?string $performer = null,
+        ?string $title = null,
+        InputFile|string|null $thumbnail = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -675,23 +675,23 @@ interface AvailableMethods
     public function sendDocument(
         int|string $chat_id,
         InputFile|string $document,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        InputFile|string|null $thumbnail,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $disable_content_type_detection,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        InputFile|string|null $thumbnail = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $disable_content_type_detection = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -773,30 +773,30 @@ interface AvailableMethods
     public function sendVideo(
         int|string $chat_id,
         InputFile|string $video,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?int $duration,
-        ?int $width,
-        ?int $height,
-        InputFile|string|null $thumbnail,
-        InputFile|string|null $cover,
-        ?int $start_timestamp,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?bool $has_spoiler,
-        ?bool $supports_streaming,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?int $duration = null,
+        ?int $width = null,
+        ?int $height = null,
+        InputFile|string|null $thumbnail = null,
+        InputFile|string|null $cover = null,
+        ?int $start_timestamp = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $has_spoiler = null,
+        ?bool $supports_streaming = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -869,27 +869,27 @@ interface AvailableMethods
     public function sendAnimation(
         int|string $chat_id,
         InputFile|string $animation,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?int $duration,
-        ?int $width,
-        ?int $height,
-        InputFile|string|null $thumbnail,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?bool $has_spoiler,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?int $duration = null,
+        ?int $width = null,
+        ?int $height = null,
+        InputFile|string|null $thumbnail = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $has_spoiler = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -952,22 +952,22 @@ interface AvailableMethods
     public function sendVoice(
         int|string $chat_id,
         InputFile|string $voice,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?int $duration,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?int $duration = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1029,21 +1029,21 @@ interface AvailableMethods
     public function sendVideoNote(
         int|string $chat_id,
         InputFile|string $video_note,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?int $duration,
-        ?int $length,
-        InputFile|string|null $thumbnail,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?int $duration = null,
+        ?int $length = null,
+        InputFile|string|null $thumbnail = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1099,20 +1099,20 @@ interface AvailableMethods
         int|string $chat_id,
         int $star_count,
         array $media,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?string $payload,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?string $payload = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1150,14 +1150,14 @@ interface AvailableMethods
     public function sendMediaGroup(
         int|string $chat_id,
         array $media,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?ReplyParameters $reply_parameters,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?ReplyParameters $reply_parameters = null,
     ): array;
 
     /**
@@ -1218,22 +1218,22 @@ interface AvailableMethods
         int|string $chat_id,
         float $latitude,
         float $longitude,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?float $horizontal_accuracy,
-        ?int $live_period,
-        ?int $heading,
-        ?int $proximity_alert_radius,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?float $horizontal_accuracy = null,
+        ?int $live_period = null,
+        ?int $heading = null,
+        ?int $proximity_alert_radius = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1294,22 +1294,22 @@ interface AvailableMethods
         float $longitude,
         string $title,
         string $address,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $foursquare_id,
-        ?string $foursquare_type,
-        ?string $google_place_id,
-        ?string $google_place_type,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $foursquare_id = null,
+        ?string $foursquare_type = null,
+        ?string $google_place_id = null,
+        ?string $google_place_type = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1363,20 +1363,20 @@ interface AvailableMethods
         int|string $chat_id,
         string $phone_number,
         string $first_name,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?int $receiver_user_id,
-        ?string $callback_query_id,
-        ?string $last_name,
-        ?string $vcard,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?int $receiver_user_id = null,
+        ?string $callback_query_id = null,
+        ?string $last_name = null,
+        ?string $vcard = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1466,37 +1466,37 @@ interface AvailableMethods
         int|string $chat_id,
         string $question,
         array $options,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?string $question_parse_mode,
-        ?array $question_entities,
-        ?bool $is_anonymous,
-        ?string $type,
-        ?bool $allows_multiple_answers,
-        ?bool $allows_revoting,
-        ?bool $shuffle_options,
-        ?bool $allow_adding_options,
-        ?bool $hide_results_until_closes,
-        ?bool $members_only,
-        ?array $country_codes,
-        ?array $correct_option_ids,
-        ?string $explanation,
-        ?string $explanation_parse_mode,
-        ?array $explanation_entities,
-        ?InputPollMedia $explanation_media,
-        ?int $open_period,
-        ?int $close_date,
-        ?bool $is_closed,
-        ?string $description,
-        ?string $description_parse_mode,
-        ?array $description_entities,
-        ?InputPollMedia $media,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?string $question_parse_mode = null,
+        ?array $question_entities = null,
+        ?bool $is_anonymous = null,
+        ?string $type = null,
+        ?bool $allows_multiple_answers = null,
+        ?bool $allows_revoting = null,
+        ?bool $shuffle_options = null,
+        ?bool $allow_adding_options = null,
+        ?bool $hide_results_until_closes = null,
+        ?bool $members_only = null,
+        ?array $country_codes = null,
+        ?array $correct_option_ids = null,
+        ?string $explanation = null,
+        ?string $explanation_parse_mode = null,
+        ?array $explanation_entities = null,
+        ?InputPollMedia $explanation_media = null,
+        ?int $open_period = null,
+        ?int $close_date = null,
+        ?bool $is_closed = null,
+        ?string $description = null,
+        ?string $description_parse_mode = null,
+        ?array $description_entities = null,
+        ?InputPollMedia $media = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1525,11 +1525,11 @@ interface AvailableMethods
         string $business_connection_id,
         int|string $chat_id,
         InputChecklist $checklist,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?string $message_effect_id,
-        ?ReplyParameters $reply_parameters,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?string $message_effect_id = null,
+        ?ReplyParameters $reply_parameters = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): Message;
 
     /**
@@ -1572,17 +1572,17 @@ interface AvailableMethods
      */
     public function sendDice(
         int|string $chat_id,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?string $emoji,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?string $emoji = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -1607,10 +1607,10 @@ interface AvailableMethods
     public function sendMessageDraft(
         int $chat_id,
         int $draft_id,
-        ?int $message_thread_id,
-        ?string $text,
-        ?string $parse_mode,
-        ?array $entities,
+        ?int $message_thread_id = null,
+        ?string $text = null,
+        ?string $parse_mode = null,
+        ?array $entities = null,
     ): true;
 
     /**
@@ -1647,8 +1647,8 @@ interface AvailableMethods
     public function sendChatAction(
         int|string $chat_id,
         string $action,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
     ): true;
 
     /**
@@ -1672,8 +1672,8 @@ interface AvailableMethods
     public function setMessageReaction(
         int|string $chat_id,
         int $message_id,
-        ?array $reaction,
-        ?bool $is_big,
+        ?array $reaction = null,
+        ?bool $is_big = null,
     ): true;
 
     /**
@@ -1688,7 +1688,11 @@ interface AvailableMethods
      *
      * @return UserProfilePhotos
      */
-    public function getUserProfilePhotos(int $user_id, ?int $offset, ?int $limit): UserProfilePhotos;
+    public function getUserProfilePhotos(
+        int $user_id,
+        ?int $offset = null,
+        ?int $limit = null,
+    ): UserProfilePhotos;
 
     /**
      * Use this method to get a list of profile audios for a user. Returns a
@@ -1702,7 +1706,11 @@ interface AvailableMethods
      *
      * @return UserProfileAudios
      */
-    public function getUserProfileAudios(int $user_id, ?int $offset, ?int $limit): UserProfileAudios;
+    public function getUserProfileAudios(
+        int $user_id,
+        ?int $offset = null,
+        ?int $limit = null,
+    ): UserProfileAudios;
 
     /**
      * Changes the emoji status for a given user that previously allowed the bot to manage their emoji
@@ -1719,8 +1727,8 @@ interface AvailableMethods
      */
     public function setUserEmojiStatus(
         int $user_id,
-        ?string $emoji_status_custom_emoji_id,
-        ?int $emoji_status_expiration_date,
+        ?string $emoji_status_custom_emoji_id = null,
+        ?int $emoji_status_expiration_date = null,
     ): true;
 
     /**
@@ -1760,8 +1768,8 @@ interface AvailableMethods
     public function banChatMember(
         int|string $chat_id,
         int $user_id,
-        ?int $until_date,
-        ?bool $revoke_messages,
+        ?int $until_date = null,
+        ?bool $revoke_messages = null,
     ): true;
 
     /**
@@ -1779,7 +1787,11 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function unbanChatMember(int|string $chat_id, int $user_id, ?bool $only_if_banned): true;
+    public function unbanChatMember(
+        int|string $chat_id,
+        int $user_id,
+        ?bool $only_if_banned = null,
+    ): true;
 
     /**
      * Use this method to restrict a user in a supergroup. The bot must be an administrator in the
@@ -1807,8 +1819,8 @@ interface AvailableMethods
         int|string $chat_id,
         int $user_id,
         ChatPermissions $permissions,
-        ?bool $use_independent_chat_permissions,
-        ?int $until_date,
+        ?bool $use_independent_chat_permissions = null,
+        ?int $until_date = null,
     ): true;
 
     /**
@@ -1863,23 +1875,23 @@ interface AvailableMethods
     public function promoteChatMember(
         int|string $chat_id,
         int $user_id,
-        ?bool $is_anonymous,
-        ?bool $can_manage_chat,
-        ?bool $can_delete_messages,
-        ?bool $can_manage_video_chats,
-        ?bool $can_restrict_members,
-        ?bool $can_promote_members,
-        ?bool $can_change_info,
-        ?bool $can_invite_users,
-        ?bool $can_post_stories,
-        ?bool $can_edit_stories,
-        ?bool $can_delete_stories,
-        ?bool $can_post_messages,
-        ?bool $can_edit_messages,
-        ?bool $can_pin_messages,
-        ?bool $can_manage_topics,
-        ?bool $can_manage_direct_messages,
-        ?bool $can_manage_tags,
+        ?bool $is_anonymous = null,
+        ?bool $can_manage_chat = null,
+        ?bool $can_delete_messages = null,
+        ?bool $can_manage_video_chats = null,
+        ?bool $can_restrict_members = null,
+        ?bool $can_promote_members = null,
+        ?bool $can_change_info = null,
+        ?bool $can_invite_users = null,
+        ?bool $can_post_stories = null,
+        ?bool $can_edit_stories = null,
+        ?bool $can_delete_stories = null,
+        ?bool $can_post_messages = null,
+        ?bool $can_edit_messages = null,
+        ?bool $can_pin_messages = null,
+        ?bool $can_manage_topics = null,
+        ?bool $can_manage_direct_messages = null,
+        ?bool $can_manage_tags = null,
     ): true;
 
     /**
@@ -1912,7 +1924,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setChatMemberTag(int|string $chat_id, int $user_id, ?string $tag): true;
+    public function setChatMemberTag(int|string $chat_id, int $user_id, ?string $tag = null): true;
 
     /**
      * Use this method to ban a channel chat in a supergroup or a channel. Until the chat is
@@ -1963,7 +1975,7 @@ interface AvailableMethods
     public function setChatPermissions(
         int|string $chat_id,
         ChatPermissions $permissions,
-        ?bool $use_independent_chat_permissions,
+        ?bool $use_independent_chat_permissions = null,
     ): true;
 
     /**
@@ -1999,10 +2011,10 @@ interface AvailableMethods
      */
     public function createChatInviteLink(
         int|string $chat_id,
-        ?string $name,
-        ?int $expire_date,
-        ?int $member_limit,
-        ?bool $creates_join_request,
+        ?string $name = null,
+        ?int $expire_date = null,
+        ?int $member_limit = null,
+        ?bool $creates_join_request = null,
     ): ChatInviteLink;
 
     /**
@@ -2026,10 +2038,10 @@ interface AvailableMethods
     public function editChatInviteLink(
         int|string $chat_id,
         string $invite_link,
-        ?string $name,
-        ?int $expire_date,
-        ?int $member_limit,
-        ?bool $creates_join_request,
+        ?string $name = null,
+        ?int $expire_date = null,
+        ?int $member_limit = null,
+        ?bool $creates_join_request = null,
     ): ChatInviteLink;
 
     /**
@@ -2057,7 +2069,7 @@ interface AvailableMethods
         int|string $chat_id,
         int $subscription_period,
         int $subscription_price,
-        ?string $name,
+        ?string $name = null,
     ): ChatInviteLink;
 
     /**
@@ -2075,7 +2087,7 @@ interface AvailableMethods
     public function editChatSubscriptionInviteLink(
         int|string $chat_id,
         string $invite_link,
-        ?string $name,
+        ?string $name = null,
     ): ChatInviteLink;
 
     /**
@@ -2197,7 +2209,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setChatDescription(int|string $chat_id, ?string $description): true;
+    public function setChatDescription(int|string $chat_id, ?string $description = null): true;
 
     /**
      * Use this method to add a message to the list of pinned messages in a chat. In private chats and
@@ -2219,8 +2231,8 @@ interface AvailableMethods
     public function pinChatMessage(
         int|string $chat_id,
         int $message_id,
-        ?string $business_connection_id,
-        ?bool $disable_notification,
+        ?string $business_connection_id = null,
+        ?bool $disable_notification = null,
     ): true;
 
     /**
@@ -2241,8 +2253,8 @@ interface AvailableMethods
      */
     public function unpinChatMessage(
         int|string $chat_id,
-        ?string $business_connection_id,
-        ?int $message_id,
+        ?string $business_connection_id = null,
+        ?int $message_id = null,
     ): true;
 
     /**
@@ -2292,7 +2304,7 @@ interface AvailableMethods
      *
      * @return ChatMember[]
      */
-    public function getChatAdministrators(int|string $chat_id, ?bool $return_bots): array;
+    public function getChatAdministrators(int|string $chat_id, ?bool $return_bots = null): array;
 
     /**
      * Use this method to get the number of members in a chat. Returns <em>Integer</em> on success.
@@ -2389,8 +2401,8 @@ interface AvailableMethods
     public function createForumTopic(
         int|string $chat_id,
         string $name,
-        ?int $icon_color,
-        ?string $icon_custom_emoji_id,
+        ?int $icon_color = null,
+        ?string $icon_custom_emoji_id = null,
     ): ForumTopic;
 
     /**
@@ -2414,8 +2426,8 @@ interface AvailableMethods
     public function editForumTopic(
         int|string $chat_id,
         int $message_thread_id,
-        ?string $name,
-        ?string $icon_custom_emoji_id,
+        ?string $name = null,
+        ?string $icon_custom_emoji_id = null,
     ): true;
 
     /**
@@ -2576,10 +2588,10 @@ interface AvailableMethods
      */
     public function answerCallbackQuery(
         string $callback_query_id,
-        ?string $text,
-        ?bool $show_alert,
-        ?string $url,
-        ?int $cache_time,
+        ?string $text = null,
+        ?bool $show_alert = null,
+        ?string $url = null,
+        ?int $cache_time = null,
     ): true;
 
     /**
@@ -2663,7 +2675,7 @@ interface AvailableMethods
     public function setManagedBotAccessSettings(
         int $user_id,
         bool $is_access_restricted,
-        ?array $added_user_ids,
+        ?array $added_user_ids = null,
     ): true;
 
     /**
@@ -2680,7 +2692,11 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setMyCommands(array $commands, ?BotCommandScope $scope, ?string $language_code): true;
+    public function setMyCommands(
+        array $commands,
+        ?BotCommandScope $scope = null,
+        ?string $language_code = null,
+    ): true;
 
     /**
      * Use this method to delete the list of the bot's commands for the given scope and user language.
@@ -2695,7 +2711,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function deleteMyCommands(?BotCommandScope $scope, ?string $language_code): true;
+    public function deleteMyCommands(?BotCommandScope $scope = null, ?string $language_code = null): true;
 
     /**
      * Use this method to get the current list of the bot's commands for the given scope and user language.
@@ -2708,7 +2724,7 @@ interface AvailableMethods
      *
      * @return BotCommand[]
      */
-    public function getMyCommands(?BotCommandScope $scope, ?string $language_code): array;
+    public function getMyCommands(?BotCommandScope $scope = null, ?string $language_code = null): array;
 
     /**
      * Use this method to change the bot's name. Returns <em>True</em> on success.
@@ -2720,7 +2736,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setMyName(?string $name, ?string $language_code): true;
+    public function setMyName(?string $name = null, ?string $language_code = null): true;
 
     /**
      * Use this method to get the current bot name for the given user language. Returns
@@ -2730,7 +2746,7 @@ interface AvailableMethods
      *
      * @return BotName
      */
-    public function getMyName(?string $language_code): BotName;
+    public function getMyName(?string $language_code = null): BotName;
 
     /**
      * Use this method to change the bot's description, which is shown in the chat with the bot if the chat
@@ -2743,7 +2759,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setMyDescription(?string $description, ?string $language_code): true;
+    public function setMyDescription(?string $description = null, ?string $language_code = null): true;
 
     /**
      * Use this method to get the current bot description for the given user language. Returns
@@ -2753,7 +2769,7 @@ interface AvailableMethods
      *
      * @return BotDescription
      */
-    public function getMyDescription(?string $language_code): BotDescription;
+    public function getMyDescription(?string $language_code = null): BotDescription;
 
     /**
      * Use this method to change the bot's short description, which is shown on the bot's profile page and
@@ -2766,7 +2782,10 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setMyShortDescription(?string $short_description, ?string $language_code): true;
+    public function setMyShortDescription(
+        ?string $short_description = null,
+        ?string $language_code = null,
+    ): true;
 
     /**
      * Use this method to get the current bot short description for the given user language. Returns
@@ -2776,7 +2795,7 @@ interface AvailableMethods
      *
      * @return BotShortDescription
      */
-    public function getMyShortDescription(?string $language_code): BotShortDescription;
+    public function getMyShortDescription(?string $language_code = null): BotShortDescription;
 
     /**
      * Changes the profile photo of the bot. Returns <em>True</em> on success.
@@ -2806,7 +2825,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setChatMenuButton(?int $chat_id, ?MenuButton $menu_button): true;
+    public function setChatMenuButton(?int $chat_id = null, ?MenuButton $menu_button = null): true;
 
     /**
      * Use this method to get the current value of the bot's menu button in a private chat, or the default
@@ -2818,7 +2837,7 @@ interface AvailableMethods
      *
      * @return MenuButton
      */
-    public function getChatMenuButton(?int $chat_id): MenuButton;
+    public function getChatMenuButton(?int $chat_id = null): MenuButton;
 
     /**
      * Use this method to change the default administrator rights requested by the bot when it's added as
@@ -2834,8 +2853,8 @@ interface AvailableMethods
      * @return true
      */
     public function setMyDefaultAdministratorRights(
-        ?ChatAdministratorRights $rights,
-        ?bool $for_channels,
+        ?ChatAdministratorRights $rights = null,
+        ?bool $for_channels = null,
     ): true;
 
     /**
@@ -2849,7 +2868,7 @@ interface AvailableMethods
      *
      * @return ChatAdministratorRights
      */
-    public function getMyDefaultAdministratorRights(?bool $for_channels): ChatAdministratorRights;
+    public function getMyDefaultAdministratorRights(?bool $for_channels = null): ChatAdministratorRights;
 
     /**
      * Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no
@@ -2885,12 +2904,12 @@ interface AvailableMethods
      */
     public function sendGift(
         string $gift_id,
-        ?int $user_id,
-        int|string|null $chat_id,
-        ?bool $pay_for_upgrade,
-        ?string $text,
-        ?string $text_parse_mode,
-        ?array $text_entities,
+        ?int $user_id = null,
+        int|string|null $chat_id = null,
+        ?bool $pay_for_upgrade = null,
+        ?string $text = null,
+        ?string $text_parse_mode = null,
+        ?array $text_entities = null,
     ): true;
 
     /**
@@ -2918,9 +2937,9 @@ interface AvailableMethods
         int $user_id,
         int $month_count,
         int $star_count,
-        ?string $text,
-        ?string $text_parse_mode,
-        ?array $text_entities,
+        ?string $text = null,
+        ?string $text_parse_mode = null,
+        ?array $text_entities = null,
     ): true;
 
     /**
@@ -2934,7 +2953,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function verifyUser(int $user_id, ?string $custom_description): true;
+    public function verifyUser(int $user_id, ?string $custom_description = null): true;
 
     /**
      * Verifies a chat
@@ -2949,7 +2968,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function verifyChat(int|string $chat_id, ?string $custom_description): true;
+    public function verifyChat(int|string $chat_id, ?string $custom_description = null): true;
 
     /**
      * Removes verification from a user who is currently verified
@@ -3022,7 +3041,7 @@ interface AvailableMethods
     public function setBusinessAccountName(
         string $business_connection_id,
         string $first_name,
-        ?string $last_name,
+        ?string $last_name = null,
     ): true;
 
     /**
@@ -3035,7 +3054,10 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setBusinessAccountUsername(string $business_connection_id, ?string $username): true;
+    public function setBusinessAccountUsername(
+        string $business_connection_id,
+        ?string $username = null,
+    ): true;
 
     /**
      * Changes the bio of a managed business account. Requires the <em>can_change_bio</em> business bot
@@ -3046,7 +3068,7 @@ interface AvailableMethods
      *
      * @return true
      */
-    public function setBusinessAccountBio(string $business_connection_id, ?string $bio): true;
+    public function setBusinessAccountBio(string $business_connection_id, ?string $bio = null): true;
 
     /**
      * Changes the profile photo of a managed business account. Requires the
@@ -3063,7 +3085,7 @@ interface AvailableMethods
     public function setBusinessAccountProfilePhoto(
         string $business_connection_id,
         InputProfilePhoto $photo,
-        ?bool $is_public,
+        ?bool $is_public = null,
     ): true;
 
     /**
@@ -3079,7 +3101,7 @@ interface AvailableMethods
      */
     public function removeBusinessAccountProfilePhoto(
         string $business_connection_id,
-        ?bool $is_public,
+        ?bool $is_public = null,
     ): true;
 
     /**
@@ -3150,16 +3172,16 @@ interface AvailableMethods
      */
     public function getBusinessAccountGifts(
         string $business_connection_id,
-        ?bool $exclude_unsaved,
-        ?bool $exclude_saved,
-        ?bool $exclude_unlimited,
-        ?bool $exclude_limited_upgradable,
-        ?bool $exclude_limited_non_upgradable,
-        ?bool $exclude_unique,
-        ?bool $exclude_from_blockchain,
-        ?bool $sort_by_price,
-        ?string $offset,
-        ?int $limit,
+        ?bool $exclude_unsaved = null,
+        ?bool $exclude_saved = null,
+        ?bool $exclude_unlimited = null,
+        ?bool $exclude_limited_upgradable = null,
+        ?bool $exclude_limited_non_upgradable = null,
+        ?bool $exclude_unique = null,
+        ?bool $exclude_from_blockchain = null,
+        ?bool $sort_by_price = null,
+        ?string $offset = null,
+        ?int $limit = null,
     ): OwnedGifts;
 
     /**
@@ -3186,14 +3208,14 @@ interface AvailableMethods
      */
     public function getUserGifts(
         int $user_id,
-        ?bool $exclude_unlimited,
-        ?bool $exclude_limited_upgradable,
-        ?bool $exclude_limited_non_upgradable,
-        ?bool $exclude_from_blockchain,
-        ?bool $exclude_unique,
-        ?bool $sort_by_price,
-        ?string $offset,
-        ?int $limit,
+        ?bool $exclude_unlimited = null,
+        ?bool $exclude_limited_upgradable = null,
+        ?bool $exclude_limited_non_upgradable = null,
+        ?bool $exclude_from_blockchain = null,
+        ?bool $exclude_unique = null,
+        ?bool $sort_by_price = null,
+        ?string $offset = null,
+        ?int $limit = null,
     ): OwnedGifts;
 
     /**
@@ -3227,16 +3249,16 @@ interface AvailableMethods
      */
     public function getChatGifts(
         int|string $chat_id,
-        ?bool $exclude_unsaved,
-        ?bool $exclude_saved,
-        ?bool $exclude_unlimited,
-        ?bool $exclude_limited_upgradable,
-        ?bool $exclude_limited_non_upgradable,
-        ?bool $exclude_from_blockchain,
-        ?bool $exclude_unique,
-        ?bool $sort_by_price,
-        ?string $offset,
-        ?int $limit,
+        ?bool $exclude_unsaved = null,
+        ?bool $exclude_saved = null,
+        ?bool $exclude_unlimited = null,
+        ?bool $exclude_limited_upgradable = null,
+        ?bool $exclude_limited_non_upgradable = null,
+        ?bool $exclude_from_blockchain = null,
+        ?bool $exclude_unique = null,
+        ?bool $sort_by_price = null,
+        ?string $offset = null,
+        ?int $limit = null,
     ): OwnedGifts;
 
     /**
@@ -3271,8 +3293,8 @@ interface AvailableMethods
     public function upgradeGift(
         string $business_connection_id,
         string $owned_gift_id,
-        ?bool $keep_original_details,
-        ?int $star_count,
+        ?bool $keep_original_details = null,
+        ?int $star_count = null,
     ): true;
 
     /**
@@ -3294,7 +3316,7 @@ interface AvailableMethods
         string $business_connection_id,
         string $owned_gift_id,
         int $new_owner_chat_id,
-        ?int $star_count,
+        ?int $star_count = null,
     ): true;
 
     /**
@@ -3322,12 +3344,12 @@ interface AvailableMethods
         string $business_connection_id,
         InputStoryContent $content,
         int $active_period,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?array $areas,
-        ?bool $post_to_chat_page,
-        ?bool $protect_content,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?array $areas = null,
+        ?bool $post_to_chat_page = null,
+        ?bool $protect_content = null,
     ): Story;
 
     /**
@@ -3354,8 +3376,8 @@ interface AvailableMethods
         int $from_chat_id,
         int $from_story_id,
         int $active_period,
-        ?bool $post_to_chat_page,
-        ?bool $protect_content,
+        ?bool $post_to_chat_page = null,
+        ?bool $protect_content = null,
     ): Story;
 
     /**
@@ -3379,10 +3401,10 @@ interface AvailableMethods
         string $business_connection_id,
         int $story_id,
         InputStoryContent $content,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?array $areas,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?array $areas = null,
     ): Story;
 
     /**
@@ -3433,10 +3455,10 @@ interface AvailableMethods
     public function savePreparedInlineMessage(
         int $user_id,
         InlineQueryResult $result,
-        ?bool $allow_user_chats,
-        ?bool $allow_bot_chats,
-        ?bool $allow_group_chats,
-        ?bool $allow_channel_chats,
+        ?bool $allow_user_chats = null,
+        ?bool $allow_bot_chats = null,
+        ?bool $allow_group_chats = null,
+        ?bool $allow_channel_chats = null,
     ): PreparedInlineMessage;
 
     /**
