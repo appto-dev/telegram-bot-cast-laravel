@@ -56,16 +56,16 @@ interface UpdatingMessages
      * @return true|Message
      */
     public function editMessageText(
-        ?string $business_connection_id,
-        int|string|null $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
-        ?string $text,
-        ?string $parse_mode,
-        ?array $entities,
-        ?LinkPreviewOptions $link_preview_options,
-        ?InputRichMessage $rich_message,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?string $text = null,
+        ?string $parse_mode = null,
+        ?array $entities = null,
+        ?LinkPreviewOptions $link_preview_options = null,
+        ?InputRichMessage $rich_message = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true|Message;
 
     /**
@@ -96,15 +96,15 @@ interface UpdatingMessages
      * @return true|Message
      */
     public function editMessageCaption(
-        ?string $business_connection_id,
-        int|string|null $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?bool $show_caption_above_media,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true|Message;
 
     /**
@@ -135,11 +135,11 @@ interface UpdatingMessages
      */
     public function editMessageMedia(
         InputMedia $media,
-        ?string $business_connection_id,
-        int|string|null $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true|Message;
 
     /**
@@ -180,15 +180,15 @@ interface UpdatingMessages
     public function editMessageLiveLocation(
         float $latitude,
         float $longitude,
-        ?string $business_connection_id,
-        int|string|null $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
-        ?int $live_period,
-        ?float $horizontal_accuracy,
-        ?int $heading,
-        ?int $proximity_alert_radius,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?int $live_period = null,
+        ?float $horizontal_accuracy = null,
+        ?int $heading = null,
+        ?int $proximity_alert_radius = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true|Message;
 
     /**
@@ -212,11 +212,11 @@ interface UpdatingMessages
      * @return true|Message
      */
     public function stopMessageLiveLocation(
-        ?string $business_connection_id,
-        int|string|null $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true|Message;
 
     /**
@@ -239,7 +239,7 @@ interface UpdatingMessages
         int|string $chat_id,
         int $message_id,
         InputChecklist $checklist,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): Message;
 
     /**
@@ -264,11 +264,11 @@ interface UpdatingMessages
      * @return true|Message
      */
     public function editMessageReplyMarkup(
-        ?string $business_connection_id,
-        int|string|null $chat_id,
-        ?int $message_id,
-        ?string $inline_message_id,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true|Message;
 
     /**
@@ -288,8 +288,8 @@ interface UpdatingMessages
     public function stopPoll(
         int|string $chat_id,
         int $message_id,
-        ?string $business_connection_id,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $business_connection_id = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): Poll;
 
     /**
@@ -318,10 +318,10 @@ interface UpdatingMessages
         int $receiver_user_id,
         int $ephemeral_message_id,
         string $text,
-        ?string $parse_mode,
-        ?array $entities,
-        ?LinkPreviewOptions $link_preview_options,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $parse_mode = null,
+        ?array $entities = null,
+        ?LinkPreviewOptions $link_preview_options = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true;
 
     /**
@@ -345,7 +345,7 @@ interface UpdatingMessages
         int $receiver_user_id,
         int $ephemeral_message_id,
         InputMedia $media,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true;
 
     /**
@@ -371,10 +371,10 @@ interface UpdatingMessages
         int|string $chat_id,
         int $receiver_user_id,
         int $ephemeral_message_id,
-        ?string $caption,
-        ?string $parse_mode,
-        ?array $caption_entities,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true;
 
     /**
@@ -395,7 +395,7 @@ interface UpdatingMessages
         int|string $chat_id,
         int $receiver_user_id,
         int $ephemeral_message_id,
-        ?InlineKeyboardMarkup $reply_markup,
+        ?InlineKeyboardMarkup $reply_markup = null,
     ): true;
 
     /**
@@ -411,7 +411,7 @@ interface UpdatingMessages
      *
      * @return true
      */
-    public function approveSuggestedPost(int $chat_id, int $message_id, ?int $send_date): true;
+    public function approveSuggestedPost(int $chat_id, int $message_id, ?int $send_date = null): true;
 
     /**
      * Use this method to decline a suggested post in a direct messages chat. The bot must have the
@@ -424,7 +424,7 @@ interface UpdatingMessages
      *
      * @return true
      */
-    public function declineSuggestedPost(int $chat_id, int $message_id, ?string $comment): true;
+    public function declineSuggestedPost(int $chat_id, int $message_id, ?string $comment = null): true;
 
     /**
      * Use this method to delete a message, including service messages, with the following limitations:- A
@@ -495,8 +495,8 @@ interface UpdatingMessages
     public function deleteMessageReaction(
         int|string $chat_id,
         int $message_id,
-        ?int $user_id,
-        ?int $actor_chat_id,
+        ?int $user_id = null,
+        ?int $actor_chat_id = null,
     ): true;
 
     /**
@@ -515,7 +515,7 @@ interface UpdatingMessages
      */
     public function deleteAllMessageReactions(
         int|string $chat_id,
-        ?int $user_id,
-        ?int $actor_chat_id,
+        ?int $user_id = null,
+        ?int $actor_chat_id = null,
     ): true;
 }

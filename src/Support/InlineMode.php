@@ -39,9 +39,9 @@ interface InlineMode
     public function answerInlineQuery(
         string $inline_query_id,
         array $results,
-        ?int $cache_time,
-        ?bool $is_personal,
-        ?string $next_offset,
-        ?InlineQueryResultsButton $button,
+        ?int $cache_time = null,
+        ?bool $is_personal = null,
+        ?string $next_offset = null,
+        ?InlineQueryResultsButton $button = null,
     ): true;
 }

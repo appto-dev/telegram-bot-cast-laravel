@@ -60,16 +60,16 @@ interface RichMessages
     public function sendRichMessage(
         int|string $chat_id,
         InputRichMessage $rich_message,
-        ?string $business_connection_id,
-        ?int $message_thread_id,
-        ?int $direct_messages_topic_id,
-        ?bool $disable_notification,
-        ?bool $protect_content,
-        ?bool $allow_paid_broadcast,
-        ?string $message_effect_id,
-        ?SuggestedPostParameters $suggested_post_parameters,
-        ?ReplyParameters $reply_parameters,
-        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup,
+        ?string $business_connection_id = null,
+        ?int $message_thread_id = null,
+        ?int $direct_messages_topic_id = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?SuggestedPostParameters $suggested_post_parameters = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
     ): Message;
 
     /**
@@ -92,6 +92,6 @@ interface RichMessages
         int $chat_id,
         int $draft_id,
         InputRichMessage $rich_message,
-        ?int $message_thread_id,
+        ?int $message_thread_id = null,
     ): true;
 }
