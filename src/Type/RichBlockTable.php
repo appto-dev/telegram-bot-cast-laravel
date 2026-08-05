@@ -16,7 +16,7 @@ class RichBlockTable extends Data implements TelegramType, RichBlock
     public function __construct(
         /** @var  string  Type of the block, always "table" */
         public string $type,
-        /** @var  RichBlockTableCell[][]  Cells of the table */
+        /** @var  array<RichBlockTableCell[]>  Cells of the table */
         public array $cells,
         /** @var  true|null  True, if the table has borders */
         public ?true $is_bordered,
