@@ -15,7 +15,7 @@ class InlineKeyboardMarkup extends Data implements TelegramType
 {
     public function __construct(
         /**
-         * @var  InlineKeyboardButton[][]  Array of button rows, each represented by an Array of
+         * @var  array<InlineKeyboardButton[]>  Array of button rows, each represented by an Array of
          * InlineKeyboardButton objects
          */
         public array $inline_keyboard,

@@ -16,7 +16,7 @@ class UserProfilePhotos extends Data implements TelegramType
     public function __construct(
         /** @var  int  Total number of profile pictures the target user has */
         public int $total_count,
-        /** @var  PhotoSize[][]  Requested profile pictures (in up to 4 sizes each) */
+        /** @var  array<PhotoSize[]>  Requested profile pictures (in up to 4 sizes each) */
         public array $photos,
     ) {
     }
