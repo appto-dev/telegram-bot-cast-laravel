@@ -16,12 +16,12 @@ class InputRichBlockMap extends Data implements TelegramType, InputRichBlock
         public string $type,
         /** @var  Location  Location of the center of the map */
         public Location $location,
-        /** @var  int  Map zoom level; 0-24 */
-        public int $zoom,
-        /** @var  int  Map width; 0-10000 */
-        public int $width,
-        /** @var  int  Map height; 0-10000 */
-        public int $height,
+        /** @var  int|null  Map zoom level; 0-24 */
+        public ?int $zoom,
+        /** @var  int|null  Map width; 0-10000 */
+        public ?int $width,
+        /** @var  int|null  Map height; 0-10000 */
+        public ?int $height,
         /** @var  RichBlockCaption|null  Caption of the block */
         public ?RichBlockCaption $caption,
     ) {

@@ -41,6 +41,11 @@ class EditEphemeralMessageCaption extends Data implements TelegramMethod
          */
         public ?array $caption_entities,
         /**
+         * @var  bool|null  Pass <em>True</em> if the caption must be shown above the message media. Supported
+         * only for animation, photo and video messages.
+         */
+        public ?bool $show_caption_above_media,
+        /**
          * @var  InlineKeyboardMarkup|null  A JSON-serialized object for an
          * <a href="/bots/features#inline-keyboards">inline keyboard</a>
          */

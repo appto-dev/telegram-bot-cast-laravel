@@ -28,6 +28,7 @@ namespace Appto\TelegramBot\Type;
  *  - <a href="https://core.telegram.org/bots/api#richtexthashtag">RichTextHashtag</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextcashtag">RichTextCashtag</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextbotcommand">RichTextBotCommand</a>
+ *  - <a href="https://core.telegram.org/bots/api#richtextbutton">RichTextButton</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextanchor">RichTextAnchor</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextanchorlink">RichTextAnchorLink</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextreference">RichTextReference</a>

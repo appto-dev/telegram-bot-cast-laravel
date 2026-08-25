@@ -16,7 +16,7 @@ class RichBlockMap extends Data implements TelegramType, RichBlock
         public string $type,
         /** @var  Location  Location of the center of the map */
         public Location $location,
-        /** @var  int  Map zoom level; 13-20 */
+        /** @var  int  Map zoom level */
         public int $zoom,
         /** @var  int  Expected width of the map */
         public int $width,

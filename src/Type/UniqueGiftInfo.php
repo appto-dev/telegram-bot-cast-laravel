@@ -23,6 +23,15 @@ class UniqueGiftInfo extends Data implements TelegramType
          * or sold through gift purchase offers.
          */
         public string $origin,
+        /** @var  string|null  Text of the message that was added to the gift */
+        public ?string $text,
+        /** @var  MessageEntity[]|null  Special entities that appear in the text */
+        public ?array $entities,
+        /**
+         * @var  true|null  True, if the sender and gift text are shown only to the gift receiver; otherwise,
+         * everyone will be able to see them
+         */
+        public ?true $is_private,
         /**
          * @var  string|null  For gifts bought from other users, the currency in which the payment for the gift
          * was done. Currently, one of "XTR" for Telegram Stars or "TON" for TON grams.

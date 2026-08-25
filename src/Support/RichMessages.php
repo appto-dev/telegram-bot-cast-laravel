@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Support;
 
+use Appto\TelegramBot\Type\EphemeralMessageParameters;
 use Appto\TelegramBot\Type\ForceReply;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Appto\TelegramBot\Type\InputRichMessage;
@@ -33,6 +34,8 @@ interface RichMessages
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  bool|null $disable_notification Sends the message
      * <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a
      * notification with no sound.
@@ -63,6 +66,7 @@ interface RichMessages
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?bool $disable_notification = null,
         ?bool $protect_content = null,
         ?bool $allow_paid_broadcast = null,
@@ -81,10 +85,16 @@ interface RichMessages
      *
      * @param  int $chat_id Unique identifier for the target private chat
      * @param  int $draft_id Unique identifier of the message draft; must be non-zero. Changes to drafts
-     * with the same identifier are animated.
+     * with the same identifier are animated. Otherwise, the draft is replaced without animation.
      * @param  InputRichMessage $rich_message The partial message to be streamed. Direct upload of new
-     * files isn't supported.
+     * files and explicit upload of files by a URL isn't supported.
      * @param  int|null $message_thread_id Unique identifier for the target message thread
+     * @param  bool|null $can_stop Pass <em>True</em> to show the user a button to stop further drafts. The
+     * bot will receive an <a href="#update">Update</a> "stopped_message_generation" if the user presses
+     * the button.
+     * @param  bool|null $keep_on_stop Pass <em>True</em> to keep the draft in the chat when the button is
+     * pressed. The draft will still disappear after a short time or if the bot sends a message. To fully
+     * preserve the partial draft, the bot should send it as a new message.
      *
      * @return true
      */
@@ -93,5 +103,7 @@ interface RichMessages
         int $draft_id,
         InputRichMessage $rich_message,
         ?int $message_thread_id = null,
+        ?bool $can_stop = null,
+        ?bool $keep_on_stop = null,
     ): true;
 }

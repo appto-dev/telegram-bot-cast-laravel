@@ -15,14 +15,17 @@ namespace Appto\TelegramBot\Type;
  *  - <a href="https://core.telegram.org/bots/api#richblockanchor">RichBlockAnchor</a>
  *  - <a href="https://core.telegram.org/bots/api#richblocklist">RichBlockList</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockblockquotation">RichBlockBlockQuotation</a>
+ *  - <a href="https://core.telegram.org/bots/api#richblockexpandableblockquotation">RichBlockExpandableBlockQuotation</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockpullquotation">RichBlockPullQuotation</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockcollage">RichBlockCollage</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockslideshow">RichBlockSlideshow</a>
  *  - <a href="https://core.telegram.org/bots/api#richblocktable">RichBlockTable</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockdetails">RichBlockDetails</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockmap">RichBlockMap</a>
+ *  - <a href="https://core.telegram.org/bots/api#richblockbuttons">RichBlockButtons</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockanimation">RichBlockAnimation</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockaudio">RichBlockAudio</a>
+ *  - <a href="https://core.telegram.org/bots/api#richblockdocument">RichBlockDocument</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockphoto">RichBlockPhoto</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockvideo">RichBlockVideo</a>
  *  - <a href="https://core.telegram.org/bots/api#richblockvoicenote">RichBlockVoiceNote</a>

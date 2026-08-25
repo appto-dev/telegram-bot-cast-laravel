@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Appto\TelegramBot\Method;
 
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
+use Appto\TelegramBot\Type\InputRichMessage;
 use Appto\TelegramBot\Type\LinkPreviewOptions;
 use Appto\TelegramBot\Type\MessageEntity;
 use Spatie\LaravelData\Data;
@@ -29,8 +30,11 @@ class EditEphemeralMessageText extends Data implements TelegramMethod
         public int $receiver_user_id,
         /** @var  int  Identifier of the ephemeral message to edit */
         public int $ephemeral_message_id,
-        /** @var  string  New text of the message, 1-4096 characters after entity parsing */
-        public string $text,
+        /**
+         * @var  string|null  New text of the message, 1-4096 characters after entity parsing; required if
+         * <em>rich_message</em> isn't specified
+         */
+        public ?string $text,
         /**
          * @var  string|null  Mode for parsing entities in the message text. See
          * <a href="#formatting-options">formatting options</a> for more details.
@@ -41,6 +45,11 @@ class EditEphemeralMessageText extends Data implements TelegramMethod
          * which can be specified instead of <em>parse_mode</em>
          */
         public ?array $entities,
+        /**
+         * @var  InputRichMessage|null  New rich content of the message; required if <em>text</em> isn't
+         * specified
+         */
+        public ?InputRichMessage $rich_message,
         /** @var  LinkPreviewOptions|null  Link preview generation options for the message */
         public ?LinkPreviewOptions $link_preview_options,
         /**

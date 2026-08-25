@@ -17,7 +17,10 @@ use Spatie\LaravelData\Data;
 class InputRichMessageContent extends Data implements TelegramType, InputMessageContent
 {
     public function __construct(
-        /** @var  InputRichMessage  The message to be sent */
+        /**
+         * @var  InputRichMessage  The message to be sent. Only previously uploaded files may be used in the
+         * message.
+         */
         public InputRichMessage $rich_message,
     ) {
     }

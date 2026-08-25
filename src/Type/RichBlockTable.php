@@ -22,6 +22,8 @@ class RichBlockTable extends Data implements TelegramType, RichBlock
         public ?true $is_bordered,
         /** @var  true|null  True, if the table is striped */
         public ?true $is_striped,
+        /** @var  true|null  True, if table cells have smaller indents */
+        public ?true $is_compact,
         /** @var  RichText|null  Caption of the table */
         #[WithCast(RichTextCast::class)]
         public ?RichText $caption,

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Method;
 
+use Appto\TelegramBot\Type\EphemeralMessageParameters;
 use Appto\TelegramBot\Type\ForceReply;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Appto\TelegramBot\Type\InputFile;
@@ -45,17 +46,10 @@ class SendAudio extends Data implements TelegramMethod
          */
         public ?int $direct_messages_topic_id,
         /**
-         * @var  int|null  For outgoing ephemeral messages, unique identifier of the user who will receive the
-         * message; for group and supergroup chats only. It is not guaranteed that the user will receive the
-         * message, especially if they are offline. See
-         * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+         * @var  EphemeralMessageParameters|null  A JSON-serialized object containing the parameters of the
+         * ephemeral message to send
          */
-        public ?int $receiver_user_id,
-        /**
-         * @var  string|null  For outgoing ephemeral messages, identifier of the callback query which triggered
-         * the message if any
-         */
-        public ?string $callback_query_id,
+        public ?EphemeralMessageParameters $ephemeral_message_parameters,
         /**
          * @var  InputFile|string  Audio file to send. Pass a file_id as String to send an audio file that
          * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an

@@ -135,6 +135,8 @@ class Update extends Data implements TelegramType
         public ?ManagedBotUpdated $managed_bot,
         /** @var  BotSubscriptionUpdated|null  User payment subscription has changed */
         public ?BotSubscriptionUpdated $subscription,
+        /** @var  MessageGenerationStopped|null  A user asked the bot to stop the generation of a message */
+        public ?MessageGenerationStopped $stopped_message_generation,
     ) {
     }
 }

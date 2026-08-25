@@ -28,7 +28,7 @@ class InputRichMessage extends Data implements TelegramType
         public ?string $markdown,
         /**
          * @var  InputRichMessageMedia[]|null  List of media that are specified in the markdown or html fields
-         * using tg://photo?id=, tg://video?id=, and tg://audio?id= links
+         * using tg://photo?id=, tg://video?id=, tg://document?id=, and tg://audio?id= links
          */
         public ?array $media,
         /** @var  bool|null  Pass True if the rich message must be shown right-to-left */

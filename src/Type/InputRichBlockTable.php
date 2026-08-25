@@ -22,6 +22,8 @@ class InputRichBlockTable extends Data implements TelegramType, InputRichBlock
         public ?true $is_bordered,
         /** @var  true|null  Pass True if the table is striped */
         public ?true $is_striped,
+        /** @var  true|null  Pass True if table cells must have smaller indents */
+        public ?true $is_compact,
         /** @var  RichText|null  Caption of the table */
         #[WithCast(RichTextCast::class)]
         public ?RichText $caption,

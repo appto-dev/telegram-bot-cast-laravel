@@ -15,14 +15,18 @@ namespace Appto\TelegramBot\Type;
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockanchor">InputRichBlockAnchor</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblocklist">InputRichBlockList</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockblockquotation">InputRichBlockBlockQuotation</a>
+ *  -
+ * <a href="https://core.telegram.org/bots/api#inputrichblockexpandableblockquotation">InputRichBlockExpandableBlockQuotation</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockpullquotation">InputRichBlockPullQuotation</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockcollage">InputRichBlockCollage</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockslideshow">InputRichBlockSlideshow</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblocktable">InputRichBlockTable</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockdetails">InputRichBlockDetails</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockmap">InputRichBlockMap</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputrichblockbuttons">InputRichBlockButtons</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockanimation">InputRichBlockAnimation</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockaudio">InputRichBlockAudio</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputrichblockdocument">InputRichBlockDocument</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockphoto">InputRichBlockPhoto</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockvideo">InputRichBlockVideo</a>
  *  - <a href="https://core.telegram.org/bots/api#inputrichblockvoicenote">InputRichBlockVoiceNote</a>
