@@ -30,10 +30,7 @@ class EditEphemeralMessageMedia extends Data implements TelegramMethod
         public int $receiver_user_id,
         /** @var  int  Identifier of the ephemeral message to edit */
         public int $ephemeral_message_id,
-        /**
-         * @var  InputMedia  A JSON-serialized object for the new media content of the message. A new file
-         * can't be uploaded; use a previously uploaded file via its file_id or specify a URL.
-         */
+        /** @var  InputMedia  A JSON-serialized object for the new media content of the message */
         #[WithCast(InputMediaCast::class)]
         public InputMedia $media,
         /**

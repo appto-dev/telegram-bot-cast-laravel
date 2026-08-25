@@ -74,9 +74,14 @@ class ChatAdministratorRights extends Data implements TelegramType
         public ?bool $can_manage_direct_messages,
         /**
          * @var  bool|null  True, if the administrator can edit the tags of regular members; for groups and
-         * supergroups only. If omitted, defaults to the value of can_pin_messages.
+         * supergroups only
          */
         public ?bool $can_manage_tags,
+        /**
+         * @var  bool  True, if the administrator can manage chat welcome messages or directly send them in the
+         * case of bots
+         */
+        public bool $can_send_welcome_messages,
     ) {
     }
 }

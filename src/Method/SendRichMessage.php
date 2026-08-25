@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Method;
 
+use Appto\TelegramBot\Type\EphemeralMessageParameters;
 use Appto\TelegramBot\Type\ForceReply;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
 use Appto\TelegramBot\Type\InputRichMessage;
@@ -40,6 +41,11 @@ class SendRichMessage extends Data implements TelegramMethod
          * if the message is sent to a direct messages chat
          */
         public ?int $direct_messages_topic_id,
+        /**
+         * @var  EphemeralMessageParameters|null  A JSON-serialized object containing the parameters of the
+         * ephemeral message to send
+         */
+        public ?EphemeralMessageParameters $ephemeral_message_parameters,
         /** @var  InputRichMessage  The message to be sent */
         public InputRichMessage $rich_message,
         /**

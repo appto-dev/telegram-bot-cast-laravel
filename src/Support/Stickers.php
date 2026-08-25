@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Support;
 
+use Appto\TelegramBot\Type\EphemeralMessageParameters;
 use Appto\TelegramBot\Type\File;
 use Appto\TelegramBot\Type\ForceReply;
 use Appto\TelegramBot\Type\InlineKeyboardMarkup;
@@ -42,12 +43,8 @@ interface Stickers
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $emoji Emoji associated with the sticker; only for just uploaded stickers
      * @param  bool|null $disable_notification Sends the message
      * <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a
@@ -79,8 +76,7 @@ interface Stickers
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $emoji = null,
         ?bool $disable_notification = null,
         ?bool $protect_content = null,

@@ -50,6 +50,11 @@ class ReplyKeyboardMarkup extends Data implements TelegramType
          * new language. Other users in the group don't see the keyboard.
          */
         public ?bool $selective,
+        /**
+         * @var  bool|null  Pass True if the reply interface must be shown to the user, as if they had manually
+         * selected the bot's message and tapped 'Reply'
+         */
+        public ?bool $force_reply,
     ) {
     }
 }

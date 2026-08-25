@@ -61,7 +61,8 @@ class EditMessageText extends Data implements TelegramMethod
         public ?LinkPreviewOptions $link_preview_options,
         /**
          * @var  InputRichMessage|null  New rich content of the message; required if <em>text</em> isn't
-         * specified. Direct upload of new files isn't supported when an inline message is edited.
+         * specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an
+         * inline message is edited.
          */
         public ?InputRichMessage $rich_message,
         /**

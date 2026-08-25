@@ -48,8 +48,8 @@ interface UpdatingMessages
      * @param  LinkPreviewOptions|null $link_preview_options Link preview generation options for the
      * message
      * @param  InputRichMessage|null $rich_message New rich content of the message; required if
-     * <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is
-     * edited.
+     * <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL
+     * isn't supported when an inline message is edited.
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
      * <a href="/bots/features#inline-keyboards">inline keyboard</a>
      *
@@ -293,19 +293,22 @@ interface UpdatingMessages
     ): Poll;
 
     /**
-     * Use this method to edit an ephemeral text message. Note that it is not guaranteed that the user will
-     * receive the message edit event, especially if they are offline. On success, <em>True</em> is
-     * returned.
+     * Use this method to edit an ephemeral text or rich message. Note that it is not guaranteed that the
+     * user will receive the message edit event, especially if they are offline. On success, <em>True</em>
+     * is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
      * @param  int $receiver_user_id Identifier of the user who received the message
      * @param  int $ephemeral_message_id Identifier of the ephemeral message to edit
-     * @param  string $text New text of the message, 1-4096 characters after entity parsing
+     * @param  string|null $text New text of the message, 1-4096 characters after entity parsing; required
+     * if <em>rich_message</em> isn't specified
      * @param  string|null $parse_mode Mode for parsing entities in the message text. See
      * <a href="#formatting-options">formatting options</a> for more details.
      * @param  MessageEntity[]|null $entities A JSON-serialized list of special entities that appear in
      * message text, which can be specified instead of <em>parse_mode</em>
+     * @param  InputRichMessage|null $rich_message New rich content of the message; required if
+     * <em>text</em> isn't specified
      * @param  LinkPreviewOptions|null $link_preview_options Link preview generation options for the
      * message
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
@@ -317,9 +320,10 @@ interface UpdatingMessages
         int|string $chat_id,
         int $receiver_user_id,
         int $ephemeral_message_id,
-        string $text,
+        ?string $text = null,
         ?string $parse_mode = null,
         ?array $entities = null,
+        ?InputRichMessage $rich_message = null,
         ?LinkPreviewOptions $link_preview_options = null,
         ?InlineKeyboardMarkup $reply_markup = null,
     ): true;
@@ -333,8 +337,7 @@ interface UpdatingMessages
      * supergroup in the format <code>@username</code>
      * @param  int $receiver_user_id Identifier of the user who received the message
      * @param  int $ephemeral_message_id Identifier of the ephemeral message to edit
-     * @param  InputMedia $media A JSON-serialized object for the new media content of the message. A new
-     * file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.
+     * @param  InputMedia $media A JSON-serialized object for the new media content of the message
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
      * <a href="/bots/features#inline-keyboards">inline keyboard</a>
      *
@@ -362,6 +365,8 @@ interface UpdatingMessages
      * <a href="#formatting-options">formatting options</a> for more details.
      * @param  MessageEntity[]|null $caption_entities A JSON-serialized list of special entities that
      * appear in the caption, which can be specified instead of <em>parse_mode</em>
+     * @param  bool|null $show_caption_above_media Pass <em>True</em> if the caption must be shown above
+     * the message media. Supported only for animation, photo and video messages.
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
      * <a href="/bots/features#inline-keyboards">inline keyboard</a>
      *
@@ -374,6 +379,7 @@ interface UpdatingMessages
         ?string $caption = null,
         ?string $parse_mode = null,
         ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
         ?InlineKeyboardMarkup $reply_markup = null,
     ): true;
 

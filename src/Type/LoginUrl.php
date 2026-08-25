@@ -25,10 +25,10 @@ class LoginUrl extends Data implements TelegramType
         /** @var  string|null  New text of the button in forwarded messages */
         public ?string $forward_text,
         /**
-         * @var  string|null  Username of a bot, which will be used for user authorization. See Setting up a
-         * bot for more details. If not specified, the current bot's username will be assumed. The url's domain
-         * must be the same as the domain linked with the bot. See Linking your domain to the bot for more
-         * details.
+         * @var  string|null  Username of a bot, which will be used for user authorization; not supported in
+         * RichMessageButton. See Setting up a bot for more details. If not specified, the current bot's
+         * username will be assumed. The url's domain must be the same as the domain linked with the bot. See
+         * Linking your domain to the bot for more details.
          */
         public ?string $bot_username,
         /** @var  bool|null  Pass True to request the permission for your bot to send messages to the user */

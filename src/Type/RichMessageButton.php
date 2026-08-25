@@ -4,28 +4,27 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Type;
 
+use Appto\TelegramBot\Support\Casts\RichTextCast;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
- * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * The following methods and objects allow your bot to handle and send rich messages.
  */
-class InlineKeyboardButton extends Data implements TelegramType
+class RichMessageButton extends Data implements TelegramType
 {
     public function __construct(
-        /** @var  string  Label text on the button */
-        public string $text,
         /**
-         * @var  string|null  Unique identifier of the custom emoji shown before the text of the button. Can
-         * only be used by bots that purchased additional usernames on Fragment or in the messages directly
-         * sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram
-         * Premium subscription.
+         * @var  RichText  Text of the button. May contain only plain text, RichTextCustomEmoji and
+         * RichTextDateTime entities.
          */
-        public ?string $icon_custom_emoji_id,
+        #[WithCast(RichTextCast::class)]
+        public RichText $text,
         /**
-         * @var  string|null  Style of the button. Must be one of "danger" (red), "success" (green) or
-         * "primary" (blue). If omitted, then an app-specific style is used.
+         * @var  string|null  Style of the button. Must be one of "danger", "success", "primary", or "link"
+         * (the button is shown as a regular link without borders). Apps may use theme-specific colors for the
+         * button background and text based on the style. The style "link" is allowed only for callback
+         * buttons.
          */
         public ?string $style,
         /**
@@ -61,9 +60,8 @@ class InlineKeyboardButton extends Data implements TelegramType
         /**
          * @var  string|null  If set, pressing the button will insert the bot's username and the specified
          * inline query in the current chat's input field. May be empty, in which case only the bot's username
-         * will be inserted.This offers a quick way for the user to open your bot in inline mode in the same
-         * chat - good for selecting something from multiple options. Not supported in channels and for
-         * messages sent in channel direct messages chats and on behalf of a business account.
+         * will be inserted. Not supported in channels and for messages sent in channel direct messages chats
+         * and on behalf of a business account.
          */
         public ?string $switch_inline_query_current_chat,
         /**
@@ -73,19 +71,8 @@ class InlineKeyboardButton extends Data implements TelegramType
          * messages chats and on behalf of a business account.
          */
         public ?SwitchInlineQueryChosenChat $switch_inline_query_chosen_chat,
-        /** @var  CopyTextButton|null  Description of the button that copies the specified text to the clipboard */
+        /** @var  CopyTextButton|null  A button that copies the specified text to the clipboard */
         public ?CopyTextButton $copy_text,
-        /**
-         * @var  CallbackGame|null  Description of the game that will be launched when the user presses the
-         * button.NOTE: This type of button must always be the first button in the first row.
-         */
-        public ?CallbackGame $callback_game,
-        /**
-         * @var  bool|null  Specify True, to send a Pay button. Substrings "⭐" and "XTR" in the buttons's
-         * text will be replaced with a Telegram Star icon.NOTE: This type of button must always be the first
-         * button in the first row and can only be used in invoice messages.
-         */
-        public ?bool $pay,
         /** @var  DisabledButton|null  If set, then the button is disabled and does nothing */
         public ?DisabledButton $disabled,
     ) {

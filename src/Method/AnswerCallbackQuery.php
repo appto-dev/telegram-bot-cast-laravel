@@ -39,7 +39,7 @@ class AnswerCallbackQuery extends Data implements TelegramMethod
         public ?string $url,
         /**
          * @var  int|null  The maximum amount of time in seconds that the result of the callback query may be
-         * cached client-side. Telegram apps will support caching starting in version 3.14. Defaults to 0.
+         * cached client-side. Defaults to 0.
          */
         public ?int $cache_time,
     ) {

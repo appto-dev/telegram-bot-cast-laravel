@@ -19,14 +19,25 @@ class SendRichMessageDraft extends Data implements TelegramMethod
         public ?int $message_thread_id,
         /**
          * @var  int  Unique identifier of the message draft; must be non-zero. Changes to drafts with the same
-         * identifier are animated.
+         * identifier are animated. Otherwise, the draft is replaced without animation.
          */
         public int $draft_id,
         /**
-         * @var  InputRichMessage  The partial message to be streamed. Direct upload of new files isn't
-         * supported.
+         * @var  InputRichMessage  The partial message to be streamed. Direct upload of new files and explicit
+         * upload of files by a URL isn't supported.
          */
         public InputRichMessage $rich_message,
+        /**
+         * @var  bool|null  Pass <em>True</em> to show the user a button to stop further drafts. The bot will
+         * receive an <a href="#update">Update</a> "stopped_message_generation" if the user presses the button.
+         */
+        public ?bool $can_stop,
+        /**
+         * @var  bool|null  Pass <em>True</em> to keep the draft in the chat when the button is pressed. The
+         * draft will still disappear after a short time or if the bot sends a message. To fully preserve the
+         * partial draft, the bot should send it as a new message.
+         */
+        public ?bool $keep_on_stop,
     ) {
     }
 }

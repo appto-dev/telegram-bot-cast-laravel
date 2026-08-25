@@ -15,8 +15,8 @@ class ForceReply extends Data implements TelegramType
 {
     public function __construct(
         /**
-         * @var  true  Shows reply interface to the user, as if they manually selected the bot's message and
-         * tapped 'Reply'
+         * @var  true  Shows reply interface to the user, as if they had manually selected the bot's message
+         * and tapped 'Reply'
          */
         public true $force_reply,
         /**

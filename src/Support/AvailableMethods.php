@@ -17,6 +17,7 @@ use Appto\TelegramBot\Type\ChatFullInfo;
 use Appto\TelegramBot\Type\ChatInviteLink;
 use Appto\TelegramBot\Type\ChatMember;
 use Appto\TelegramBot\Type\ChatPermissions;
+use Appto\TelegramBot\Type\EphemeralMessageParameters;
 use Appto\TelegramBot\Type\File;
 use Appto\TelegramBot\Type\ForceReply;
 use Appto\TelegramBot\Type\ForumTopic;
@@ -115,12 +116,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $parse_mode Mode for parsing entities in the message text. See
      * <a href="#formatting-options">formatting options</a> for more details.
      * @param  MessageEntity[]|null $entities A JSON-serialized list of special entities that appear in
@@ -157,8 +154,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $parse_mode = null,
         ?array $entities = null,
         ?LinkPreviewOptions $link_preview_options = null,
@@ -375,12 +371,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $caption Photo caption (may also be used when resending photos by
      * <em>file_id</em>), 0-1024 characters after entities parsing
      * @param  string|null $parse_mode Mode for parsing entities in the photo caption. See
@@ -421,8 +413,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $caption = null,
         ?string $parse_mode = null,
         ?array $caption_entities = null,
@@ -458,12 +449,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $caption Video caption (may also be used when resending videos by
      * <em>file_id</em>), 0-1024 characters after entities parsing
      * @param  string|null $parse_mode Mode for parsing entities in the video caption. See
@@ -505,8 +492,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $caption = null,
         ?string $parse_mode = null,
         ?array $caption_entities = null,
@@ -541,12 +527,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $caption Audio caption, 0-1024 characters after entities parsing
      * @param  string|null $parse_mode Mode for parsing entities in the audio caption. See
      * <a href="#formatting-options">formatting options</a> for more details.
@@ -592,8 +574,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $caption = null,
         ?string $parse_mode = null,
         ?array $caption_entities = null,
@@ -627,12 +608,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
      * generation for the file is supported server-side. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is
@@ -678,8 +655,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         InputFile|string|null $thumbnail = null,
         ?string $caption = null,
         ?string $parse_mode = null,
@@ -712,12 +688,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  int|null $duration Duration of sent video in seconds
      * @param  int|null $width Video width
      * @param  int|null $height Video height
@@ -776,8 +748,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?int $duration = null,
         ?int $width = null,
         ?int $height = null,
@@ -816,12 +787,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  int|null $duration Duration of sent animation in seconds
      * @param  int|null $width Animation width
      * @param  int|null $height Animation height
@@ -872,8 +839,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?int $duration = null,
         ?int $width = null,
         ?int $height = null,
@@ -913,12 +879,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $caption Voice message caption, 0-1024 characters after entities parsing
      * @param  string|null $parse_mode Mode for parsing entities in the voice message caption. See
      * <a href="#formatting-options">formatting options</a> for more details.
@@ -955,8 +917,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $caption = null,
         ?string $parse_mode = null,
         ?array $caption_entities = null,
@@ -971,9 +932,8 @@ interface AvailableMethods
     ): Message;
 
     /**
-     * As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients
-     * support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages.
-     * On success, the sent <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     * Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
      * supergroup or channel in the format <code>@username</code>
@@ -987,12 +947,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  int|null $duration Duration of sent video in seconds
      * @param  int|null $length Video width and height, i.e. diameter of the video message
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
@@ -1032,8 +988,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?int $duration = null,
         ?int $length = null,
         InputFile|string|null $thumbnail = null,
@@ -1174,12 +1129,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  float|null $horizontal_accuracy The radius of uncertainty for the location, measured in
      * meters; 0-1500
      * @param  int|null $live_period Period in seconds during which the location will be updated (see
@@ -1221,8 +1172,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?float $horizontal_accuracy = null,
         ?int $live_period = null,
         ?int $heading = null,
@@ -1252,12 +1202,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $foursquare_id Foursquare identifier of the venue
      * @param  string|null $foursquare_type Foursquare type of the venue, if known. (For example,
      * "arts_entertainment/default", "arts_entertainment/aquarium" or "food/icecream".)
@@ -1297,8 +1243,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $foursquare_id = null,
         ?string $foursquare_type = null,
         ?string $google_place_id = null,
@@ -1326,12 +1271,8 @@ interface AvailableMethods
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
-     * @param  int|null $receiver_user_id For outgoing ephemeral messages, unique identifier of the user
-     * who will receive the message; for group and supergroup chats only. It is not guaranteed that the
-     * user will receive the message, especially if they are offline. See
-     * <a href="#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
-     * @param  string|null $callback_query_id For outgoing ephemeral messages, identifier of the callback
-     * query which triggered the message if any
+     * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
+     * containing the parameters of the ephemeral message to send
      * @param  string|null $last_name Contact's last name
      * @param  string|null $vcard Additional data about the contact in the form of a
      * <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes
@@ -1366,8 +1307,7 @@ interface AvailableMethods
         ?string $business_connection_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
-        ?int $receiver_user_id = null,
-        ?string $callback_query_id = null,
+        ?EphemeralMessageParameters $ephemeral_message_parameters = null,
         ?string $last_name = null,
         ?string $vcard = null,
         ?bool $disable_notification = null,
@@ -1593,7 +1533,7 @@ interface AvailableMethods
      *
      * @param  int $chat_id Unique identifier for the target private chat
      * @param  int $draft_id Unique identifier of the message draft; must be non-zero. Changes to drafts
-     * with the same identifier are animated.
+     * with the same identifier are animated. Otherwise, the draft is replaced without animation.
      * @param  int|null $message_thread_id Unique identifier for the target message thread
      * @param  string|null $text Text of the message to be sent, 0-4096 characters after entities parsing.
      * Pass an empty text to show a "Thinking…" placeholder.
@@ -1601,6 +1541,12 @@ interface AvailableMethods
      * <a href="#formatting-options">formatting options</a> for more details.
      * @param  MessageEntity[]|null $entities A JSON-serialized list of special entities that appear in
      * message text, which can be specified instead of <em>parse_mode</em>
+     * @param  bool|null $can_stop Pass <em>True</em> to show the user a button to stop further drafts. The
+     * bot will receive an <a href="#update">Update</a> "stopped_message_generation" if the user presses
+     * the button.
+     * @param  bool|null $keep_on_stop Pass <em>True</em> to keep the draft in the chat when the button is
+     * pressed. The draft will still disappear after a short time or if the bot sends a message. To fully
+     * preserve the partial draft, the bot should send it as a new message.
      *
      * @return true
      */
@@ -1611,6 +1557,8 @@ interface AvailableMethods
         ?string $text = null,
         ?string $parse_mode = null,
         ?array $entities = null,
+        ?bool $can_stop = null,
+        ?bool $keep_on_stop = null,
     ): true;
 
     /**
@@ -1869,6 +1817,8 @@ interface AvailableMethods
      * direct messages within the channel and decline suggested posts; for channels only
      * @param  bool|null $can_manage_tags Pass <em>True</em> if the administrator can edit the tags of
      * regular members; for groups and supergroups only
+     * @param  bool|null $can_send_welcome_messages Pass <em>True</em> if the administrator can manage chat
+     * welcome messages or directly send them in the case of bots
      *
      * @return true
      */
@@ -1892,6 +1842,7 @@ interface AvailableMethods
         ?bool $can_manage_topics = null,
         ?bool $can_manage_direct_messages = null,
         ?bool $can_manage_tags = null,
+        ?bool $can_send_welcome_messages = null,
     ): true;
 
     /**
@@ -2581,8 +2532,7 @@ interface AvailableMethods
      * <a href="#inlinekeyboardbutton"><em>callback_game</em></a> button.<br><br>Otherwise, you may use
      * links like <code>t.me/your_bot?start=XXXX</code> that open your bot with a parameter.
      * @param  int|null $cache_time The maximum amount of time in seconds that the result of the callback
-     * query may be cached client-side. Telegram apps will support caching starting in version 3.14.
-     * Defaults to 0.
+     * query may be cached client-side. Defaults to 0.
      *
      * @return true
      */

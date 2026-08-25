@@ -11,10 +11,10 @@ use Spatie\LaravelData\Data;
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
  * Optional fields may be not returned when irrelevant.
  */
-class CommunityChatAdded extends Data implements TelegramType
+class CommunityChatJoined extends Data implements TelegramType
 {
     public function __construct(
-        /** @var  Community  The new community to which the chat or the bot belongs */
+        /** @var  Community  The community from which the chat was joined */
         public Community $community,
     ) {
     }

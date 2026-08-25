@@ -352,9 +352,11 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
         public ?ChecklistTasksDone $checklist_tasks_done,
         /** @var  ChecklistTasksAdded|null  Service message: tasks were added to a checklist */
         public ?ChecklistTasksAdded $checklist_tasks_added,
-        /** @var  CommunityChatAdded|null  Service message: chat added to a Community */
+        /** @var  CommunityChatAdded|null  Service message: chat or bot added to a Community */
         public ?CommunityChatAdded $community_chat_added,
-        /** @var  CommunityChatRemoved|null  Service message: chat removed from a Community */
+        /** @var  CommunityChatJoined|null  Service message: chat was joined by a user from a Community */
+        public ?CommunityChatJoined $community_chat_joined,
+        /** @var  CommunityChatRemoved|null  Service message: chat or bot removed from a Community */
         public ?CommunityChatRemoved $community_chat_removed,
         /**
          * @var  DirectMessagePriceChanged|null  Service message: the price for paid messages in the
