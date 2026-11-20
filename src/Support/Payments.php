@@ -25,7 +25,7 @@ interface Payments
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  string $title Product name, 1-32 characters
      * @param  string $description Product description, 1-255 characters
      * @param  string $payload Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the

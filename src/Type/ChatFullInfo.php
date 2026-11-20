@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Type;
 
+use Appto\TelegramBot\Support\Casts\ChatShareThemeCast;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 
 /**
@@ -200,6 +202,17 @@ class ChatFullInfo extends Data implements TelegramType
         public ?User $guard_bot,
         /** @var  Community|null  The Community to which the chat belongs */
         public ?Community $community,
+        /**
+         * @var  TonWalletCard|null  For private chats, the TON wallet card of the user, which is shown on
+         * their profile page
+         */
+        public ?TonWalletCard $ton_wallet_card,
+        /**
+         * @var  ChatShareTheme|null  For private chats, supergroups and channels, the theme of the screen for
+         * sharing a link to the user or the chat; omitted if the default theme is used
+         */
+        #[WithCast(ChatShareThemeCast::class)]
+        public ?ChatShareTheme $share_theme,
     ) {
     }
 }

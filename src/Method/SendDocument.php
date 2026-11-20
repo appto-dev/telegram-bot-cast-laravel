@@ -31,10 +31,11 @@ class SendDocument extends Data implements TelegramMethod
          */
         public ?string $business_connection_id,
         /**
-         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup or
-         * channel in the format <code>@username</code>
+         * @var  int|string|null  Unique identifier for the target chat or username of the target bot,
+         * supergroup, or channel in the format <code>@username</code>; required unless the message is sent as
+         * an ephemeral reply to a callback query
          */
-        public int|string $chat_id,
+        public int|string|null $chat_id,
         /**
          * @var  int|null  Unique identifier for the target message thread (topic) of a forum; for forum
          * supergroups and private chats of bots with forum topic mode enabled only

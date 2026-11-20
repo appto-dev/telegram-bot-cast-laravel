@@ -25,7 +25,7 @@ class StopMessageLiveLocation extends Data implements TelegramMethod
         public ?string $business_connection_id,
         /**
          * @var  int|string|null  Required if <em>inline_message_id</em> is not specified. Unique identifier
-         * for the target chat or username of the target bot, supergroup or channel in the format
+         * for the target chat or username of the target bot, supergroup, or channel in the format
          * <code>@username</code>.
          */
         public int|string|null $chat_id,

@@ -30,10 +30,10 @@ class SendPaidMedia extends Data implements TelegramMethod
          */
         public ?string $business_connection_id,
         /**
-         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup or
-         * channel in the format <code>@username</code>. If the chat is a channel, all Telegram Star proceeds
-         * from this media will be credited to the chat's balance. Otherwise, they will be credited to the
-         * bot's balance.
+         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup,
+         * or channel in the format <code>@username</code>. If the chat is a channel, all Telegram Star
+         * proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to
+         * the bot's balance.
          */
         public int|string $chat_id,
         /**

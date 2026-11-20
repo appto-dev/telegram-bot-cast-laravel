@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appto\TelegramBot\Method;
 
+use Appto\TelegramBot\Type\MessageEntity;
 use Spatie\LaravelData\Data;
 
 /**
@@ -17,8 +18,8 @@ class VerifyChat extends Data implements TelegramMethod
 {
     public function __construct(
         /**
-         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup or
-         * channel in the format <code>@username</code>. Channel direct messages chats can't be verified.
+         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup,
+         * or channel in the format <code>@username</code>. Channel direct messages chats can't be verified.
          */
         public int|string $chat_id,
         /**
@@ -26,6 +27,18 @@ class VerifyChat extends Data implements TelegramMethod
          * organization isn't allowed to provide a custom verification description.
          */
         public ?string $custom_description,
+        /**
+         * @var  string|null  Mode for parsing entities in the custom description. See
+         * <a href="#formatting-options">formatting options</a> for more details. Only "text_link" entities are
+         * supported.
+         */
+        public ?string $custom_description_parse_mode,
+        /**
+         * @var  MessageEntity[]|null  A JSON-serialized list of special entities that appear in the custom
+         * description, which can be specified instead of <em>custom_description_parse_mode</em>. Only
+         * "text_link" entities are supported.
+         */
+        public ?array $custom_description_entities,
     ) {
     }
 }

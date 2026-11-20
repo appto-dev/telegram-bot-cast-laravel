@@ -13,6 +13,8 @@ namespace Appto\TelegramBot\Type;
  *  - <a href="https://core.telegram.org/bots/api#inputvenuemessagecontent">InputVenueMessageContent</a>
  *  - <a href="https://core.telegram.org/bots/api#inputcontactmessagecontent">InputContactMessageContent</a>
  *  - <a href="https://core.telegram.org/bots/api#inputinvoicemessagecontent">InputInvoiceMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputwidgetmessagecontent">InputWidgetMessageContent</a>
+ *  - <a href="https://core.telegram.org/bots/api#inputsharedwidgetmessagecontent">InputSharedWidgetMessageContent</a>
  */
 interface InputMessageContent
 {

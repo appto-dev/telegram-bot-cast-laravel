@@ -32,8 +32,9 @@ class SendPoll extends Data implements TelegramMethod
          */
         public ?string $business_connection_id,
         /**
-         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup or
-         * channel in the format <code>@username</code>. Polls can't be sent to channel direct messages chats.
+         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup,
+         * or channel in the format <code>@username</code>. Polls can't be sent to channel direct messages
+         * chats.
          */
         public int|string $chat_id,
         /**

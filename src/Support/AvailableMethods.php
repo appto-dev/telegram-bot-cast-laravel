@@ -17,6 +17,7 @@ use Appto\TelegramBot\Type\ChatFullInfo;
 use Appto\TelegramBot\Type\ChatInviteLink;
 use Appto\TelegramBot\Type\ChatMember;
 use Appto\TelegramBot\Type\ChatPermissions;
+use Appto\TelegramBot\Type\ChatShareThemeBackdrops;
 use Appto\TelegramBot\Type\EphemeralMessageParameters;
 use Appto\TelegramBot\Type\File;
 use Appto\TelegramBot\Type\ForceReply;
@@ -56,6 +57,7 @@ use Appto\TelegramBot\Type\Sticker;
 use Appto\TelegramBot\Type\Story;
 use Appto\TelegramBot\Type\StoryArea;
 use Appto\TelegramBot\Type\SuggestedPostParameters;
+use Appto\TelegramBot\Type\UniqueGift;
 use Appto\TelegramBot\Type\User;
 use Appto\TelegramBot\Type\UserChatBoosts;
 use Appto\TelegramBot\Type\UserProfileAudios;
@@ -107,11 +109,12 @@ interface AvailableMethods
      * Use this method to send text messages. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  string $text Text of the message to be sent, 1-4096 characters after entities parsing
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -149,9 +152,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendMessage(
-        int|string $chat_id,
         string $text,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -173,9 +176,9 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int|string $from_chat_id Unique identifier for the chat where the original message was sent
-     * (or username of the target bot, supergroup or channel in the format <code>@username</code>)
+     * (or username of the target bot, supergroup, or channel in the format <code>@username</code>)
      * @param  int $message_id Message identifier in the chat specified in <em>from_chat_id</em>
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
@@ -215,9 +218,9 @@ interface AvailableMethods
      * returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int|string $from_chat_id Unique identifier for the chat where the original messages were
-     * sent (or username of the target bot, supergroup or channel in the format <code>@username</code>)
+     * sent (or username of the target bot, supergroup, or channel in the format <code>@username</code>)
      * @param  int[] $message_ids A JSON-serialized list of 1-100 identifiers of messages in the chat
      * <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
@@ -244,7 +247,7 @@ interface AvailableMethods
 
     /**
      * Use this method to copy messages of any kind. Service messages, paid media messages, giveaway
-     * messages, giveaway winners messages, and invoice messages can't be copied. A quiz
+     * messages, giveaway winners messages, invoice messages, and widget messages can't be copied. A quiz
      * <a href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if the value of the
      * field <em>correct_option_ids</em> is known to the bot. The method is analogous to the method
      * <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>, but the copied
@@ -252,9 +255,9 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#messageid">MessageId</a> of the sent message on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int|string $from_chat_id Unique identifier for the chat where the original message was sent
-     * (or username of the target bot, supergroup or channel in the format <code>@username</code>)
+     * (or username of the target bot, supergroup, or channel in the format <code>@username</code>)
      * @param  int $message_id Message identifier in the chat specified in <em>from_chat_id</em>
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
@@ -316,7 +319,7 @@ interface AvailableMethods
     /**
      * Use this method to copy messages of any kind. If some of the specified messages can't be found or
      * copied, they are skipped. Service messages, paid media messages, giveaway messages, giveaway winners
-     * messages, and invoice messages can't be copied. A quiz
+     * messages, invoice messages, and widget messages can't be copied. A quiz
      * <a href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if the value of the
      * field <em>correct_option_ids</em> is known to the bot. The method is analogous to the method
      * <a href="https://core.telegram.org/bots/api#forwardmessages">forwardMessages</a>, but the copied
@@ -325,9 +328,9 @@ interface AvailableMethods
      * sent messages is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int|string $from_chat_id Unique identifier for the chat where the original messages were
-     * sent (or username of the target bot, supergroup or channel in the format <code>@username</code>)
+     * sent (or username of the target bot, supergroup, or channel in the format <code>@username</code>)
      * @param  int[] $message_ids A JSON-serialized list of 1-100 identifiers of messages in the chat
      * <em>from_chat_id</em> to copy. The identifiers must be specified in a strictly increasing order.
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
@@ -358,8 +361,6 @@ interface AvailableMethods
      * Use this method to send photos. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $photo Photo to send. Pass a file_id as String to send a photo that exists
      * on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from
      * the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in
@@ -367,6 +368,9 @@ interface AvailableMethods
      * most 20. <a href="#sending-files">More information on Sending Files </a>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -408,9 +412,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendPhoto(
-        int|string $chat_id,
         InputFile|string $photo,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -432,8 +436,6 @@ interface AvailableMethods
      * Use this method to send live photos. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target channel
-     * (in the format <code>@channelusername</code>)
      * @param  InputFile|string $live_photo Live photo video to send. The video must be no longer than 10
      * seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on
      * the Telegram servers (recommended) or upload a new video using multipart/form-data.
@@ -445,6 +447,9 @@ interface AvailableMethods
      * currently unsupported.
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -486,10 +491,10 @@ interface AvailableMethods
      * @return Message
      */
     public function sendLivePhoto(
-        int|string $chat_id,
         InputFile|string $live_photo,
         InputFile|string $photo,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -515,14 +520,15 @@ interface AvailableMethods
      * For sending voice messages, use the
      * <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a> method instead.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $audio Audio file to send. Pass a file_id as String to send an audio file
      * that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get
      * an audio file from the Internet, or upload a new one using multipart/form-data.
      * <a href="#sending-files">More information on Sending Files </a>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -569,9 +575,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendAudio(
-        int|string $chat_id,
         InputFile|string $audio,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -596,14 +602,15 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
      * send files of any type of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $document File to send. Pass a file_id as String to send a file that exists
      * on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from
      * the Internet, or upload a new one using multipart/form-data.
      * <a href="#sending-files">More information on Sending Files </a>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -650,9 +657,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendDocument(
-        int|string $chat_id,
         InputFile|string $document,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -676,14 +683,15 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
      * send video files of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $video Video to send. Pass a file_id as String to send a video that exists
      * on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from
      * the Internet, or upload a new video using multipart/form-data.
      * <a href="#sending-files">More information on Sending Files </a>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -743,9 +751,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendVideo(
-        int|string $chat_id,
         InputFile|string $video,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -775,14 +783,15 @@ interface AvailableMethods
      * the sent <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can
      * currently send animation files of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $animation Animation to send. Pass a file_id as String to send an animation
      * that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get
      * an animation from the Internet, or upload a new animation using multipart/form-data.
      * <a href="#sending-files">More information on Sending Files </a>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -834,9 +843,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendAnimation(
-        int|string $chat_id,
         InputFile|string $animation,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -867,14 +876,15 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
      * send voice messages of up to 50 MB in size, this limit may be changed in the future.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $voice Audio file to send. Pass a file_id as String to send a file that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a
      * file from the Internet, or upload a new one using multipart/form-data.
      * <a href="#sending-files">More information on Sending Files </a>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -912,9 +922,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendVoice(
-        int|string $chat_id,
         InputFile|string $voice,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -935,14 +945,15 @@ interface AvailableMethods
      * Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $video_note Video note to send. Pass a file_id as String to send a video
      * note that exists on the Telegram servers (recommended) or upload a new video using
      * multipart/form-data. <a href="#sending-files">More information on Sending Files </a>. Sending video
      * notes by a URL is currently unsupported.
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -983,9 +994,9 @@ interface AvailableMethods
      * @return Message
      */
     public function sendVideoNote(
-        int|string $chat_id,
         InputFile|string $video_note,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -1002,11 +1013,143 @@ interface AvailableMethods
     ): Message;
 
     /**
+     * Use this method to send a message with an
+     * <a href="https://core.telegram.org/bots/widgets">HTML widget</a>. Currently, in the production
+     * environment, widgets can be sent only to private chats, and sent widgets automatically have
+     * protected content and therefore can't be forwarded. On success, the sent
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param  int|string $chat_id Unique identifier for the target chat or username of the target
+     * supergroup in the format <code>@username</code>
+     * @param  string $html HTML code of the widget, 1-32768 bytes. The code must not exceed 4096 bytes
+     * when compressed by zlib with the maximum compression level.
+     * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
+     * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
+     * @param  int|null $width Width of the widget in logical pixels; omit if the widget must occupy the
+     * whole width of the message bubble. The width is clamped by the app to the range from 200 to the
+     * maximum width of the message bubble.
+     * @param  int|null $height Height of the widget in logical pixels; omit if the height of the widget
+     * isn't fixed. The height is clamped by the app to the range 50-600.
+     * @param  string|null $public_data Public data of the widget, 0-1024 bytes, which will be available
+     * wherever the widget is shown. If the widget is shared, then all messages with it will have the same
+     * public data.
+     * @param  string|null $chat_data Data of the widget, which is specific to the message, 0-1024 bytes
+     * @param  string|null $caption Widget caption, 0-1024 characters after entities parsing
+     * @param  string|null $parse_mode Mode for parsing entities in the widget caption. See
+     * <a href="#formatting-options">formatting options</a> for more details.
+     * @param  MessageEntity[]|null $caption_entities A JSON-serialized list of special entities that
+     * appear in the caption, which can be specified instead of <em>parse_mode</em>
+     * @param  bool|null $show_caption_above_media Pass <em>True</em> if the caption must be shown above
+     * the widget
+     * @param  bool|null $allow_queries Pass <em>True</em> to allow the widget to send queries to the bot
+     * @param  bool|null $is_shared Pass <em>True</em> to create a shared widget, which can be sent again
+     * using the method <a href="#sendsharedwidget">sendSharedWidget</a>
+     * @param  bool|null $disable_notification Sends the message
+     * <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a
+     * notification with no sound.
+     * @param  bool|null $protect_content Protects the contents of the sent message from forwarding and
+     * saving
+     * @param  bool|null $allow_paid_broadcast Pass <em>True</em> to allow up to 1000 messages per second,
+     * ignoring
+     * <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a>
+     * for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's
+     * balance.
+     * @param  string|null $message_effect_id Unique identifier of the message effect to be added to the
+     * message; for private chats only
+     * @param  ReplyParameters|null $reply_parameters Description of the message to reply to
+     * @param  InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup
+     * Additional interface options. A JSON-serialized object for an
+     * <a href="/bots/features#inline-keyboards">inline keyboard</a>,
+     * <a href="/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply
+     * keyboard or to force a reply from the user.
+     *
+     * @return Message
+     */
+    public function sendWidget(
+        int|string $chat_id,
+        string $html,
+        ?int $message_thread_id = null,
+        ?int $width = null,
+        ?int $height = null,
+        ?string $public_data = null,
+        ?string $chat_data = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $allow_queries = null,
+        ?bool $is_shared = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
+    ): Message;
+
+    /**
+     * Use this method to send again a shared widget created by the bot. Currently, in the production
+     * environment, widgets can be sent only to private chats, and sent widgets automatically have
+     * protected content and therefore can't be forwarded. On success, the sent
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
+     *
+     * @param  int|string $chat_id Unique identifier for the target chat or username of the target
+     * supergroup in the format <code>@username</code>
+     * @param  string $widget_id Unique identifier of the shared widget
+     * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
+     * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
+     * @param  string|null $chat_data Data of the widget, which is specific to the message, 0-1024 bytes
+     * @param  string|null $caption Widget caption, 0-1024 characters after entities parsing
+     * @param  string|null $parse_mode Mode for parsing entities in the widget caption. See
+     * <a href="#formatting-options">formatting options</a> for more details.
+     * @param  MessageEntity[]|null $caption_entities A JSON-serialized list of special entities that
+     * appear in the caption, which can be specified instead of <em>parse_mode</em>
+     * @param  bool|null $show_caption_above_media Pass <em>True</em> if the caption must be shown above
+     * the widget
+     * @param  bool|null $disable_notification Sends the message
+     * <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a
+     * notification with no sound.
+     * @param  bool|null $protect_content Protects the contents of the sent message from forwarding and
+     * saving
+     * @param  bool|null $allow_paid_broadcast Pass <em>True</em> to allow up to 1000 messages per second,
+     * ignoring
+     * <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a>
+     * for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's
+     * balance.
+     * @param  string|null $message_effect_id Unique identifier of the message effect to be added to the
+     * message; for private chats only
+     * @param  ReplyParameters|null $reply_parameters Description of the message to reply to
+     * @param  InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup
+     * Additional interface options. A JSON-serialized object for an
+     * <a href="/bots/features#inline-keyboards">inline keyboard</a>,
+     * <a href="/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply
+     * keyboard or to force a reply from the user.
+     *
+     * @return Message
+     */
+    public function sendSharedWidget(
+        int|string $chat_id,
+        string $widget_id,
+        ?int $message_thread_id = null,
+        ?string $chat_data = null,
+        ?string $caption = null,
+        ?string $parse_mode = null,
+        ?array $caption_entities = null,
+        ?bool $show_caption_above_media = null,
+        ?bool $disable_notification = null,
+        ?bool $protect_content = null,
+        ?bool $allow_paid_broadcast = null,
+        ?string $message_effect_id = null,
+        ?ReplyParameters $reply_parameters = null,
+        InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply|null $reply_markup = null,
+    ): Message;
+
+    /**
      * Use this method to send paid media. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>. If the chat is a channel, all Telegram
+     * supergroup, or channel in the format <code>@username</code>. If the chat is a channel, all Telegram
      * Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be
      * credited to the bot's balance.
      * @param  int $star_count The number of Telegram Stars that must be paid to buy access to the media;
@@ -1077,7 +1220,7 @@ interface AvailableMethods
      * were sent is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  (InputMediaAudio|InputMediaDocument|InputMediaLivePhoto|InputMediaPhoto|InputMediaVideo)[]
      * $media A JSON-serialized Array describing messages to be sent, must include 2-10 items
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
@@ -1119,12 +1262,13 @@ interface AvailableMethods
      * Use this method to send point on the map. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  float $latitude Latitude of the location
      * @param  float $longitude Longitude of the location
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -1166,10 +1310,10 @@ interface AvailableMethods
      * @return Message
      */
     public function sendLocation(
-        int|string $chat_id,
         float $latitude,
         float $longitude,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -1190,14 +1334,15 @@ interface AvailableMethods
      * Use this method to send information about a venue. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  float $latitude Latitude of the venue
      * @param  float $longitude Longitude of the venue
      * @param  string $title Name of the venue
      * @param  string $address Address of the venue
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -1235,12 +1380,12 @@ interface AvailableMethods
      * @return Message
      */
     public function sendVenue(
-        int|string $chat_id,
         float $latitude,
         float $longitude,
         string $title,
         string $address,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -1261,12 +1406,13 @@ interface AvailableMethods
      * Use this method to send phone contacts. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  string $phone_number Contact's phone number
      * @param  string $first_name Contact's first name
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -1301,10 +1447,10 @@ interface AvailableMethods
      * @return Message
      */
     public function sendContact(
-        int|string $chat_id,
         string $phone_number,
         string $first_name,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,
@@ -1324,7 +1470,7 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>. Polls can't be sent to channel direct
+     * supergroup, or channel in the format <code>@username</code>. Polls can't be sent to channel direct
      * messages chats.
      * @param  string $question Poll question, 1-300 characters
      * @param  InputPollOption[] $options A JSON-serialized list of 1-12 answer options
@@ -1477,7 +1623,7 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
@@ -1606,7 +1752,7 @@ interface AvailableMethods
      * on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int $message_id Identifier of the target message. If the message belongs to a media group,
      * the reaction is set to the first non-deleted message in the group instead.
      * @param  ReactionType[]|null $reaction A JSON-serialized list of reaction types to set on the
@@ -2281,6 +2427,17 @@ interface AvailableMethods
     public function getChatMember(int|string $chat_id, int $user_id): ChatMember;
 
     /**
+     * Use this method to get the list of backdrops, which can be used as the background of a theme of the
+     * screen for sharing a link to a user or a chat. Requires no parameters. Returns a
+     * <a href="https://core.telegram.org/bots/api#chatsharethemebackdrops">ChatShareThemeBackdrops</a>
+     * object.
+     *
+     *
+     * @return ChatShareThemeBackdrops
+     */
+    public function getChatShareThemeBackdrops(): ChatShareThemeBackdrops;
+
+    /**
      * Use this method to get the last messages from the personal chat (i.e., the chat currently added to
      * their profile) of a given user. On success, an Array of
      * <a href="https://core.telegram.org/bots/api#message">Message</a> objects is returned.
@@ -2334,8 +2491,10 @@ interface AvailableMethods
     /**
      * Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the
      * case of a supergroup chat the bot must be an administrator in the chat for this to work and must
-     * have the <em>can_manage_topics</em> administrator right. Returns information about the created topic
-     * as a <a href="https://core.telegram.org/bots/api#forumtopic">ForumTopic</a> object.
+     * have the <em>can_manage_topics</em> administrator right. In the case of a private chat, a link to
+     * the topic can be created in the format https://t.me/<bot_username>/<message_thread_id>; the link
+     * opens the topic only for the user. Returns information about the created topic as a
+     * <a href="https://core.telegram.org/bots/api#forumtopic">ForumTopic</a> object.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2543,6 +2702,21 @@ interface AvailableMethods
         ?string $url = null,
         ?int $cache_time = null,
     ): true;
+
+    /**
+     * Use this method to send an answer to a query from a widget. The query must be answered within 15
+     * seconds. The answer is received only by the widget that sent the query and doesn't change data of
+     * the widget; use
+     * <a href="https://core.telegram.org/bots/api#editmessagewidgetdata">editMessageWidgetData</a> or
+     * <a href="https://core.telegram.org/bots/api#editsharedwidgetdata">editSharedWidgetData</a> to change
+     * it. On success, <em>True</em> is returned.
+     *
+     * @param  string $widget_query_id Unique identifier for the query to be answered
+     * @param  string|null $data Data to be returned to the widget, 0-1024 bytes
+     *
+     * @return true
+     */
+    public function answerWidgetQuery(string $widget_query_id, ?string $data = null): true;
 
     /**
      * Use this method to reply to a received guest message. On success, a
@@ -2837,8 +3011,8 @@ interface AvailableMethods
      * @param  int|null $user_id Required if <em>chat_id</em> is not specified. Unique identifier of the
      * target user who will receive the gift.
      * @param  int|string|null $chat_id Required if <em>user_id</em> is not specified. Unique identifier
-     * for the chat or username of the channel (in the format <code>@username</code>) that will receive the
-     * gift.
+     * for the chat that will receive the gift or username of the channel in the format
+     * <code>@username</code>.
      * @param  bool|null $pay_for_upgrade Pass <em>True</em> to pay for the gift upgrade from the bot's
      * balance, thereby making the upgrade free for the receiver
      * @param  string|null $text Text that will be shown along with the gift; 0-128 characters
@@ -2900,10 +3074,21 @@ interface AvailableMethods
      * @param  int $user_id Unique identifier of the target user
      * @param  string|null $custom_description Custom description for the verification; 0-70 characters.
      * Must be empty if the organization isn't allowed to provide a custom verification description.
+     * @param  string|null $custom_description_parse_mode Mode for parsing entities in the custom
+     * description. See <a href="#formatting-options">formatting options</a> for more details. Only
+     * "text_link" entities are supported.
+     * @param  MessageEntity[]|null $custom_description_entities A JSON-serialized list of special entities
+     * that appear in the custom description, which can be specified instead of
+     * <em>custom_description_parse_mode</em>. Only "text_link" entities are supported.
      *
      * @return true
      */
-    public function verifyUser(int $user_id, ?string $custom_description = null): true;
+    public function verifyUser(
+        int $user_id,
+        ?string $custom_description = null,
+        ?string $custom_description_parse_mode = null,
+        ?array $custom_description_entities = null,
+    ): true;
 
     /**
      * Verifies a chat
@@ -2911,14 +3096,25 @@ interface AvailableMethods
      * which is represented by the bot. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>. Channel direct messages chats can't be
+     * supergroup, or channel in the format <code>@username</code>. Channel direct messages chats can't be
      * verified.
      * @param  string|null $custom_description Custom description for the verification; 0-70 characters.
      * Must be empty if the organization isn't allowed to provide a custom verification description.
+     * @param  string|null $custom_description_parse_mode Mode for parsing entities in the custom
+     * description. See <a href="#formatting-options">formatting options</a> for more details. Only
+     * "text_link" entities are supported.
+     * @param  MessageEntity[]|null $custom_description_entities A JSON-serialized list of special entities
+     * that appear in the custom description, which can be specified instead of
+     * <em>custom_description_parse_mode</em>. Only "text_link" entities are supported.
      *
      * @return true
      */
-    public function verifyChat(int|string $chat_id, ?string $custom_description = null): true;
+    public function verifyChat(
+        int|string $chat_id,
+        ?string $custom_description = null,
+        ?string $custom_description_parse_mode = null,
+        ?array $custom_description_entities = null,
+    ): true;
 
     /**
      * Removes verification from a user who is currently verified
@@ -3212,6 +3408,16 @@ interface AvailableMethods
     ): OwnedGifts;
 
     /**
+     * Use this method to get information about a unique gift by its name. Returns a
+     * <a href="https://core.telegram.org/bots/api#uniquegift">UniqueGift</a> object on success.
+     *
+     * @param  string $name Unique name of the gift
+     *
+     * @return UniqueGift
+     */
+    public function getUniqueGift(string $name): UniqueGift;
+
+    /**
      * Converts a given regular gift to Telegram Stars. Requires the <em>can_convert_gifts_to_stars</em>
      * business bot right. Returns <em>True</em> on success.
      *
@@ -3267,6 +3473,23 @@ interface AvailableMethods
         string $owned_gift_id,
         int $new_owner_chat_id,
         ?int $star_count = null,
+    ): true;
+
+    /**
+     * Deletes a regular gift owned by a managed business account without receiving Telegram Stars for it.
+     * Requires the <em>can_convert_gifts_to_stars</em> business bot right. The gift can be deleted only if
+     * it isn't limited (the field <em>total_count</em> of the
+     * <a href="https://core.telegram.org/bots/api#gift">Gift</a> is omitted) and wasn't refunded. Returns
+     * <em>True</em> on success.
+     *
+     * @param  string $business_connection_id Unique identifier of the business connection
+     * @param  string $owned_gift_id Unique identifier of the regular gift that should be deleted
+     *
+     * @return true
+     */
+    public function deleteBusinessAccountGift(
+        string $business_connection_id,
+        string $owned_gift_id,
     ): true;
 
     /**

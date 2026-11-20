@@ -210,14 +210,19 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
         public ?VideoNote $video_note,
         /** @var  Voice|null  Message is a voice message, information about the file */
         public ?Voice $voice,
-        /** @var  string|null  Caption for the animation, audio, document, paid media, photo, video or voice */
+        /** @var  Widget|null  Message is an HTML widget, information about the widget */
+        public ?Widget $widget,
+        /**
+         * @var  string|null  Caption for the animation, audio, document, live photo, paid media, photo, video,
+         * voice, or widget
+         */
         public ?string $caption,
         /**
          * @var  MessageEntity[]|null  For messages with a caption, special entities like usernames, URLs, bot
          * commands, etc. that appear in the caption
          */
         public ?array $caption_entities,
-        /** @var  true|null  True, if the caption must be shown above the message media */
+        /** @var  true|null  True, if the caption must be shown above the message media or the widget */
         public ?true $show_caption_above_media,
         /** @var  true|null  True, if the message media is covered by a spoiler animation */
         public ?true $has_media_spoiler,
@@ -393,6 +398,11 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
          * chat
          */
         public ?PaidMessagePriceChanged $paid_message_price_changed,
+        /**
+         * @var  PaidMessagesWaived|null  Service message: the sender of the message used a link of the other
+         * user, which allows sending messages to the user without paying Telegram Stars
+         */
+        public ?PaidMessagesWaived $paid_messages_waived,
         /** @var  PollOptionAdded|null  Service message: answer option was added to a poll */
         public ?PollOptionAdded $poll_option_added,
         /** @var  PollOptionDeleted|null  Service message: answer option was deleted from a poll */
@@ -407,6 +417,8 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
         public ?SuggestedPostPaid $suggested_post_paid,
         /** @var  SuggestedPostRefunded|null  Service message: payment for a suggested post was refunded */
         public ?SuggestedPostRefunded $suggested_post_refunded,
+        /** @var  TonWalletTransfer|null  Service message: a transfer with a TON wallet */
+        public ?TonWalletTransfer $ton_wallet_transfer,
         /** @var  VideoChatScheduled|null  Service message: video chat scheduled */
         public ?VideoChatScheduled $video_chat_scheduled,
         /** @var  VideoChatStarted|null  Service message: video chat started */
