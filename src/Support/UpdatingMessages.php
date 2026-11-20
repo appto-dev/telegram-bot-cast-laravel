@@ -33,7 +33,7 @@ interface UpdatingMessages
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
      * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
-     * identifier for the target chat or username of the target bot, supergroup or channel in the format
+     * identifier for the target chat or username of the target bot, supergroup, or channel in the format
      * <code>@username</code>.
      * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
      * the message to edit.
@@ -77,7 +77,7 @@ interface UpdatingMessages
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
      * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
-     * identifier for the target chat or username of the target bot, supergroup or channel in the format
+     * identifier for the target chat or username of the target bot, supergroup, or channel in the format
      * <code>@username</code>.
      * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
      * the message to edit.
@@ -122,7 +122,7 @@ interface UpdatingMessages
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
      * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
-     * identifier for the target chat or username of the target bot, supergroup or channel in the format
+     * identifier for the target chat or username of the target bot, supergroup, or channel in the format
      * <code>@username</code>.
      * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
      * the message to edit.
@@ -155,7 +155,7 @@ interface UpdatingMessages
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
      * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
-     * identifier for the target chat or username of the target bot, supergroup or channel in the format
+     * identifier for the target chat or username of the target bot, supergroup, or channel in the format
      * <code>@username</code>.
      * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
      * the message to edit.
@@ -200,7 +200,7 @@ interface UpdatingMessages
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
      * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
-     * identifier for the target chat or username of the target bot, supergroup or channel in the format
+     * identifier for the target chat or username of the target bot, supergroup, or channel in the format
      * <code>@username</code>.
      * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
      * the message with live location to stop.
@@ -243,6 +243,52 @@ interface UpdatingMessages
     ): Message;
 
     /**
+     * Use this method to edit data of a widget in a message sent by the bot or via the bot (for inline
+     * bots). Public data of a shared widget can be changed at most once per second. On success,
+     * <em>True</em> is returned.
+     *
+     * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
+     * identifier for the target chat or username of the target supergroup in the format
+     * <code>@username</code>.
+     * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
+     * the message with the widget.
+     * @param  string|null $inline_message_id Required if <em>chat_id</em> and <em>message_id</em> are not
+     * specified. Identifier of the inline message.
+     * @param  string|null $public_data New public data of the widget, 0-1024 bytes; pass an empty string
+     * to remove the public data. If omitted, then the public data isn't changed.
+     * @param  string|null $chat_data New data of the widget, which is specific to the message, 0-1024
+     * bytes; pass an empty string to remove the data. If omitted, then the data isn't changed.
+     *
+     * @return true
+     */
+    public function editMessageWidgetData(
+        int|string|null $chat_id = null,
+        ?int $message_id = null,
+        ?string $inline_message_id = null,
+        ?string $public_data = null,
+        ?string $chat_data = null,
+    ): true;
+
+    /**
+     * Use this method to edit public data of a shared widget created by the bot. A shared widget can be
+     * edited at most once per second. On success, <em>True</em> is returned.
+     *
+     * @param  string $widget_id Unique identifier of the shared widget
+     * @param  string $public_data New public data of the widget, 0-1024 bytes; pass an empty string to
+     * remove the public data
+     * @param  int|null $cache_time The maximum amount of time in seconds that the public data of the
+     * widget may be cached client-side; 5-3600. If omitted, then the current value is kept, which is 30 by
+     * default.
+     *
+     * @return true
+     */
+    public function editSharedWidgetData(
+        string $widget_id,
+        string $public_data,
+        ?int $cache_time = null,
+    ): true;
+
+    /**
      * Use this method to edit only the reply markup of messages. On success, if the edited message is not
      * an inline message, the edited <a href="https://core.telegram.org/bots/api#message">Message</a> is
      * returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the
@@ -252,7 +298,7 @@ interface UpdatingMessages
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
      * @param  int|string|null $chat_id Required if <em>inline_message_id</em> is not specified. Unique
-     * identifier for the target chat or username of the target bot, supergroup or channel in the format
+     * identifier for the target chat or username of the target bot, supergroup, or channel in the format
      * <code>@username</code>.
      * @param  int|null $message_id Required if <em>inline_message_id</em> is not specified. Identifier of
      * the message to edit.
@@ -276,7 +322,7 @@ interface UpdatingMessages
      * <a href="https://core.telegram.org/bots/api#poll">Poll</a> is returned.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int $message_id Identifier of the original message with the poll
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
@@ -446,7 +492,7 @@ interface UpdatingMessages
      * success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int $message_id Identifier of the message to delete
      *
      * @return true
@@ -458,7 +504,7 @@ interface UpdatingMessages
      * be found, they are skipped. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
+     * supergroup, or channel in the format <code>@username</code>
      * @param  int[] $message_ids A JSON-serialized list of 1-100 identifiers of messages to delete. See
      * <a href="#deletemessage">deleteMessage</a> for limitations on which messages can be deleted.
      *

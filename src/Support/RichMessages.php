@@ -24,12 +24,13 @@ interface RichMessages
      * the bot must have the right to send the media to the chat. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputRichMessage $rich_message The message to be sent
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent. Bot can send rich messages on behalf of a business account only
      * if the corresponding user can send rich messages.
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -61,9 +62,9 @@ interface RichMessages
      * @return Message
      */
     public function sendRichMessage(
-        int|string $chat_id,
         InputRichMessage $rich_message,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,

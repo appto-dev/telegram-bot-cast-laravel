@@ -17,8 +17,8 @@ class ForwardMessages extends Data implements TelegramMethod
 {
     public function __construct(
         /**
-         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup or
-         * channel in the format <code>@username</code>
+         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup,
+         * or channel in the format <code>@username</code>
          */
         public int|string $chat_id,
         /**
@@ -33,7 +33,7 @@ class ForwardMessages extends Data implements TelegramMethod
         public ?int $direct_messages_topic_id,
         /**
          * @var  int|string  Unique identifier for the chat where the original messages were sent (or username
-         * of the target bot, supergroup or channel in the format <code>@username</code>)
+         * of the target bot, supergroup, or channel in the format <code>@username</code>)
          */
         public int|string $from_chat_id,
         /**

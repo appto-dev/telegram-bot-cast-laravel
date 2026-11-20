@@ -14,7 +14,10 @@ use Spatie\LaravelData\Data;
 class TextQuote extends Data implements TelegramType
 {
     public function __construct(
-        /** @var  string  Text of the quoted part of a message that is replied to by the given message */
+        /**
+         * @var  string  Text of the quoted part of a message that is replied to by the given message; may be
+         * empty if the quote was chosen from a rich message
+         */
         public string $text,
         /**
          * @var  MessageEntity[]|null  Special entities that appear in the quote. Currently, only bold, italic,
@@ -22,8 +25,16 @@ class TextQuote extends Data implements TelegramType
          */
         public ?array $entities,
         /**
+         * @var  RichText[]|null  Rich text of the quote if it was chosen from a rich message. May contain only
+         * plain text, RichTextBold, RichTextItalic, RichTextUnderline, RichTextStrikethrough, RichTextSpoiler,
+         * RichTextSubscript, RichTextSuperscript, RichTextDateTime, RichTextCustomEmoji,
+         * RichTextMathematicalExpression, and arrays of them.
+         */
+        public ?array $rich_texts,
+        /**
          * @var  int  Approximate quote position in the original message in UTF-16 code units as specified by
-         * the sender
+         * the sender. For quotes from rich messages, it is the position in the text formed by joining plain
+         * texts of all quotable texts of the message, separated by line feeds.
          */
         public int $position,
         /**

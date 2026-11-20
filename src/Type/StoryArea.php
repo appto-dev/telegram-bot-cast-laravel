@@ -16,8 +16,8 @@ use Spatie\LaravelData\Data;
 class StoryArea extends Data implements TelegramType
 {
     public function __construct(
-        /** @var  StoryAreaPosition  Position of the area */
-        public StoryAreaPosition $position,
+        /** @var  AreaPosition  Position of the area */
+        public AreaPosition $position,
         /** @var  StoryAreaType  Type of the area */
         #[WithCast(StoryAreaTypeCast::class)]
         public StoryAreaType $type,

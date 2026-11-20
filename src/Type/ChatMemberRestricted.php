@@ -41,7 +41,10 @@ class ChatMemberRestricted extends Data implements TelegramType, ChatMember
         public bool $can_send_voice_notes,
         /** @var  bool  True, if the user is allowed to send polls and checklists */
         public bool $can_send_polls,
-        /** @var  bool  True, if the user is allowed to send animations, games, stickers and use inline bots */
+        /**
+         * @var  bool  True, if the user is allowed to send animations, games, stickers, widgets and use inline
+         * bots
+         */
         public bool $can_send_other_messages,
         /** @var  bool  True, if the user is allowed to add web page previews to their messages */
         public bool $can_add_web_page_previews,

@@ -24,7 +24,7 @@ class SendGift extends Data implements TelegramMethod
         public ?int $user_id,
         /**
          * @var  int|string|null  Required if <em>user_id</em> is not specified. Unique identifier for the chat
-         * or username of the channel (in the format <code>@username</code>) that will receive the gift.
+         * that will receive the gift or username of the channel in the format <code>@username</code>.
          */
         public int|string|null $chat_id,
         /** @var  string  Identifier of the gift; limited gifts can't be sent to channel chats */

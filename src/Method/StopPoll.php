@@ -24,8 +24,8 @@ class StopPoll extends Data implements TelegramMethod
          */
         public ?string $business_connection_id,
         /**
-         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup or
-         * channel in the format <code>@username</code>
+         * @var  int|string  Unique identifier for the target chat or username of the target bot, supergroup,
+         * or channel in the format <code>@username</code>
          */
         public int|string $chat_id,
         /** @var  int  Identifier of the original message with the poll */

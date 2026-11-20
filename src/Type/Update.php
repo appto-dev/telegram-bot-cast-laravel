@@ -80,6 +80,10 @@ class Update extends Data implements TelegramType
         public ?ChosenInlineResult $chosen_inline_result,
         /** @var  CallbackQuery|null  New incoming callback query */
         public ?CallbackQuery $callback_query,
+        /** @var  WidgetQuery|null  New incoming query from a widget in a message sent by the bot or via the bot */
+        public ?WidgetQuery $widget_query,
+        /** @var  SharedWidgetQuery|null  New incoming query from a forwarded message with a shared widget */
+        public ?SharedWidgetQuery $shared_widget_query,
         /** @var  ShippingQuery|null  New incoming shipping query. Only for invoices with flexible price. */
         public ?ShippingQuery $shipping_query,
         /**

@@ -30,8 +30,6 @@ interface Stickers
      * <a href="https://telegram.org/blog/video-stickers-better-reactions">video</a> .WEBM stickers. On
      * success, the sent <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
-     * supergroup or channel in the format <code>@username</code>
      * @param  InputFile|string $sticker Sticker to send. Pass a file_id as String to send a file that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a
      * .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using
@@ -39,6 +37,9 @@ interface Stickers
      * animated stickers can't be sent via an HTTP URL.
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message will be sent
+     * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
+     * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
+     * sent as an ephemeral reply to a callback query
      * @param  int|null $message_thread_id Unique identifier for the target message thread (topic) of a
      * forum; for forum supergroups and private chats of bots with forum topic mode enabled only
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
@@ -71,9 +72,9 @@ interface Stickers
      * @return Message
      */
     public function sendSticker(
-        int|string $chat_id,
         InputFile|string $sticker,
         ?string $business_connection_id = null,
+        int|string|null $chat_id = null,
         ?int $message_thread_id = null,
         ?int $direct_messages_topic_id = null,
         ?EphemeralMessageParameters $ephemeral_message_parameters = null,

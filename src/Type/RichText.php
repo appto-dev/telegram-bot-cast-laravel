@@ -24,6 +24,7 @@ namespace Appto\TelegramBot\Type;
  *  - <a href="https://core.telegram.org/bots/api#richtextemailaddress">RichTextEmailAddress</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextphonenumber">RichTextPhoneNumber</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextbankcardnumber">RichTextBankCardNumber</a>
+ *  - <a href="https://core.telegram.org/bots/api#richtexttonaddress">RichTextTonAddress</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextmention">RichTextMention</a>
  *  - <a href="https://core.telegram.org/bots/api#richtexthashtag">RichTextHashtag</a>
  *  - <a href="https://core.telegram.org/bots/api#richtextcashtag">RichTextCashtag</a>

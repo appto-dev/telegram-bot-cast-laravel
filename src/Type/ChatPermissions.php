@@ -34,8 +34,8 @@ class ChatPermissions extends Data implements TelegramType
         /** @var  bool|null  True, if the user is allowed to send polls and checklists */
         public ?bool $can_send_polls,
         /**
-         * @var  bool|null  True, if the user is allowed to send animations, games, stickers and use inline
-         * bots
+         * @var  bool|null  True, if the user is allowed to send animations, games, stickers, widgets and use
+         * inline bots
          */
         public ?bool $can_send_other_messages,
         /** @var  bool|null  True, if the user is allowed to add web page previews to their messages */

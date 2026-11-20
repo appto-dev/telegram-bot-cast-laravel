@@ -56,6 +56,8 @@ class ExternalReplyInfo extends Data implements TelegramType
         public ?VideoNote $video_note,
         /** @var  Voice|null  Message is a voice message, information about the file */
         public ?Voice $voice,
+        /** @var  Widget|null  Message is an HTML widget, information about the widget */
+        public ?Widget $widget,
         /** @var  true|null  True, if the message media is covered by a spoiler animation */
         public ?true $has_media_spoiler,
         /** @var  Checklist|null  Message is a checklist */
