@@ -20,8 +20,8 @@ class RichTextAnchorLink extends Data implements TelegramType, RichText
         #[WithCast(RichTextCast::class)]
         public RichText $text,
         /**
-         * @var  string  The name of the anchor. If the name is empty, then the link brings back to the top of
-         * the message.
+         * @var  string  The name of the anchor. If the name is empty, then the link brings the user back to
+         * the top of the message.
          */
         public string $anchor_name,
     ) {

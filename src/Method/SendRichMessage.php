@@ -22,8 +22,8 @@ class SendRichMessage extends Data implements TelegramMethod
     public function __construct(
         /**
          * @var  string|null  Unique identifier of the business connection on behalf of which the message will
-         * be sent. Bot can send rich messages on behalf of a business account only if the corresponding user
-         * can send rich messages.
+         * be sent. The bot can send rich messages on behalf of a business account only if the corresponding
+         * user can send rich messages.
          */
         public ?string $business_connection_id,
         /**

@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class ReplyParameters extends Data implements TelegramType
 {
@@ -64,7 +64,7 @@ class ReplyParameters extends Data implements TelegramType
          * must contain the whole text. Formatting of the quoted parts must be kept, and rich texts must be
          * nested in the same way as in the message received from the server. Mathematical expressions must be
          * quoted entirely. Buttons in RichBlockButtons, anchors and dividers can't be quoted. Up to 32 quoted
-         * texts with total length up to 1024 characters can be specified. Only plain text, RichTextBold,
+         * texts with a total length of up to 1024 characters can be specified. Only plain text, RichTextBold,
          * RichTextItalic, RichTextUnderline, RichTextStrikethrough, RichTextSpoiler, RichTextSubscript,
          * RichTextSuperscript, RichTextDateTime, RichTextCustomEmoji, RichTextMathematicalExpression, and
          * arrays of them are kept in the quote; other rich text types are replaced with their text. If

@@ -32,7 +32,7 @@ interface GettingUpdates
      * @param  int|null $limit Limits the number of updates to be retrieved. Values between 1-100 are
      * accepted. Defaults to 100.
      * @param  int|null $timeout Timeout in seconds for long polling. Defaults to 0, i.e. usual short
-     * polling. Should be positive, short polling should be used for testing purposes only.
+     * polling. Should be positive; short polling should be used for testing purposes only.
      * @param  string[]|null $allowed_updates A JSON-serialized list of the update types you want your bot
      * to receive. For example, specify <code>["message", "edited_channel_post", "callback_query"]</code>
      * to only receive updates of these types. See <a href="#update">Update</a> for a complete list of
@@ -57,7 +57,7 @@ interface GettingUpdates
      * a JSON-serialized <a href="https://core.telegram.org/bots/api#update">Update</a>. In case of an
      * unsuccessful request (a request with response
      * <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different
-     * from 2XY), we will repeat the request and give up after a reasonable amount of attempts. Returns
+     * from 2XY), we will repeat the request and give up after a reasonable number of attempts. Returns
      * <em>True</em> on success.
      * If you'd like to make sure that the webhook was set by you, you can specify secret data in the
      * parameter <em>secret_token</em>. If specified, the request will contain a header
@@ -77,7 +77,7 @@ interface GettingUpdates
      * available update types. Specify an empty list to receive all update types except
      * <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If
      * not specified, the previous setting will be used.<br>Please note that this parameter doesn't affect
-     * updates created before the call to the setWebhook, so unwanted updates may be received for a short
+     * updates created before the call to setWebhook, so unwanted updates may be received for a short
      * period of time.
      * @param  bool|null $drop_pending_updates Pass <em>True</em> to drop all pending updates
      * @param  string|null $secret_token A secret token to be sent in a header
@@ -109,10 +109,10 @@ interface GettingUpdates
     public function deleteWebhook(?bool $drop_pending_updates = null): true;
 
     /**
-     * Use this method to get current webhook status. Requires no parameters. On success, returns a
+     * Use this method to get the current webhook status. Requires no parameters. On success, returns a
      * <a href="https://core.telegram.org/bots/api#webhookinfo">WebhookInfo</a> object. If the bot is using
-     * <a href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>, will return an object with
-     * the <em>url</em> field empty.
+     * <a href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>, it will return an object
+     * with the <em>url</em> field empty.
      *
      *
      * @return WebhookInfo

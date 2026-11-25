@@ -19,7 +19,7 @@ class MaskPosition extends Data implements TelegramType
         public string $point,
         /**
          * @var  float  Shift by X-axis measured in widths of the mask scaled to the face size, from left to
-         * right. For example, choosing -1.0 will place mask just to the left of the default mask position.
+         * right. For example, choosing -1.0 will place the mask just to the left of the default mask position.
          */
         public float $x_shift,
         /**

@@ -30,7 +30,7 @@ use Spatie\LaravelData\Data;
  * the users via <a href="https://t.me/botfather">BotFather</a> (see
  * <a href="https://t.me/gamebot?game=lumberjack">Lumberjack</a> for example).
  *  - A game message will also display high scores for the current chat. Use
- * <a href="#setgamescore">setGameScore</a> to post high scores to the chat with the game, add the
+ * <a href="#setgamescore">setGameScore</a> to post high scores to the chat with the game; add the
  * <em>disable_edit_message</em> parameter to disable automatic update of the message with the current
  * scoreboard.
  *  - Use <a href="#getgamehighscores">getGameHighScores</a> to get data for in-game high score tables.

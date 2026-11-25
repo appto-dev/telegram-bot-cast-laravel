@@ -9,9 +9,9 @@ use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class CallbackQuery extends Data implements TelegramType
 {
@@ -28,7 +28,8 @@ class CallbackQuery extends Data implements TelegramType
         public ?MaybeInaccessibleMessage $message,
         /**
          * @var  string|null  Identifier of the message sent via the bot in inline mode, that originated the
-         * query
+         * query. Can also be present for messages sent by the bot, depending on the parameter
+         * callback_query_mode of the method setMySettings.
          */
         public ?string $inline_message_id,
         /**
@@ -37,8 +38,8 @@ class CallbackQuery extends Data implements TelegramType
          */
         public string $chat_instance,
         /**
-         * @var  string|null  Data associated with the callback button. Be aware that the message originated
-         * the query can contain no callback buttons with this data.
+         * @var  string|null  Data associated with the callback button. Be aware that the message that
+         * originated the query can contain no callback buttons with this data.
          */
         public ?string $data,
         /** @var  string|null  Short name of a Game to be returned, serves as the unique identifier for the game */

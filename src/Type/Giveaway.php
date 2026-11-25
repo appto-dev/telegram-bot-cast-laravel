@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class Giveaway extends Data implements TelegramType
 {
@@ -18,7 +18,7 @@ class Giveaway extends Data implements TelegramType
         public array $chats,
         /** @var  int  Point in time (Unix timestamp) when winners of the giveaway will be selected */
         public int $winners_selection_date,
-        /** @var  int  The number of users which are supposed to be selected as winners of the giveaway */
+        /** @var  int  The number of users who are supposed to be selected as winners of the giveaway */
         public int $winner_count,
         /**
          * @var  true|null  True, if only users who join the chats after the giveaway started should be
@@ -27,7 +27,7 @@ class Giveaway extends Data implements TelegramType
         public ?true $only_new_members,
         /** @var  true|null  True, if the list of giveaway winners will be visible to everyone */
         public ?true $has_public_winners,
-        /** @var  string|null  Description of additional giveaway prize */
+        /** @var  string|null  Description of an additional giveaway prize */
         public ?string $prize_description,
         /**
          * @var  string[]|null  A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries

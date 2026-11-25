@@ -7,16 +7,16 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class StoryAreaTypeWeather extends Data implements TelegramType, StoryAreaType
 {
     public function __construct(
         /** @var  string  Type of the area, always "weather" */
         public string $type,
-        /** @var  float  Temperature, in degree Celsius */
+        /** @var  float  Temperature, in degrees Celsius */
         public float $temperature,
         /** @var  string  Emoji representing the weather */
         public string $emoji,

@@ -33,7 +33,7 @@ class InputSticker extends Data implements TelegramType
          */
         public ?MaskPosition $mask_position,
         /**
-         * @var  string[]|null  List of 0-20 search keywords for the sticker with total length of up to 64
+         * @var  string[]|null  List of 0-20 search keywords for the sticker with a total length of up to 64
          * characters. For "regular" and "custom_emoji" stickers only.
          */
         public ?array $keywords,

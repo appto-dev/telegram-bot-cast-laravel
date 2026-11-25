@@ -14,7 +14,9 @@ use Spatie\LaravelData\Data;
  * <a href="/bots/inline">Introduction to Inline bots</a> for more details.
  * To enable this option, send the /setinline command to
  * <a href="https://t.me/botfather">@BotFather</a> and provide the placeholder text that the user will
- * see in the input field after typing your bot's name.
+ * see in the input field after typing your bot's name, or use the parameters
+ * <em>supports_inline_queries</em> and <em>inline_query_placeholder</em> of the method
+ * <a href="#setmysettings">setMySettings</a>.
  */
 class InlineQueryResultCachedVoice extends Data implements TelegramType, InlineQueryResult
 {

@@ -18,8 +18,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class SendPaidMedia extends Data implements TelegramMethod
 {
@@ -52,7 +52,7 @@ class SendPaidMedia extends Data implements TelegramMethod
         public array $media,
         /**
          * @var  string|null  Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the
-         * user, use it for your internal processes.
+         * user; use it for your internal processes.
          */
         public ?string $payload,
         /** @var  string|null  Media caption, 0-1024 characters after entities parsing */

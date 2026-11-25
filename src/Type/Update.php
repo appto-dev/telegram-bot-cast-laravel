@@ -21,8 +21,8 @@ class Update extends Data implements TelegramType
          * @var  int  The update's unique identifier. Update identifiers start from a certain positive number
          * and increase sequentially. This identifier becomes especially handy if you're using webhooks, since
          * it allows you to ignore repeated updates or to restore the correct update sequence, should they get
-         * out of order. If there are no new updates for at least a week, then identifier of the next update
-         * will be chosen randomly instead of sequentially.
+         * out of order. If there are no new updates for at least a week, then the identifier of the next
+         * update will be chosen randomly instead of sequentially.
          */
         public int $update_id,
         /** @var  Message|null  New incoming message of any kind - text, photo, sticker, etc. */
@@ -67,7 +67,7 @@ class Update extends Data implements TelegramType
          * @var  MessageReactionCountUpdated|null  Reactions to a message with anonymous reactions were
          * changed. The bot must be an administrator in the chat and must explicitly specify
          * "message_reaction_count" in the list of allowed_updates to receive these updates. The updates are
-         * grouped and can be sent with delay up to a few minutes.
+         * grouped and can be sent with a delay of up to a few minutes.
          */
         public ?MessageReactionCountUpdated $message_reaction_count,
         /** @var  InlineQuery|null  New incoming inline query */
@@ -75,7 +75,8 @@ class Update extends Data implements TelegramType
         /**
          * @var  ChosenInlineResult|null  The result of an inline query that was chosen by a user and sent to
          * their chat partner. Please see our documentation on the feedback collecting for details on how to
-         * enable these updates for your bot.
+         * enable these updates for your bot. The updates can also be enabled using the parameter
+         * inline_feedback_share_denominator of the method setMySettings.
          */
         public ?ChosenInlineResult $chosen_inline_result,
         /** @var  CallbackQuery|null  New incoming callback query */
@@ -97,7 +98,7 @@ class Update extends Data implements TelegramType
          */
         public ?PaidMediaPurchased $purchased_paid_media,
         /**
-         * @var  Poll|null  New poll state. Bots receive only updates about manually stopped polls and polls,
+         * @var  Poll|null  New poll state. Bots receive only updates about manually stopped polls and polls
          * which are sent by the bot.
          */
         public ?Poll $poll,
@@ -133,8 +134,8 @@ class Update extends Data implements TelegramType
          */
         public ?ChatBoostRemoved $removed_chat_boost,
         /**
-         * @var  ManagedBotUpdated|null  A new bot was created to be managed by the bot, or token or owner of a
-         * managed bot was changed
+         * @var  ManagedBotUpdated|null  A new bot was created to be managed by the bot, or the token or owner
+         * of a managed bot was changed
          */
         public ?ManagedBotUpdated $managed_bot,
         /** @var  BotSubscriptionUpdated|null  User payment subscription has changed */

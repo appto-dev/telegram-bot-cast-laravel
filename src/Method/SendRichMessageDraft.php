@@ -24,7 +24,7 @@ class SendRichMessageDraft extends Data implements TelegramMethod
         public int $draft_id,
         /**
          * @var  InputRichMessage  The partial message to be streamed. Direct upload of new files and explicit
-         * upload of files by a URL isn't supported.
+         * upload of files by a URL aren't supported.
          */
         public InputRichMessage $rich_message,
         /**

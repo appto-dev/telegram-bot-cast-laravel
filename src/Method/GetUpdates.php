@@ -33,7 +33,7 @@ class GetUpdates extends Data implements TelegramMethod
         public ?int $limit,
         /**
          * @var  int|null  Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should
-         * be positive, short polling should be used for testing purposes only.
+         * be positive; short polling should be used for testing purposes only.
          */
         public ?int $timeout,
         /**

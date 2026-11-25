@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Appto\TelegramBot\Type;
 
 /**
- * This object represents a service message about General forum topic hidden in the chat. Currently
+ * This object represents a service message about the General forum topic hidden in the chat. Currently
  * holds no information.
  */
 interface GeneralForumTopicHidden

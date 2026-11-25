@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class KeyboardButton extends Data implements TelegramType
 {
@@ -46,7 +46,8 @@ class KeyboardButton extends Data implements TelegramType
         /**
          * @var  KeyboardButtonRequestManagedBot|null  If specified, pressing the button will ask the user to
          * create and share a bot that will be managed by the current bot. Available for bots that enabled
-         * management of other bots in the @BotFather Mini App. Available in private chats only.
+         * management of other bots in the @BotFather Mini App or using the parameter can_manage_bots of the
+         * method setMySettings. Available in private chats only.
          */
         public ?KeyboardButtonRequestManagedBot $request_managed_bot,
         /**

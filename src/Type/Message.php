@@ -10,9 +10,9 @@ use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class Message extends Data implements TelegramType, MaybeInaccessibleMessage
 {
@@ -259,7 +259,7 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
         public ?ChatOwnerChanged $chat_owner_changed,
         /** @var  string|null  A chat title was changed to this value */
         public ?string $new_chat_title,
-        /** @var  PhotoSize[]|null  A chat photo was change to this value */
+        /** @var  PhotoSize[]|null  A chat photo was changed to this value */
         public ?array $new_chat_photo,
         /** @var  true|null  Service message: the chat photo was deleted */
         public ?true $delete_chat_photo,
@@ -267,15 +267,15 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
         public ?true $group_chat_created,
         /**
          * @var  true|null  Service message: the supergroup has been created. This field can't be received in a
-         * message coming through updates, because bot can't be a member of a supergroup when it is created. It
-         * can only be found in reply_to_message if someone replies to a very first message in a directly
+         * message coming through updates, because a bot can't be a member of a supergroup when it is created.
+         * It can only be found in reply_to_message if someone replies to the very first message in a directly
          * created supergroup.
          */
         public ?true $supergroup_chat_created,
         /**
          * @var  true|null  Service message: the channel has been created. This field can't be received in a
-         * message coming through updates, because bot can't be a member of a channel when it is created. It
-         * can only be found in reply_to_message if someone replies to a very first message in a channel.
+         * message coming through updates, because a bot can't be a member of a channel when it is created. It
+         * can only be found in reply_to_message if someone replies to the very first message in a channel.
          */
         public ?true $channel_chat_created,
         /**
@@ -287,14 +287,14 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
          * @var  int|null  The group has been migrated to a supergroup with the specified identifier. This
          * number may have more than 32 significant bits and some programming languages may have
          * difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed
-         * 64-bit integer or double-precision float type are safe for storing this identifier.
+         * 64-bit integer or double-precision float type is safe for storing this identifier.
          */
         public ?int $migrate_to_chat_id,
         /**
          * @var  int|null  The supergroup has been migrated from a group with the specified identifier. This
          * number may have more than 32 significant bits and some programming languages may have
          * difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed
-         * 64-bit integer or double-precision float type are safe for storing this identifier.
+         * 64-bit integer or double-precision float type is safe for storing this identifier.
          */
         public ?int $migrate_from_chat_id,
         /**
@@ -336,7 +336,8 @@ class Message extends Data implements TelegramType, MaybeInaccessibleMessage
         /**
          * @var  WriteAccessAllowed|null  Service message: the user allowed the bot to write messages after
          * adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit
-         * request from a Web App sent by the method requestWriteAccess
+         * request from a Web App sent by the method requestWriteAccess, or the user was invited to the private
+         * chat with the bot by the owner of the bot
          */
         public ?WriteAccessAllowed $write_access_allowed,
         /** @var  PassportData|null  Telegram Passport data */

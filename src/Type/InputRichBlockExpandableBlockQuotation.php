@@ -16,9 +16,8 @@ class InputRichBlockExpandableBlockQuotation extends Data implements TelegramTyp
     public function __construct(
         /** @var  string  Type of the block, always "expandable_blockquote" */
         public string $type,
-        /** @var  RichText  Content of the block */
-        #[WithCast(RichTextCast::class)]
-        public RichText $text,
+        /** @var  InputRichBlock[]  Content of the block */
+        public array $blocks,
         /** @var  RichText|null  Credit of the block */
         #[WithCast(RichTextCast::class)]
         public ?RichText $credit,

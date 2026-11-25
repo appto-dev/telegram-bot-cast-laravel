@@ -10,8 +10,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class BanChatMember extends Data implements TelegramMethod
 {
@@ -24,9 +24,9 @@ class BanChatMember extends Data implements TelegramMethod
         /** @var  int  Unique identifier of the target user */
         public int $user_id,
         /**
-         * @var  int|null  Date when the user will be unbanned; Unix time. If user is banned for more than 366
-         * days or less than 30 seconds from the current time they are considered to be banned forever. Applied
-         * for supergroups and channels only.
+         * @var  int|null  Date when the user will be unbanned; Unix time. If the user is banned for more than
+         * 366 days or less than 30 seconds from the current time, they are considered to be banned forever.
+         * Applied for supergroups and channels only.
          */
         public ?int $until_date,
         /**

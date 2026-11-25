@@ -19,8 +19,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class SendDocument extends Data implements TelegramMethod
 {
@@ -62,7 +62,7 @@ class SendDocument extends Data implements TelegramMethod
          * @var  InputFile|string|null  Thumbnail of the file sent; can be ignored if thumbnail generation for
          * the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in
          * size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded
-         * using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you
+         * using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you
          * can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under
          * <file_attach_name>. <a href="#sending-files">More information on Sending Files </a>
          */

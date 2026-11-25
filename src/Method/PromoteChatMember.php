@@ -10,8 +10,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class PromoteChatMember extends Data implements TelegramMethod
 {
@@ -48,7 +48,7 @@ class PromoteChatMember extends Data implements TelegramMethod
          */
         public ?bool $can_promote_members,
         /**
-         * @var  bool|null  Pass <em>True</em> if the administrator can change chat title, photo and other
+         * @var  bool|null  Pass <em>True</em> if the administrator can change the chat title, photo and other
          * settings
          */
         public ?bool $can_change_info,

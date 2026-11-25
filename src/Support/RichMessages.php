@@ -26,8 +26,8 @@ interface RichMessages
      *
      * @param  InputRichMessage $rich_message The message to be sent
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
-     * of which the message will be sent. Bot can send rich messages on behalf of a business account only
-     * if the corresponding user can send rich messages.
+     * of which the message will be sent. The bot can send rich messages on behalf of a business account
+     * only if the corresponding user can send rich messages.
      * @param  int|string|null $chat_id Unique identifier for the target chat or username of the target
      * bot, supergroup, or channel in the format <code>@username</code>; required unless the message is
      * sent as an ephemeral reply to a callback query
@@ -88,7 +88,7 @@ interface RichMessages
      * @param  int $draft_id Unique identifier of the message draft; must be non-zero. Changes to drafts
      * with the same identifier are animated. Otherwise, the draft is replaced without animation.
      * @param  InputRichMessage $rich_message The partial message to be streamed. Direct upload of new
-     * files and explicit upload of files by a URL isn't supported.
+     * files and explicit upload of files by a URL aren't supported.
      * @param  int|null $message_thread_id Unique identifier for the target message thread
      * @param  bool|null $can_stop Pass <em>True</em> to show the user a button to stop further drafts. The
      * bot will receive an <a href="#update">Update</a> "stopped_message_generation" if the user presses

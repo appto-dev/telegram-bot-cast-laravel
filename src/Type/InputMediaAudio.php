@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class InputMediaAudio extends Data implements TelegramType, InputPollMedia, InputMedia
 {
@@ -27,7 +27,7 @@ class InputMediaAudio extends Data implements TelegramType, InputPollMedia, Inpu
          * @var  InputFile|string|null  Thumbnail of the file sent; can be ignored if thumbnail generation for
          * the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in
          * size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded
-         * using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you
+         * using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you
          * can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under
          * <file_attach_name>. More information on Sending Files
          */

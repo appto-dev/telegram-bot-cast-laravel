@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class Location extends Data implements TelegramType
 {
@@ -26,8 +26,8 @@ class Location extends Data implements TelegramType
          */
         public ?int $live_period,
         /**
-         * @var  int|null  The direction in which user is moving, in degrees; 1-360. For active live locations
-         * only.
+         * @var  int|null  The direction in which the user is moving, in degrees; 1-360. For active live
+         * locations only.
          */
         public ?int $heading,
         /**
