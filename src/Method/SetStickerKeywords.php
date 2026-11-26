@@ -15,7 +15,7 @@ class SetStickerKeywords extends Data implements TelegramMethod
         /** @var  string  File identifier of the sticker */
         public string $sticker,
         /**
-         * @var  string[]|null  A JSON-serialized list of 0-20 search keywords for the sticker with total
+         * @var  string[]|null  A JSON-serialized list of 0-20 search keywords for the sticker with a total
          * length of up to 64 characters
          */
         public ?array $keywords,

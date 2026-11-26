@@ -230,7 +230,7 @@ interface Stickers
      *
      * @param  string $sticker File identifier of the sticker
      * @param  string[]|null $keywords A JSON-serialized list of 0-20 search keywords for the sticker with
-     * total length of up to 64 characters
+     * a total length of up to 64 characters
      *
      * @return true
      */

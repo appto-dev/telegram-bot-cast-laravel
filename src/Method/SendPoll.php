@@ -20,8 +20,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class SendPoll extends Data implements TelegramMethod
 {
@@ -64,8 +64,8 @@ class SendPoll extends Data implements TelegramMethod
         /** @var  bool|null  Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em> */
         public ?bool $allows_multiple_answers,
         /**
-         * @var  bool|null  Pass <em>True</em> if the poll allows to change chosen answer options, defaults to
-         * <em>False</em> for quizzes and to <em>True</em> for regular polls
+         * @var  bool|null  Pass <em>True</em> if the poll allows changing the chosen answer options, defaults
+         * to <em>False</em> for quizzes and to <em>True</em> for regular polls
          */
         public ?bool $allows_revoting,
         /** @var  bool|null  Pass <em>True</em> if the poll options must be shown in random order */

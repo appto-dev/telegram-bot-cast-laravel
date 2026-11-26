@@ -13,15 +13,15 @@ use Spatie\LaravelData\Data;
  * sending a new one with a result of an action. This is most useful for messages with
  * <a href="/bots/features#inline-keyboards">inline keyboards</a> using callback queries, but can also
  * help reduce clutter in conversations with regular chat bots.
- * Please note, that it is currently only possible to edit messages without <em>reply_markup</em> or
+ * Please note that it is currently only possible to edit messages without <em>reply_markup</em> or
  * with <a href="/bots/features#inline-keyboards">inline keyboards</a>.
  */
 class EditMessageChecklist extends Data implements TelegramMethod
 {
     public function __construct(
         /**
-         * @var  string  Unique identifier of the business connection on behalf of which the message will be
-         * sent
+         * @var  string  Unique identifier of the business connection on behalf of which the message to be
+         * edited was sent
          */
         public string $business_connection_id,
         /**

@@ -16,8 +16,8 @@ class PassportData extends Data implements TelegramType
 {
     public function __construct(
         /**
-         * @var  EncryptedPassportElement[]  Array with information about documents and other Telegram Passport
-         * elements that was shared with the bot
+         * @var  EncryptedPassportElement[]  Array with information shared with the bot about documents and
+         * other Telegram Passport elements
          */
         public array $data,
         /** @var  EncryptedCredentials  Encrypted credentials required to decrypt the data */

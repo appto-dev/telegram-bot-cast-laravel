@@ -10,19 +10,19 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class TransferGift extends Data implements TelegramMethod
 {
     public function __construct(
         /** @var  string  Unique identifier of the business connection */
         public string $business_connection_id,
-        /** @var  string  Unique identifier of the regular gift that should be transferred */
+        /** @var  string  Unique identifier of the unique gift that should be transferred */
         public string $owned_gift_id,
         /**
-         * @var  int  Unique identifier of the chat which will own the gift. The chat must be active in the
-         * last 24 hours.
+         * @var  int  Unique identifier of the chat which will own the gift. The chat must have been active in
+         * the last 24 hours.
          */
         public int $new_owner_chat_id,
         /**

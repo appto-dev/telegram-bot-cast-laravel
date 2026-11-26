@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class ChatInviteLink extends Data implements TelegramType
 {
@@ -29,7 +29,7 @@ class ChatInviteLink extends Data implements TelegramType
         public bool $is_revoked,
         /** @var  string|null  Invite link name */
         public ?string $name,
-        /** @var  int|null  Point in time (Unix timestamp) when the link will expire or has been expired */
+        /** @var  int|null  Point in time (Unix timestamp) when the link will expire or has expired */
         public ?int $expire_date,
         /**
          * @var  int|null  The maximum number of users that can be members of the chat simultaneously after

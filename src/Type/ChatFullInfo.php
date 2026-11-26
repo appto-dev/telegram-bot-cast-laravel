@@ -9,9 +9,9 @@ use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class ChatFullInfo extends Data implements TelegramType
 {
@@ -19,7 +19,7 @@ class ChatFullInfo extends Data implements TelegramType
         /**
          * @var  int  Unique identifier for this chat. This number may have more than 32 significant bits and
          * some programming languages may have difficulty/silent defects in interpreting it. But it has at most
-         * 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing
+         * 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing
          * this identifier.
          */
         public int $id,
@@ -99,7 +99,7 @@ class ChatFullInfo extends Data implements TelegramType
         /** @var  string|null  Bio of the other party in a private chat */
         public ?string $bio,
         /**
-         * @var  true|null  True, if privacy settings of the other party in the private chat allows to use
+         * @var  true|null  True, if the privacy settings of the other party in the private chat allow using
          * tg://user?id=<user_id> links only in chats with the user
          */
         public ?true $has_private_forwards,
@@ -178,7 +178,7 @@ class ChatFullInfo extends Data implements TelegramType
          * @var  int|null  Unique identifier for the linked chat, i.e. the discussion group identifier for a
          * channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32
          * bits and some programming languages may have difficulty/silent defects in interpreting it. But it is
-         * smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing
+         * smaller than 52 bits, so a signed 64-bit integer or double-precision float type is safe for storing
          * this identifier.
          */
         public ?int $linked_chat_id,

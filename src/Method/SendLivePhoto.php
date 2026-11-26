@@ -19,8 +19,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class SendLivePhoto extends Data implements TelegramMethod
 {
@@ -61,18 +61,18 @@ class SendLivePhoto extends Data implements TelegramMethod
         public InputFile|string $live_photo,
         /**
          * @var  InputFile|string  The static photo to send. Pass a file_id as String to send a photo that
-         * exists on the Telegram servers (recommended) or upload a new video using multipart/form-data.
+         * exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data.
          * <a href="#sending-files">More information on Sending Files </a>. Sending live photos by a URL is
          * currently unsupported.
          */
         public InputFile|string $photo,
         /**
-         * @var  string|null  Video caption (may also be used when resending videos by <em>file_id</em>),
-         * 0-1024 characters after entities parsing
+         * @var  string|null  Live photo caption (may also be used when resending live photos by
+         * <em>file_id</em>), 0-1024 characters after entities parsing
          */
         public ?string $caption,
         /**
-         * @var  string|null  Mode for parsing entities in the video caption. See
+         * @var  string|null  Mode for parsing entities in the live photo caption. See
          * <a href="#formatting-options">formatting options</a> for more details.
          */
         public ?string $parse_mode,
@@ -83,7 +83,7 @@ class SendLivePhoto extends Data implements TelegramMethod
         public ?array $caption_entities,
         /** @var  bool|null  Pass <em>True</em> if the caption must be shown above the message media */
         public ?bool $show_caption_above_media,
-        /** @var  bool|null  Pass <em>True</em> if the video needs to be covered with a spoiler animation */
+        /** @var  bool|null  Pass <em>True</em> if the live photo needs to be covered with a spoiler animation */
         public ?bool $has_spoiler,
         /**
          * @var  bool|null  Sends the message

@@ -28,7 +28,7 @@ class AnswerShippingQuery extends Data implements TelegramMethod
          */
         public ?array $shipping_options,
         /**
-         * @var  string|null  Required if <em>ok</em> is <em>False</em>. Error message in human readable form
+         * @var  string|null  Required if <em>ok</em> is <em>False</em>. Error message in human-readable form
          * that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired
          * address is unavailable"). Telegram will display this message to the user.
          */

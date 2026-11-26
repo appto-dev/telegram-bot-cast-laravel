@@ -7,9 +7,9 @@ namespace Appto\TelegramBot\Type;
 use Spatie\LaravelData\Data;
 
 /**
- * All types used in the Bot API responses are represented as JSON-objects.
+ * All types used in the Bot API responses are represented as JSON objects.
  * It is safe to use 32-bit signed integers for storing all Integer fields unless otherwise noted.
- * Optional fields may be not returned when irrelevant.
+ * Optional fields may not be returned when irrelevant.
  */
 class Poll extends Data implements TelegramType
 {
@@ -35,10 +35,10 @@ class Poll extends Data implements TelegramType
         public string $type,
         /** @var  bool  True, if the poll allows multiple answers */
         public bool $allows_multiple_answers,
-        /** @var  bool  True, if the poll allows to change the chosen answer options */
+        /** @var  bool  True, if the poll allows changing the chosen answer options */
         public bool $allows_revoting,
         /**
-         * @var  bool  True if voting is limited to users who have been members of the chat where the poll was
+         * @var  bool  True, if voting is limited to users who have been members of the chat where the poll was
          * originally sent for more than 24 hours
          */
         public bool $members_only,

@@ -43,7 +43,7 @@ class SetWebhook extends Data implements TelegramMethod
          * types. Specify an empty list to receive all update types except <em>chat_member</em>,
          * <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the
          * previous setting will be used.<br>Please note that this parameter doesn't affect updates created
-         * before the call to the setWebhook, so unwanted updates may be received for a short period of time.
+         * before the call to setWebhook, so unwanted updates may be received for a short period of time.
          */
         public ?array $allowed_updates,
         /** @var  bool|null  Pass <em>True</em> to drop all pending updates */

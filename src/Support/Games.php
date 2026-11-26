@@ -33,7 +33,7 @@ use Appto\TelegramBot\Type\ReplyParameters;
  * the users via <a href="https://t.me/botfather">BotFather</a> (see
  * <a href="https://t.me/gamebot?game=lumberjack">Lumberjack</a> for example).
  *  - A game message will also display high scores for the current chat. Use
- * <a href="#setgamescore">setGameScore</a> to post high scores to the chat with the game, add the
+ * <a href="#setgamescore">setGameScore</a> to post high scores to the chat with the game; add the
  * <em>disable_edit_message</em> parameter to disable automatic update of the message with the current
  * scoreboard.
  *  - Use <a href="#getgamehighscores">getGameHighScores</a> to get data for in-game high score tables.
@@ -93,7 +93,7 @@ interface Games
     /**
      * Use this method to set the score of the specified user in a game message. On success, if the message
      * is not an inline message, the <a href="https://core.telegram.org/bots/api#message">Message</a> is
-     * returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater
+     * returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater
      * than the user's current score in the chat and <em>force</em> is <em>False</em>.
      *
      * @param  int $user_id User identifier

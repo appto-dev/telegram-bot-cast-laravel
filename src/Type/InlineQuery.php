@@ -12,7 +12,9 @@ use Spatie\LaravelData\Data;
  * <a href="/bots/inline">Introduction to Inline bots</a> for more details.
  * To enable this option, send the /setinline command to
  * <a href="https://t.me/botfather">@BotFather</a> and provide the placeholder text that the user will
- * see in the input field after typing your bot's name.
+ * see in the input field after typing your bot's name, or use the parameters
+ * <em>supports_inline_queries</em> and <em>inline_query_placeholder</em> of the method
+ * <a href="#setmysettings">setMySettings</a>.
  */
 class InlineQuery extends Data implements TelegramType
 {
@@ -28,11 +30,14 @@ class InlineQuery extends Data implements TelegramType
         /**
          * @var  string|null  Type of the chat from which the inline query was sent. Can be either "sender" for
          * a private chat with the inline query sender, "private", "group", "supergroup", or "channel". The
-         * chat type should be always known for requests sent from official clients and most third-party
+         * chat type should always be known for requests sent from official clients and most third-party
          * clients, unless the request was sent from a secret chat.
          */
         public ?string $chat_type,
-        /** @var  Location|null  Sender location, only for bots that request user location */
+        /**
+         * @var  Location|null  Sender location, only for bots that enabled user location requests via
+         * @BotFather or using the parameter needs_inline_query_location of the method setMySettings
+         */
         public ?Location $location,
     ) {
     }

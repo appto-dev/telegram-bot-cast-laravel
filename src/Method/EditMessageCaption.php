@@ -13,7 +13,7 @@ use Spatie\LaravelData\Data;
  * sending a new one with a result of an action. This is most useful for messages with
  * <a href="/bots/features#inline-keyboards">inline keyboards</a> using callback queries, but can also
  * help reduce clutter in conversations with regular chat bots.
- * Please note, that it is currently only possible to edit messages without <em>reply_markup</em> or
+ * Please note that it is currently only possible to edit messages without <em>reply_markup</em> or
  * with <a href="/bots/features#inline-keyboards">inline keyboards</a>.
  */
 class EditMessageCaption extends Data implements TelegramMethod
@@ -54,7 +54,7 @@ class EditMessageCaption extends Data implements TelegramMethod
         public ?array $caption_entities,
         /**
          * @var  bool|null  Pass <em>True</em> if the caption must be shown above the message media. Supported
-         * only for animation, photo and video messages.
+         * only for animation, live photo, paid media, photo, video and widget messages.
          */
         public ?bool $show_caption_above_media,
         /**

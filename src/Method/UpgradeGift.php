@@ -10,8 +10,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class UpgradeGift extends Data implements TelegramMethod
 {
@@ -27,7 +27,7 @@ class UpgradeGift extends Data implements TelegramMethod
         public ?bool $keep_original_details,
         /**
          * @var  int|null  The amount of Telegram Stars that will be paid for the upgrade from the business
-         * account balance. If <code>gift.prepaid_upgrade_star_count > 0</code>, then pass 0, otherwise, the
+         * account balance. If <code>gift.prepaid_upgrade_star_count > 0</code>, then pass 0; otherwise, the
          * <em>can_transfer_stars</em> business bot right is required and <code>gift.upgrade_star_count</code>
          * must be passed.
          */

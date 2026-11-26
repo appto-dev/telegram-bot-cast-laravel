@@ -15,7 +15,7 @@ use Spatie\LaravelData\Data;
  * sending a new one with a result of an action. This is most useful for messages with
  * <a href="/bots/features#inline-keyboards">inline keyboards</a> using callback queries, but can also
  * help reduce clutter in conversations with regular chat bots.
- * Please note, that it is currently only possible to edit messages without <em>reply_markup</em> or
+ * Please note that it is currently only possible to edit messages without <em>reply_markup</em> or
  * with <a href="/bots/features#inline-keyboards">inline keyboards</a>.
  */
 class EditMessageText extends Data implements TelegramMethod
@@ -61,7 +61,7 @@ class EditMessageText extends Data implements TelegramMethod
         public ?LinkPreviewOptions $link_preview_options,
         /**
          * @var  InputRichMessage|null  New rich content of the message; required if <em>text</em> isn't
-         * specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an
+         * specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an
          * inline message is edited.
          */
         public ?InputRichMessage $rich_message,

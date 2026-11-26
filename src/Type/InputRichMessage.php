@@ -16,13 +16,13 @@ class InputRichMessage extends Data implements TelegramType
         public ?array $blocks,
         /**
          * @var  string|null  Content of the rich message to send described using HTML formatting. See rich
-         * message formatting options for more details. Use media field to specify the media used in the
+         * message formatting options for more details. Use the media field to specify the media used in the
          * message.
          */
         public ?string $html,
         /**
          * @var  string|null  Content of the rich message to send described using Markdown formatting. See rich
-         * message formatting options for more details. Use media field to specify the media used in the
+         * message formatting options for more details. Use the media field to specify the media used in the
          * message.
          */
         public ?string $markdown,

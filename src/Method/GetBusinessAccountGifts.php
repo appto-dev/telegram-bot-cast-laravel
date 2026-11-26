@@ -10,8 +10,8 @@ use Spatie\LaravelData\Data;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 class GetBusinessAccountGifts extends Data implements TelegramMethod
 {
@@ -50,7 +50,7 @@ class GetBusinessAccountGifts extends Data implements TelegramMethod
          */
         public ?bool $sort_by_price,
         /**
-         * @var  string|null  Offset of the first entry to return as received from the previous request; use
+         * @var  string|null  Offset of the first entry to return as received from the previous request; use an
          * empty string to get the first chunk of results
          */
         public ?string $offset,

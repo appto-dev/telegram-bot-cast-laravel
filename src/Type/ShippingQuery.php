@@ -20,7 +20,7 @@ class ShippingQuery extends Data implements TelegramType
         public User $from,
         /** @var  string  Bot-specified invoice payload */
         public string $invoice_payload,
-        /** @var  ShippingAddress  User specified shipping address */
+        /** @var  ShippingAddress  User-specified shipping address */
         public ShippingAddress $shipping_address,
     ) {
     }

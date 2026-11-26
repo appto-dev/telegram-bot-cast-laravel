@@ -9,6 +9,7 @@ use Appto\TelegramBot\Type\BotAccessSettings;
 use Appto\TelegramBot\Type\BotCommand;
 use Appto\TelegramBot\Type\BotCommandScope;
 use Appto\TelegramBot\Type\BotDescription;
+use Appto\TelegramBot\Type\BotFullInfo;
 use Appto\TelegramBot\Type\BotName;
 use Appto\TelegramBot\Type\BotShortDescription;
 use Appto\TelegramBot\Type\BusinessConnection;
@@ -58,7 +59,6 @@ use Appto\TelegramBot\Type\Story;
 use Appto\TelegramBot\Type\StoryArea;
 use Appto\TelegramBot\Type\SuggestedPostParameters;
 use Appto\TelegramBot\Type\UniqueGift;
-use Appto\TelegramBot\Type\User;
 use Appto\TelegramBot\Type\UserChatBoosts;
 use Appto\TelegramBot\Type\UserProfileAudios;
 use Appto\TelegramBot\Type\UserProfilePhotos;
@@ -67,26 +67,26 @@ use Appto\TelegramBot\Type\UserProfilePhotos;
  * All methods in the Bot API are case-insensitive. We support GET and POST HTTP methods. Use either
  * <a href="https://en.wikipedia.org/wiki/Query_string">URL query string</a> or
  * <em>application/json</em> or <em>application/x-www-form-urlencoded</em> or
- * <em>multipart/form-data</em> for passing parameters in Bot API requests.On successful call, a
- * JSON-object containing the result will be returned.
+ * <em>multipart/form-data</em> for passing parameters in Bot API requests.On a successful call, a JSON
+ * object containing the result will be returned.
  */
 interface AvailableMethods
 {
     /**
-     * A simple method for testing your bot's authentication token. Requires no parameters. Returns basic
-     * information about the bot in form of a <a href="https://core.telegram.org/bots/api#user">User</a>
-     * object.
+     * A simple method for testing your bot's authentication token. Requires no parameters. Returns
+     * information about the bot in the form of a
+     * <a href="https://core.telegram.org/bots/api#botfullinfo">BotFullInfo</a> object.
      *
      *
-     * @return User
+     * @return BotFullInfo
      */
-    public function getMe(): User;
+    public function getMe(): BotFullInfo;
 
     /**
      * Use this method to log out from the cloud Bot API server before launching the bot locally. You must
-     * log out the bot before running it locally, otherwise there is no guarantee that the bot will receive
-     * updates. After a successful call, you can immediately log in on a local server, but will not be able
-     * to log in back to the cloud Bot API server for 10 minutes. Returns <em>True</em> on success.
+     * log out the bot before running it locally; otherwise, there is no guarantee that the bot will
+     * receive updates. After a successful call, you can immediately log in on a local server, but will not
+     * be able to log back in to the cloud Bot API server for 10 minutes. Returns <em>True</em> on success.
      * Requires no parameters.
      *
      *
@@ -442,7 +442,7 @@ interface AvailableMethods
      * <a href="#sending-files">More information on Sending Files </a>. Sending live photos by a URL is
      * currently unsupported.
      * @param  InputFile|string $photo The static photo to send. Pass a file_id as String to send a photo
-     * that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data.
+     * that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data.
      * <a href="#sending-files">More information on Sending Files </a>. Sending live photos by a URL is
      * currently unsupported.
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
@@ -456,16 +456,16 @@ interface AvailableMethods
      * message will be sent; required if the message is sent to a direct messages chat
      * @param  EphemeralMessageParameters|null $ephemeral_message_parameters A JSON-serialized object
      * containing the parameters of the ephemeral message to send
-     * @param  string|null $caption Video caption (may also be used when resending videos by
+     * @param  string|null $caption Live photo caption (may also be used when resending live photos by
      * <em>file_id</em>), 0-1024 characters after entities parsing
-     * @param  string|null $parse_mode Mode for parsing entities in the video caption. See
+     * @param  string|null $parse_mode Mode for parsing entities in the live photo caption. See
      * <a href="#formatting-options">formatting options</a> for more details.
      * @param  MessageEntity[]|null $caption_entities A JSON-serialized list of special entities that
      * appear in the caption, which can be specified instead of <em>parse_mode</em>
      * @param  bool|null $show_caption_above_media Pass <em>True</em> if the caption must be shown above
      * the message media
-     * @param  bool|null $has_spoiler Pass <em>True</em> if the video needs to be covered with a spoiler
-     * animation
+     * @param  bool|null $has_spoiler Pass <em>True</em> if the live photo needs to be covered with a
+     * spoiler animation
      * @param  bool|null $disable_notification Sends the message
      * <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a
      * notification with no sound.
@@ -516,7 +516,7 @@ interface AvailableMethods
      * Use this method to send audio files, if you want Telegram clients to display them in the music
      * player. Your audio must be in the .MP3 or .M4A format. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
-     * send audio files of up to 50 MB in size, this limit may be changed in the future.
+     * send audio files of up to 50 MB in size; this limit may be changed in the future.
      * For sending voice messages, use the
      * <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a> method instead.
      *
@@ -546,7 +546,7 @@ interface AvailableMethods
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
      * generation for the file is supported server-side. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is
-     * not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new
+     * not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new
      * file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using
      * multipart/form-data under <file_attach_name>.
      * <a href="#sending-files">More information on Sending Files </a>
@@ -600,7 +600,7 @@ interface AvailableMethods
     /**
      * Use this method to send general files. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
-     * send files of any type of up to 50 MB in size, this limit may be changed in the future.
+     * send files of any type of up to 50 MB in size; this limit may be changed in the future.
      *
      * @param  InputFile|string $document File to send. Pass a file_id as String to send a file that exists
      * on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from
@@ -620,7 +620,7 @@ interface AvailableMethods
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
      * generation for the file is supported server-side. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is
-     * not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new
+     * not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new
      * file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using
      * multipart/form-data under <file_attach_name>.
      * <a href="#sending-files">More information on Sending Files </a>
@@ -678,10 +678,10 @@ interface AvailableMethods
     ): Message;
 
     /**
-     * Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be
+     * Use this method to send video files; Telegram clients support MPEG4 videos (other formats may be
      * sent as <a href="https://core.telegram.org/bots/api#document">Document</a>). On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
-     * send video files of up to 50 MB in size, this limit may be changed in the future.
+     * send video files of up to 50 MB in size; this limit may be changed in the future.
      *
      * @param  InputFile|string $video Video to send. Pass a file_id as String to send a video that exists
      * on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from
@@ -704,7 +704,7 @@ interface AvailableMethods
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
      * generation for the file is supported server-side. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is
-     * not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new
+     * not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new
      * file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using
      * multipart/form-data under <file_attach_name>.
      * <a href="#sending-files">More information on Sending Files </a>
@@ -781,7 +781,7 @@ interface AvailableMethods
     /**
      * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success,
      * the sent <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can
-     * currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+     * currently send animation files of up to 50 MB in size; this limit may be changed in the future.
      *
      * @param  InputFile|string $animation Animation to send. Pass a file_id as String to send an animation
      * that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get
@@ -804,11 +804,11 @@ interface AvailableMethods
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
      * generation for the file is supported server-side. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is
-     * not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new
+     * not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new
      * file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using
      * multipart/form-data under <file_attach_name>.
      * <a href="#sending-files">More information on Sending Files </a>
-     * @param  string|null $caption Animation caption (may also be used when resending animation by
+     * @param  string|null $caption Animation caption (may also be used when resending animations by
      * <em>file_id</em>), 0-1024 characters after entities parsing
      * @param  string|null $parse_mode Mode for parsing entities in the animation caption. See
      * <a href="#formatting-options">formatting options</a> for more details.
@@ -874,7 +874,7 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#audio">Audio</a> or
      * <a href="https://core.telegram.org/bots/api#document">Document</a>). On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned. Bots can currently
-     * send voice messages of up to 50 MB in size, this limit may be changed in the future.
+     * send voice messages of up to 50 MB in size; this limit may be changed in the future.
      *
      * @param  InputFile|string $voice Audio file to send. Pass a file_id as String to send a file that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a
@@ -942,7 +942,7 @@ interface AvailableMethods
     ): Message;
 
     /**
-     * Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent
+     * Use this method to send a rounded square MPEG4 video up to 1 minute long. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  InputFile|string $video_note Video note to send. Pass a file_id as String to send a video
@@ -965,7 +965,7 @@ interface AvailableMethods
      * @param  InputFile|string|null $thumbnail Thumbnail of the file sent; can be ignored if thumbnail
      * generation for the file is supported server-side. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is
-     * not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new
+     * not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new
      * file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using
      * multipart/form-data under <file_attach_name>.
      * <a href="#sending-files">More information on Sending Files </a>
@@ -1088,7 +1088,7 @@ interface AvailableMethods
     ): Message;
 
     /**
-     * Use this method to send again a shared widget created by the bot. Currently, in the production
+     * Use this method to resend a shared widget created by the bot. Currently, in the production
      * environment, widgets can be sent only to private chats, and sent widgets automatically have
      * protected content and therefore can't be forwarded. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
@@ -1163,7 +1163,7 @@ interface AvailableMethods
      * @param  int|null $direct_messages_topic_id Identifier of the direct messages topic to which the
      * message will be sent; required if the message is sent to a direct messages chat
      * @param  string|null $payload Bot-defined paid media payload, 0-128 bytes. This will not be displayed
-     * to the user, use it for your internal processes.
+     * to the user; use it for your internal processes.
      * @param  string|null $caption Media caption, 0-1024 characters after entities parsing
      * @param  string|null $parse_mode Mode for parsing entities in the media caption. See
      * <a href="#formatting-options">formatting options</a> for more details.
@@ -1215,7 +1215,7 @@ interface AvailableMethods
 
     /**
      * Use this method to send a group of photos, live photos, videos, documents or audios as an album.
-     * Documents and audio files can be only grouped in an album with messages of the same type. On
+     * Documents and audio files can only be grouped in an album with messages of the same type. On
      * success, an Array of <a href="https://core.telegram.org/bots/api#message">Message</a> objects that
      * were sent is returned.
      *
@@ -1259,7 +1259,7 @@ interface AvailableMethods
     ): array;
 
     /**
-     * Use this method to send point on the map. On success, the sent
+     * Use this method to send a point on the map. On success, the sent
      * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  float $latitude Latitude of the location
@@ -1488,7 +1488,7 @@ interface AvailableMethods
      * @param  string|null $type Poll type, "quiz" or "regular", defaults to "regular"
      * @param  bool|null $allows_multiple_answers Pass <em>True</em> if the poll allows multiple answers,
      * defaults to <em>False</em>
-     * @param  bool|null $allows_revoting Pass <em>True</em> if the poll allows to change chosen answer
+     * @param  bool|null $allows_revoting Pass <em>True</em> if the poll allows changing the chosen answer
      * options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls
      * @param  bool|null $shuffle_options Pass <em>True</em> if the poll options must be shown in random
      * order
@@ -1850,9 +1850,9 @@ interface AvailableMethods
      * @param  int|string $chat_id Unique identifier for the target group or username of the target
      * supergroup or channel in the format <code>@username</code>
      * @param  int $user_id Unique identifier of the target user
-     * @param  int|null $until_date Date when the user will be unbanned; Unix time. If user is banned for
-     * more than 366 days or less than 30 seconds from the current time they are considered to be banned
-     * forever. Applied for supergroups and channels only.
+     * @param  int|null $until_date Date when the user will be unbanned; Unix time. If the user is banned
+     * for more than 366 days or less than 30 seconds from the current time, they are considered to be
+     * banned forever. Applied for supergroups and channels only.
      * @param  bool|null $revoke_messages Pass <em>True</em> to delete all messages from the chat for the
      * user that is being removed. If <em>False</em>, the user will be able to see messages in the group
      * that were sent before the user was removed. Always <em>True</em> for supergroups and channels.
@@ -1903,8 +1903,8 @@ interface AvailableMethods
      * <em>can_send_videos</em>, <em>can_send_video_notes</em>, and <em>can_send_voice_notes</em>
      * permissions; the <em>can_send_polls</em> permission will imply the <em>can_send_messages</em>
      * permission.
-     * @param  int|null $until_date Date when restrictions will be lifted for the user; Unix time. If user
-     * is restricted for more than 366 days or less than 30 seconds from the current time, they are
+     * @param  int|null $until_date Date when restrictions will be lifted for the user; Unix time. If the
+     * user is restricted for more than 366 days or less than 30 seconds from the current time, they are
      * considered to be restricted forever.
      *
      * @return true
@@ -1941,8 +1941,8 @@ interface AvailableMethods
      * @param  bool|null $can_promote_members Pass <em>True</em> if the administrator can add new
      * administrators with a subset of their own privileges or demote administrators that they have
      * promoted, directly or indirectly (promoted by administrators that were appointed by him)
-     * @param  bool|null $can_change_info Pass <em>True</em> if the administrator can change chat title,
-     * photo and other settings
+     * @param  bool|null $can_change_info Pass <em>True</em> if the administrator can change the chat
+     * title, photo and other settings
      * @param  bool|null $can_invite_users Pass <em>True</em> if the administrator can invite new users to
      * the chat
      * @param  bool|null $can_post_stories Pass <em>True</em> if the administrator can post stories to the
@@ -2054,7 +2054,7 @@ interface AvailableMethods
     /**
      * Use this method to set default chat permissions for all members. The bot must be an administrator in
      * the group or a supergroup for this to work and must have the <em>can_restrict_members</em>
-     * administrator rights. Returns <em>True</em> on success.
+     * administrator right. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2092,7 +2092,7 @@ interface AvailableMethods
      * the chat for this to work and must have the appropriate administrator rights. The link can be
      * revoked using the method
      * <a href="https://core.telegram.org/bots/api#revokechatinvitelink">revokeChatInviteLink</a>. Returns
-     * the new invite link as
+     * the new invite link as a
      * <a href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a> object.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target channel
@@ -2144,7 +2144,7 @@ interface AvailableMethods
     /**
      * Use this method to create a
      * <a href="https://telegram.org/blog/superchannels-star-reactions-subscriptions#star-subscriptions">subscription invite link</a>
-     * for a channel chat. The bot must have the <em>can_invite_users</em> administrator rights. The link
+     * for a channel chat. The bot must have the <em>can_invite_users</em> administrator right. The link
      * can be edited using the method
      * <a href="https://core.telegram.org/bots/api#editchatsubscriptioninvitelink">editChatSubscriptionInviteLink</a>
      * or revoked using the method
@@ -2171,7 +2171,7 @@ interface AvailableMethods
 
     /**
      * Use this method to edit a subscription invite link created by the bot. The bot must have the
-     * <em>can_invite_users</em> administrator rights. Returns the edited invite link as a
+     * <em>can_invite_users</em> administrator right. Returns the edited invite link as a
      * <a href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a> object.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target channel
@@ -2190,7 +2190,7 @@ interface AvailableMethods
     /**
      * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new
      * link is automatically generated. The bot must be an administrator in the chat for this to work and
-     * must have the appropriate administrator rights. Returns the revoked invite link as
+     * must have the appropriate administrator rights. Returns the revoked invite link as a
      * <a href="https://core.telegram.org/bots/api#chatinvitelink">ChatInviteLink</a> object.
      *
      * @param  int|string $chat_id Unique identifier of the target chat or username of the target channel
@@ -2516,10 +2516,10 @@ interface AvailableMethods
     ): ForumTopic;
 
     /**
-     * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a
-     * user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work
-     * and must have the <em>can_manage_topics</em> administrator rights, unless it is the creator of the
-     * topic. Returns <em>True</em> on success.
+     * Use this method to edit the name and icon of a topic in a forum supergroup chat or a private chat
+     * with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this
+     * to work and must have the <em>can_manage_topics</em> administrator right, unless it is the creator
+     * of the topic. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2542,7 +2542,7 @@ interface AvailableMethods
 
     /**
      * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator
-     * in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights,
+     * in the chat for this to work and must have the <em>can_manage_topics</em> administrator right,
      * unless it is the creator of the topic. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
@@ -2556,7 +2556,7 @@ interface AvailableMethods
     /**
      * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an
      * administrator in the chat for this to work and must have the <em>can_manage_topics</em>
-     * administrator rights, unless it is the creator of the topic. Returns <em>True</em> on success.
+     * administrator right, unless it is the creator of the topic. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2569,7 +2569,7 @@ interface AvailableMethods
     /**
      * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a
      * private chat with a user. In the case of a supergroup chat the bot must be an administrator in the
-     * chat for this to work and must have the <em>can_delete_messages</em> administrator rights. Returns
+     * chat for this to work and must have the <em>can_delete_messages</em> administrator right. Returns
      * <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
@@ -2597,7 +2597,7 @@ interface AvailableMethods
     /**
      * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be
      * an administrator in the chat for this to work and must have the <em>can_manage_topics</em>
-     * administrator rights. Returns <em>True</em> on success.
+     * administrator right. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2610,7 +2610,7 @@ interface AvailableMethods
     /**
      * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an
      * administrator in the chat for this to work and must have the <em>can_manage_topics</em>
-     * administrator rights. Returns <em>True</em> on success.
+     * administrator right. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2622,7 +2622,7 @@ interface AvailableMethods
     /**
      * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an
      * administrator in the chat for this to work and must have the <em>can_manage_topics</em>
-     * administrator rights. The topic will be automatically unhidden if it was hidden. Returns
+     * administrator right. The topic will be automatically unhidden if it was hidden. Returns
      * <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
@@ -2635,8 +2635,8 @@ interface AvailableMethods
     /**
      * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an
      * administrator in the chat for this to work and must have the <em>can_manage_topics</em>
-     * administrator rights. The topic will be automatically closed if it was open. Returns <em>True</em>
-     * on success.
+     * administrator right. The topic will be automatically closed if it was open. Returns <em>True</em> on
+     * success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2648,7 +2648,7 @@ interface AvailableMethods
     /**
      * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an
      * administrator in the chat for this to work and must have the <em>can_manage_topics</em>
-     * administrator rights. Returns <em>True</em> on success.
+     * administrator right. Returns <em>True</em> on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target
      * supergroup in the format <code>@username</code>
@@ -2671,9 +2671,10 @@ interface AvailableMethods
 
     /**
      * Use this method to send answers to callback queries sent from
-     * <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer
-     * will be displayed to the user as a notification at the top of the chat screen or as an alert. On
-     * success, <em>True</em> is returned.
+     * <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a> or
+     * <a href="https://core.telegram.org/bots/api#richmessage">rich messages</a>. The answer will be
+     * displayed to the user as a notification at the top of the chat screen or as an alert. On success,
+     * <em>True</em> is returned.
      * Alternatively, the user can be redirected to the specified Game URL. For this option to work, you
      * must first create a game for your bot via <a href="https://t.me/botfather">@BotFather</a> and accept
      * the terms. Otherwise, you may use links like t.me/your_bot?start=XXXX that open your bot with a
@@ -2800,6 +2801,69 @@ interface AvailableMethods
         int $user_id,
         bool $is_access_restricted,
         ?array $added_user_ids = null,
+    ): true;
+
+    /**
+     * Use this method to change the settings of the bot. Settings that aren't specified remain unchanged.
+     * Returns <em>True</em> on success.
+     *
+     * @param  bool|null $supports_inline_queries Pass <em>True</em> to enable
+     * <a href="#inline-mode">inline mode</a> for the bot or <em>False</em> to disable it
+     * @param  string|null $inline_query_placeholder New placeholder for inline queries, which is shown in
+     * the input field after the bot's username. Pass an empty string to use the default placeholder.
+     * @param  bool|null $needs_inline_query_location Pass <em>True</em> to request the location of the
+     * user with every inline query to the bot or <em>False</em> to stop requesting it
+     * @param  int|null $inline_feedback_share_denominator Denominator of the share of
+     * <a href="#choseninlineresult">chosen inline results</a> received by the bot; the bot receives 1 out
+     * of <em>inline_feedback_share_denominator</em> chosen results. Must be one of 1, 10, 100, or 1000.
+     * Pass 0 to stop receiving chosen inline results.
+     * @param  bool|null $can_join_groups Pass <em>True</em> to allow adding the bot to groups or
+     * <em>False</em> to disallow it
+     * @param  bool|null $can_read_all_group_messages Pass <em>True</em> to disable
+     * <a href="/bots/features#privacy-mode">privacy mode</a> for the bot or <em>False</em> to enable it
+     * @param  bool|null $can_connect_to_business Pass <em>True</em> to allow connecting the bot to user
+     * accounts to manage them or <em>False</em> to disallow it
+     * @param  bool|null $can_manage_bots Pass <em>True</em> to allow creating other bots that will be
+     * controlled by the bot or <em>False</em> to disallow it
+     * @param  bool|null $supports_guest_queries Pass <em>True</em> to allow guest queries to the bot from
+     * chats it isn't a member of or <em>False</em> to disallow them
+     * @param  bool|null $supports_join_request_queries Pass <em>True</em> to allow assigning the bot to
+     * process join request queries or <em>False</em> to disallow it
+     * @param  bool|null $has_topics_enabled Pass <em>True</em> to enable forum topic mode in private chats
+     * with the bot or <em>False</em> to disable it
+     * @param  bool|null $allows_users_to_create_topics Pass <em>True</em> to allow users to create and
+     * delete topics in private chats with the bot or <em>False</em> to disallow it
+     * @param  bool|null $has_topic_sidebar Pass <em>True</em> to show topics in private chats with the bot
+     * in a sidebar or <em>False</em> to stop showing them in a sidebar
+     * @param  bool|null $can_communicate_with_bots Pass <em>True</em> to allow the bot to communicate with
+     * other bots in groups, private chats, and through business accounts or <em>False</em> to disallow it
+     * @param  string|null $callback_query_mode Mode in which the bot receives
+     * <a href="#callbackquery">callback queries</a> from buttons in messages sent by the bot. Must be one
+     * of "default" (the field <em>message</em> is always used and contains an
+     * <a href="#inaccessiblemessage">InaccessibleMessage</a> if the message is inaccessible to the bot),
+     * "auto" (the field <em>inline_message_id</em> is used instead of the field <em>message</em> if the
+     * message is inaccessible to the bot; the field <em>message</em> can still contain an inaccessible
+     * message if the message has just been deleted), or "inline" (the field <em>inline_message_id</em> is
+     * always used instead of the field <em>message</em>).
+     *
+     * @return true
+     */
+    public function setMySettings(
+        ?bool $supports_inline_queries = null,
+        ?string $inline_query_placeholder = null,
+        ?bool $needs_inline_query_location = null,
+        ?int $inline_feedback_share_denominator = null,
+        ?bool $can_join_groups = null,
+        ?bool $can_read_all_group_messages = null,
+        ?bool $can_connect_to_business = null,
+        ?bool $can_manage_bots = null,
+        ?bool $supports_guest_queries = null,
+        ?bool $supports_join_request_queries = null,
+        ?bool $has_topics_enabled = null,
+        ?bool $allows_users_to_create_topics = null,
+        ?bool $has_topic_sidebar = null,
+        ?bool $can_communicate_with_bots = null,
+        ?string $callback_query_mode = null,
     ): true;
 
     /**
@@ -2986,9 +3050,9 @@ interface AvailableMethods
      * <a href="https://core.telegram.org/bots/api#chatadministratorrights">ChatAdministratorRights</a> on
      * success.
      *
-     * @param  bool|null $for_channels Pass <em>True</em> to get default administrator rights of the bot in
-     * channels. Otherwise, default administrator rights of the bot for groups and supergroups will be
-     * returned.
+     * @param  bool|null $for_channels Pass <em>True</em> to get the default administrator rights of the
+     * bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups
+     * will be returned.
      *
      * @return ChatAdministratorRights
      */
@@ -3132,15 +3196,15 @@ interface AvailableMethods
      * <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a>
      * represented by the bot. Returns <em>True</em> on success.
      *
-     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot or
-     * channel in the format <code>@username</code>
+     * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
+     * supergroup, or channel in the format <code>@username</code>
      *
      * @return true
      */
     public function removeChatVerification(int|string $chat_id): true;
 
     /**
-     * Marks incoming message as read on behalf of a business account. Requires the
+     * Marks an incoming message as read on behalf of a business account. Requires the
      * <em>can_read_messages</em> business bot right. Returns <em>True</em> on success.
      *
      * @param  string $business_connection_id Unique identifier of the business connection on behalf of
@@ -3158,7 +3222,7 @@ interface AvailableMethods
     ): true;
 
     /**
-     * Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em>
+     * Deletes messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em>
      * business bot right to delete messages sent by the bot itself, or the
      * <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on
      * success.
@@ -3174,7 +3238,7 @@ interface AvailableMethods
     public function deleteBusinessMessages(string $business_connection_id, array $message_ids): true;
 
     /**
-     * Changes the first and last name of a managed business account. Requires the <em>can_change_name</em>
+     * Changes the first and last name of a managed business account. Requires the <em>can_edit_name</em>
      * business bot right. Returns <em>True</em> on success.
      *
      * @param  string $business_connection_id Unique identifier of the business connection
@@ -3191,8 +3255,8 @@ interface AvailableMethods
     ): true;
 
     /**
-     * Changes the username of a managed business account. Requires the <em>can_change_username</em>
-     * business bot right. Returns <em>True</em> on success.
+     * Changes the username of a managed business account. Requires the <em>can_edit_username</em> business
+     * bot right. Returns <em>True</em> on success.
      *
      * @param  string $business_connection_id Unique identifier of the business connection
      * @param  string|null $username The new value of the username for the business account; 0-32
@@ -3206,7 +3270,7 @@ interface AvailableMethods
     ): true;
 
     /**
-     * Changes the bio of a managed business account. Requires the <em>can_change_bio</em> business bot
+     * Changes the bio of a managed business account. Requires the <em>can_edit_bio</em> business bot
      * right. Returns <em>True</em> on success.
      *
      * @param  string $business_connection_id Unique identifier of the business connection
@@ -3311,7 +3375,7 @@ interface AvailableMethods
      * @param  bool|null $sort_by_price Pass <em>True</em> to sort results by gift price instead of send
      * date. Sorting is applied before pagination.
      * @param  string|null $offset Offset of the first entry to return as received from the previous
-     * request; use empty string to get the first chunk of results
+     * request; use an empty string to get the first chunk of results
      * @param  int|null $limit The maximum number of gifts to be returned; 1-100. Defaults to 100.
      *
      * @return OwnedGifts
@@ -3440,7 +3504,7 @@ interface AvailableMethods
      * @param  bool|null $keep_original_details Pass <em>True</em> to keep the original gift text, sender
      * and receiver in the upgraded gift
      * @param  int|null $star_count The amount of Telegram Stars that will be paid for the upgrade from the
-     * business account balance. If <code>gift.prepaid_upgrade_star_count > 0</code>, then pass 0,
+     * business account balance. If <code>gift.prepaid_upgrade_star_count > 0</code>, then pass 0;
      * otherwise, the <em>can_transfer_stars</em> business bot right is required and
      * <code>gift.upgrade_star_count</code> must be passed.
      *
@@ -3455,13 +3519,13 @@ interface AvailableMethods
 
     /**
      * Transfers an owned unique gift to another user. Requires the <em>can_transfer_and_upgrade_gifts</em>
-     * business bot right. Requires <em>can_transfer_stars</em> business bot right if the transfer is paid.
-     * Returns <em>True</em> on success.
+     * business bot right. Requires the <em>can_transfer_stars</em> business bot right if the transfer is
+     * paid. Returns <em>True</em> on success.
      *
      * @param  string $business_connection_id Unique identifier of the business connection
-     * @param  string $owned_gift_id Unique identifier of the regular gift that should be transferred
+     * @param  string $owned_gift_id Unique identifier of the unique gift that should be transferred
      * @param  int $new_owner_chat_id Unique identifier of the chat which will own the gift. The chat must
-     * be active in the last 24 hours.
+     * have been active in the last 24 hours.
      * @param  int|null $star_count The amount of Telegram Stars that will be paid for the transfer from
      * the business account balance. If positive, then the <em>can_transfer_stars</em> business bot right
      * is required.

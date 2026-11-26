@@ -18,7 +18,7 @@ use Appto\TelegramBot\Type\Poll;
  * sending a new one with a result of an action. This is most useful for messages with
  * <a href="/bots/features#inline-keyboards">inline keyboards</a> using callback queries, but can also
  * help reduce clutter in conversations with regular chat bots.
- * Please note, that it is currently only possible to edit messages without <em>reply_markup</em> or
+ * Please note that it is currently only possible to edit messages without <em>reply_markup</em> or
  * with <a href="/bots/features#inline-keyboards">inline keyboards</a>.
  */
 interface UpdatingMessages
@@ -26,7 +26,7 @@ interface UpdatingMessages
     /**
      * Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a>
      * messages. On success, if the edited message is not an inline message, the edited
-     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned; otherwise,
      * <em>True</em> is returned. Note that business messages that were not sent by the bot and do not
      * contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      *
@@ -49,7 +49,7 @@ interface UpdatingMessages
      * message
      * @param  InputRichMessage|null $rich_message New rich content of the message; required if
      * <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL
-     * isn't supported when an inline message is edited.
+     * aren't supported when an inline message is edited.
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
      * <a href="/bots/features#inline-keyboards">inline keyboard</a>
      *
@@ -70,8 +70,8 @@ interface UpdatingMessages
 
     /**
      * Use this method to edit captions of messages. On success, if the edited message is not an inline
-     * message, the edited <a href="https://core.telegram.org/bots/api#message">Message</a> is returned,
-     * otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and
+     * message, the edited <a href="https://core.telegram.org/bots/api#message">Message</a> is returned;
+     * otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and
      * do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      *
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
@@ -89,7 +89,8 @@ interface UpdatingMessages
      * @param  MessageEntity[]|null $caption_entities A JSON-serialized list of special entities that
      * appear in the caption, which can be specified instead of <em>parse_mode</em>
      * @param  bool|null $show_caption_above_media Pass <em>True</em> if the caption must be shown above
-     * the message media. Supported only for animation, photo and video messages.
+     * the message media. Supported only for animation, live photo, paid media, photo, video and widget
+     * messages.
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
      * <a href="/bots/features#inline-keyboards">inline keyboard</a>
      *
@@ -109,12 +110,12 @@ interface UpdatingMessages
 
     /**
      * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to
-     * replace a text or a rich message with a media. If a message is part of a message album, then it can
-     * be edited only to an audio for audio albums, only to a document for document albums and to a photo,
-     * a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded;
+     * replace a text or a rich message with media. If a message is part of a message album, then it can be
+     * edited only to an audio for audio albums, only to a document for document albums and to a photo, a
+     * live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded;
      * use a previously uploaded file via its file_id or specify a URL. On success, if the edited message
      * is not an inline message, the edited
-     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned; otherwise,
      * <em>True</em> is returned. Note that business messages that were not sent by the bot and do not
      * contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      *
@@ -147,7 +148,7 @@ interface UpdatingMessages
      * <em>live_period</em> expires or editing is explicitly disabled by a call to
      * <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On
      * success, if the edited message is not an inline message, the edited
-     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned; otherwise,
      * <em>True</em> is returned.
      *
      * @param  float $latitude Latitude of new location
@@ -194,7 +195,7 @@ interface UpdatingMessages
     /**
      * Use this method to stop updating a live location message before <em>live_period</em> expires. On
      * success, if the message is not an inline message, the edited
-     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned, otherwise
+     * <a href="https://core.telegram.org/bots/api#message">Message</a> is returned; otherwise,
      * <em>True</em> is returned.
      *
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
@@ -224,7 +225,7 @@ interface UpdatingMessages
      * edited <a href="https://core.telegram.org/bots/api#message">Message</a> is returned.
      *
      * @param  string $business_connection_id Unique identifier of the business connection on behalf of
-     * which the message will be sent
+     * which the message to be edited was sent
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot in
      * the format <code>@username</code>
      * @param  int $message_id Unique identifier for the target message
@@ -291,9 +292,9 @@ interface UpdatingMessages
     /**
      * Use this method to edit only the reply markup of messages. On success, if the edited message is not
      * an inline message, the edited <a href="https://core.telegram.org/bots/api#message">Message</a> is
-     * returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the
-     * bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were
-     * sent.
+     * returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by
+     * the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they
+     * were sent.
      *
      * @param  string|null $business_connection_id Unique identifier of the business connection on behalf
      * of which the message to be edited was sent
@@ -412,7 +413,7 @@ interface UpdatingMessages
      * @param  MessageEntity[]|null $caption_entities A JSON-serialized list of special entities that
      * appear in the caption, which can be specified instead of <em>parse_mode</em>
      * @param  bool|null $show_caption_above_media Pass <em>True</em> if the caption must be shown above
-     * the message media. Supported only for animation, photo and video messages.
+     * the message media. Supported only for animation, live photo, photo and video messages.
      * @param  InlineKeyboardMarkup|null $reply_markup A JSON-serialized object for an
      * <a href="/bots/features#inline-keyboards">inline keyboard</a>
      *
@@ -459,7 +460,7 @@ interface UpdatingMessages
      * @param  int $message_id Identifier of a suggested post message to approve
      * @param  int|null $send_date Point in time (Unix timestamp) when the post is expected to be
      * published; omit if the date has already been specified when the suggested post was created. If
-     * specified, then the date must be not more than 2678400 seconds (30 days) in the future.
+     * specified, then the date must not be more than 2678400 seconds (30 days) in the future.
      *
      * @return true
      */
@@ -485,11 +486,11 @@ interface UpdatingMessages
      * only be deleted if it was sent more than 24 hours ago.- Bots can delete outgoing messages in private
      * chats, groups, and supergroups.- Bots can delete incoming messages in private chats.- Bots granted
      * <em>can_post_messages</em> permissions can delete outgoing messages in channels.- If the bot is an
-     * administrator of a group, it can delete any message there.- If the bot has
+     * administrator of a group, it can delete any message there.- If the bot has the
      * <em>can_delete_messages</em> administrator right in a supergroup or a channel, it can delete any
-     * message there.- If the bot has <em>can_manage_direct_messages</em> administrator right in a channel,
-     * it can delete any message in the corresponding direct messages chat.Returns <em>True</em> on
-     * success.
+     * message there.- If the bot has the <em>can_manage_direct_messages</em> administrator right in a
+     * channel, it can delete any message in the corresponding direct messages chat.Returns <em>True</em>
+     * on success.
      *
      * @param  int|string $chat_id Unique identifier for the target chat or username of the target bot,
      * supergroup, or channel in the format <code>@username</code>

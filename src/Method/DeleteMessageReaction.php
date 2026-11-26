@@ -11,7 +11,7 @@ use Spatie\LaravelData\Data;
  * sending a new one with a result of an action. This is most useful for messages with
  * <a href="/bots/features#inline-keyboards">inline keyboards</a> using callback queries, but can also
  * help reduce clutter in conversations with regular chat bots.
- * Please note, that it is currently only possible to edit messages without <em>reply_markup</em> or
+ * Please note that it is currently only possible to edit messages without <em>reply_markup</em> or
  * with <a href="/bots/features#inline-keyboards">inline keyboards</a>.
  */
 class DeleteMessageReaction extends Data implements TelegramMethod
